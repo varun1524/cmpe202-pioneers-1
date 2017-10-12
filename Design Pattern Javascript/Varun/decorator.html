@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Decorator</title>
+  <script>
+
+      class Component {
+          constructor(){
+          }
+          operation (){
+              throw "Error it is abstract class";
+          };
+      }
+
+
+      class ConcreteComponent extends Component {
+          operation () {
+              return "Hello World!";
+          }
+      }
+
+      class Decorator extends Component {
+          constructor(component) {
+              super();
+              this.component = component;
+          }
+//             component;
+
+
+          operation()
+          {
+              return this.component.operation() ;
+          }
+      }
+
+      class ConcreteDecoratorA extends Decorator {
+
+          constructor(component){
+              super(component);
+          }
+
+          operation ()
+          {
+              this.addedState = super.operation() ;
+              return this.addedBehavior( this.addedState ) ;
+          }
+
+          addedBehavior(input) {
+              return "<em>" + input + "</em>";
+          }
+      }
+
+      class ConcreteDecoratorB extends Decorator {
+
+
+          constructor(component){
+              super(component);
+          }
+
+          operation ()
+          {
+              this.addedState = super.operation() ;
+              return this.addedBehavior( this.addedState ) ;
+          }
+
+          addedBehavior(input) {
+              return "<h1>" + input + "</h1>" ;
+          }
+      }
+
+      class Tester {
+          constructor(){
+          }
+
+          runTest ()
+          {
+              let obj = new ConcreteDecoratorB( new ConcreteDecoratorA( new ConcreteComponent() ) ) ;
+              let result = obj.operation() ;
+              console.log( result );
+          }
+
+      }
+
+
+      function runTest() {
+          console.log("In Test");
+          let test = new Tester();
+          test.runTest();
+      }
+
+  </script>
+</head>
+<body>
+  <p>Click On Test to test Decorator Design Pattern Example</p>
+  <input type="button" value="Test" onclick="runTest()">
+</body>
+</html>
