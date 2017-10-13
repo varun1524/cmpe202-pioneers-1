@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript State design pattern</title>
+<meta charset="UTF-8">
+<script>
+var VmStates = { ON : "ON" , OFF : "OFF", SUSPENDED : "SUSPENDED" }
+
+class VirtualMachineState {
+	 
+	doPowerOn(){}
+	doPowerOff(){}
+	doSuspend(){}
+	doReset(){}
+}
+
+class VmState extends VirtualMachineState {
+ 
+	constructor(vmm){
+		super();
+		this.vm_manager = vmm;
+	}
+	
+	doPowerOn() {
+        document.write( "Power On is not valid in " + this.constructor.name + " state. <br>" );
+	}
+
+	doPowerOff() {
+        document.write( "Power Off is not valid in " + this.constructor.name + " state.<br>" );
+	}
+
+	doSuspend() {
+        document.write( "Suspend is not valid in " + this.constructor.name + " state.<br>" );
+	}
+
+	doReset() {
+        document.write( "Reset is not valid in " + this.constructor.name + " state.<br>" );
+	}
+	 
+}
+
+class VmPoweredOff extends VmState {
+
+    constructor( vmm )
+    {
+        super( vmm ) ;
+    }
+
+    doPowerOn() {
+        this.vm_manager.setState( VmStates.ON );
+    }
+ 
+}
+
+class VmPoweredOn extends VmState {
+
+    constructor( vmm )
+    {
+        super( vmm ) ;
+    }
+
+	doPowerOff() {
+        this.vm_manager.setState( VmStates.OFF );
+    }
+
+	doSuspend() {
+        this.vm_manager.setState( VmStates.SUSPENDED );
+    }
+
+    doReset() {
+        this.vm_manager.setState( VmStates.ON );
+    }
+
+}
+ 
+ class VmSuspended extends VmState {
+
+    constructor( vmm )
+    {
+        super( vmm ) ;
+    }
+
+	doPowerOn() {
+        this.vm_manager.setState( VmStates.ON );
+    }
+ 
+}
+
+
+class VirtualMachineManager {
+
+	constructor(){
+		this.poweredOnState = new VmPoweredOn(this);
+        this.poweredOffState = new VmPoweredOff(this);
+        this.suspendedState = new VmSuspended(this);
+        this.currentState = this.poweredOffState ;
+	}
+
+	powerOn() {
+        document.write( "powering on...<br>");
+	    this.currentState.doPowerOn();
+	}
+	 
+	powerOff() {
+        document.write( "powering off...<br>");
+	    this.currentState.doPowerOff();
+	}
+	 
+	suspend() {
+        document.write( "suspending...<br>");
+	    this.currentState.doSuspend();
+	}
+	 
+	reset() {
+        document.write( "reset vm...<br>");
+	    this.currentState.doReset();
+	}
+	 
+	setState(nextState) {
+        switch( nextState ) {
+            case VmStates.OFF :          this.currentState = this.poweredOffState ; break ;
+            case VmStates.ON :           this.currentState = this.poweredOnState ; break ;
+            case VmStates.SUSPENDED:     this.currentState = this.suspendedState ; break ;
+        }
+
+	}
+    
+    showState()
+    {
+        document.write( "Current State: " + this.currentState.constructor.name + "<br>");
+    }
+}
+
+
+function run(){
+	
+	var vm = new VirtualMachineManager() ;
+        vm.showState() ;
+        vm.powerOn() ;
+        vm.showState() ;
+        vm.suspend() ;
+        vm.showState() ;
+        vm.reset() ;
+        vm.showState() ;
+	 
+}
+</script>
+</head>
+<body>
+<button onclick="run()">Run</button>
+</body>
+</html>

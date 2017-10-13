@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript Factory design pattern</title>
+<meta charset="UTF-8">
+<script>
+
+class Creator {
+	constructor(){
+		this.engine = null;
+		this.order = "Default order";
+	}
+
+	takeOrder(order) {
+        this.order = order ;
+	}
+	
+getEngine() {}
+
+buildOrder() {
+	this.engine = this.getEngine();
+	document.write("Building order : " + this.order + "<br>");
+	document.write("Pull engine of type: " + this.engine.constructor.name + "<br>");
+	document.write("Assemble car : " + this.constructor.name + "<br>");
+	document.write("Give delivery" + "<br><br>");
+}
+	
+}
+
+class Engine {
+}
+
+class Hybrid extends Engine{
+}
+
+class Gas extends Engine{
+}
+
+class Electric extends Engine{
+}
+
+class PriusFactory extends Creator{
+	getEngine(){
+		return new Hybrid();
+	}
+}
+
+class VolvoFactory extends Creator{
+	getEngine(){
+		return new Gas();
+	}
+}
+
+class TeslaFactory extends Creator{
+	getEngine(){
+		return new Electric();
+	}
+}
+function run(){
+	
+	 var p = new PriusFactory();
+	 p.buildOrder();
+	 
+
+	 var v = new VolvoFactory();
+	 v.buildOrder();
+	 
+
+	 var t = new TeslaFactory();
+	 t.buildOrder();
+	 
+}
+</script>
+</head>
+<body>
+<button onclick="run()">Run</button>
+</body>
+</html>

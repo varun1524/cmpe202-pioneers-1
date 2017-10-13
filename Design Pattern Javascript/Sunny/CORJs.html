@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>JavaScript State design pattern</title>
+<meta charset="UTF-8">
+<script>
+
+class Handler {
+	 handleRequest( request ){}
+	 setSuccessor( next){}
+}
+
+
+class ConcreteHandler1 extends Handler {
+
+constructor(){
+super();
+    this.successor = null;
+}
+	handleRequest( request ) {
+        document.write( "R1 got the request...<br>");
+        if ( request === 'R1' )
+        {
+            document.write( this.constructor.name + " => This one is mine! <br>");
+        }
+        else
+        {
+            if ( this.successor != null )
+                this.successor.handleRequest(request);
+        }
+
+	}
+
+	setSuccessor(next) {
+        this.successor = next ;
+	}
+
+}
+
+class ConcreteHandler2 extends Handler {
+
+constructor(){
+super();
+    this.successor = null;
+}
+    handleRequest( request ) {
+        document.write( "R2 got the request...<br>");
+        if ( request === 'R2' )
+        {
+            document.write( this.constructor.name + " => This one is mine! <br>");
+        }
+        else
+        {
+            if ( this.successor != null )
+                this.successor.handleRequest(request);
+        }
+
+    }
+
+    setSuccessor(next) {
+        this.successor = next ;
+	}
+}
+
+class ConcreteHandler3 extends Handler {
+
+constructor(){
+super();
+    this.successor = null;
+}
+    handleRequest( request ) {
+        document.write( "R3 got the request...<br>");
+        if ( request === 'R3' )
+        {
+            document.write( this.constructor.name + " => This one is mine! <br>");
+        }
+        else
+        {
+            if ( this.successor != null )
+                this.successor.handleRequest(request);
+        }
+
+    }
+
+    setSuccessor(next) {
+        this.successor = next ;
+	}
+}
+
+function run(){
+	
+		var h1 = new ConcreteHandler1() ;
+        var h2 = new ConcreteHandler2() ;
+        var h3 = new ConcreteHandler3() ;
+
+        h1.setSuccessor(h2);
+        h2.setSuccessor(h3);
+        
+        document.write( "Sending R2...<br>");
+        h1.handleRequest("R2");
+        document.write( "Sending R3...<br>");
+        h1.handleRequest("R3");
+        document.write( "Sending R1...<br>");
+        h1.handleRequest("R1");
+        document.write( "Sending RX...<br>");
+        h1.handleRequest("RX");
+
+}
+</script>
+</head>
+<body>
+<button onclick="run()">Run</button>
+</body>
+</html>
