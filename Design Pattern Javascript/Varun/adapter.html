@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Adapter design pattern</title>
+  <script>
+
+	class Target { 
+		sayHello(){};
+	} 
+	
+	class TargetObject extends Target {	    
+		constructor(){
+			super();
+			this.adaptee = new AdapteeObject() ;
+		}
+		 
+		sayHello() {
+	    	this.adaptee.printMessage("Hello World");
+		}
+	}
+
+	class Adaptee {
+		constructor(){
+		}			
+		
+		printMessage(msg){}
+	}
+
+	class AdapteeObject extends Adaptee { 
+		constructor(){
+			super();
+		}
+	
+		printMessage(msg) {
+	    	document.write(msg) ;
+		}	 
+	}
+
+    function run()
+    {
+    	let obj = new TargetObject() ;
+    	obj.sayHello();
+    }	
+ 
+</script>
+</head>
+<body>
+  <p></p>
+  <input type="button" value="Run" onclick="run()">
+</body>
+</html>
