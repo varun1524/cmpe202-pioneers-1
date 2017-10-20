@@ -2,8 +2,9 @@
 
 1. Team is learning How to create a Phaser game project in Phaser Editor, What basic functions(preload, create and update) are involved in flow of Phaser game.
 
-2. Decided Sprites and Atlas for the project. 
-	Sprites
+2. Decided Sprites and Atlas for the project.
+
+	Sprites :
 		Enemy 1
 		Enemy 2
 		Enemy 3
@@ -15,7 +16,7 @@
 		Base
 		Winning Object
 
-	Atlas
+	Atlas : 
 		Sun
 		Grass
 		Water
