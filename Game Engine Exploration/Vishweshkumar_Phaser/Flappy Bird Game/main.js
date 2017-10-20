@@ -25,6 +25,12 @@ var mainState = {
 		    // Add gravity to the bird to make it fall
 		    this.bird.body.gravity.y = 1000;  
 
+		    // Create a pipe at the position x and y
+		    var pipe = game.add.sprite(x, y, 'pipe');
+
+		    // Add velocity to the pipe to make it move left
+		    pipe.body.velocity.x = -200;
+			
 		    // Call the 'jump' function when the spacekey is hit
 		    var spaceKey = game.input.keyboard.addKey(
 		                    Phaser.Keyboard.SPACEBAR);
@@ -67,22 +73,15 @@ var mainState = {
 		},
 
 		addOnePipe: function(x, y, increase) {
-		    // Create a pipe at the position x and y
-		    var pipe = game.add.sprite(x, y, 'pipe');
 
 		    // Add the pipe to our previously created group
 		    this.pipes.add(pipe);
-
+			
 		    // Enable physics on the pipe 
 		    game.physics.arcade.enable(pipe);
 
 			if(increase){
 			    pipe.body.velocity.x -= 50; 
-			   }
-			
-			   else{
-			   	// Add velocity to the pipe to make it move left
-			    	pipe.body.velocity.x = -200; 
 			   }
 			
 		    // Automatically kill the pipe when it's no longer visible 
