@@ -3,8 +3,12 @@
 
 ### XP Core Value - Communication
 
-1. Through Communication team shares their veiws on How to satisfy project requirements.
+* Through Communication team shares their veiws on How to satisfy project requirements.
 
-2. Communication is responsible for continuous integration of code.
+* Communication is responsible for continuous integration of code.
 
-3. Team reports status of project to stackholders and customers through communication.
+* Team reports status of project to stackholders and customers through communication.
+
+Activities related to Project this week :
+
+* We have communicated on what sprites and atlas are required and Who will be responsible for which sprite and atlas and How will we integrate sprites and atlas in game's world. 
