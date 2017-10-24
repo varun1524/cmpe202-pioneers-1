@@ -1,7 +1,59 @@
-{"meta": {
-  "generated": "1490300737380",
-  "app": "Phaser Editor",
-  "url": "http://phasereditor.boniatillo.com",
-  "version": "1.0",
-  "copyright": "Arian Fornaris (c) 2015,2016"
-}}
+{
+  "boot": [
+    {
+      "type": "image",
+      "key": "Base1",
+      "url": "assets/canvas/Base1.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Sky",
+      "url": "assets/canvas/skyBackgroundOption.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Coins",
+      "url": "assets/canvas/Coins.jpg",
+      "overwrite": false
+    }
+  ],
+  "preloader": [
+    {
+      "type": "image",
+      "key": "Background",
+      "url": "assets/canvas/skyBackgroundOption.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Base1",
+      "url": "assets/canvas/Base1.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Sun",
+      "url": "assets/canvas/Sun.jpg",
+      "overwrite": false
+    },
+    {
+      "type": "spritesheet",
+      "key": "player",
+      "url": "assets/canvas/player.jpg",
+      "frameWidth": 495,
+      "frameHeight": 500,
+      "frameMax": 6,
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "meta": {
+    "generated": "1508885469060",
+    "app": "Phaser Editor",
+    "url": "http://phasereditor.boniatillo.com",
+    "version": "1.0",
+    "copyright": "Arian Fornaris (c) 2015,2016"
+  }
+}
