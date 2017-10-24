@@ -3,19 +3,19 @@
     {
       "type": "image",
       "key": "Base1",
-      "url": "assets/canvas/Base1.png",
+      "url": "assets/images/Base1.png",
       "overwrite": false
     },
     {
       "type": "image",
       "key": "Sky",
-      "url": "assets/canvas/skyBackgroundOption.png",
+      "url": "assets/images/skyBackgroundOption.png",
       "overwrite": false
     },
     {
       "type": "image",
       "key": "Coins",
-      "url": "assets/canvas/Coins.jpg",
+      "url": "assets/images/Coins.jpg",
       "overwrite": false
     }
   ],
@@ -23,25 +23,25 @@
     {
       "type": "image",
       "key": "Background",
-      "url": "assets/canvas/skyBackgroundOption.png",
+      "url": "assets/images/skyBackgroundOption.png",
       "overwrite": false
     },
     {
       "type": "image",
       "key": "Base1",
-      "url": "assets/canvas/Base1.png",
+      "url": "assets/images/Base1.png",
       "overwrite": false
     },
     {
       "type": "image",
       "key": "Sun",
-      "url": "assets/canvas/Sun.jpg",
+      "url": "assets/images/Sun.jpg",
       "overwrite": false
     },
     {
       "type": "spritesheet",
       "key": "player",
-      "url": "assets/canvas/player.jpg",
+      "url": "assets/images/player.jpg",
       "frameWidth": 495,
       "frameHeight": 500,
       "frameMax": 6,
@@ -50,7 +50,7 @@
     }
   ],
   "meta": {
-    "generated": "1508885469060",
+    "generated": "1508887523296",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
