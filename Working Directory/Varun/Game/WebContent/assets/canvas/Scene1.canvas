@@ -1,0 +1,142 @@
+{
+  "canvas-version": 2,
+  "settings": {
+    "className": "Scene1",
+    "sceneWidth": 640,
+    "sceneHeight": 360,
+    "generateOnSave": true,
+    "enableStepping": false,
+    "lang": "JAVA_SCRIPT",
+    "baseClass": "Phaser.Group",
+    "backgroundColor": [
+      180,
+      180,
+      180
+    ],
+    "gridColor": [
+      200,
+      200,
+      200
+    ],
+    "showGrid": true
+  },
+  "stateSettings": {
+    "stageBackgroundColor": [
+      0,
+      0,
+      0
+    ],
+    "preloadSpriteId": "",
+    "preloadSprite_direction": 0,
+    "load.pack": []
+  },
+  "world": {
+    "type": "group",
+    "id": "70248509-260d-40f7-8c64-10846e5544f4",
+    "info": {
+      "editorName": "Scene1",
+      "setAll": [],
+      "children": [{
+        "type": "group",
+        "id": "7ac59318-cdc9-4b2f-a7ad-b9f41420a678",
+        "info": {
+          "editorName": "group",
+          "setAll": [],
+          "children": [
+            {
+              "type": "tileSprite",
+              "id": "b67404aa-0c8c-4c4f-8ed1-26ba24b76fa6",
+              "asset": "0",
+              "info": {
+                "editorName": "BG",
+                "x": -172,
+                "y": -233,
+                "width": 1000,
+                "height": 750
+              }
+            },
+            {
+              "type": "tileSprite",
+              "id": "9b32a63e-95ed-43c1-84ee-528fd9b487a1",
+              "asset": "1",
+              "info": {
+                "editorName": "_3",
+                "x": -1,
+                "y": 161,
+                "width": 128,
+                "height": 93
+              }
+            },
+            {
+              "type": "tileSprite",
+              "id": "49f0cfd3-a1b3-416c-97a0-001e30a95c3e",
+              "asset": "2",
+              "info": {
+                "editorName": "_4",
+                "x": 126,
+                "y": 161,
+                "width": 384,
+                "height": 93
+              }
+            },
+            {
+              "type": "tileSprite",
+              "id": "e1427532-b1e6-4e6b-924c-0cc71e71d388",
+              "asset": "3",
+              "info": {
+                "editorName": "_5",
+                "x": 508,
+                "y": 160,
+                "width": 128,
+                "height": 93
+              }
+            },
+            {
+              "type": "spritesheet",
+              "id": "d6763abe-62bd-40bb-a494-c9298f4f3518",
+              "asset": "4",
+              "info": {
+                "editorName": "player",
+                "x": 148,
+                "y": 34
+              }
+            }
+          ]
+        }
+      }]
+    }
+  },
+  "type": "GROUP",
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/pack.json",
+      "section": "Level",
+      "asset": "BG"
+    },
+    "1": {
+      "file": "WebContent/assets/pack.json",
+      "section": "Level",
+      "asset": "tiles",
+      "sprite": "13"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
+      "section": "Level",
+      "asset": "tiles",
+      "sprite": "14"
+    },
+    "3": {
+      "file": "WebContent/assets/pack.json",
+      "section": "Level",
+      "asset": "tiles",
+      "sprite": "15"
+    },
+    "4": {
+      "file": "WebContent/assets/pack.json",
+      "section": "Level",
+      "asset": "player",
+      "sprite": "0"
+    }
+  },
+  "prefab-table": {}
+}

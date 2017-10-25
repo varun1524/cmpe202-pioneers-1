@@ -12,11 +12,9 @@ Level.prototype = proto;
 Level.prototype.constructor = Level;
 
 Level.prototype.init = function () {
-
     this.scale.pageAlignHorizontally = true;
     this.scale.pageAlignVertically = true;
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-
 };
 
 Level.prototype.preload = function() {
@@ -26,9 +24,7 @@ Level.prototype.preload = function() {
 };
 
 Level.prototype.create = function() {
-
 	this.scene = new Scene1(this.game);
-
 };
 
 Level.prototype.update = function() {

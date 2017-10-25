@@ -12,15 +12,11 @@ Level.prototype = proto;
 Level.prototype.constructor = Level;
 
 Level.prototype.preload = function() {
-
 	this.load.pack("level", "assets/assets-pack.json");
-
 };
 
 Level.prototype.create = function() {
-
 	this.add.sprite(10, 10, "player");
-
 };
 
 Level.prototype.update = function() {

@@ -1,47 +1,43 @@
 {
-  "boot": [
+  "Level": [
     {
       "type": "image",
-      "key": "Base1",
-      "url": "assets/images/Base1.png",
+      "key": "BG",
+      "url": "assets/images/BG.png",
       "overwrite": false
     },
     {
-      "type": "image",
-      "key": "Sky",
-      "url": "assets/images/skyBackgroundOption.png",
-      "overwrite": false
+      "type": "atlas",
+      "key": "objects",
+      "textureURL": "assets/textures/objects.png",
+      "atlasURL": "assets/textures/objects.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
     },
     {
-      "type": "image",
-      "key": "Coins",
-      "url": "assets/images/Coins.jpg",
-      "overwrite": false
+      "type": "atlas",
+      "key": "tiles",
+      "textureURL": "assets/textures/tiles.png",
+      "atlasURL": "assets/textures/tiles.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "spritesheet",
+      "key": "player",
+      "url": "assets/images/fufu.png",
+      "frameWidth": 207,
+      "frameHeight": 140,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "script",
+      "key": "scene1",
+      "url": "assets/canvas/Scene1.js"
     }
   ],
-  "preloader": [
-    {
-      "type": "image",
-      "key": "Background",
-      "url": "assets/images/skyBackgroundOption.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
-      "key": "Base1",
-      "url": "assets/images/Base1.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
-      "key": "Sun",
-      "url": "assets/images/Sun.jpg",
-      "overwrite": false
-    }
-  ],
-  "sprite": [],
   "meta": {
-    "generated": "1508893528775",
+    "generated": "1508909511805",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
