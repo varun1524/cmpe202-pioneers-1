@@ -39,12 +39,14 @@
     "id": "c2e6550a-0315-4911-a48a-4b6c86baf9c9",
     "info": {
       "editorName": "Level1",
+      "setAll": [],
       "children": [
         {
           "type": "group",
           "id": "1b5a4609-35b2-43bb-be11-bf9b7c216bf3",
           "info": {
             "editorName": "background",
+            "setAll": [],
             "children": [
               {
                 "type": "image",
@@ -89,7 +91,6 @@
                 "info": {
                   "editorName": "door",
                   "editorPublic": true,
-                  "prefabOverride": ["position"],
                   "x": 853,
                   "y": 82
                 }
@@ -113,6 +114,7 @@
           "info": {
             "editorName": "platforms",
             "editorPublic": true,
+            "setAll": [],
             "children": [{
               "type": "tileSprite",
               "id": "5e2d904e-84e1-49e3-9715-da45fe7b2888",
@@ -140,7 +142,6 @@
           "info": {
             "editorName": "dino",
             "editorPublic": true,
-            "prefabOverride": ["position"],
             "x": 130,
             "y": 421
           }
@@ -150,6 +151,7 @@
           "id": "043ba175-4609-48dc-ab9f-029cd746b25d",
           "info": {
             "editorName": "objects",
+            "setAll": [],
             "children": [{
               "type": "atlas-sprite",
               "id": "6a4a962f-b8b6-4b97-ae91-100c76d6c760",
