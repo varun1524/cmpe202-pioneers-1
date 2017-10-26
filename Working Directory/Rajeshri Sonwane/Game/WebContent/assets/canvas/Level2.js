@@ -36,10 +36,40 @@ Level.prototype.preload = function () {
 };
 
 Level.prototype.create = function () {
-	this.add.sprite(0, 200, 200, 500,'Background');
+	this.add.sprite(-1927, 991, 'Base2');
 	
+	this.add.sprite(-1926, 653, 'MainBackground');
 	
-	this.add.sprite(1017, 973, 'Base2');
+	this.add.sprite(-905, 990, 'Base2');
+	
+	this.add.sprite(-1052, 653, 'MainBackground');
+	
+	this.add.sprite(117, 990, 'Base2');
+	
+	this.add.sprite(-181, 655, 'MainBackground');
+	
+	this.add.sprite(1139, 987, 'Base2');
+	
+	this.add.sprite(695, 655, 'MainBackground');
+	
+	this.add.sprite(2163, 985, 'Base2');
+	
+	this.add.sprite(1570, 654, 'MainBackground');
+	
+	this.add.sprite(3189, 986, 'Base2');
+	
+	this.add.sprite(2440, 652, 'MainBackground');
+	
+	this.add.sprite(3310, 647, 'MainBackground');
+	
+	var _Cloud = this.add.sprite(-1577, 653, 'Cloud');
+	_Cloud.scale.setTo(0.5837499143405281, 0.445614078209155);
+	
+	var _Brick = this.add.sprite(-1461, 923, 'Brick');
+	_Brick.scale.setTo(0.2848000493960036, 0.26319997021009306);
+	
+	var _Brick1 = this.add.sprite(-1259, 924, 'Brick');
+	_Brick1.scale.setTo(0.2848000493960036, 0.26319997021009306);
 	
 	
 	// to change this code: Canvas editor > Configuration > Editor > userCode > Create

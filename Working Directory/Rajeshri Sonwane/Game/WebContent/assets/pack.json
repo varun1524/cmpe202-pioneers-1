@@ -22,18 +22,6 @@
   "preloader": [
     {
       "type": "image",
-      "key": "Background",
-      "url": "assets/images/skyBackgroundOption.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
-      "key": "Base1",
-      "url": "assets/images/Base1.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
       "key": "Brick",
       "url": "assets/images/brick.png",
       "overwrite": false
@@ -53,10 +41,22 @@
       "key": "Base2",
       "url": "assets/images/Base2.png",
       "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "MainBackground",
+      "url": "assets/images/Background.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Cloud",
+      "url": "assets/images/cloud2.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1508958166128",
+    "generated": "1509049419279",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
