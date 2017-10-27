@@ -1,0 +1,69 @@
+{
+  "frames": {
+    "Base1": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 95,
+        "w": 401,
+        "h": 34
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 401,
+        "h": 34
+      },
+      "sourceSize": {
+        "w": 401,
+        "h": 34
+      }
+    },
+    "brick1": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 149,
+        "h": 91
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 43,
+        "w": 149,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 150
+      }
+    },
+    "platform2": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 153,
+        "y": 2,
+        "w": 149,
+        "h": 91
+      },
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 43,
+        "w": 149,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 150,
+        "h": 150
+      }
+    }
+  },
+  "meta": {
+    "app": "Phaser Editor",
+    "version": "1",
+    "image": "AtlasV1.png"
+  }
+}
