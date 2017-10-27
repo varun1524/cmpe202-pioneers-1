@@ -31,15 +31,39 @@ Level.prototype.preload = function() {
 
 Level.prototype.create = function() {
 
-	this.scene = new Scene1(this.game);
+	this.scene = new HolloweenLevel1(this.game);
 
 	// set the physics properties of the collision sprites
-	this.scene.fCollisionLayer.setAll("body.immovable", true);
-	this.scene.fCollisionLayer.setAll("body.allowGravity", false);
+	this.scene.fPhysicsGroup.setAll("body.immovable", true);
+	this.scene.fPhysicsGroup.setAll("body.allowGravity", false);
 	// hide all objects of the collision layer
-	this.scene.fCollisionLayer.setAll("renderable", false);
+	this.scene.fPhysicsGroup.setAll("renderable", false);
+
+	this.cursors = this.input.keyboard.createCursorKeys();
+
 };
 
 Level.prototype.update = function() {
 	// TODO: generated method.
+	this.physics.arcade.collide(this.scene.fPlayer, this.scene.fPhysicsGroup);
+
+	if (this.cursors.left.isDown) {
+		// move to the left
+		this.scene.fPlayer.body.velocity.x = -200;
+	} else if (this.cursors.right.isDown) {
+		// move to the right
+		this.scene.fPlayer.body.velocity.x = 200;
+	} else {
+		// dont move in the horizontal
+		this.scene.fPlayer.body.velocity.x = 0;
+	}
+
+	// a flag to know if the player is (down) touching the platforms
+	var touching = this.scene.fPlayer.body.touching.down;
+
+	if (touching && this.cursors.up.isDown) {
+		// jump if the player is on top of a platform and the up key is pressed
+		this.scene.fPlayer.body.velocity.y = -600;
+	}
+
 };

@@ -18,9 +18,24 @@
 function HolloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType) {
 	
 	Phaser.Group.call(this, aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType);
-	var _PhysicsGroup = this.game.add.group(this);
+	var _PhysicsGroup = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
+	
+	var _Base = this.game.add.tileSprite(5, 315, 773, 34, 'Base1', null, _PhysicsGroup);
+	
+	this.game.add.sprite(-3, -62, 'image', null, this);
+	
+	var _player = this.game.add.sprite(55, 55, 'player', 0, this);
+	_player.scale.setTo(0.08990963758935062, 0.07918063474874948);
+	this.game.physics.arcade.enable(_player);
+	_player.body.setSize(1253.386806488037, 1235.7761478424072, -53.38692855834961, -60.62087440490723);
 	
 	
+	
+	// public fields
+	
+	this.fPhysicsGroup = _PhysicsGroup;
+	this.fBase = _Base;
+	this.fPlayer = _player;
 	
 }
 

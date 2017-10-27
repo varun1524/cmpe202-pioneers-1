@@ -42,20 +42,83 @@
         "info": {
           "editorName": "group",
           "setAll": [],
-          "children": [{
-            "type": "group",
-            "id": "b62b9ced-3567-4b5c-b898-fad3fde13756",
-            "info": {
-              "editorName": "PhysicsGroup",
-              "setAll": [],
-              "children": []
+          "children": [
+            {
+              "type": "group",
+              "id": "b62b9ced-3567-4b5c-b898-fad3fde13756",
+              "info": {
+                "editorName": "PhysicsGroup",
+                "editorPublic": true,
+                "physicsGroup": true,
+                "setAll": [],
+                "children": [{
+                  "type": "tileSprite",
+                  "id": "55fabd0c-0ae6-4426-a8c2-6a9f80fc238a",
+                  "asset": "0",
+                  "info": {
+                    "editorName": "Base",
+                    "editorPublic": true,
+                    "x": 5,
+                    "y": 315,
+                    "width": 772.760009765625,
+                    "height": 34.239990234375
+                  }
+                }]
+              }
+            },
+            {
+              "type": "image",
+              "id": "8e98189d-251a-4808-be76-1e0fcc593e13",
+              "asset": "1",
+              "info": {
+                "editorName": "image",
+                "x": -3,
+                "y": -62
+              }
+            },
+            {
+              "type": "spritesheet",
+              "id": "7ba14f92-4723-4db4-a26b-3c2fd681e7db",
+              "asset": "2",
+              "info": {
+                "editorName": "player",
+                "editorPublic": true,
+                "x": 55,
+                "y": 55,
+                "scale.x": 0.08990963758935062,
+                "scale.y": 0.07918063474874948,
+                "body": {
+                  "type": "ARCADE_RECT",
+                  "offsetX": -53.38692855834961,
+                  "offsetY": -60.62087440490723,
+                  "width": 1253.386806488037,
+                  "height": 1235.7761478424072
+                }
+              }
             }
-          }]
+          ]
         }
       }]
     }
   },
   "type": "GROUP",
-  "asset-table": {},
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/pack.json",
+      "section": "preloader",
+      "asset": "Base1"
+    },
+    "1": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "image"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
+      "section": "preloader",
+      "asset": "player",
+      "sprite": "0"
+    }
+  },
   "prefab-table": {}
 }

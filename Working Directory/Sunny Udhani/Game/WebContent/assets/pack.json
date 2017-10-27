@@ -95,12 +95,19 @@
     },
     {
       "type": "script",
-      "key": "script",
+      "key": "HolloweenLevel1",
       "url": "assets/canvas/HolloweenLevel1.js"
+    },
+    {
+      "type": "atlas",
+      "key": "generateAtlas",
+      "textureURL": "assets/atlas/generateAtlas.png",
+      "atlasURL": "assets/atlas/generateAtlas.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
     }
   ],
   "meta": {
-    "generated": "1509107441194",
+    "generated": "1509109388911",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
