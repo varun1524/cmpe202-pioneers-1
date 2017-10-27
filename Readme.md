@@ -9,3 +9,5 @@ Team Members:
 5. Rajeshri Sonwane
 
 Kanban Board Link: https://goo.gl/iBdyms
+
+Sprint Task Sheet: https://goo.gl/7NXfZK
