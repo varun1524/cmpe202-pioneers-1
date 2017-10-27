@@ -88,13 +88,19 @@
     },
     {
       "type": "atlas",
-      "key": "Base2",
-      "textureURL": "assets/images/Base2.png",
-      "format": "TEXTURE_ATLAS_JSON_ARRAY"
+      "key": "newatlas",
+      "textureURL": "assets/atlas/newatlas.png",
+      "atlasURL": "assets/atlas/newatlas.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "script",
+      "key": "script",
+      "url": "assets/canvas/HolloweenLevel1.js"
     }
   ],
   "meta": {
-    "generated": "1509103063451",
+    "generated": "1509107441194",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

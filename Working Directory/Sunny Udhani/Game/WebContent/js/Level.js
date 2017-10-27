@@ -11,6 +11,18 @@ var proto = Object.create(Phaser.State.prototype);
 Level.prototype = proto;
 Level.prototype.constructor = Level;
 
+Level.prototype.init = function() {
+
+	this.scale.pageAlignHorizontally = true;
+	this.scale.pageAlignVertically = true;
+	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+
+	this.physics.startSystem(Phaser.Physics.ARCADE);
+	this.physics.arcade.gravity.y = 800;
+
+};
+
+
 Level.prototype.preload = function() {
 
 	this.load.pack("level", "assets/pack.json");
@@ -19,8 +31,13 @@ Level.prototype.preload = function() {
 
 Level.prototype.create = function() {
 
-	this.add.sprite(10, 10, "player");
+	this.scene = new Scene1(this.game);
 
+	// set the physics properties of the collision sprites
+	this.scene.fCollisionLayer.setAll("body.immovable", true);
+	this.scene.fCollisionLayer.setAll("body.allowGravity", false);
+	// hide all objects of the collision layer
+	this.scene.fCollisionLayer.setAll("renderable", false);
 };
 
 Level.prototype.update = function() {
