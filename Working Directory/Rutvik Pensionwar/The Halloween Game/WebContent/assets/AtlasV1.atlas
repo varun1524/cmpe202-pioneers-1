@@ -3,7 +3,8 @@
   "files": [
     "WebContent/assets/images/Base1.png",
     "WebContent/assets/images/brick1.png",
-    "WebContent/assets/images/platform2.png"
+    "WebContent/assets/images/platform2.png",
+    "WebContent/assets/images/physics.png"
   ],
   "settings": {
     "pot": false,

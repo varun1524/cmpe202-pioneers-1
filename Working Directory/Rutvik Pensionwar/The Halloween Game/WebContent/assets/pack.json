@@ -28,10 +28,15 @@
       "key": "idle",
       "url": "assets/images/Idle.png",
       "overwrite": false
+    },
+    {
+      "type": "script",
+      "key": "HalloweenLevel1",
+      "url": "assets/canvas/HalloweenLevel1.js"
     }
   ],
   "meta": {
-    "generated": "1509086110304",
+    "generated": "1509094596331",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

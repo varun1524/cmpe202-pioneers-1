@@ -1,0 +1,161 @@
+{
+  "canvas-version": 2,
+  "settings": {
+    "className": "HalloweenLevel1",
+    "sceneWidth": 640,
+    "sceneHeight": 360,
+    "generateOnSave": true,
+    "enableStepping": false,
+    "lang": "JAVA_SCRIPT",
+    "baseClass": "Phaser.Group",
+    "backgroundColor": [
+      180,
+      180,
+      180
+    ],
+    "gridColor": [
+      200,
+      200,
+      200
+    ],
+    "showGrid": true
+  },
+  "stateSettings": {
+    "stageBackgroundColor": [
+      0,
+      0,
+      0
+    ],
+    "preloadSpriteId": "",
+    "preloadSprite_direction": 0,
+    "load.pack": []
+  },
+  "world": {
+    "type": "group",
+    "id": "778d93fd-94c7-4a1f-b41e-c84fecd286a0",
+    "info": {
+      "editorName": "HalloweenLevel1",
+      "setAll": [],
+      "children": [{
+        "type": "group",
+        "id": "abf855c8-43be-4e7d-9831-89caff62ad35",
+        "info": {
+          "editorName": "group",
+          "setAll": [],
+          "children": [
+            {
+              "type": "image",
+              "id": "1ea6c983-0dc7-44de-b9b3-2db5b97ad5e0",
+              "asset": "0",
+              "info": {
+                "editorName": "background",
+                "x": -31,
+                "y": -17
+              }
+            },
+            {
+              "type": "atlas-sprite",
+              "id": "ed9c26c5-c527-4594-8138-cd8814995651",
+              "asset": "1",
+              "info": {
+                "editorName": "platform",
+                "x": 275,
+                "y": 134
+              }
+            },
+            {
+              "type": "group",
+              "id": "635c8a78-225d-45a1-97b5-f7760bf807b9",
+              "info": {
+                "editorName": "collisionLayer",
+                "editorPublic": true,
+                "physicsGroup": true,
+                "setAll": [],
+                "children": [
+                  {
+                    "type": "tileSprite",
+                    "id": "a870528b-ef32-4bd4-8970-daedd0b3c8ba",
+                    "asset": "2",
+                    "info": {
+                      "editorName": "physics",
+                      "x": -2,
+                      "y": 328,
+                      "width": 1163.9808654785156,
+                      "height": 14
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "ec5e737c-bc51-47ea-b52f-a05aa5a25776",
+                    "asset": "2",
+                    "info": {
+                      "editorName": "physics1",
+                      "x": 325,
+                      "y": 200,
+                      "scale.x": 0.1
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "tileSprite",
+              "id": "42a80604-8886-4a51-9608-d4b8f389c34e",
+              "asset": "3",
+              "info": {
+                "editorName": "Base",
+                "y": 333,
+                "width": 1172.4830932617188,
+                "height": 34
+              }
+            },
+            {
+              "type": "image",
+              "id": "5404629a-a016-45d4-9290-0503d6ce0c74",
+              "asset": "4",
+              "info": {
+                "editorName": "idle",
+                "editorPublic": true,
+                "x": 19,
+                "y": 85,
+                "body": {"type": "ARCADE_RECT"}
+              }
+            }
+          ]
+        }
+      }]
+    }
+  },
+  "type": "GROUP",
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "background"
+    },
+    "1": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "platform2"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "physics"
+    },
+    "3": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "Base1"
+    },
+    "4": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "idle"
+    }
+  },
+  "prefab-table": {}
+}

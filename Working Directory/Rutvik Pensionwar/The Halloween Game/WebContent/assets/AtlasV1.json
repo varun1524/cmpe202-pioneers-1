@@ -5,7 +5,7 @@
       "rotated": false,
       "frame": {
         "x": 2,
-        "y": 95,
+        "y": 59,
         "w": 401,
         "h": 34
       },
@@ -24,7 +24,7 @@
       "trimmed": true,
       "rotated": false,
       "frame": {
-        "x": 2,
+        "x": 405,
         "y": 2,
         "w": 149,
         "h": 91
@@ -40,12 +40,32 @@
         "h": 150
       }
     },
+    "physics": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 95,
+        "w": 432,
+        "h": 12
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 432,
+        "h": 12
+      },
+      "sourceSize": {
+        "w": 432,
+        "h": 14
+      }
+    },
     "platform2": {
       "trimmed": true,
       "rotated": false,
       "frame": {
-        "x": 153,
-        "y": 2,
+        "x": 556,
+        "y": 16,
         "w": 149,
         "h": 91
       },

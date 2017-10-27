@@ -1,0 +1,171 @@
+{
+  "canvas-version": 2,
+  "settings": {
+    "className": "Level",
+    "sceneWidth": 640,
+    "sceneHeight": 360,
+    "generateOnSave": true,
+    "enableStepping": false,
+    "lang": "JAVA_SCRIPT",
+    "baseClass": "Phaser.State",
+    "backgroundColor": [
+      180,
+      180,
+      180
+    ],
+    "gridColor": [
+      200,
+      200,
+      200
+    ],
+    "showGrid": true,
+    "create_after": "\r\n"
+  },
+  "stateSettings": {
+    "scaleMode": "SHOW_ALL",
+    "pageAlignHorizontally": true,
+    "pageAlignVertically": true,
+    "stageBackgroundColor": [
+      255,
+      255,
+      255
+    ],
+    "preloadSpriteId": "",
+    "preloadSprite_direction": 0,
+    "load.pack": []
+  },
+  "world": {
+    "type": "group",
+    "id": "8a0fc0bc-e3be-4656-9585-f855ac8ba0bb",
+    "info": {
+      "editorName": "Level",
+      "setAll": [],
+      "children": [{
+        "type": "group",
+        "id": "3233e305-e85c-4e83-b236-936573148365",
+        "info": {
+          "editorName": "prefab",
+          "setAll": [],
+          "children": [
+            {
+              "type": "image",
+              "id": "cde05e9c-5ec3-49b8-a572-332390f11686",
+              "asset": "0",
+              "info": {
+                "editorName": "background",
+                "x": -2,
+                "y": -40
+              }
+            },
+            {
+              "type": "group",
+              "id": "88ffec1a-6db5-40a9-ab52-fd0fb42f23c7",
+              "info": {
+                "editorName": "Physics",
+                "editorPublic": true,
+                "physicsGroup": true,
+                "setAll": [],
+                "children": [{
+                  "type": "atlas-sprite",
+                  "id": "839df501-edd3-4b78-9099-01bae3f3854d",
+                  "asset": "1",
+                  "info": {
+                    "editorName": "physics",
+                    "name": "aaj",
+                    "x": -86,
+                    "y": 280,
+                    "scale.x": 2.75
+                  }
+                }]
+              }
+            },
+            {
+              "type": "image",
+              "id": "004e5d48-fb48-4c0c-b151-b9fcf3871b14",
+              "asset": "2",
+              "info": {
+                "editorName": "idle",
+                "editorPublic": true,
+                "x": 16,
+                "y": 205,
+                "body": {
+                  "type": "ARCADE_CIRCLE",
+                  "radius": 36
+                }
+              }
+            },
+            {
+              "type": "atlas-sprite",
+              "id": "ca96fa04-4ee2-457b-be4d-d1d4facfab38",
+              "asset": "3",
+              "info": {
+                "editorName": "platform",
+                "x": 269,
+                "y": 178
+              }
+            },
+            {
+              "type": "atlas-sprite",
+              "id": "47d6bb53-a7de-4f4e-a4a2-286fe46aea2a",
+              "asset": "4",
+              "info": {
+                "editorName": "brick",
+                "x": 395,
+                "y": 184
+              }
+            },
+            {
+              "type": "atlas-sprite",
+              "id": "0a7b2f78-5636-4dbd-b971-217c27a803f3",
+              "asset": "5",
+              "info": {
+                "editorName": "Base",
+                "x": 1,
+                "y": 299,
+                "scale.x": 3
+              }
+            }
+          ]
+        }
+      }]
+    }
+  },
+  "type": "STATE",
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "background"
+    },
+    "1": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "physics"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "idle"
+    },
+    "3": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "platform2"
+    },
+    "4": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "brick1"
+    },
+    "5": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "Base1"
+    }
+  },
+  "prefab-table": {}
+}
