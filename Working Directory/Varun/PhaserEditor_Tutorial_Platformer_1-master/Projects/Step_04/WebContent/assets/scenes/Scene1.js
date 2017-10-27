@@ -21,9 +21,9 @@ function Scene1(aGame, aParent) {
 
 	this.game.add.tileSprite(416, 598, 384, 93, 'tiles', '14', this);
 
-	this.game.add.sprite(288, 598, 'tiles', '13', this);
+	this.game.add.tileSprite(288, 598, 'tiles', '13', this);
 
-	this.game.add.sprite(800, 598, 'tiles', '15', this);
+	this.game.add.tileSprite(800, 598, 'tiles', '15', this);
 
 
 	/* --- post-init-begin --- */

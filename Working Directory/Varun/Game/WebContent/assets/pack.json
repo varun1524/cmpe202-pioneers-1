@@ -32,12 +32,12 @@
     },
     {
       "type": "script",
-      "key": "scene1",
+      "key": "script",
       "url": "assets/canvas/Scene1.js"
     }
   ],
   "meta": {
-    "generated": "1508909511805",
+    "generated": "1509008593737",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

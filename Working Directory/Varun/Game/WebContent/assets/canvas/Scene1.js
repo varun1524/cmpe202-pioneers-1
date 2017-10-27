@@ -18,20 +18,26 @@
 function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType) {
 	
 	Phaser.Group.call(this, aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType);
+	var _collisionLayer = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
+	this.game.add.sprite(288, 607, 'tiles', 'physics', _collisionLayer);
 	
-	var BG = this.game.add.tileSprite(-172, -233, 1000, 750, 'BG', null, this);
-	BG.scale.setTo(1.2388787593597599, 1.1360282940928768);
+	var _BG = this.game.add.sprite(-18, -27, 'BG', null, this);
+	_BG.scale.setTo(1.2388787593597599, 1.1360282940928768);
 	
-	this.game.add.tileSprite(-1, 161, 128, 93, 'tiles', '13', this);
+	this.game.add.sprite(288, 598, 'tiles', '13', this);
 	
-	this.game.add.tileSprite(126, 161, 384, 93, 'tiles', '14', this);
+	this.game.add.tileSprite(416, 598, 384, 93, 'tiles', '14', this);
 	
-	this.game.add.tileSprite(508, 160, 128, 93, 'tiles', '15', this);
+	this.game.add.sprite(800, 598, 'tiles', '15', this);
 	
-	this.game.add.sprite(148, 34, 'player', 0, this);
+	var _player = this.game.add.sprite(520, 444, 'player', 0, this);
 	
+	// public fields
 	
+	this.fCollisionLayer = _collisionLayer;
+	this.fBG = _BG;
+	this.fPlayer = _player;
 	
 }
 
@@ -41,4 +47,6 @@ Scene1.prototype = Scene1_proto;
 Scene1.prototype.constructor = Scene1;
 
 /* --- end generated code --- */
-// -- user code here --
+
+// you can insert code here
+
