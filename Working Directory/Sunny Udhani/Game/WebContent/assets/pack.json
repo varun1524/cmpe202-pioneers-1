@@ -1,0 +1,103 @@
+{
+  "boot": [
+    {
+      "type": "image",
+      "key": "Base1",
+      "url": "assets/images/Base1.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Sky",
+      "url": "assets/images/skyBackgroundOption.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Coins",
+      "url": "assets/images/Coins.jpg",
+      "overwrite": false
+    }
+  ],
+  "preloader": [
+    {
+      "type": "image",
+      "key": "Background",
+      "url": "assets/images/skyBackgroundOption.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Base1",
+      "url": "assets/images/Base1.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "Sun",
+      "url": "assets/images/Sun.jpg",
+      "overwrite": false
+    },
+    {
+      "type": "spritesheet",
+      "key": "player",
+      "url": "assets/images/FinalPlayers.png",
+      "frameWidth": 1200,
+      "frameHeight": 1160,
+      "frameMax": 6,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "spritesheet",
+      "key": "PlayerInvert",
+      "url": "assets/images/FinalPlayers2.png",
+      "frameWidth": 1200,
+      "frameHeight": 1160,
+      "frameMax": 6,
+      "margin": 0,
+      "spacing": 0
+    }
+  ],
+  "level": [
+    {
+      "type": "spritesheet",
+      "key": "player",
+      "url": "assets/images/FinalPlayers.png",
+      "frameWidth": 1200,
+      "frameHeight": 1160,
+      "frameMax": 6,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "spritesheet",
+      "key": "playerinvert",
+      "url": "assets/images/FinalPlayers2.png",
+      "frameWidth": 1200,
+      "frameHeight": 1160,
+      "frameMax": 6,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "image",
+      "key": "image",
+      "url": "assets/images/18_game_Halloween_flying_bats_Background_9_Envato.png",
+      "overwrite": false
+    },
+    {
+      "type": "atlas",
+      "key": "Base2",
+      "textureURL": "assets/images/Base2.png",
+      "format": "TEXTURE_ATLAS_JSON_ARRAY"
+    }
+  ],
+  "meta": {
+    "generated": "1509103063451",
+    "app": "Phaser Editor",
+    "url": "http://phasereditor.boniatillo.com",
+    "version": "1.0",
+    "copyright": "Arian Fornaris (c) 2015,2016"
+  }
+}

@@ -41,16 +41,16 @@
     {
       "type": "spritesheet",
       "key": "player",
-      "url": "assets/images/player.jpg",
-      "frameWidth": 495,
-      "frameHeight": 500,
-      "frameMax": 6,
+      "url": "assets/images/FinalPlayers.png",
+      "frameWidth": 800,
+      "frameHeight": 800,
+      "frameMax": -1,
       "margin": 0,
       "spacing": 0
     }
   ],
   "meta": {
-    "generated": "1508887523296",
+    "generated": "1508894334196",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
