@@ -20,7 +20,7 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	Phaser.Group.call(this, aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType);
 	var _collisionLayer = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
-	this.game.add.sprite(288, 607, 'tiles', 'physics', _collisionLayer);
+	this.game.add.tileSprite(288, 607, 639, 25, 'tiles', 'physics', _collisionLayer);
 	
 	var _BG = this.game.add.sprite(-18, -27, 'BG', null, this);
 	_BG.scale.setTo(1.2388787593597599, 1.1360282940928768);
@@ -31,7 +31,10 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	this.game.add.sprite(800, 598, 'tiles', '15', this);
 	
-	var _player = this.game.add.sprite(520, 444, 'player', 0, this);
+	var _player = this.game.add.sprite(502, 200, 'player', 0, this);
+	this.game.physics.arcade.enable(_player);
+	
+	
 	
 	// public fields
 	

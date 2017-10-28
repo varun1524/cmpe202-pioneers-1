@@ -54,13 +54,15 @@
                 "physicsGroup": true,
                 "setAll": [],
                 "children": [{
-                  "type": "atlas-sprite",
-                  "id": "861a4477-7f64-4c38-b877-73b6c44da8fc",
+                  "type": "tileSprite",
+                  "id": "b57fc1c0-190b-4329-b0fa-4a306fde2c13",
                   "asset": "0",
                   "info": {
                     "editorName": "physics",
                     "x": 288,
-                    "y": 607
+                    "y": 607,
+                    "width": 639,
+                    "height": 25
                   }
                 }]
               }
@@ -117,8 +119,9 @@
               "info": {
                 "editorName": "player",
                 "editorPublic": true,
-                "x": 520,
-                "y": 444
+                "x": 502,
+                "y": 200,
+                "body": {"type": "ARCADE_RECT"}
               }
             }
           ]

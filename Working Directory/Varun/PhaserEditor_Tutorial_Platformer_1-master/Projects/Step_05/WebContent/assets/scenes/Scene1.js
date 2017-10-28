@@ -32,7 +32,6 @@ function Scene1(aGame, aParent) {
 	this.game.add.tileSprite(288, 607, 639, 21, 'tiles', 'physics', collisionLayer);
 
 	 // public fields
-
 	this.fPlayer = player;
 	this.fCollisionLayer = collisionLayer;
 
