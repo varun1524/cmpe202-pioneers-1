@@ -1,7 +1,42 @@
-{"meta": {
-  "generated": "1508998967946",
-  "app": "Phaser Editor",
-  "url": "http://phasereditor.boniatillo.com",
-  "version": "1.0",
-  "copyright": "Arian Fornaris (c) 2015,2016"
-}}
+{
+  "level1": [
+    {
+      "type": "image",
+      "key": "bg",
+      "url": "assets/images/bg.jpg",
+      "overwrite": false
+    },
+    {
+      "type": "spritesheet",
+      "key": "FinalPlayers",
+      "url": "assets/images/FinalPlayers.png",
+      "frameWidth": 3660,
+      "frameHeight": 2332,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "spritesheet",
+      "key": "FinalPlayers2",
+      "url": "assets/images/FinalPlayers2.png",
+      "frameWidth": 0,
+      "frameHeight": 0,
+      "frameMax": -1,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "atlas",
+      "key": "atlas",
+      "format": "TEXTURE_ATLAS_JSON_ARRAY"
+    }
+  ],
+  "meta": {
+    "generated": "1509072037797",
+    "app": "Phaser Editor",
+    "url": "http://phasereditor.boniatillo.com",
+    "version": "1.0",
+    "copyright": "Arian Fornaris (c) 2015,2016"
+  }
+}
