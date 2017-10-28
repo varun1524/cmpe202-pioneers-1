@@ -55,13 +55,13 @@
                 "setAll": [],
                 "children": [{
                   "type": "tileSprite",
-                  "id": "b57fc1c0-190b-4329-b0fa-4a306fde2c13",
+                  "id": "65480b7b-02ed-4116-bcd7-8575cd8e75a3",
                   "asset": "0",
                   "info": {
                     "editorName": "physics",
                     "x": 288,
                     "y": 607,
-                    "width": 639,
+                    "width": 640,
                     "height": 25
                   }
                 }]
@@ -114,13 +114,14 @@
             },
             {
               "type": "spritesheet",
-              "id": "88c62237-c798-4b19-926f-24f39ee0e597",
+              "id": "3a55309a-28c7-44d4-8bab-bc8928c34a9b",
               "asset": "5",
               "info": {
                 "editorName": "player",
-                "editorPublic": true,
-                "x": 502,
-                "y": 200,
+                "x": 517,
+                "y": 273,
+                "scale.x": 0.12684006182971486,
+                "scale.y": 0.1481977196399811,
                 "body": {"type": "ARCADE_RECT"}
               }
             }
