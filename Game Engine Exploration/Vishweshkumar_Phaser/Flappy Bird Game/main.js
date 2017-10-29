@@ -24,19 +24,12 @@ var mainState = {
 
 		    // Add gravity to the bird to make it fall
 		    this.bird.body.gravity.y = 1000;  
-
-		    // Create a pipe at the position x and y
-		    var pipe = game.add.sprite(x, y, 'pipe');
-
-		    // Add velocity to the pipe to make it move left
-		    pipe.body.velocity.x = -200;
 			
 		    // Call the 'jump' function when the spacekey is hit
 		    var spaceKey = game.input.keyboard.addKey(
 		                    Phaser.Keyboard.SPACEBAR);
 		    spaceKey.onDown.add(this.jump, this);   
 		    spaceKey.onDown.add(this.soundOnJump,this);
-
 
 		    this.score = 0;
 		    this.previousScore = 0;
@@ -74,7 +67,14 @@ var mainState = {
 
 		addOnePipe: function(x, y, increase) {
 
-		    // Add the pipe to our previously created group
+
+		    // Create a pipe at the position x and y
+		    var pipe = game.add.sprite(x, y, 'pipe');
+
+		    // Add velocity to the pipe to make it move left
+		    pipe.body.velocity.x = -200;
+			
+			// Add the pipe to our previously created group
 		    this.pipes.add(pipe);
 			
 		    // Enable physics on the pipe 
