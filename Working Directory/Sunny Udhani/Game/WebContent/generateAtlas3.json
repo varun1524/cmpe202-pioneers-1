@@ -1,0 +1,27 @@
+{
+  "frames": {"enemy4": {
+    "trimmed": true,
+    "rotated": false,
+    "frame": {
+      "x": 2,
+      "y": 2,
+      "w": 423,
+      "h": 586
+    },
+    "spriteSourceSize": {
+      "x": 4,
+      "y": 7,
+      "w": 423,
+      "h": 586
+    },
+    "sourceSize": {
+      "w": 431,
+      "h": 600
+    }
+  }},
+  "meta": {
+    "app": "Phaser Editor",
+    "version": "1",
+    "image": "generateAtlas3.png"
+  }
+}

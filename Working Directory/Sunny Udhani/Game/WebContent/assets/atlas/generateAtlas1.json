@@ -1,0 +1,49 @@
+{
+  "frames": {
+    "Enemy": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 16,
+        "w": 650,
+        "h": 645
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 650,
+        "h": 645
+      },
+      "sourceSize": {
+        "w": 650,
+        "h": 645
+      }
+    },
+    "physics": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 432,
+        "h": 12
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 432,
+        "h": 12
+      },
+      "sourceSize": {
+        "w": 432,
+        "h": 14
+      }
+    }
+  },
+  "meta": {
+    "app": "Phaser Editor",
+    "version": "1",
+    "image": "generateAtlas1.png"
+  }
+}

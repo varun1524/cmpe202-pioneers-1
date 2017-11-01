@@ -1,6 +1,13 @@
 {
   "version": 2,
-  "files": ["WebContent/assets/images/physics.png"],
+  "files": [
+    "WebContent/assets/images/physics.png",
+    "WebContent/assets/images/Enemy.jpg",
+    "WebContent/assets/images/Enemy1.jpg",
+    "WebContent/assets/images/Enemy2.png",
+    "WebContent/assets/images/enemy4.png",
+    "WebContent/assets/images/Coins.jpg"
+  ],
   "settings": {
     "pot": false,
     "paddingX": 2,

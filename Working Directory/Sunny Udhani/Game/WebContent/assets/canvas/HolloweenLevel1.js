@@ -20,22 +20,50 @@ function HolloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysi
 	Phaser.Group.call(this, aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType);
 	var _PhysicsGroup = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
-	var _Base = this.game.add.tileSprite(5, 315, 773, 34, 'Base1', null, _PhysicsGroup);
+	var _physics = this.game.add.sprite(0, 640, 'generateAtlas', 'physics', _PhysicsGroup);
+	_physics.scale.setTo(10.0, 1.0);
 	
-	this.game.add.sprite(-3, -62, 'image', null, this);
+	var _image = this.game.add.sprite(0, -128, 'image', null, this);
+	_image.scale.setTo(2.0, 2.0);
 	
-	var _player = this.game.add.sprite(55, 55, 'player', 0, this);
-	_player.scale.setTo(0.08990963758935062, 0.07918063474874948);
+	var _enemyGroup = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
+	
+	var _Enemy2 = this.game.add.sprite(864, 448, 'generateAtlas2', 'Enemy2', _enemyGroup);
+	_Enemy2.scale.setTo(0.2671358443015157, 0.32581757158303604);
+	_Enemy2.body.setSize(408.8365478515625, 449.7663879394531, -14.929931640625, -24.883209228515625);
+	
+	var _enemy1 = this.game.add.sprite(448, 256, 'generateAtlas3', 'enemy4', this);
+	_enemy1.scale.setTo(0.3649300008742847, 0.25765125910879894);
+	this.game.physics.arcade.enable(_enemy1);
+	_enemy1.body.setSize(448.4237976074219, 657.0568751096725, 0.0, -35.660573840141296);
+	
+	var _player = this.game.add.sprite(128, 288, 'player', 0, this);
+	_player.scale.setTo(0.1, 0.1);
+	_player.anchor.setTo(0.5, 0.0);
+	var _player_walk = _player.animations.add('walk', [0, 4], 4, true);
+	_player.animations.add('jump', [3, 4], 2, false);
+	_player.animations.add('idle', [0], 60, true);
 	this.game.physics.arcade.enable(_player);
 	_player.body.setSize(1253.386806488037, 1235.7761478424072, -53.38692855834961, -60.62087440490723);
+	
+	var _finalPlayer = this.game.add.sprite(640, 256, 'finalPlayer', 0, this);
+	_finalPlayer.animations.add('walk', [0, 4], 4, true);
+	_finalPlayer.animations.add('idle', [0], 5, false);
+	_finalPlayer.animations.add('jump', [3, 4], 2, true);
+	this.game.physics.arcade.enable(_finalPlayer);
 	
 	
 	
 	// public fields
 	
 	this.fPhysicsGroup = _PhysicsGroup;
-	this.fBase = _Base;
+	this.fPhysics = _physics;
+	this.fEnemyGroup = _enemyGroup;
+	this.fEnemy2 = _Enemy2;
+	this.fEnemy1 = _enemy1;
 	this.fPlayer = _player;
+	this.fPlayer_walk = _player_walk;
+	this.fFinalPlayer = _finalPlayer;
 	
 }
 

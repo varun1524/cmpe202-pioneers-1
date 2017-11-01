@@ -104,10 +104,41 @@
       "textureURL": "assets/atlas/generateAtlas.png",
       "atlasURL": "assets/atlas/generateAtlas.json",
       "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "atlas",
+      "key": "generateAtlas1",
+      "textureURL": "assets/atlas/generateAtlas1.png",
+      "atlasURL": "assets/atlas/generateAtlas1.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "atlas",
+      "key": "generateAtlas2",
+      "textureURL": "assets/atlas/generateAtlas2.png",
+      "atlasURL": "assets/atlas/generateAtlas2.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "atlas",
+      "key": "generateAtlas3",
+      "textureURL": "assets/atlas/generateAtlas3.png",
+      "atlasURL": "assets/atlas/generateAtlas3.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "spritesheet",
+      "key": "finalPlayer",
+      "url": "assets/images/FinalPlayers1.png",
+      "frameWidth": 120,
+      "frameHeight": 115,
+      "frameMax": 6,
+      "margin": 0,
+      "spacing": 0
     }
   ],
   "meta": {
-    "generated": "1509109388911",
+    "generated": "1509505236177",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
