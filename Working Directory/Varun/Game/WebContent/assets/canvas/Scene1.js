@@ -20,7 +20,7 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	Phaser.Group.call(this, aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType);
 	var _collisionLayer = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
-	this.game.add.tileSprite(288, 607, 640, 25, 'tiles', 'physics', _collisionLayer);
+	this.game.add.tileSprite(288, 615, 640, 25, 'tiles', 'physics', _collisionLayer);
 	
 	var _BG = this.game.add.sprite(-18, -27, 'BG', null, this);
 	_BG.scale.setTo(1.2388787593597599, 1.1360282940928768);
@@ -32,17 +32,18 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.game.add.sprite(800, 598, 'tiles', '15', this);
 	
 	var _player = this.game.add.sprite(504, 330, 'player', 0, this);
-	_player.scale.setTo(0.5, 0.5);
-	_player.animations.add('walk', [4, 0], 3, true);
-	_player.animations.add('attack', [0, 4, 0], 3, false);
+	_player.anchor.setTo(0.5, 0.0);
+	_player.animations.add('walk', [0, 1], 4, true);
+	_player.animations.add('attack', [4, 0], 3, false);
+	_player.animations.add('idle', [0], 60, false);
+	_player.animations.add('jump', [3], 60, false);
 	this.game.physics.arcade.enable(_player);
-	
-	
 	
 	// public fields
 	
 	this.fCollisionLayer = _collisionLayer;
 	this.fBG = _BG;
+	this.fPlayer = _player;
 	
 }
 

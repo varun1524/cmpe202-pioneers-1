@@ -60,7 +60,7 @@
                   "info": {
                     "editorName": "physics",
                     "x": 288,
-                    "y": 607,
+                    "y": 615,
                     "width": 640,
                     "height": 25
                   }
@@ -118,28 +118,37 @@
               "asset": "5",
               "info": {
                 "editorName": "player",
+                "editorPublic": true,
                 "x": 504,
                 "y": 330,
-                "scale.x": 0.5,
-                "scale.y": 0.5,
+                "anchor.x": 0.5,
                 "animations": [
                   {
                     "name": "walk",
-                    "frameRate": 3,
+                    "frameRate": 4,
                     "loop": true,
                     "frames": [
-                      "4",
-                      "0"
+                      "0",
+                      "1"
                     ]
                   },
                   {
                     "name": "attack",
                     "frameRate": 3,
                     "frames": [
-                      "0",
                       "4",
                       "0"
                     ]
+                  },
+                  {
+                    "name": "idle",
+                    "frameRate": 60,
+                    "frames": ["0"]
+                  },
+                  {
+                    "name": "jump",
+                    "frameRate": 60,
+                    "frames": ["3"]
                   }
                 ],
                 "body": {"type": "ARCADE_RECT"}

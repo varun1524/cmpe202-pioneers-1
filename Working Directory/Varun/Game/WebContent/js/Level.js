@@ -11,7 +11,7 @@ Level.prototype = Level_proto;
 Level.prototype.constructor = Level;
 
 Level.prototype.init = function() {
-	
+	console.log("Hello");
 	this.scale.pageAlignHorizontally = true;
 	this.scale.pageAlignVertically = true;
 	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
@@ -37,6 +37,7 @@ Level.prototype.create = function() {
 	
 	// collide the player with the platforms
 	this.cursors = this.input.keyboard.createCursorKeys();
+//	this.space = this.input.keys(Phaser.Keyboard.SPACEBAR);
 };
 
 Level.prototype.update = function() {
@@ -72,6 +73,14 @@ Level.prototype.update = function() {
 	} else {
 		// it is not touching the platforms so it means it is jumping.
 		this.scene.fPlayer.play("jump");
+	}
+
+
+	if(isDown(Phaser.Keyboard.SPACEBAR)){
+		this.scene.fPlayer.play("duck");
+	}
+	else{
+		this.scene.fPlayer.play("idle");
 	}
 
 	// update the facing of the player
