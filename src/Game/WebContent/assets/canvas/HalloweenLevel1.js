@@ -34,6 +34,12 @@ function HalloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysi
 	var _base = this.game.add.sprite(0, 346, 'AtlasV1', 'base1', this);
 	_base.scale.setTo(1.5, 1.0);
 	
+	var _enemy1 = this.game.add.sprite(506, 281, 'enemy2', null, this);
+	_enemy1.scale.setTo(0.22598094249506895, 0.20995701172455944);
+	
+	var _enemy = this.game.add.sprite(300, 162, 'enemy1', 0, this);
+	_enemy.scale.setTo(0.23202611126727168, 0.2426229774533215);
+	
 	var _player1 = this.game.add.sprite(15, 197, 'player', 0, this);
 	_player1.scale.setTo(0.24, 0.24);
 	this.game.physics.arcade.enable(_player1);

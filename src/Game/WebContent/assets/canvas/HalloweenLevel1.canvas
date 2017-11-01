@@ -111,9 +111,33 @@
               }
             },
             {
+              "type": "image",
+              "id": "9c40731f-9f9a-41bc-a0cf-000aba7aa74c",
+              "asset": "4",
+              "info": {
+                "editorName": "enemy1",
+                "x": 506,
+                "y": 281,
+                "scale.x": 0.22598094249506895,
+                "scale.y": 0.20995701172455944
+              }
+            },
+            {
+              "type": "spritesheet",
+              "id": "65639ccb-24f2-4d44-be4a-f1d759a2d431",
+              "asset": "5",
+              "info": {
+                "editorName": "enemy",
+                "x": 300,
+                "y": 162,
+                "scale.x": 0.23202611126727168,
+                "scale.y": 0.2426229774533215
+              }
+            },
+            {
               "type": "spritesheet",
               "id": "b8265e3b-5441-4645-854d-163404af6f86",
-              "asset": "4",
+              "asset": "6",
               "info": {
                 "editorName": "player1",
                 "editorPublic": true,
@@ -159,6 +183,17 @@
       "sprite": "base1"
     },
     "4": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "enemy2"
+    },
+    "5": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "enemy1",
+      "sprite": "0"
+    },
+    "6": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "player",

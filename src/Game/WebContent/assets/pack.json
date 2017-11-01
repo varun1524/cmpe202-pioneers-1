@@ -27,10 +27,26 @@
       "type": "script",
       "key": "scene",
       "url": "assets/canvas/HalloweenLevel1.js"
+    },
+    {
+      "type": "spritesheet",
+      "key": "enemy1",
+      "url": "assets/images/enemy1.png",
+      "frameWidth": 306,
+      "frameHeight": 305,
+      "frameMax": 4,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "image",
+      "key": "enemy2",
+      "url": "assets/images/enemy2.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1509405201854",
+    "generated": "1509506053292",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
