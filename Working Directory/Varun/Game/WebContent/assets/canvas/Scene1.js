@@ -31,8 +31,10 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	this.game.add.sprite(800, 598, 'tiles', '15', this);
 	
-	var _player = this.game.add.sprite(517, 273, 'player', 0, this);
-	_player.scale.setTo(0.12684006182971486, 0.1481977196399811);
+	var _player = this.game.add.sprite(504, 330, 'player', 0, this);
+	_player.scale.setTo(0.5, 0.5);
+	_player.animations.add('walk', [4, 0], 3, true);
+	_player.animations.add('attack', [0, 4, 0], 3, false);
 	this.game.physics.arcade.enable(_player);
 	
 	
@@ -41,7 +43,6 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	this.fCollisionLayer = _collisionLayer;
 	this.fBG = _BG;
-	this.fPlayer = _player;
 	
 }
 

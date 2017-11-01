@@ -118,10 +118,30 @@
               "asset": "5",
               "info": {
                 "editorName": "player",
-                "x": 517,
-                "y": 273,
-                "scale.x": 0.12684006182971486,
-                "scale.y": 0.1481977196399811,
+                "x": 504,
+                "y": 330,
+                "scale.x": 0.5,
+                "scale.y": 0.5,
+                "animations": [
+                  {
+                    "name": "walk",
+                    "frameRate": 3,
+                    "loop": true,
+                    "frames": [
+                      "4",
+                      "0"
+                    ]
+                  },
+                  {
+                    "name": "attack",
+                    "frameRate": 3,
+                    "frames": [
+                      "0",
+                      "4",
+                      "0"
+                    ]
+                  }
+                ],
                 "body": {"type": "ARCADE_RECT"}
               }
             }
