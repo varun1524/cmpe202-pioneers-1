@@ -37,6 +37,7 @@ Level.prototype.create = function() {
 	
 	// collide the player with the platforms
 	this.cursors = this.input.keyboard.createCursorKeys();
+	spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 //	this.space = this.input.keys(Phaser.Keyboard.SPACEBAR);
 };
 
@@ -75,12 +76,8 @@ Level.prototype.update = function() {
 		this.scene.fPlayer.play("jump");
 	}
 
-
-	if(isDown(Phaser.Keyboard.SPACEBAR)){
-		this.scene.fPlayer.play("duck");
-	}
-	else{
-		this.scene.fPlayer.play("idle");
+	if(spaceKey.isDown){
+		this.scene.fPlayer.play("attack");
 	}
 
 	// update the facing of the player
