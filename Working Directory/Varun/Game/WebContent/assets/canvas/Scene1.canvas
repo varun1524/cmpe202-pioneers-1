@@ -54,13 +54,15 @@
                 "physicsGroup": true,
                 "setAll": [],
                 "children": [{
-                  "type": "atlas-sprite",
-                  "id": "861a4477-7f64-4c38-b877-73b6c44da8fc",
+                  "type": "tileSprite",
+                  "id": "65480b7b-02ed-4116-bcd7-8575cd8e75a3",
                   "asset": "0",
                   "info": {
                     "editorName": "physics",
                     "x": 288,
-                    "y": 607
+                    "y": 607,
+                    "width": 640,
+                    "height": 25
                   }
                 }]
               }
@@ -112,13 +114,35 @@
             },
             {
               "type": "spritesheet",
-              "id": "88c62237-c798-4b19-926f-24f39ee0e597",
+              "id": "3a55309a-28c7-44d4-8bab-bc8928c34a9b",
               "asset": "5",
               "info": {
                 "editorName": "player",
-                "editorPublic": true,
-                "x": 520,
-                "y": 444
+                "x": 504,
+                "y": 330,
+                "scale.x": 0.5,
+                "scale.y": 0.5,
+                "animations": [
+                  {
+                    "name": "walk",
+                    "frameRate": 3,
+                    "loop": true,
+                    "frames": [
+                      "4",
+                      "0"
+                    ]
+                  },
+                  {
+                    "name": "attack",
+                    "frameRate": 3,
+                    "frames": [
+                      "0",
+                      "4",
+                      "0"
+                    ]
+                  }
+                ],
+                "body": {"type": "ARCADE_RECT"}
               }
             }
           ]

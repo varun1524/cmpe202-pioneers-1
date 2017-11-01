@@ -1,0 +1,204 @@
+{
+  "canvas-version": 2,
+  "settings": {
+    "className": "HalloweenLevel1",
+    "sceneWidth": 640,
+    "sceneHeight": 360,
+    "generateOnSave": true,
+    "enableStepping": false,
+    "lang": "JAVA_SCRIPT",
+    "baseClass": "Phaser.Group",
+    "backgroundColor": [
+      180,
+      180,
+      180
+    ],
+    "gridColor": [
+      200,
+      200,
+      200
+    ],
+    "showGrid": true
+  },
+  "stateSettings": {
+    "stageBackgroundColor": [
+      0,
+      0,
+      0
+    ],
+    "preloadSpriteId": "",
+    "preloadSprite_direction": 0,
+    "load.pack": []
+  },
+  "world": {
+    "type": "group",
+    "id": "778d93fd-94c7-4a1f-b41e-c84fecd286a0",
+    "info": {
+      "editorName": "HalloweenLevel1",
+      "setAll": [],
+      "children": [{
+        "type": "group",
+        "id": "abf855c8-43be-4e7d-9831-89caff62ad35",
+        "info": {
+          "editorName": "group",
+          "setAll": [],
+          "children": [
+            {
+              "type": "image",
+              "id": "c404b6e9-d186-4440-9a97-be4f8fab2fc2",
+              "asset": "0",
+              "info": {
+                "editorName": "back",
+                "x": -635,
+                "y": -367
+              }
+            },
+            {
+              "type": "atlas-sprite",
+              "id": "28046405-e6b0-45a2-ae11-e45a7965d67c",
+              "asset": "1",
+              "info": {
+                "editorName": "platform1",
+                "x": 181,
+                "y": 237,
+                "scale.x": 0.3,
+                "scale.y": 0.3
+              }
+            },
+            {
+              "type": "group",
+              "id": "635c8a78-225d-45a1-97b5-f7760bf807b9",
+              "info": {
+                "editorName": "collisionLayer",
+                "editorPublic": true,
+                "physicsGroup": true,
+                "setAll": [],
+                "children": [
+                  {
+                    "type": "atlas-sprite",
+                    "id": "4ccc6109-ab0b-44b9-aee3-849ec4ce9988",
+                    "asset": "2",
+                    "info": {
+                      "editorName": "physics2",
+                      "x": -65,
+                      "y": 334,
+                      "anchor.x": -0.14880000220404732,
+                      "anchor.y": -0.4443424769810268
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "b71a164b-1b7e-4e44-9392-8601d110eaf3",
+                    "asset": "2",
+                    "info": {
+                      "editorName": "physics",
+                      "x": 191,
+                      "y": 242,
+                      "scale.x": 0.2
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "atlas-sprite",
+              "id": "e190297c-79ab-4d78-8f23-c0f3d6868cf2",
+              "asset": "3",
+              "info": {
+                "editorName": "base",
+                "y": 346,
+                "scale.x": 1.5
+              }
+            },
+            {
+              "type": "image",
+              "id": "9c40731f-9f9a-41bc-a0cf-000aba7aa74c",
+              "asset": "4",
+              "info": {
+                "editorName": "enemy1",
+                "x": 506,
+                "y": 281,
+                "scale.x": 0.22598094249506895,
+                "scale.y": 0.20995701172455944
+              }
+            },
+            {
+              "type": "spritesheet",
+              "id": "65639ccb-24f2-4d44-be4a-f1d759a2d431",
+              "asset": "5",
+              "info": {
+                "editorName": "enemy",
+                "x": 300,
+                "y": 162,
+                "scale.x": 0.23202611126727168,
+                "scale.y": 0.2426229774533215
+              }
+            },
+            {
+              "type": "spritesheet",
+              "id": "b8265e3b-5441-4645-854d-163404af6f86",
+              "asset": "6",
+              "info": {
+                "editorName": "player1",
+                "editorPublic": true,
+                "x": 15,
+                "y": 197,
+                "scale.x": 0.24,
+                "scale.y": 0.24,
+                "body": {
+                  "type": "ARCADE_RECT",
+                  "width": 291.1666564941406,
+                  "height": 286.5
+                }
+              }
+            }
+          ]
+        }
+      }]
+    }
+  },
+  "type": "GROUP",
+  "asset-table": {
+    "0": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "back3"
+    },
+    "1": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "platform4"
+    },
+    "2": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "physics"
+    },
+    "3": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "base1"
+    },
+    "4": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "enemy2"
+    },
+    "5": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "enemy1",
+      "sprite": "0"
+    },
+    "6": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "player",
+      "sprite": "0"
+    }
+  },
+  "prefab-table": {}
+}
