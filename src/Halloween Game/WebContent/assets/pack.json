@@ -43,10 +43,28 @@
       "type": "script",
       "key": "scene1",
       "url": "assets/scenes/Scene1.js"
+    },
+    {
+      "type": "image",
+      "key": "back4",
+      "url": "assets/images/back4.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "coin1",
+      "url": "assets/images/coin1.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "power1",
+      "url": "assets/images/power1.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1509603160995",
+    "generated": "1509688130774",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
