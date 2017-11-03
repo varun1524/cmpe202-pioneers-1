@@ -1,62 +1,70 @@
 {
-  "boot": [
-    {
-      "type": "image",
-      "key": "Base1",
-      "url": "assets/images/Base1.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
-      "key": "Sky",
-      "url": "assets/images/skyBackgroundOption.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
-      "key": "Coins",
-      "url": "assets/images/Coins.jpg",
-      "overwrite": false
-    }
-  ],
-  "preloader": [
-    {
-      "type": "image",
-      "key": "Brick",
-      "url": "assets/images/brick.png",
-      "overwrite": false
-    },
+  "level": [
     {
       "type": "spritesheet",
       "key": "player",
-      "url": "assets/images/player.jpg",
-      "frameWidth": 495,
-      "frameHeight": 500,
+      "url": "assets/images/FinalPlayers6.png",
+      "frameWidth": 100,
+      "frameHeight": 105,
       "frameMax": 6,
       "margin": 0,
       "spacing": 0
     },
     {
+      "type": "atlas",
+      "key": "AtlasV1",
+      "textureURL": "assets/AtlasV1.png",
+      "atlasURL": "assets/AtlasV1.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
       "type": "image",
-      "key": "Base2",
-      "url": "assets/images/Base2.png",
+      "key": "back3",
+      "url": "assets/images/back3.png",
+      "overwrite": false
+    },
+    {
+      "type": "spritesheet",
+      "key": "enemy1",
+      "url": "assets/images/enemy1.png",
+      "frameWidth": 306,
+      "frameHeight": 305,
+      "frameMax": 4,
+      "margin": 0,
+      "spacing": 0
+    },
+    {
+      "type": "image",
+      "key": "enemy2",
+      "url": "assets/images/enemy2.png",
+      "overwrite": false
+    },
+    {
+      "type": "script",
+      "key": "scene1",
+      "url": "assets/scenes/Scene1.js"
+    },
+    {
+      "type": "image",
+      "key": "back4",
+      "url": "assets/images/back4.png",
       "overwrite": false
     },
     {
       "type": "image",
-      "key": "MainBackground",
-      "url": "assets/images/Background.png",
+      "key": "coin1",
+      "url": "assets/images/coin1.png",
       "overwrite": false
     },
     {
       "type": "image",
-      "key": "Cloud",
-      "url": "assets/images/cloud2.png",
+      "key": "power1",
+      "url": "assets/images/power1.png",
       "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1509049419279",
+    "generated": "1509687616631",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
