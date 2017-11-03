@@ -39,6 +39,8 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	_player.animations.add('jump', [3], 60, false);
 	this.game.physics.arcade.enable(_player);
 	
+	
+	
 	// public fields
 	
 	this.fCollisionLayer = _collisionLayer;
