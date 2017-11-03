@@ -44,20 +44,6 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _physics5 = this.game.add.sprite(1351, 581, 'AtlasV1', 'physics', _collisionLayer);
 	_physics5.scale.setTo(0.20373760153654544, 1.767824482287428);
 	
-	var _base = this.game.add.sprite(2, 1028, 'AtlasV1', 'base1', this);
-	_base.scale.setTo(4.5, 1.0);
-	
-	var _Enemy = this.game.add.group(this);
-	
-	var _enemy = this.game.add.sprite(974, 738, 'enemy1', 0, _Enemy);
-	_enemy.scale.setTo(0.23202611126727168, 0.2426229774533215);
-	
-	var _enemy1 = this.game.add.sprite(1600, 753, 'enemy2', null, _Enemy);
-	_enemy1.scale.setTo(0.22598094249506895, 0.20995701172455944);
-	
-	var _enemy2 = this.game.add.sprite(828, 512, 'enemy1', 2, _Enemy);
-	_enemy2.scale.setTo(0.19983435357502707, 0.22658118723411508);
-	
 	var _Platform = this.game.add.group(this);
 	
 	var _platform3 = this.game.add.sprite(1336, 545, 'AtlasV1', 'platform1', _Platform);
@@ -72,13 +58,27 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _platform1 = this.game.add.sprite(386, 815, 'AtlasV1', 'platform4', _Platform);
 	_platform1.scale.setTo(0.3, 0.3);
 	
+	var _platform5 = this.game.add.sprite(224, 524, 'AtlasV1', 'platform1', _Platform);
+	_platform5.scale.setTo(0.9402803748608576, 0.741214580142837);
+	
 	var _platform4 = this.game.add.sprite(644, 570, 'AtlasV1', 'platform5', _Platform);
 	_platform4.scale.setTo(0.7453131585384848, 0.2869294299309859);
 	
-	var _platform5 = this.game.add.sprite(224, 524, 'AtlasV1', 'platform1', this);
-	_platform5.scale.setTo(0.9402803748608576, 0.741214580142837);
+	var _base = this.game.add.sprite(2, 1028, 'AtlasV1', 'base1', this);
+	_base.scale.setTo(4.5, 1.0);
 	
-	var _player = this.game.add.sprite(979, 177, 'player', 0, this);
+	var _Enemy = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
+	
+	var _enemy3 = this.game.add.sprite(974, 738, 'enemy1', 0, _Enemy);
+	_enemy3.scale.setTo(0.23202611126727168, 0.2426229774533215);
+	
+	var _enemy1 = this.game.add.sprite(1600, 753, 'enemy2', null, _Enemy);
+	_enemy1.scale.setTo(0.22598094249506895, 0.20995701172455944);
+	
+	var _enemy2 = this.game.add.sprite(828, 512, 'enemy1', 2, _Enemy);
+	_enemy2.scale.setTo(0.19983435357502707, 0.22658118723411508);
+	
+	var _player = this.game.add.sprite(1086, 144, 'player', 0, this);
 	_player.anchor.setTo(0.5, 0.0);
 	_player.animations.add('walk', [0, 1], 4, true);
 	_player.animations.add('jump', [3], 60, false);
@@ -94,6 +94,9 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.fBack = _back;
 	this.fCollisionLayer = _collisionLayer;
 	this.fEnemy = _Enemy;
+	this.fEnemy3 = _enemy3;
+	this.fEnemy1 = _enemy1;
+	this.fEnemy2 = _enemy2;
 	this.fPlayer = _player;
 	
 }

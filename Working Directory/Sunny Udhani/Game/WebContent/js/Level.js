@@ -44,13 +44,13 @@ Level.prototype.create = function() {
 
 	    //  Here we'll tween the values held in the tweenData object to x: 500, y: 300
 	   //var tween = game.make.tween(this.scene).to( { x: 100, y: 400 }, 2000, "Sine.easeInOut");
-	  this.game.add.tween(this.scene.fEnemy2).to({x: [240]}, 5400, 'Sine.easeInOut', true, 0 , -1);
+	  this.game.add.tween(this.scene.fEnemy2).to({x: 240}, 5400, 'Sine.easeInOut', true, 0 , -1, true);
 	    //  Set the tween to yoyo so it loops smoothly
 	   // tween.yoyo(true);
 	   var tweenData = { x: 0, y: 0 };
 
 	    //  Here we'll tween the values held in the tweenData object to x: 500, y: 300
-	    tween = game.make.tween(tweenData).to( { x: 100, y: 400 }, 2000, "Sine.easeInOut");
+	    tween = this.game.make.tween(tweenData).to( { x: 100, y: 400 }, 2000, "Sine.easeInOut");
 
 	    //  Set the tween to yoyo so it loops smoothly
 	    tween.yoyo(true);
@@ -64,22 +64,22 @@ Level.prototype.update = function() {
 	this.physics.arcade.collide(this.scene.fPlayer, this.scene.fPhysicsGroup);
 	this.physics.arcade.collide(this.scene.fEnemy1, this.scene.fPhysicsGroup);
 	this.physics.arcade.collide(this.scene.fEnemy2, this.scene.fPhysicsGroup);
-	this.physics.arcade.collide(this.scene.fFinalPlayer, this.scene.fPhysicsGroup);
+//	this.physics.arcade.collide(this.scene.fFinalPlayer, this.scene.fPhysicsGroup);
 	
 	
 	if (this.cursors.left.isDown) {
 		
 		// move to the left
 		this.scene.fPlayer.body.velocity.x = -200;
-		this.scene.fFinalPlayer.body.velocity.x = -200;
+//		this.scene.fFinalPlayer.body.velocity.x = -200;
 	} else if (this.cursors.right.isDown) {
 		// move to the right
 		this.scene.fPlayer.body.velocity.x = 200;
-		this.scene.fFinalPlayer.body.velocity.x = 200;
+//		this.scene.fFinalPlayer.body.velocity.x = 200;
 	} else {
 		// dont move in the horizontal
 		this.scene.fPlayer.body.velocity.x = 0;
-		this.scene.fFinalPlayer.body.velocity.x = 0;
+//		this.scene.fFinalPlayer.body.velocity.x = 0;
 	}
 
 	// a flag to know if the player is (down) touching the platforms
@@ -90,13 +90,13 @@ Level.prototype.update = function() {
 		this.scene.fPlayer.body.velocity.y = -600;
 	}
 	
-	var touching1 = this.scene.fFinalPlayer.body.touching.down;
-
-	if (touching1 && this.cursors.up.isDown) {
-		// jump if the player is on top of a platform and the up key is pressed
-		this.scene.fFinalPlayer.body.velocity.y = -600;
-	}
-	
+//	var touching1 = this.scene.fFinalPlayer.body.touching.down;
+//
+//	if (touching1 && this.cursors.up.isDown) {
+//		// jump if the player is on top of a platform and the up key is pressed
+////		this.scene.fFinalPlayer.body.velocity.y = -600;
+//	}
+//	
 	 
 	if (touching) {
 	    if (this.scene.fPlayer.body.velocity.x == 0) {
@@ -110,20 +110,20 @@ Level.prototype.update = function() {
 	    // it is not touching the platforms so it means it is jumping.
 	    this.scene.fPlayer.play("jump");
 	}
-	
-	if (touching1) {
-	    if (this.scene.fFinalPlayer.body.velocity.x == 0) {
-	        // if it is not moving horizontally play the idle
-	        this.scene.fFinalPlayer.play("idle");
-	    } else {
-	        // if it is moving play the walk
-	        this.scene.fFinalPlayer.play("walk");
-	    }
-	} else {
-	    // it is not touching the platforms so it means it is jumping.
-	    this.scene.fFinalPlayer.play("jump");
-	}
-	
+//	
+//	if (touching1) {
+//	    if (this.scene.fFinalPlayer.body.velocity.x == 0) {
+//	        // if it is not moving horizontally play the idle
+//	        this.scene.fFinalPlayer.play("idle");
+//	    } else {
+//	        // if it is moving play the walk
+//	        this.scene.fFinalPlayer.play("walk");
+//	    }
+//	} else {
+//	    // it is not touching the platforms so it means it is jumping.
+//	    this.scene.fFinalPlayer.play("jump");
+//	}
+//	
 	if (this.cursors.left.isDown) {
 	    // face left
 	    this.scene.fPlayer.scale.x = -0.1;

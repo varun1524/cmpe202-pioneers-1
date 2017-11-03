@@ -46,12 +46,6 @@ function HolloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysi
 	this.game.physics.arcade.enable(_player);
 	_player.body.setSize(1253.386806488037, 1235.7761478424072, -53.38692855834961, -60.62087440490723);
 	
-	var _finalPlayer = this.game.add.sprite(640, 256, 'finalPlayer', 0, this);
-	_finalPlayer.animations.add('walk', [0, 4], 4, true);
-	_finalPlayer.animations.add('idle', [0], 5, false);
-	_finalPlayer.animations.add('jump', [3, 4], 2, true);
-	this.game.physics.arcade.enable(_finalPlayer);
-	
 	
 	
 	// public fields
@@ -63,7 +57,6 @@ function HolloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysi
 	this.fEnemy1 = _enemy1;
 	this.fPlayer = _player;
 	this.fPlayer_walk = _player_walk;
-	this.fFinalPlayer = _finalPlayer;
 	
 }
 

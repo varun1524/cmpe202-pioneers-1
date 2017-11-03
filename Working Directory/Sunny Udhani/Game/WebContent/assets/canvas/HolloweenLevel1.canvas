@@ -170,43 +170,6 @@
                   "height": 1235.7761478424072
                 }
               }
-            },
-            {
-              "type": "spritesheet",
-              "id": "8cb20e40-7333-4691-ba75-bc0ae404190e",
-              "asset": "5",
-              "info": {
-                "editorName": "finalPlayer",
-                "editorPublic": true,
-                "x": 640,
-                "y": 256,
-                "animations": [
-                  {
-                    "name": "walk",
-                    "frameRate": 4,
-                    "loop": true,
-                    "frames": [
-                      "0",
-                      "4"
-                    ]
-                  },
-                  {
-                    "name": "idle",
-                    "frameRate": 5,
-                    "frames": ["0"]
-                  },
-                  {
-                    "name": "jump",
-                    "frameRate": 2,
-                    "loop": true,
-                    "frames": [
-                      "3",
-                      "4"
-                    ]
-                  }
-                ],
-                "body": {"type": "ARCADE_RECT"}
-              }
             }
           ]
         }
@@ -242,12 +205,6 @@
       "file": "WebContent/assets/pack.json",
       "section": "preloader",
       "asset": "player",
-      "sprite": "0"
-    },
-    "5": {
-      "file": "WebContent/assets/pack.json",
-      "section": "level",
-      "asset": "finalPlayer",
       "sprite": "0"
     }
   },

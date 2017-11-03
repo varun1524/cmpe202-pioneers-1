@@ -151,64 +151,6 @@
               }
             },
             {
-              "type": "atlas-sprite",
-              "id": "e190297c-79ab-4d78-8f23-c0f3d6868cf2",
-              "asset": "2",
-              "info": {
-                "editorName": "base",
-                "x": 2,
-                "y": 1028,
-                "scale.x": 4.5
-              }
-            },
-            {
-              "type": "group",
-              "id": "1c48f3d7-16dc-46a3-8328-ea9999c7d0f9",
-              "info": {
-                "editorName": "Enemy",
-                "editorPublic": true,
-                "setAll": [],
-                "children": [
-                  {
-                    "type": "spritesheet",
-                    "id": "65639ccb-24f2-4d44-be4a-f1d759a2d431",
-                    "asset": "3",
-                    "info": {
-                      "editorName": "enemy",
-                      "x": 974,
-                      "y": 738,
-                      "scale.x": 0.23202611126727168,
-                      "scale.y": 0.2426229774533215
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "9c40731f-9f9a-41bc-a0cf-000aba7aa74c",
-                    "asset": "4",
-                    "info": {
-                      "editorName": "enemy1",
-                      "x": 1600,
-                      "y": 753,
-                      "scale.x": 0.22598094249506895,
-                      "scale.y": 0.20995701172455944
-                    }
-                  },
-                  {
-                    "type": "spritesheet",
-                    "id": "2cd2ced7-2521-431b-a7a0-b6e2a5617dee",
-                    "asset": "5",
-                    "info": {
-                      "editorName": "enemy2",
-                      "x": 828,
-                      "y": 512,
-                      "scale.x": 0.19983435357502707,
-                      "scale.y": 0.22658118723411508
-                    }
-                  }
-                ]
-              }
-            },
-            {
               "type": "group",
               "id": "62febd11-03e6-4215-b384-4c1aa755fcbe",
               "info": {
@@ -218,7 +160,7 @@
                   {
                     "type": "atlas-sprite",
                     "id": "04ec51f4-2097-4948-aa83-2de30514a243",
-                    "asset": "6",
+                    "asset": "2",
                     "info": {
                       "editorName": "platform3",
                       "x": 1336,
@@ -230,7 +172,7 @@
                   {
                     "type": "atlas-sprite",
                     "id": "cf6d875b-cbb3-41a1-9c9f-ca7ac79b4497",
-                    "asset": "7",
+                    "asset": "3",
                     "info": {
                       "editorName": "platform2",
                       "x": 1474,
@@ -242,7 +184,7 @@
                   {
                     "type": "atlas-sprite",
                     "id": "dabf609d-d19b-48b8-8eb3-e2cc35de2206",
-                    "asset": "8",
+                    "asset": "4",
                     "info": {
                       "editorName": "platform",
                       "x": 952,
@@ -254,7 +196,7 @@
                   {
                     "type": "atlas-sprite",
                     "id": "28046405-e6b0-45a2-ae11-e45a7965d67c",
-                    "asset": "9",
+                    "asset": "5",
                     "info": {
                       "editorName": "platform1",
                       "x": 386,
@@ -265,8 +207,20 @@
                   },
                   {
                     "type": "atlas-sprite",
+                    "id": "7bc55d9f-1324-4acb-82b6-d80d9991adf8",
+                    "asset": "2",
+                    "info": {
+                      "editorName": "platform5",
+                      "x": 224,
+                      "y": 524,
+                      "scale.x": 0.9402803748608576,
+                      "scale.y": 0.741214580142837
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
                     "id": "e5ab55ff-4980-43c0-a2c7-87085fdd61c0",
-                    "asset": "10",
+                    "asset": "6",
                     "info": {
                       "editorName": "platform4",
                       "x": 644,
@@ -280,14 +234,64 @@
             },
             {
               "type": "atlas-sprite",
-              "id": "7bc55d9f-1324-4acb-82b6-d80d9991adf8",
-              "asset": "6",
+              "id": "e190297c-79ab-4d78-8f23-c0f3d6868cf2",
+              "asset": "7",
               "info": {
-                "editorName": "platform5",
-                "x": 224,
-                "y": 524,
-                "scale.x": 0.9402803748608576,
-                "scale.y": 0.741214580142837
+                "editorName": "base",
+                "x": 2,
+                "y": 1028,
+                "scale.x": 4.5
+              }
+            },
+            {
+              "type": "group",
+              "id": "1c48f3d7-16dc-46a3-8328-ea9999c7d0f9",
+              "info": {
+                "editorName": "Enemy",
+                "editorPublic": true,
+                "physicsGroup": true,
+                "setAll": [],
+                "children": [
+                  {
+                    "type": "spritesheet",
+                    "id": "65639ccb-24f2-4d44-be4a-f1d759a2d431",
+                    "asset": "8",
+                    "info": {
+                      "editorName": "enemy3",
+                      "editorPublic": true,
+                      "x": 974,
+                      "y": 738,
+                      "scale.x": 0.23202611126727168,
+                      "scale.y": 0.2426229774533215
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "9c40731f-9f9a-41bc-a0cf-000aba7aa74c",
+                    "asset": "9",
+                    "info": {
+                      "editorName": "enemy1",
+                      "editorPublic": true,
+                      "x": 1600,
+                      "y": 753,
+                      "scale.x": 0.22598094249506895,
+                      "scale.y": 0.20995701172455944
+                    }
+                  },
+                  {
+                    "type": "spritesheet",
+                    "id": "2cd2ced7-2521-431b-a7a0-b6e2a5617dee",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "enemy2",
+                      "editorPublic": true,
+                      "x": 828,
+                      "y": 512,
+                      "scale.x": 0.19983435357502707,
+                      "scale.y": 0.22658118723411508
+                    }
+                  }
+                ]
               }
             },
             {
@@ -297,8 +301,8 @@
               "info": {
                 "editorName": "player",
                 "editorPublic": true,
-                "x": 979,
-                "y": 177,
+                "x": 1086,
+                "y": 144,
                 "anchor.x": 0.5,
                 "animations": [
                   {
@@ -354,54 +358,54 @@
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "AtlasV1",
-      "sprite": "base1"
-    },
-    "3": {
-      "file": "WebContent/assets/pack.json",
-      "section": "level",
-      "asset": "enemy1",
-      "sprite": "0"
-    },
-    "4": {
-      "file": "WebContent/assets/pack.json",
-      "section": "level",
-      "asset": "enemy2"
-    },
-    "5": {
-      "file": "WebContent/assets/pack.json",
-      "section": "level",
-      "asset": "enemy1",
-      "sprite": "2"
-    },
-    "6": {
-      "file": "WebContent/assets/pack.json",
-      "section": "level",
-      "asset": "AtlasV1",
       "sprite": "platform1"
     },
-    "7": {
+    "3": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "AtlasV1",
       "sprite": "platform6"
     },
-    "8": {
+    "4": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "AtlasV1",
       "sprite": "platform3"
     },
-    "9": {
+    "5": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "AtlasV1",
       "sprite": "platform4"
     },
-    "10": {
+    "6": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "AtlasV1",
       "sprite": "platform5"
+    },
+    "7": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "base1"
+    },
+    "8": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "enemy1",
+      "sprite": "0"
+    },
+    "9": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "enemy2"
+    },
+    "10": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "enemy1",
+      "sprite": "2"
     },
     "11": {
       "file": "WebContent/assets/pack.json",
