@@ -18,7 +18,7 @@
 function HalloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType) {
 	
 	Phaser.Group.call(this, aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType);
-	this.game.add.sprite(-3, -7, 'back3', null, this);
+	this.game.add.sprite(-3, 2, 'back3', null, this);
 	
 	var _collisionLayer = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
@@ -76,12 +76,6 @@ function HalloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysi
 	
 	var _platform4 = this.game.add.sprite(644, 570, 'AtlasV1', 'platform5', _Platform);
 	_platform4.scale.setTo(0.7453131585384848, 0.2869294299309859);
-	
-	var _platform5 = this.game.add.sprite(224, 524, 'AtlasV1', 'platform1', this);
-	_platform5.scale.setTo(0.9402803748608576, 0.741214580142837);
-	
-	var _physics6 = this.game.add.sprite(252, 565, 'AtlasV1', 'physics', this);
-	_physics6.scale.setTo(0.20512006403733743, 1.4265660112167005);
 	
 	
 	

@@ -50,7 +50,7 @@
               "info": {
                 "editorName": "back",
                 "x": -3,
-                "y": -7
+                "y": 2
               }
             },
             {
@@ -280,30 +280,6 @@
                     }
                   }
                 ]
-              }
-            },
-            {
-              "type": "atlas-sprite",
-              "id": "7bc55d9f-1324-4acb-82b6-d80d9991adf8",
-              "asset": "7",
-              "info": {
-                "editorName": "platform5",
-                "x": 224,
-                "y": 524,
-                "scale.x": 0.9402803748608576,
-                "scale.y": 0.741214580142837
-              }
-            },
-            {
-              "type": "atlas-sprite",
-              "id": "f2b43d61-bef4-4952-a75d-848978794e60",
-              "asset": "1",
-              "info": {
-                "editorName": "physics6",
-                "x": 252,
-                "y": 565,
-                "scale.x": 0.20512006403733743,
-                "scale.y": 1.4265660112167005
               }
             }
           ]
