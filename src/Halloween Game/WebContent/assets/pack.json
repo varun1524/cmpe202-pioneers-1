@@ -24,11 +24,6 @@
       "overwrite": false
     },
     {
-      "type": "script",
-      "key": "scene",
-      "url": "assets/canvas/HalloweenLevel1.js"
-    },
-    {
       "type": "spritesheet",
       "key": "enemy1",
       "url": "assets/images/enemy1.png",
@@ -43,10 +38,15 @@
       "key": "enemy2",
       "url": "assets/images/enemy2.png",
       "overwrite": false
+    },
+    {
+      "type": "script",
+      "key": "scene1",
+      "url": "assets/scenes/Scene1.js"
     }
   ],
   "meta": {
-    "generated": "1509506053292",
+    "generated": "1509603160995",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
