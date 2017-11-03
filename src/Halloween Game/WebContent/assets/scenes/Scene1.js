@@ -7,7 +7,7 @@
 
 
 /**
- * HalloweenLevel1.
+ * Scene1.
  * @param {Phaser.Game} aGame A reference to the currently running game.
  * @param {Phaser.Group} aParent The parent Group (or other {@link DisplayObject}) that this group will be added to.    If undefined/unspecified the Group will be added to the {@link Phaser.Game#world Game World}; if null the Group will not be added to any parent.
  * @param {string} aName A name for this group. Not used internally but useful for debugging.
@@ -15,10 +15,10 @@
  * @param {boolean} aEnableBody If true all Sprites created with {@link #create} or {@link #createMulitple} will have a physics body created on them. Change the body type with {@link #physicsBodyType}.
  * @param {number} aPhysicsBodyType The physics body type to use when physics bodies are automatically added. See {@link #physicsBodyType} for values.
  */
-function HalloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType) {
+function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType) {
 	
 	Phaser.Group.call(this, aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType);
-	this.game.add.sprite(-3, -7, 'back3', null, this);
+	var _back = this.game.add.sprite(-3, -7, 'back3', null, this);
 	
 	var _collisionLayer = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
@@ -38,16 +38,14 @@ function HalloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysi
 	var _physics4 = this.game.add.sprite(651, 573, 'AtlasV1', 'physics', _collisionLayer);
 	_physics4.scale.setTo(0.5566666423674048, 0.8971426226631775);
 	
+	var _physics6 = this.game.add.sprite(252, 565, 'AtlasV1', 'physics', _collisionLayer);
+	_physics6.scale.setTo(0.20512006403733743, 1.4265660112167005);
+	
 	var _physics5 = this.game.add.sprite(1351, 581, 'AtlasV1', 'physics', _collisionLayer);
 	_physics5.scale.setTo(0.20373760153654544, 1.767824482287428);
 	
 	var _base = this.game.add.sprite(2, 1028, 'AtlasV1', 'base1', this);
 	_base.scale.setTo(4.5, 1.0);
-	
-	var _player1 = this.game.add.sprite(122, 766, 'player', 0, this);
-	_player1.scale.setTo(0.24, 0.24);
-	this.game.physics.arcade.enable(_player1);
-	_player1.body.setSize(291.1666564941406, 286.5);
 	
 	var _Enemy = this.game.add.group(this);
 	
@@ -80,23 +78,30 @@ function HalloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysi
 	var _platform5 = this.game.add.sprite(224, 524, 'AtlasV1', 'platform1', this);
 	_platform5.scale.setTo(0.9402803748608576, 0.741214580142837);
 	
-	var _physics6 = this.game.add.sprite(252, 565, 'AtlasV1', 'physics', this);
-	_physics6.scale.setTo(0.20512006403733743, 1.4265660112167005);
+	var _player = this.game.add.sprite(979, 177, 'player', 0, this);
+	_player.anchor.setTo(0.5, 0.0);
+	_player.animations.add('walk', [0, 1], 4, true);
+	_player.animations.add('jump', [3], 60, false);
+	_player.animations.add('idle', [0], 60, false);
+	_player.animations.add('attack', [0, 4], 4, false);
+	this.game.physics.arcade.enable(_player);
 	
 	
+	this.position.setTo(0, 5);
 	
 	// public fields
 	
+	this.fBack = _back;
 	this.fCollisionLayer = _collisionLayer;
-	this.fPlayer1 = _player1;
 	this.fEnemy = _Enemy;
+	this.fPlayer = _player;
 	
 }
 
 /** @type Phaser.Group */
-var HalloweenLevel1_proto = Object.create(Phaser.Group.prototype);
-HalloweenLevel1.prototype = HalloweenLevel1_proto;
-HalloweenLevel1.prototype.constructor = HalloweenLevel1;
+var Scene1_proto = Object.create(Phaser.Group.prototype);
+Scene1.prototype = Scene1_proto;
+Scene1.prototype.constructor = Scene1;
 
 /* --- end generated code --- */
 // -- user code here --

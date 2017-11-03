@@ -25,7 +25,7 @@
       "key": "player",
       "url": "assets/images/FinalPlayers6.png",
       "frameWidth": 100,
-      "frameHeight": 110,
+      "frameHeight": 104,
       "frameMax": 6,
       "margin": 0,
       "spacing": 0
@@ -37,7 +37,7 @@
     }
   ],
   "meta": {
-    "generated": "1509524815898",
+    "generated": "1509685190895",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
