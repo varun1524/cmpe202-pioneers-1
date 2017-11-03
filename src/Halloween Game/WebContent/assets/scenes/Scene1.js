@@ -78,7 +78,7 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _platform5 = this.game.add.sprite(224, 524, 'AtlasV1', 'platform1', this);
 	_platform5.scale.setTo(0.9402803748608576, 0.741214580142837);
 	
-	var _player = this.game.add.sprite(979, 177, 'player', 0, this);
+	var _player = this.game.add.sprite(1086, 144, 'player', 0, this);
 	_player.anchor.setTo(0.5, 0.0);
 	_player.animations.add('walk', [0, 1], 4, true);
 	_player.animations.add('jump', [3], 60, false);
@@ -94,6 +94,9 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.fBack = _back;
 	this.fCollisionLayer = _collisionLayer;
 	this.fEnemy = _Enemy;
+	this.fEnemy = _enemy;
+	this.fEnemy1 = _enemy1;
+	this.fEnemy2 = _enemy2;
 	this.fPlayer = _player;
 	
 }
