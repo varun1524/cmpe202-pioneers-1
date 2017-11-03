@@ -22,6 +22,39 @@ function HalloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysi
 	
 	var _collisionLayer = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
+	var _physics = this.game.add.sprite(-6, 1079, 'AtlasV1', 'physics', _collisionLayer);
+	_physics.scale.setTo(4.456137192544979, 0.7764196437227103);
+	
+	var _physics1 = this.game.add.sprite(-3, 237, 'AtlasV1', 'physics', _collisionLayer);
+	_physics1.scale.setTo(0.49281008152683464, 1.670732781544981);
+	
+	var _physics4 = this.game.add.sprite(601, 441, 'AtlasV1', 'physics', _collisionLayer);
+	_physics4.scale.setTo(0.18849615237233974, 1.2235761546826331);
+	
+	var _physics2 = this.game.add.sprite(316, 93, 'AtlasV1', 'physics', _collisionLayer);
+	_physics2.scale.setTo(0.3116707412770432, 1.6707328013190235);
+	
+	var _physics6 = this.game.add.sprite(1089, 165, 'AtlasV1', 'physics', _collisionLayer);
+	_physics6.scale.setTo(0.19574182915200364, 1.670732781544981);
+	
+	var _physics7 = this.game.add.sprite(10, 750, 'AtlasV1', 'physics', _collisionLayer);
+	_physics7.scale.setTo(0.49281008152683464, 1.670732781544981);
+	
+	var _physics5 = this.game.add.sprite(829, 300, 'AtlasV1', 'physics', _collisionLayer);
+	_physics5.scale.setTo(0.18849626112474305, 1.670732781544981);
+	
+	var _physics8 = this.game.add.sprite(701, 813, 'AtlasV1', 'physics', _collisionLayer);
+	_physics8.scale.setTo(0.49281008152683464, 1.670732781544981);
+	
+	var _physics10 = this.game.add.sprite(1555, 754, 'AtlasV1', 'physics', _collisionLayer);
+	_physics10.scale.setTo(0.8188607794941662, 1.670732781544981);
+	
+	var _physics9 = this.game.add.sprite(1157, 973, 'AtlasV1', 'physics', _collisionLayer);
+	_physics9.scale.setTo(0.5870026029879345, 1.670732781544981);
+	
+	var _physics3 = this.game.add.sprite(326, 584, 'AtlasV1', 'physics', _collisionLayer);
+	_physics3.scale.setTo(0.2537062516280532, 1.6707327815690296);
+	
 	var _Enemy = this.game.add.group(this);
 	
 	var _base = this.game.add.sprite(-3, 1075, 'AtlasV1', 'base1', _Enemy);
@@ -69,6 +102,9 @@ function HalloweenLevel1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysi
 	
 	var _platform9 = this.game.add.sprite(-4, 744, 'AtlasV1', 'platform5', _Platform);
 	_platform9.scale.setTo(0.7238157856272961, 0.6963346152326263);
+	
+	var _physics11 = this.game.add.sprite(6, 237, 'AtlasV1', 'physics', this);
+	_physics11.scale.setTo(0.49281008152683464, 1.670732781544981);
 	
 	
 	
