@@ -62,13 +62,14 @@ Level2.prototype.create = function() {
 	this.count = 0;
 	this.collectiblecount = this.add.text(70, 16, '0', { fontSize: '32px', fill: '#FF4500' });
 	this.collectiblecount.fixedToCamera = true;
-//	  tween1 = this.game.add.tween(this.scene.fEnemy1).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
-//	  this.game.add.tween(this.scene.fEnemy2).to({x: 2}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
-//	  this.game.add.tween(this.scene.fEnemy3).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+
+	//	  tween1 = this.game.add.tween(this.scene.fEnemy1).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
+	//	  this.game.add.tween(this.scene.fEnemy2).to({x: 2}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
+	//	  this.game.add.tween(this.scene.fEnemy3).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
 
 	//	this.add.tween(this.scene.fWater.tilePosition).to({
-//		x : 25
-//	}, 2000, "Linear", true, 0, -1, true);
+	//		x : 25
+	//	}, 2000, "Linear", true, 0, -1, true);
 };
 
 Level2.prototype.update = function() {
