@@ -73,7 +73,7 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _enemy2 = this.game.add.sprite(1778, 623, 'enemy1', 1, _Enemy);
 	_enemy2.scale.setTo(0.34534128162048316, 0.3124073528366544);
 	
-	var _enemy5 = this.game.add.sprite(977, 360, 'enemy2', null, _Enemy);
+	var _enemy5 = this.game.add.sprite(1085, 17, 'enemy2', null, _Enemy);
 	_enemy5.scale.setTo(0.41591689614081323, 0.27488343072142035);
 	
 	var _player = this.game.add.sprite(89, 111, 'player', 0, this);
@@ -87,34 +87,34 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	var _collectibles = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
-	var _pumpkin = this.game.add.sprite(630, 366, 'pumpkin', null, _collectibles);
+	var _pumpkin = this.game.add.sprite(632, 383, 'pumpkin', null, _collectibles);
 	_pumpkin.scale.setTo(0.25, 0.25);
 	
 	var _pumpkin1 = this.game.add.sprite(790, 682, 'pumpkin', null, _collectibles);
 	_pumpkin1.scale.setTo(0.25, 0.25);
 	
-	var _pumpkin2 = this.game.add.sprite(847, 189, 'pumpkin', null, _collectibles);
+	var _pumpkin2 = this.game.add.sprite(851, 251, 'pumpkin', null, _collectibles);
 	_pumpkin2.scale.setTo(0.25, 0.25);
 	
-	var _pumpkin3 = this.game.add.sprite(506, 28, 'pumpkin', null, _collectibles);
+	var _pumpkin3 = this.game.add.sprite(514, 72, 'pumpkin', null, _collectibles);
 	_pumpkin3.scale.setTo(0.25, 0.25);
 	
-	var _pumpkin4 = this.game.add.sprite(141, 664, 'pumpkin', null, _collectibles);
+	var _pumpkin4 = this.game.add.sprite(16, 571, 'pumpkin', null, _collectibles);
 	_pumpkin4.scale.setTo(0.25, 0.25);
 	
-	var _pumpkin5 = this.game.add.sprite(352, 495, 'pumpkin', null, _collectibles);
+	var _pumpkin5 = this.game.add.sprite(361, 530, 'pumpkin', null, _collectibles);
 	_pumpkin5.scale.setTo(0.25, 0.25);
 	
 	var _pumpkin6 = this.game.add.sprite(1239, 842, 'pumpkin', null, _collectibles);
 	_pumpkin6.scale.setTo(0.25, 0.25);
 	
-	var _pumpkin7 = this.game.add.sprite(1859, 524, 'pumpkin', null, _collectibles);
+	var _pumpkin7 = this.game.add.sprite(1859, 542, 'pumpkin', null, _collectibles);
 	_pumpkin7.scale.setTo(0.25, 0.25);
 	
-	var _pumpkin8 = this.game.add.sprite(1112, 30, 'pumpkin', null, _collectibles);
+	var _pumpkin8 = this.game.add.sprite(1112, 110, 'pumpkin', null, _collectibles);
 	_pumpkin8.scale.setTo(0.25, 0.25);
 	
-	var _pumpkin9 = this.game.add.sprite(25, 897, 'pumpkin', null, _collectibles);
+	var _pumpkin9 = this.game.add.sprite(18, 876, 'pumpkin', null, _collectibles);
 	_pumpkin9.scale.setTo(0.25, 0.25);
 	
 	var _Platform = this.game.add.group(this);

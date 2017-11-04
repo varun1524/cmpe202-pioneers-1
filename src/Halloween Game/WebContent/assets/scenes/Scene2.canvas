@@ -281,8 +281,8 @@
                     "info": {
                       "editorName": "enemy5",
                       "editorPublic": true,
-                      "x": 977,
-                      "y": 360,
+                      "x": 1085,
+                      "y": 17,
                       "scale.x": 0.41591689614081323,
                       "scale.y": 0.27488343072142035
                     }
@@ -352,8 +352,8 @@
                     "asset": "6",
                     "info": {
                       "editorName": "pumpkin",
-                      "x": 630,
-                      "y": 366,
+                      "x": 632,
+                      "y": 383,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }
@@ -376,8 +376,8 @@
                     "asset": "6",
                     "info": {
                       "editorName": "pumpkin2",
-                      "x": 847,
-                      "y": 189,
+                      "x": 851,
+                      "y": 251,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }
@@ -388,8 +388,8 @@
                     "asset": "6",
                     "info": {
                       "editorName": "pumpkin3",
-                      "x": 506,
-                      "y": 28,
+                      "x": 514,
+                      "y": 72,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }
@@ -400,8 +400,8 @@
                     "asset": "6",
                     "info": {
                       "editorName": "pumpkin4",
-                      "x": 141,
-                      "y": 664,
+                      "x": 16,
+                      "y": 571,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }
@@ -412,8 +412,8 @@
                     "asset": "6",
                     "info": {
                       "editorName": "pumpkin5",
-                      "x": 352,
-                      "y": 495,
+                      "x": 361,
+                      "y": 530,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }
@@ -437,7 +437,7 @@
                     "info": {
                       "editorName": "pumpkin7",
                       "x": 1859,
-                      "y": 524,
+                      "y": 542,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }
@@ -449,7 +449,7 @@
                     "info": {
                       "editorName": "pumpkin8",
                       "x": 1112,
-                      "y": 30,
+                      "y": 110,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }
@@ -460,8 +460,8 @@
                     "asset": "6",
                     "info": {
                       "editorName": "pumpkin9",
-                      "x": 25,
-                      "y": 897,
+                      "x": 18,
+                      "y": 876,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }

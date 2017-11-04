@@ -1,15 +1,20 @@
 
-# Team Member - Vishweshkumar Patel
+# Team Member - Varun Shah
 
-### Lean Core Value - See the whole
+### Lean Core Value - Eliminate waste
 
-* Software systems are not simply the sum of their parts, but also the product of their interactions.
+* Whichever features or functionalities or process steps that neither adds value nor used in project, should be considered waste and eliminated from the system/product/process.
 
-* The larger the system, the more organizations that are involved in its development and the more parts are developed by different teams, 
-  the greater the importance of having well defined relationships between different vendors, in order to produce a system with smoothly interacting components.
+* Lean recognizes 7 types of waste. Which team will make sure to eliminate in further development.
 
-* During a longer period of development, a stronger subcontractor network is far more beneficial than short-term profit optimizing, which does not enable win-win relationships.
+ 1. Partially done work
+ 2. Extra features
+ 3. Relearning
+ 4. Hand-offs
+ 5. Delays
+ 6. Task Switching
+ 7. Defects
 
 Activities related to Project this week :
 
-* Development of Level of game involves creating individual sprite, scaling them according to level's requirements, assigning them required physics. So, Each team memeber took responsibility to handle one task after understanding their responsibility and seeing the whole picture "How the level should be created and integrated".
+* Development of Levels of game involves creating individual sprites, atlas, scaling them according to level's requirements, assigning required physics. For that, team researched and added abundant data that could be used for game development. In this sprint, team finalized the data, added in game and remaining waste eliminated.

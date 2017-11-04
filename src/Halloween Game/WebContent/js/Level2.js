@@ -67,7 +67,8 @@ Level2.prototype.create = function() {
 	this.game.add.tween(this.scene.fEnemy2).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.scene.fEnemy3).to({x: 500}, 3000, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.scene.fEnemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy5).to({y: 500, x: 120}, 3000, 'Sine.easeIn', true, 0 , -1, true);
+	
 
 	//	this.add.tween(this.scene.fWater.tilePosition).to({
 	//		x : 25
@@ -95,10 +96,15 @@ Level2.prototype.update = function() {
 		this.scene.fEnemy2.scale.x = 0.2;
 	}
 	
-//	tween1.add(function(){
-//		  this.scene.fEnemy1.scale.x = -1;
-//	  });
-//	
+	if(this.scene.fEnemy5.x === 2)
+	{
+		this.scene.fEnemy2.scale.y = -0.2;
+	}
+	if(this.scene.fEnemy2.x === 828)
+	{
+		this.scene.fEnemy2.scale.x = 0.2;
+	}
+
 	if (this.cursors.left.isDown) {
 		// move to the left
 		this.scene.fPlayer.body.velocity.x = -200;
