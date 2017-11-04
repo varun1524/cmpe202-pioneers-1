@@ -62,7 +62,7 @@ Level.prototype.create = function() {
 	this.collectiblecount.fixedToCamera = true;
 
 	this.cursors = this.input.keyboard.createCursorKeys();
-	spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+	this.spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 	this.game.add.tween(this.scene.fEnemy1).to({x: 2325}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.scene.fEnemy2).to({x: 800}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
@@ -136,7 +136,9 @@ Level.prototype.update = function() {
 			this.scene.fPlayer.scale.x = 1;
 		}
 
-
+		if(this.spaceKey.isDown){
+			this.scene.fPlayer.play("attack");
+		}
 
 		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fEnemy,
 				this.playerVsEnemies, null, this);
@@ -235,7 +237,7 @@ Level.prototype.doTweenUpdates = function(){
 		this.scene.fEnemy2.scale.x = -0.2;
 
 	}
-	if(this.scene.fEnemy2.x === 1624)
+	if(this.scene.fEnemy2.x === 1739)
 	{
 		this.scene.fEnemy2.scale.x = 0.2;
 

@@ -152,7 +152,7 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _enemy1 = this.game.add.sprite(2621, 965, 'enemy2', null, _Enemy);
 	_enemy1.scale.setTo(-0.22598094249506895, 0.20995701172455944);
 	
-	var _enemy2 = this.game.add.sprite(1624, 801, 'enemy1', 2, _Enemy);
+	var _enemy2 = this.game.add.sprite(1739, 772, 'enemy1', 2, _Enemy);
 	_enemy2.scale.setTo(0.19983435357502707, 0.22658118723411508);
 	
 	var _enemy6 = this.game.add.sprite(1174, 207, 'enemy1', 3, _Enemy);
@@ -169,7 +169,8 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	_player.animations.add('walk', [0, 1], 4, true);
 	_player.animations.add('jump', [3], 60, false);
 	_player.animations.add('idle', [0], 60, false);
-	_player.animations.add('attack', [0, 4], 4, false);
+	_player.animations.add('attack', [4], 4, false);
+	_player.animations.add('die', [5], 60, true);
 	this.game.physics.arcade.enable(_player);
 	
 	var _collectibles = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
@@ -177,8 +178,20 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _pumpkin2 = this.game.add.sprite(730, 413, 'pumpkin', null, _collectibles);
 	_pumpkin2.scale.setTo(0.4, 0.4);
 	
-	var _pumpkin1 = this.game.add.sprite(275, 291, 'pumpkin', null, _collectibles);
+	var _pumpkin1 = this.game.add.sprite(307, 209, 'pumpkin', null, _collectibles);
 	_pumpkin1.scale.setTo(0.4, 0.4);
+	
+	var _pumpkin6 = this.game.add.sprite(1040, 639, 'pumpkin', null, _collectibles);
+	_pumpkin6.scale.setTo(0.4, 0.4);
+	
+	var _pumpkin3 = this.game.add.sprite(829, 109, 'pumpkin', null, _collectibles);
+	_pumpkin3.scale.setTo(0.4, 0.4);
+	
+	var _pumpkin4 = this.game.add.sprite(947, 915, 'pumpkin', null, _collectibles);
+	_pumpkin4.scale.setTo(0.4, 0.4);
+	
+	var _pumpkin5 = this.game.add.sprite(1624, 671, 'pumpkin', null, _collectibles);
+	_pumpkin5.scale.setTo(0.4, 0.4);
 	
 	var _pumpkinscore = this.game.add.sprite(11, 8, 'pumpkin', null, this);
 	_pumpkinscore.scale.setTo(0.23499998166427466, 0.20500000684078973);

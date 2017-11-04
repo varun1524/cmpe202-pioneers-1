@@ -589,8 +589,8 @@
                     "info": {
                       "editorName": "enemy2",
                       "editorPublic": true,
-                      "x": 1624,
-                      "y": 801,
+                      "x": 1739,
+                      "y": 772,
                       "scale.x": 0.19983435357502707,
                       "scale.y": 0.22658118723411508
                     }
@@ -670,10 +670,13 @@
                   {
                     "name": "attack",
                     "frameRate": 4,
-                    "frames": [
-                      "0",
-                      "4"
-                    ]
+                    "frames": ["4"]
+                  },
+                  {
+                    "name": "die",
+                    "frameRate": 60,
+                    "loop": true,
+                    "frames": ["5"]
                   }
                 ],
                 "body": {"type": "ARCADE_RECT"}
@@ -706,8 +709,56 @@
                     "asset": "14",
                     "info": {
                       "editorName": "pumpkin1",
-                      "x": 275,
-                      "y": 291,
+                      "x": 307,
+                      "y": 209,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "a032fe2e-48fe-4e3d-93ad-3b3cefc331f4",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin6",
+                      "x": 1040,
+                      "y": 639,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "7cdfafdd-5399-43f1-8c7a-8b0c5602e656",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin3",
+                      "x": 829,
+                      "y": 109,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "036c2dba-9461-4a46-98f6-08de46091ca9",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin4",
+                      "x": 947,
+                      "y": 915,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "1ae53d51-7691-4cff-984b-93c157c4bb40",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin5",
+                      "x": 1624,
+                      "y": 671,
                       "scale.x": 0.4,
                       "scale.y": 0.4
                     }
