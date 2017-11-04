@@ -1,7 +1,7 @@
 {
   "canvas-version": 2,
   "settings": {
-    "className": "HalloweenLevel1",
+    "className": "Scene2",
     "sceneWidth": 1920,
     "sceneHeight": 1080,
     "generateOnSave": true,
@@ -26,6 +26,7 @@
       0,
       0
     ],
+    "autoLoad": true,
     "preloadSpriteId": "",
     "preloadSprite_direction": 0,
     "load.pack": []
@@ -106,8 +107,8 @@
                     "asset": "1",
                     "info": {
                       "editorName": "physics2",
-                      "x": 316,
-                      "y": 93,
+                      "x": 473,
+                      "y": 128,
                       "scale.x": 0.3116707412770432,
                       "scale.y": 1.6707328013190235
                     }
@@ -186,6 +187,18 @@
                   },
                   {
                     "type": "atlas-sprite",
+                    "id": "787e0f99-96fd-4dd1-97e0-dff096ad8388",
+                    "asset": "1",
+                    "info": {
+                      "editorName": "physics11",
+                      "x": 12,
+                      "y": 236,
+                      "scale.x": 0.49281008152683464,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
                     "id": "c17938f2-1fb9-4c9e-8d16-755ee637cacf",
                     "asset": "1",
                     "info": {
@@ -205,35 +218,14 @@
               "info": {
                 "editorName": "Enemy",
                 "editorPublic": true,
+                "renderable": false,
+                "physicsGroup": true,
                 "setAll": [],
                 "children": [
                   {
-                    "type": "atlas-sprite",
-                    "id": "261aaed0-c1b1-4fb9-bc3e-7c3cbb03827f",
-                    "asset": "2",
-                    "info": {
-                      "editorName": "base",
-                      "x": -3,
-                      "y": 1075,
-                      "scale.x": 4.777959578800121
-                    }
-                  },
-                  {
-                    "type": "spritesheet",
-                    "id": "dd535e93-e690-49f3-a93a-c7e26f8d1d0b",
-                    "asset": "3",
-                    "info": {
-                      "editorName": "player",
-                      "x": 89,
-                      "y": 111,
-                      "scale.x": 0.3033105544663647,
-                      "scale.y": 0.30675095132684504
-                    }
-                  },
-                  {
                     "type": "spritesheet",
                     "id": "89d9fed6-563f-4ff0-ac79-a3133ed58629",
-                    "asset": "4",
+                    "asset": "2",
                     "info": {
                       "editorName": "enemy",
                       "x": 22,
@@ -245,7 +237,7 @@
                   {
                     "type": "image",
                     "id": "8302c204-9938-4ad6-8ede-f9c424d359b7",
-                    "asset": "5",
+                    "asset": "3",
                     "info": {
                       "editorName": "enemy1",
                       "x": 790,
@@ -257,7 +249,7 @@
                   {
                     "type": "spritesheet",
                     "id": "3fa584ca-28f4-40d6-876e-223be435c098",
-                    "asset": "6",
+                    "asset": "4",
                     "info": {
                       "editorName": "enemy3",
                       "x": 835,
@@ -269,13 +261,161 @@
                   {
                     "type": "spritesheet",
                     "id": "b532510c-c191-4921-a482-18384083d945",
-                    "asset": "6",
+                    "asset": "4",
                     "info": {
                       "editorName": "enemy2",
                       "x": 1778,
                       "y": 623,
                       "scale.x": 0.34534128162048316,
                       "scale.y": 0.3124073528366544
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "spritesheet",
+              "id": "dd535e93-e690-49f3-a93a-c7e26f8d1d0b",
+              "asset": "5",
+              "info": {
+                "editorName": "player",
+                "editorPublic": true,
+                "x": 89,
+                "y": 111,
+                "anchor.x": 0.5,
+                "animations": [
+                  {
+                    "name": "walk",
+                    "frameRate": 4,
+                    "frames": [
+                      "0",
+                      "1"
+                    ]
+                  },
+                  {
+                    "name": "jump",
+                    "frameRate": 3,
+                    "frames": ["3"]
+                  },
+                  {
+                    "name": "idle",
+                    "frameRate": 60,
+                    "frames": ["0"]
+                  },
+                  {
+                    "name": "attack",
+                    "frameRate": 4,
+                    "frames": [
+                      "4",
+                      "0"
+                    ]
+                  }
+                ],
+                "body": {"type": "ARCADE_RECT"}
+              }
+            },
+            {
+              "type": "group",
+              "id": "d9f2f3ae-15eb-4324-99ca-59e4337480be",
+              "info": {
+                "editorName": "collectibles",
+                "editorPublic": true,
+                "setAll": [],
+                "children": [
+                  {
+                    "type": "image",
+                    "id": "0b559f7d-a835-4d29-9053-33ad8189eec1",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin",
+                      "x": 623,
+                      "y": 287,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "467848aa-fce8-4ab8-ae57-94f4355e0d75",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin1",
+                      "x": 790,
+                      "y": 682,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "b075af76-acb5-42b6-a318-9990628035ca",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin2",
+                      "x": 847,
+                      "y": 189,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "622b7b83-127c-46d3-8892-c5061c7e21a1",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin3",
+                      "x": 506,
+                      "y": 28,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "882e74d1-f893-4f46-a931-efcc8ce68188",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin4",
+                      "x": 141,
+                      "y": 664,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "284a4922-1cfd-4dab-9c5a-a54be88f848d",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin5",
+                      "x": 352,
+                      "y": 495,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "ebc87181-1886-4c31-961f-43f4e206afca",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin6",
+                      "x": 1239,
+                      "y": 842,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "2f7e4728-c5cc-435b-a45b-76b85a25c521",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin7",
+                      "x": 1859,
+                      "y": 524,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
                     }
                   }
                 ]
@@ -306,8 +446,8 @@
                     "asset": "8",
                     "info": {
                       "editorName": "platform1",
-                      "x": 329,
-                      "y": 84,
+                      "x": 473,
+                      "y": 126,
                       "scale.x": 0.2605838660206705,
                       "scale.y": 0.42728032672455085
                     }
@@ -390,6 +530,17 @@
                   },
                   {
                     "type": "atlas-sprite",
+                    "id": "261aaed0-c1b1-4fb9-bc3e-7c3cbb03827f",
+                    "asset": "13",
+                    "info": {
+                      "editorName": "base",
+                      "x": -3,
+                      "y": 1075,
+                      "scale.x": 4.777959578800121
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
                     "id": "b87ff131-0142-467d-91d5-9442da66a161",
                     "asset": "10",
                     "info": {
@@ -401,18 +552,6 @@
                     }
                   }
                 ]
-              }
-            },
-            {
-              "type": "atlas-sprite",
-              "id": "787e0f99-96fd-4dd1-97e0-dff096ad8388",
-              "asset": "1",
-              "info": {
-                "editorName": "physics11",
-                "x": 6,
-                "y": 237,
-                "scale.x": 0.49281008152683464,
-                "scale.y": 1.670732781544981
               }
             }
           ]
@@ -436,31 +575,30 @@
     "2": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "AtlasV1",
-      "sprite": "base1"
+      "asset": "enemy1",
+      "sprite": "0"
     },
     "3": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "player",
-      "sprite": "0"
+      "asset": "enemy2"
     },
     "4": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "enemy1",
-      "sprite": "0"
+      "sprite": "1"
     },
     "5": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "enemy2"
+      "asset": "player",
+      "sprite": "0"
     },
     "6": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "enemy1",
-      "sprite": "1"
+      "asset": "pumpkin"
     },
     "7": {
       "file": "WebContent/assets/pack.json",
@@ -497,6 +635,12 @@
       "section": "level",
       "asset": "AtlasV1",
       "sprite": "platform1"
+    },
+    "13": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "base1"
     }
   },
   "prefab-table": {}
