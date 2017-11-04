@@ -167,8 +167,8 @@
                     "asset": "1",
                     "info": {
                       "editorName": "physics10",
-                      "x": 1555,
-                      "y": 754,
+                      "x": 1566,
+                      "y": 753,
                       "scale.x": 0.8188607794941662,
                       "scale.y": 1.670732781544981
                     }
@@ -320,6 +320,7 @@
               "info": {
                 "editorName": "collectibles",
                 "editorPublic": true,
+                "physicsGroup": true,
                 "setAll": [],
                 "children": [
                   {
@@ -414,6 +415,30 @@
                       "editorName": "pumpkin7",
                       "x": 1859,
                       "y": 524,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "b577a253-ab10-417e-ae39-62e0db1a4c30",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin8",
+                      "x": 1112,
+                      "y": 30,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "cb187980-1b51-4fa9-a713-34da155870bd",
+                    "asset": "6",
+                    "info": {
+                      "editorName": "pumpkin9",
+                      "x": 25,
+                      "y": 897,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }

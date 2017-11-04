@@ -55,6 +55,9 @@ Level2.prototype.create = function() {
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	
+	this.scene.fCollectibles.setAll("body.allowGravity", false);
+	this.scene.fCollectibles.setAll("anchor.x", 0.5);
+	this.scene.fCollectibles.setAll("anchor.y", 0.5);
 
 //	  tween1 = this.game.add.tween(this.scene.fEnemy1).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
 //	  this.game.add.tween(this.scene.fEnemy2).to({x: 2}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
@@ -136,10 +139,11 @@ Level2.prototype.update = function() {
 	if(this.spaceKey.isDown){
 		this.scene.fPlayer.play("attack");
 	}
-	
-	// catch when the player overlaps with a fruit
-	//this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fFruits,
-	//		this.playerVsFruit, null, this);
+
+	//catch when the player overlaps with a pumpkin
+	this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fCollectibles,
+			this.playerVsCollectibles, null, this);
+
 };
 
 /**
@@ -147,20 +151,20 @@ Level2.prototype.update = function() {
  *            player
  * @param {Phaser.Sprite}
  *            fruit
- *//*
-Level2.prototype.playerVsFruit = function(player, fruit) {
-	fruit.body.enable = false;
+ */
+Level2.prototype.playerVsCollectibles = function(player, collectible) {
+	collectible.body.enable = false;
 	
-	this.add.tween(fruit).to({
-		y : fruit.y - 50
+	this.add.tween(collectible).to({
+		y : collectible.y - 50
 	}, 1000, "Expo.easeOut", true);
 	
-	this.add.tween(fruit.scale).to({
+	this.add.tween(collectible.scale).to({
 		x : 2,
 		y : 2
 	}, 1000, "Linear", true);
 
-	this.add.tween(fruit).to({
+	this.add.tween(collectible).to({
 		alpha : 0.2
-	}, 1000, "Linear", true).onComplete.add(fruit.kill, fruit);
-};*/
+	}, 1000, "Linear", true).onComplete.add(collectible.kill, collectible);
+};
