@@ -91,7 +91,7 @@ Level.prototype.update = function() {
 	else{
 		// collide the player with the platforms
 		this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
-		
+
 
 		this.doTweenUpdates();
 

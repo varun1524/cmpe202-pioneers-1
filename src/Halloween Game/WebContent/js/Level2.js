@@ -33,19 +33,19 @@ Level2.prototype.create = function() {
 
 	this.scene = new Scene2(this.game);
 
-	
+
 	this.playerdied = false;
 	// camera
 	this.camera.follow(this.scene.fPlayer, Phaser.Camera.FOLLOW_PLATFORMER);
 
 	// background
 //	this.scene.fBack.fixedToCamera = true;
-	
+
 	// set the physics properties of the collision sprites
 	this.scene.fCollisionLayer.setAll("body.immovable", true);
 	this.scene.fCollisionLayer.setAll("body.allowGravity", false);
 	this.scene.fEnemy.setAll("body.allowGravity", false);
-	
+
 	// hide all objects of the collision layer
 	this.scene.fCollisionLayer.setAll("renderable", false);
 	this.scene.fCollisionLayer.setAll("body.checkCollision.left", false);
@@ -54,7 +54,7 @@ Level2.prototype.create = function() {
 
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-	
+
 	this.scene.fCollectibles.setAll("body.allowGravity", false);
 	this.scene.fCollectibles.setAll("anchor.x", 0.5);
 	this.scene.fCollectibles.setAll("anchor.y", 0.5);
@@ -68,7 +68,7 @@ Level2.prototype.create = function() {
 	this.game.add.tween(this.scene.fEnemy3).to({x: 500}, 3000, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.scene.fEnemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.scene.fEnemy5).to({y: 500, x: 120}, 3000, 'Sine.easeIn', true, 0 , -1, true);
-	
+
 
 	//	this.add.tween(this.scene.fWater.tilePosition).to({
 	//		x : 25
@@ -83,79 +83,79 @@ Level2.prototype.update = function() {
 		this.scene.fPlayer.body.velocity.x = 0;
 	}
 	else{
-	
-	// collide the player with the platforms
-	this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
-	
-	if(this.scene.fEnemy2.x === 2)
-	{
-		this.scene.fEnemy2.scale.x = -0.2;
-	}
-	if(this.scene.fEnemy2.x === 828)
-	{
-		this.scene.fEnemy2.scale.x = 0.2;
-	}
-	
-	if(this.scene.fEnemy5.x === 2)
-	{
-		this.scene.fEnemy2.scale.y = -0.2;
-	}
-	if(this.scene.fEnemy2.x === 828)
-	{
-		this.scene.fEnemy2.scale.x = 0.2;
-	}
 
-	if (this.cursors.left.isDown) {
-		// move to the left
-		this.scene.fPlayer.body.velocity.x = -200;
-	} else if (this.cursors.right.isDown) {
-		// move to the right
-		this.scene.fPlayer.body.velocity.x = 200;
-	} else {
-		// dont move in the horizontal
-		this.scene.fPlayer.body.velocity.x = 0;
-	}
+		// collide the player with the platforms
+		this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
 
-	// a flag to know if the player is (down) touching the platforms
-	var touching = this.scene.fPlayer.body.touching.down;
-
-	if (touching && this.cursors.up.isDown) {
-		// jump if the player is on top of a platform and the up key is pressed
-		this.scene.fPlayer.body.velocity.y = -700;
-	}
-
-	if (touching) {
-		if (this.scene.fPlayer.body.velocity.x == 0) {
-			// if it is not moving horizontally play the idle
-			this.scene.fPlayer.play("idle");
-		} else {
-			// if it is moving play the walk
-			this.scene.fPlayer.play("walk");
+		if(this.scene.fEnemy2.x === 2)
+		{
+			this.scene.fEnemy2.scale.x = -0.2;
 		}
-	} else {
-		// it is not touching the platforms so it means it is jumping.
-		this.scene.fPlayer.play("jump");
-	}
+		if(this.scene.fEnemy2.x === 828)
+		{
+			this.scene.fEnemy2.scale.x = 0.2;
+		}
 
-	// update the facing of the player
-	if (this.cursors.left.isDown) {
-		// face left
-		this.scene.fPlayer.scale.x = -1;
-	} else if (this.cursors.right.isDown) {
-		// face right
-		this.scene.fPlayer.scale.x = 1;
-	}
-	
-	if(this.spaceKey.isDown){
-		this.scene.fPlayer.play("attack");
-	}
+		if(this.scene.fEnemy5.x === 2)
+		{
+			this.scene.fEnemy2.scale.y = -0.2;
+		}
+		if(this.scene.fEnemy2.x === 828)
+		{
+			this.scene.fEnemy2.scale.x = 0.2;
+		}
 
-	//catch when the player overlaps with a pumpkin
-	this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fCollectibles,
-			this.playerVsCollectibles, null, this);
-	
-	this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fEnemy,
-			this.playerVsEnemies, null, this);
+		if (this.cursors.left.isDown) {
+			// move to the left
+			this.scene.fPlayer.body.velocity.x = -200;
+		} else if (this.cursors.right.isDown) {
+			// move to the right
+			this.scene.fPlayer.body.velocity.x = 200;
+		} else {
+			// dont move in the horizontal
+			this.scene.fPlayer.body.velocity.x = 0;
+		}
+
+		// a flag to know if the player is (down) touching the platforms
+		var touching = this.scene.fPlayer.body.touching.down;
+
+		if (touching && this.cursors.up.isDown) {
+			// jump if the player is on top of a platform and the up key is pressed
+			this.scene.fPlayer.body.velocity.y = -700;
+		}
+
+		if (touching) {
+			if (this.scene.fPlayer.body.velocity.x == 0) {
+				// if it is not moving horizontally play the idle
+				this.scene.fPlayer.play("idle");
+			} else {
+				// if it is moving play the walk
+				this.scene.fPlayer.play("walk");
+			}
+		} else {
+			// it is not touching the platforms so it means it is jumping.
+			this.scene.fPlayer.play("jump");
+		}
+
+		// update the facing of the player
+		if (this.cursors.left.isDown) {
+			// face left
+			this.scene.fPlayer.scale.x = -1;
+		} else if (this.cursors.right.isDown) {
+			// face right
+			this.scene.fPlayer.scale.x = 1;
+		}
+
+		if(this.spaceKey.isDown){
+			this.scene.fPlayer.play("attack");
+		}
+
+		//catch when the player overlaps with a pumpkin
+		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fCollectibles,
+				this.playerVsCollectibles, null, this);
+
+		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fEnemy,
+				this.playerVsEnemies, null, this);
 	}
 };
 
@@ -167,11 +167,11 @@ Level2.prototype.update = function() {
  */
 Level2.prototype.playerVsCollectibles = function(player, collectible) {
 	collectible.body.enable = false;
-	
+
 	this.add.tween(collectible).to({
 		y : collectible.y - 50
 	}, 1000, "Expo.easeOut", true);
-	
+
 	this.add.tween(collectible.scale).to({
 		x : 2,
 		y : 2
@@ -180,7 +180,7 @@ Level2.prototype.playerVsCollectibles = function(player, collectible) {
 	this.add.tween(collectible).to({
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(collectible.kill, collectible);
-	
+
 	this.count++;
 	this.collectiblecount.text = this.count;
 };
@@ -188,11 +188,11 @@ Level2.prototype.playerVsCollectibles = function(player, collectible) {
 Level2.prototype.playerVsEnemies = function(player, enemies) {
 	enemies.body.enable = false;
 	this.playerdied = true;
-	
+
 	this.add.tween(enemies).to({
 		y : enemies.y - 50
 	}, 1000, "Expo.easeOut", true);
-	
+
 	this.add.tween(enemies.scale).to({
 		x : 2,
 		y : 2
@@ -201,5 +201,5 @@ Level2.prototype.playerVsEnemies = function(player, enemies) {
 	this.add.tween(enemies).to({
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(enemies.kill, enemies);
-	
+
 };
