@@ -10,7 +10,7 @@ function Level() {
 var proto = Object.create(Phaser.State.prototype);
 Level.prototype = proto;
 Level.prototype.constructor = Level;
-
+var tween1 = null;
 Level.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -27,7 +27,7 @@ Level.prototype.init = function() {
 
 Level.prototype.preload = function() {
 
-	this.load.pack("level", "assets/assets-pack.json");
+	this.load.pack("level", "assets/pack.json");
 
 };
 
@@ -39,11 +39,13 @@ Level.prototype.create = function() {
 	this.camera.follow(this.scene.fPlayer, Phaser.Camera.FOLLOW_PLATFORMER);
 
 	// background
-	this.scene.fBG.fixedToCamera = true;
+//	this.scene.fBack.fixedToCamera = true;
 	
 	// set the physics properties of the collision sprites
 	this.scene.fCollisionLayer.setAll("body.immovable", true);
 	this.scene.fCollisionLayer.setAll("body.allowGravity", false);
+	this.scene.fEnemy.setAll("body.allowGravity", false);
+	
 	// hide all objects of the collision layer
 	this.scene.fCollisionLayer.setAll("renderable", false);
 	this.scene.fCollisionLayer.setAll("body.checkCollision.left", false);
@@ -51,23 +53,46 @@ Level.prototype.create = function() {
 	this.scene.fCollisionLayer.setAll("body.checkCollision.down", false);
 
 	this.cursors = this.input.keyboard.createCursorKeys();
+	spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+	
 
+	  tween1 = this.game.add.tween(this.scene.fEnemy1).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
+	  this.game.add.tween(this.scene.fEnemy2).to({x: 2}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
+	  this.game.add.tween(this.scene.fEnemy3).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+	  
+	
+	  
 	// to keep the fruits in the air
-	this.scene.fFruits.setAll("body.allowGravity", false);
-	this.scene.fFruits.setAll("anchor.x", 0.5);
-	this.scene.fFruits.setAll("anchor.y", 0.5);
+//	this.scene.fFruits.setAll("body.allowGravity", false);
+//	this.scene.fFruits.setAll("anchor.x", 0.5);
+//	this.scene.fFruits.setAll("anchor.y", 0.5);
 	
 	// water
-	this.add.tween(this.scene.fWater.tilePosition).to({
-		x : 25
-	}, 2000, "Linear", true, 0, -1, true);
+//	this.add.tween(this.scene.fWater.tilePosition).to({
+//		x : 25
+//	}, 2000, "Linear", true, 0, -1, true);
 };
 
 Level.prototype.update = function() {
 
 	// collide the player with the platforms
 	this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
-
+	this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
+	
+	if(this.scene.fEnemy2.x === 2)
+	{
+		this.scene.fEnemy2.scale.x = -0.2;
+		
+	}
+	if(this.scene.fEnemy2.x === 828)
+	{
+		this.scene.fEnemy2.scale.x = 0.2;
+		
+	}
+//	tween1.add(function(){
+//		  this.scene.fEnemy1.scale.x = -1;
+//	  });
+//	
 	if (this.cursors.left.isDown) {
 		// move to the left
 		this.scene.fPlayer.body.velocity.x = -200;
@@ -108,10 +133,11 @@ Level.prototype.update = function() {
 		// face right
 		this.scene.fPlayer.scale.x = 1;
 	}
+	
 
 	// catch when the player overlaps with a fruit
-	this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fFruits,
-			this.playerVsFruit, null, this);
+	//this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fFruits,
+	//		this.playerVsFruit, null, this);
 };
 
 /**
@@ -119,7 +145,7 @@ Level.prototype.update = function() {
  *            player
  * @param {Phaser.Sprite}
  *            fruit
- */
+ *//*
 Level.prototype.playerVsFruit = function(player, fruit) {
 	fruit.body.enable = false;
 	
@@ -135,4 +161,4 @@ Level.prototype.playerVsFruit = function(player, fruit) {
 	this.add.tween(fruit).to({
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(fruit.kill, fruit);
-};
+};*/
