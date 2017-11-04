@@ -61,17 +61,20 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _Enemy = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	_Enemy.renderable = false;
 	
-	var _enemy = this.game.add.sprite(22, 645, 'enemy1', 0, _Enemy);
-	_enemy.scale.setTo(0.32488351978865954, 0.2508318903325017);
+	var _enemy4 = this.game.add.sprite(22, 645, 'enemy1', 0, _Enemy);
+	_enemy4.scale.setTo(0.32488351978865954, 0.2508318903325017);
 	
-	var _enemy1 = this.game.add.sprite(790, 389, 'enemy2', null, _Enemy);
+	var _enemy1 = this.game.add.sprite(400, 346, 'enemy2', null, _Enemy);
 	_enemy1.scale.setTo(0.41591689614081323, 0.27488343072142035);
 	
-	var _enemy3 = this.game.add.sprite(835, 698, 'enemy1', 1, _Enemy);
+	var _enemy3 = this.game.add.sprite(1050, 684, 'enemy1', 1, _Enemy);
 	_enemy3.scale.setTo(0.34534128162048316, 0.3124073528366544);
 	
 	var _enemy2 = this.game.add.sprite(1778, 623, 'enemy1', 1, _Enemy);
 	_enemy2.scale.setTo(0.34534128162048316, 0.3124073528366544);
+	
+	var _enemy5 = this.game.add.sprite(977, 360, 'enemy2', null, _Enemy);
+	_enemy5.scale.setTo(0.41591689614081323, 0.27488343072142035);
 	
 	var _player = this.game.add.sprite(89, 111, 'player', 0, this);
 	_player.anchor.setTo(0.5, 0.0);
@@ -79,11 +82,12 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	_player.animations.add('jump', [3], 3, false);
 	_player.animations.add('idle', [0], 60, false);
 	_player.animations.add('attack', [4, 0], 4, false);
+	_player.animations.add('die', [5], 1, true);
 	this.game.physics.arcade.enable(_player);
 	
 	var _collectibles = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
-	var _pumpkin = this.game.add.sprite(623, 287, 'pumpkin', null, _collectibles);
+	var _pumpkin = this.game.add.sprite(630, 366, 'pumpkin', null, _collectibles);
 	_pumpkin.scale.setTo(0.25, 0.25);
 	
 	var _pumpkin1 = this.game.add.sprite(790, 682, 'pumpkin', null, _collectibles);
@@ -154,6 +158,11 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	this.fCollisionLayer = _collisionLayer;
 	this.fEnemy = _Enemy;
+	this.fEnemy4 = _enemy4;
+	this.fEnemy1 = _enemy1;
+	this.fEnemy3 = _enemy3;
+	this.fEnemy2 = _enemy2;
+	this.fEnemy5 = _enemy5;
 	this.fPlayer = _player;
 	this.fCollectibles = _collectibles;
 	this.fPumpkinscore = _pumpkinscore;

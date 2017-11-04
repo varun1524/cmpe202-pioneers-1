@@ -26,15 +26,15 @@ Level2.prototype.init = function() {
 };
 
 Level2.prototype.preload = function() {
-
 	this.load.pack("level", "assets/pack.json");
-
 };
 
 Level2.prototype.create = function() {
 
 	this.scene = new Scene2(this.game);
 
+	
+	this.playerdied = false;
 	// camera
 	this.camera.follow(this.scene.fPlayer, Phaser.Camera.FOLLOW_PLATFORMER);
 
@@ -63,9 +63,11 @@ Level2.prototype.create = function() {
 	this.collectiblecount = this.add.text(70, 16, '0', { fontSize: '32px', fill: '#FF4500' });
 	this.collectiblecount.fixedToCamera = true;
 
-	//	  tween1 = this.game.add.tween(this.scene.fEnemy1).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
-	//	  this.game.add.tween(this.scene.fEnemy2).to({x: 2}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
-	//	  this.game.add.tween(this.scene.fEnemy3).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+	tween1 = this.game.add.tween(this.scene.fEnemy1).to({x: 750}, 2400, 'Sine.easeInOut', true, 0 , -1, true); 
+	this.game.add.tween(this.scene.fEnemy2).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy3).to({x: 500}, 3000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
 
 	//	this.add.tween(this.scene.fWater.tilePosition).to({
 	//		x : 25
@@ -74,19 +76,25 @@ Level2.prototype.create = function() {
 
 Level2.prototype.update = function() {
 
+	if(this.playerdied){
+		console.log("Died");
+		this.scene.fPlayer.play("die");
+		this.scene.fPlayer.body.velocity.x = 0;
+	}
+	else{
+	
 	// collide the player with the platforms
 	this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
 	
-//	if(this.scene.fEnemy2.x === 2)
-//	{
-//		this.scene.fEnemy2.scale.x = -0.2;
-//		
-//	}
-//	if(this.scene.fEnemy2.x === 828)
-//	{
-//		this.scene.fEnemy2.scale.x = 0.2;
-//		
-//	}
+	if(this.scene.fEnemy2.x === 2)
+	{
+		this.scene.fEnemy2.scale.x = -0.2;
+	}
+	if(this.scene.fEnemy2.x === 828)
+	{
+		this.scene.fEnemy2.scale.x = 0.2;
+	}
+	
 //	tween1.add(function(){
 //		  this.scene.fEnemy1.scale.x = -1;
 //	  });
@@ -139,7 +147,10 @@ Level2.prototype.update = function() {
 	//catch when the player overlaps with a pumpkin
 	this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fCollectibles,
 			this.playerVsCollectibles, null, this);
-
+	
+	this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fEnemy,
+			this.playerVsEnemies, null, this);
+	}
 };
 
 /**
@@ -163,6 +174,26 @@ Level2.prototype.playerVsCollectibles = function(player, collectible) {
 	this.add.tween(collectible).to({
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(collectible.kill, collectible);
+	
 	this.count++;
 	this.collectiblecount.text = this.count;
+};
+
+Level2.prototype.playerVsEnemies = function(player, enemies) {
+	enemies.body.enable = false;
+	this.playerdied = true;
+	
+	this.add.tween(enemies).to({
+		y : enemies.y - 50
+	}, 1000, "Expo.easeOut", true);
+	
+	this.add.tween(enemies.scale).to({
+		x : 2,
+		y : 2
+	}, 1000, "Linear", true);
+
+	this.add.tween(enemies).to({
+		alpha : 0.2
+	}, 1000, "Linear", true).onComplete.add(enemies.kill, enemies);
+	
 };

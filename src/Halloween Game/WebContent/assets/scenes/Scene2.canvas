@@ -227,7 +227,8 @@
                     "id": "89d9fed6-563f-4ff0-ac79-a3133ed58629",
                     "asset": "2",
                     "info": {
-                      "editorName": "enemy",
+                      "editorName": "enemy4",
+                      "editorPublic": true,
                       "x": 22,
                       "y": 645,
                       "scale.x": 0.32488351978865954,
@@ -240,8 +241,9 @@
                     "asset": "3",
                     "info": {
                       "editorName": "enemy1",
-                      "x": 790,
-                      "y": 389,
+                      "editorPublic": true,
+                      "x": 400,
+                      "y": 346,
                       "scale.x": 0.41591689614081323,
                       "scale.y": 0.27488343072142035
                     }
@@ -252,8 +254,9 @@
                     "asset": "4",
                     "info": {
                       "editorName": "enemy3",
-                      "x": 835,
-                      "y": 698,
+                      "editorPublic": true,
+                      "x": 1050,
+                      "y": 684,
                       "scale.x": 0.34534128162048316,
                       "scale.y": 0.3124073528366544
                     }
@@ -264,10 +267,24 @@
                     "asset": "4",
                     "info": {
                       "editorName": "enemy2",
+                      "editorPublic": true,
                       "x": 1778,
                       "y": 623,
                       "scale.x": 0.34534128162048316,
                       "scale.y": 0.3124073528366544
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "b68d1b94-4933-4d90-b85c-b85c6e9e4fa0",
+                    "asset": "3",
+                    "info": {
+                      "editorName": "enemy5",
+                      "editorPublic": true,
+                      "x": 977,
+                      "y": 360,
+                      "scale.x": 0.41591689614081323,
+                      "scale.y": 0.27488343072142035
                     }
                   }
                 ]
@@ -309,6 +326,12 @@
                       "4",
                       "0"
                     ]
+                  },
+                  {
+                    "name": "die",
+                    "frameRate": 1,
+                    "loop": true,
+                    "frames": ["5"]
                   }
                 ],
                 "body": {"type": "ARCADE_RECT"}
@@ -329,8 +352,8 @@
                     "asset": "6",
                     "info": {
                       "editorName": "pumpkin",
-                      "x": 623,
-                      "y": 287,
+                      "x": 630,
+                      "y": 366,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }
