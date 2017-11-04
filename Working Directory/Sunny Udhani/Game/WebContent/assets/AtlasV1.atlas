@@ -1,12 +1,14 @@
 {
   "version": 2,
   "files": [
+    "WebContent/assets/images/base1.png",
     "WebContent/assets/images/physics.png",
-    "WebContent/assets/images/Enemy.jpg",
-    "WebContent/assets/images/Enemy1.jpg",
-    "WebContent/assets/images/Enemy2.png",
-    "WebContent/assets/images/enemy4.png",
-    "WebContent/assets/images/Coins.jpg"
+    "WebContent/assets/images/platform1.png",
+    "WebContent/assets/images/platform2.png",
+    "WebContent/assets/images/platform3.png",
+    "WebContent/assets/images/platform4.png",
+    "WebContent/assets/images/platform5.png",
+    "WebContent/assets/images/platform6.png"
   ],
   "settings": {
     "pot": false,

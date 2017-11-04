@@ -1,144 +1,81 @@
 {
-  "boot": [
-    {
-      "type": "image",
-      "key": "Base1",
-      "url": "assets/images/Base1.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
-      "key": "Sky",
-      "url": "assets/images/skyBackgroundOption.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
-      "key": "Coins",
-      "url": "assets/images/Coins.jpg",
-      "overwrite": false
-    }
-  ],
-  "preloader": [
-    {
-      "type": "image",
-      "key": "Background",
-      "url": "assets/images/skyBackgroundOption.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
-      "key": "Base1",
-      "url": "assets/images/Base1.png",
-      "overwrite": false
-    },
-    {
-      "type": "image",
-      "key": "Sun",
-      "url": "assets/images/Sun.jpg",
-      "overwrite": false
-    },
-    {
-      "type": "spritesheet",
-      "key": "player",
-      "url": "assets/images/FinalPlayers.png",
-      "frameWidth": 1200,
-      "frameHeight": 1160,
-      "frameMax": 6,
-      "margin": 0,
-      "spacing": 0
-    },
-    {
-      "type": "spritesheet",
-      "key": "PlayerInvert",
-      "url": "assets/images/FinalPlayers2.png",
-      "frameWidth": 1200,
-      "frameHeight": 1160,
-      "frameMax": 6,
-      "margin": 0,
-      "spacing": 0
-    }
-  ],
   "level": [
     {
       "type": "spritesheet",
       "key": "player",
-      "url": "assets/images/FinalPlayers.png",
-      "frameWidth": 1200,
-      "frameHeight": 1160,
+      "url": "assets/images/FinalPlayers6.png",
+      "frameWidth": 100,
+      "frameHeight": 103,
       "frameMax": 6,
       "margin": 0,
       "spacing": 0
     },
     {
+      "type": "atlas",
+      "key": "AtlasV1",
+      "textureURL": "assets/AtlasV1.png",
+      "atlasURL": "assets/AtlasV1.json",
+      "format": "TEXTURE_ATLAS_JSON_HASH"
+    },
+    {
+      "type": "image",
+      "key": "back3",
+      "url": "assets/images/back3.png",
+      "overwrite": false
+    },
+    {
       "type": "spritesheet",
-      "key": "playerinvert",
-      "url": "assets/images/FinalPlayers2.png",
-      "frameWidth": 1200,
-      "frameHeight": 1160,
-      "frameMax": 6,
+      "key": "enemy1",
+      "url": "assets/images/enemy1.png",
+      "frameWidth": 306,
+      "frameHeight": 305,
+      "frameMax": 4,
       "margin": 0,
       "spacing": 0
     },
     {
       "type": "image",
-      "key": "image",
-      "url": "assets/images/18_game_Halloween_flying_bats_Background_9_Envato.png",
+      "key": "enemy2",
+      "url": "assets/images/enemy2.png",
       "overwrite": false
     },
     {
-      "type": "atlas",
-      "key": "newatlas",
-      "textureURL": "assets/atlas/newatlas.png",
-      "atlasURL": "assets/atlas/newatlas.json",
-      "format": "TEXTURE_ATLAS_JSON_HASH"
+      "type": "script",
+      "key": "scene1",
+      "url": "assets/scenes/Scene1.js"
+    },
+    {
+      "type": "image",
+      "key": "back4",
+      "url": "assets/images/back4.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "coin1",
+      "url": "assets/images/coin1.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "power1",
+      "url": "assets/images/power1.png",
+      "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "pumpkin",
+      "url": "assets/images/pumpkin1.png",
+      "overwrite": false
     },
     {
       "type": "script",
-      "key": "HolloweenLevel1",
-      "url": "assets/canvas/HolloweenLevel1.js"
-    },
-    {
-      "type": "atlas",
-      "key": "generateAtlas",
-      "textureURL": "assets/atlas/generateAtlas.png",
-      "atlasURL": "assets/atlas/generateAtlas.json",
-      "format": "TEXTURE_ATLAS_JSON_HASH"
-    },
-    {
-      "type": "atlas",
-      "key": "generateAtlas1",
-      "textureURL": "assets/atlas/generateAtlas1.png",
-      "atlasURL": "assets/atlas/generateAtlas1.json",
-      "format": "TEXTURE_ATLAS_JSON_HASH"
-    },
-    {
-      "type": "atlas",
-      "key": "generateAtlas2",
-      "textureURL": "assets/atlas/generateAtlas2.png",
-      "atlasURL": "assets/atlas/generateAtlas2.json",
-      "format": "TEXTURE_ATLAS_JSON_HASH"
-    },
-    {
-      "type": "atlas",
-      "key": "generateAtlas3",
-      "textureURL": "assets/atlas/generateAtlas3.png",
-      "atlasURL": "assets/atlas/generateAtlas3.json",
-      "format": "TEXTURE_ATLAS_JSON_HASH"
-    },
-    {
-      "type": "spritesheet",
-      "key": "finalPlayer",
-      "url": "assets/images/FinalPlayers1.png",
-      "frameWidth": 120,
-      "frameHeight": 115,
-      "frameMax": 6,
-      "margin": 0,
-      "spacing": 0
+      "key": "scene2",
+      "url": "assets/scenes/Scene2.js"
     }
   ],
   "meta": {
-    "generated": "1509505236177",
+    "generated": "1509775094847",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
