@@ -59,19 +59,14 @@ Level2.prototype.create = function() {
 	this.scene.fCollectibles.setAll("anchor.x", 0.5);
 	this.scene.fCollectibles.setAll("anchor.y", 0.5);
 
+	this.count = 0;
+	this.collectiblecount = this.add.text(70, 16, '0', { fontSize: '32px', fill: '#FF4500' });
+	this.collectiblecount.fixedToCamera = true;
 //	  tween1 = this.game.add.tween(this.scene.fEnemy1).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
 //	  this.game.add.tween(this.scene.fEnemy2).to({x: 2}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
 //	  this.game.add.tween(this.scene.fEnemy3).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
-//	  
-	
-	  
-	// to keep the fruits in the air
-//	this.scene.fFruits.setAll("body.allowGravity", false);
-//	this.scene.fFruits.setAll("anchor.x", 0.5);
-//	this.scene.fFruits.setAll("anchor.y", 0.5);
-	
-	// water
-//	this.add.tween(this.scene.fWater.tilePosition).to({
+
+	//	this.add.tween(this.scene.fWater.tilePosition).to({
 //		x : 25
 //	}, 2000, "Linear", true, 0, -1, true);
 };
@@ -167,4 +162,6 @@ Level2.prototype.playerVsCollectibles = function(player, collectible) {
 	this.add.tween(collectible).to({
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(collectible.kill, collectible);
+	this.count++;
+	this.collectiblecount.text = this.count;
 };

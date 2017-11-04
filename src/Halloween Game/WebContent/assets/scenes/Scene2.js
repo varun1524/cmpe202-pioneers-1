@@ -144,6 +144,10 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _platform9 = this.game.add.sprite(-4, 744, 'AtlasV1', 'platform5', _Platform);
 	_platform9.scale.setTo(0.7238157856272961, 0.6963346152326263);
 	
+	var _pumpkinscore = this.game.add.sprite(15, 10, 'pumpkin', null, this);
+	_pumpkinscore.scale.setTo(0.2, 0.2);
+	_pumpkinscore.fixedToCamera = true;
+	
 	
 	
 	// public fields
@@ -152,6 +156,7 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.fEnemy = _Enemy;
 	this.fPlayer = _player;
 	this.fCollectibles = _collectibles;
+	this.fPumpkinscore = _pumpkinscore;
 	
 }
 

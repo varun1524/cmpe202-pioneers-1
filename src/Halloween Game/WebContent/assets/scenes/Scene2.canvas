@@ -578,6 +578,20 @@
                   }
                 ]
               }
+            },
+            {
+              "type": "image",
+              "id": "a2b69ac9-0e31-449c-b0af-5f2cdba08dc1",
+              "asset": "6",
+              "info": {
+                "editorName": "pumpkinscore",
+                "editorPublic": true,
+                "x": 15,
+                "y": 10,
+                "scale.x": 0.2,
+                "scale.y": 0.2,
+                "fixedToCamera": true
+              }
             }
           ]
         }
