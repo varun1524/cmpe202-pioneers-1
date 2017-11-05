@@ -17,12 +17,15 @@ Level.prototype.init = function() {
 	this.scale.pageAlignVertically = true;
 	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
-	this.world.resize(2200, 1800);
-	this.world.setBounds(0, 0, 2200, 1800);
+	//this.world.resize(3000, 1400);
+	this.world.setBounds(0, 0, 3000, 1400);
 
 	this.physics.startSystem(Phaser.Physics.ARCADE);
 	this.physics.arcade.gravity.y = 800;
 
+	// Disable base collision 
+	this.physics.arcade.checkCollision.down = false;
+	
 };
 
 Level.prototype.preload = function() {
@@ -34,13 +37,20 @@ Level.prototype.preload = function() {
 Level.prototype.create = function() {
 
 	this.scene = new Scene1(this.game);
-
+	
+	// Enable collisionWorldBound for Player
+	this.scene.fPlayer.body.collideWorldBounds = true;
+	
+	// Enale outOfBoundKill for Player
+	this.scene.fPlayer.checkWorldBounds = true;
+	this.scene.fPlayer.outOfBoundKill = true;
+	
 	this.playerdied = false;
 	// camera
 	this.camera.follow(this.scene.fPlayer, Phaser.Camera.FOLLOW_PLATFORMER);
 
 	// background
-//	this.scene.fBack.fixedToCamera = true;
+	// this.scene.fBack.fixedToCamera = true;
 
 	// set the physics properties of the collision sprites
 	this.scene.fCollisionLayer.setAll("body.immovable", true);
@@ -91,8 +101,9 @@ Level.prototype.update = function() {
 	else{
 		// collide the player with the platforms
 		this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
-
-
+		
+		//this.scene.fPlayer.checkCollision.down = false;
+		
 		this.doTweenUpdates();
 
 		if (this.cursors.left.isDown) {

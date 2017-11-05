@@ -2,8 +2,8 @@
   "canvas-version": 2,
   "settings": {
     "className": "Scene2",
-    "sceneWidth": 1920,
-    "sceneHeight": 1080,
+    "sceneWidth": 3000,
+    "sceneHeight": 1400,
     "generateOnSave": true,
     "enableStepping": false,
     "lang": "JAVA_SCRIPT",
@@ -26,7 +26,6 @@
       0,
       0
     ],
-    "autoLoad": true,
     "preloadSpriteId": "",
     "preloadSprite_direction": 0,
     "load.pack": []
@@ -52,6 +51,8 @@
                 "editorName": "back",
                 "x": 2,
                 "y": 1,
+                "scale.x": 1.56,
+                "scale.y": 1.3,
                 "width": 1920,
                 "height": 1080
               }
@@ -72,7 +73,7 @@
                     "info": {
                       "editorName": "physics",
                       "x": -6,
-                      "y": 1079,
+                      "y": 1361,
                       "scale.x": 4.456137192544979,
                       "scale.y": 0.7764196437227103
                     }
@@ -583,7 +584,7 @@
                     "info": {
                       "editorName": "base",
                       "x": -3,
-                      "y": 1075,
+                      "y": 1362,
                       "scale.x": 4.777959578800121
                     }
                   },
