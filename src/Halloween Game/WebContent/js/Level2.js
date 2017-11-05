@@ -17,12 +17,15 @@ Level2.prototype.init = function() {
 	this.scale.pageAlignVertically = true;
 	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
-	this.world.resize(2200, 1800);
-	this.world.setBounds(0, 0, 2200, 1800);
+	// this.world.resize(2200, 1800);
+	this.world.setBounds(0, 0, 3000, 1400);
 
 	this.physics.startSystem(Phaser.Physics.ARCADE);
 	this.physics.arcade.gravity.y = 800;
 
+	// Disable base collision 
+	this.physics.arcade.checkCollision.up = false;
+	this.physics.arcade.checkCollision.down = false;
 };
 
 Level2.prototype.preload = function() {
@@ -33,6 +36,12 @@ Level2.prototype.create = function() {
 
 	this.scene = new Scene2(this.game);
 
+	// Enable collisionWorldBound for Player
+	this.scene.fPlayer.body.collideWorldBounds = true;
+	
+	// Enale outOfBoundKill for Player
+	this.scene.fPlayer.checkWorldBounds = true;
+	this.scene.fPlayer.outOfBoundKill = true;
 
 	this.playerdied = false;
 	// camera
