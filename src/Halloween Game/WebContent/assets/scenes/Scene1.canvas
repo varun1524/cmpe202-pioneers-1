@@ -26,6 +26,7 @@
       0,
       0
     ],
+    "autoLoad": true,
     "preloadSpriteId": "",
     "preloadSprite_direction": 0,
     "load.pack": []
@@ -793,8 +794,8 @@
                     "asset": "19",
                     "info": {
                       "editorName": "pumpkin2",
-                      "x": 730,
-                      "y": 413,
+                      "x": 724,
+                      "y": 467,
                       "scale.x": 0.4,
                       "scale.y": 0.4
                     }
@@ -805,8 +806,8 @@
                     "asset": "19",
                     "info": {
                       "editorName": "pumpkin1",
-                      "x": 335,
-                      "y": 180,
+                      "x": 180,
+                      "y": 275,
                       "scale.x": 0.4,
                       "scale.y": 0.4
                     }
@@ -817,8 +818,8 @@
                     "asset": "19",
                     "info": {
                       "editorName": "pumpkin6",
-                      "x": 1040,
-                      "y": 639,
+                      "x": 2357,
+                      "y": 537,
                       "scale.x": 0.4,
                       "scale.y": 0.4
                     }
@@ -829,8 +830,8 @@
                     "asset": "19",
                     "info": {
                       "editorName": "pumpkin3",
-                      "x": 829,
-                      "y": 109,
+                      "x": 1429,
+                      "y": 133,
                       "scale.x": 0.4,
                       "scale.y": 0.4
                     }
@@ -841,8 +842,8 @@
                     "asset": "19",
                     "info": {
                       "editorName": "pumpkin4",
-                      "x": 947,
-                      "y": 915,
+                      "x": 1096,
+                      "y": 1046,
                       "scale.x": 0.4,
                       "scale.y": 0.4
                     }
@@ -853,8 +854,20 @@
                     "asset": "19",
                     "info": {
                       "editorName": "pumpkin5",
-                      "x": 1624,
-                      "y": 671,
+                      "x": 1594,
+                      "y": 764,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "d330aacb-18a0-4724-99cd-d035b35a05d8",
+                    "asset": "19",
+                    "info": {
+                      "editorName": "pumpkin",
+                      "x": 2779,
+                      "y": 930,
                       "scale.x": 0.4,
                       "scale.y": 0.4
                     }

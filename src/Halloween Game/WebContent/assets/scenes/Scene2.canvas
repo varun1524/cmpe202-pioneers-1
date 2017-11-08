@@ -26,6 +26,7 @@
       0,
       0
     ],
+    "autoLoad": true,
     "preloadSpriteId": "",
     "preloadSprite_direction": 0,
     "load.pack": []
@@ -376,6 +377,18 @@
                       "editorName": "pumpkin10",
                       "x": 2834,
                       "y": 448,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "7d51cb22-8428-4655-8828-82586e998da2",
+                    "asset": "9",
+                    "info": {
+                      "editorName": "pumpkin11",
+                      "x": 1245,
+                      "y": 412,
                       "scale.x": 0.25,
                       "scale.y": 0.25
                     }

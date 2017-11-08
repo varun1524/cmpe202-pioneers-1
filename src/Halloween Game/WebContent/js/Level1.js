@@ -24,6 +24,7 @@ Level.prototype.init = function() {
 	this.physics.arcade.gravity.y = 800;
 
 	// Disable base collision 
+	this.physics.arcade.checkCollision.up = false;
 	this.physics.arcade.checkCollision.down = false;
 	
 };
