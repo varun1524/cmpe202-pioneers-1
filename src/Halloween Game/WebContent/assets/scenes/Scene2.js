@@ -55,11 +55,23 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _enemy3 = this.game.add.sprite(1050, 684, 'enemy1', 1, _Enemy);
 	_enemy3.scale.setTo(0.34534128162048316, 0.3124073528366544);
 	
+	var _enemy7 = this.game.add.sprite(2142, 1018, 'enemy1', 0, _Enemy);
+	_enemy7.scale.setTo(0.32488351978865954, 0.2508318903325017);
+	
 	var _enemy2 = this.game.add.sprite(1778, 623, 'enemy1', 1, _Enemy);
 	_enemy2.scale.setTo(0.34534128162048316, 0.3124073528366544);
 	
 	var _enemy5 = this.game.add.sprite(1085, 17, 'enemy2', null, _Enemy);
 	_enemy5.scale.setTo(0.41591689614081323, 0.27488343072142035);
+	
+	var _enemy8 = this.game.add.sprite(2875, 177, 'enemy1', 1, _Enemy);
+	_enemy8.scale.setTo(0.34534128162048316, 0.3124073528366544);
+	
+	var _enemy6 = this.game.add.sprite(2824, 740, 'enemy1', 0, _Enemy);
+	_enemy6.scale.setTo(0.32488351978865954, 0.2508318903325017);
+	
+	var _enemy = this.game.add.sprite(856, 1098, 'enemy2', null, _Enemy);
+	_enemy.scale.setTo(0.41591689614081323, 0.27488343072142035);
 	
 	var _collectibles = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
@@ -95,6 +107,22 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	var _pumpkin10 = this.game.add.sprite(2834, 448, 'pumpkin', null, _collectibles);
 	_pumpkin10.scale.setTo(0.25, 0.25);
+	
+	var _pumpkin12 = this.game.add.sprite(1874, 904, 'pumpkin', null, _collectibles);
+	_pumpkin12.scale.setTo(0.25, 0.25);
+	
+	var _pumpkin14 = this.game.add.sprite(1647, 212, 'pumpkin', null, _collectibles);
+	_pumpkin14.scale.setTo(0.25, 0.25);
+	
+	var _pumpkin15 = this.game.add.sprite(1740, 193, 'pumpkin', null, _collectibles);
+	_pumpkin15.scale.setTo(0.25, 0.25);
+	
+	var _pumpkinscore = this.game.add.sprite(22, 10, 'pumpkin', null, _collectibles);
+	_pumpkinscore.scale.setTo(0.2, 0.2);
+	_pumpkinscore.fixedToCamera = true;
+	
+	var _pumpkin13 = this.game.add.sprite(1565, 208, 'pumpkin', null, _collectibles);
+	_pumpkin13.scale.setTo(0.25, 0.25);
 	
 	var _pumpkin11 = this.game.add.sprite(1245, 412, 'pumpkin', null, _collectibles);
 	_pumpkin11.scale.setTo(0.25, 0.25);
@@ -156,6 +184,8 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	var _platform20 = this.game.add.sprite(2642, 494, 'AtlasV1', 'platform6', _Platform);
 	_platform20.scale.setTo(0.4180733391451292, 0.4251174962632454);
+	
+	this.game.add.sprite(1828, 930, 'AtlasV1', 'platform1', _Platform);
 	
 	this.game.add.sprite(827, 1148, 'AtlasV1', 'platform1', _Platform);
 	
@@ -221,6 +251,9 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _physics22 = this.game.add.sprite(2401, 1013, 'AtlasV1', 'physics', _collisionLayer);
 	_physics22.scale.setTo(0.1657981786072597, 1.670732781544981);
 	
+	var _physics11 = this.game.add.sprite(1858, 981, 'AtlasV1', 'physics', _collisionLayer);
+	_physics11.scale.setTo(0.21894385677163666, 1.6398577936861323);
+	
 	var _physics21 = this.game.add.sprite(2165, 1153, 'AtlasV1', 'physics', _collisionLayer);
 	_physics21.scale.setTo(0.1657981786072597, 1.670732781544981);
 	
@@ -239,36 +272,6 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	_player.animations.add('die', [5], 1, true);
 	this.game.physics.arcade.enable(_player);
 	
-	var _pumpkinscore = this.game.add.sprite(22, 10, 'pumpkin', null, this);
-	_pumpkinscore.scale.setTo(0.2, 0.2);
-	_pumpkinscore.fixedToCamera = true;
-	
-	this.game.add.sprite(1828, 930, 'AtlasV1', 'platform1', this);
-	
-	var _pumpkin12 = this.game.add.sprite(1874, 904, 'pumpkin', null, this);
-	_pumpkin12.scale.setTo(0.25, 0.25);
-	
-	var _enemy = this.game.add.sprite(856, 1098, 'enemy2', null, this);
-	_enemy.scale.setTo(0.41591689614081323, 0.27488343072142035);
-	
-	var _enemy6 = this.game.add.sprite(2824, 740, 'enemy1', 0, this);
-	_enemy6.scale.setTo(0.32488351978865954, 0.2508318903325017);
-	
-	var _enemy7 = this.game.add.sprite(2142, 1018, 'enemy1', 0, this);
-	_enemy7.scale.setTo(0.32488351978865954, 0.2508318903325017);
-	
-	var _pumpkin13 = this.game.add.sprite(1565, 208, 'pumpkin', null, this);
-	_pumpkin13.scale.setTo(0.25, 0.25);
-	
-	var _pumpkin14 = this.game.add.sprite(1647, 212, 'pumpkin', null, this);
-	_pumpkin14.scale.setTo(0.25, 0.25);
-	
-	var _pumpkin15 = this.game.add.sprite(1740, 193, 'pumpkin', null, this);
-	_pumpkin15.scale.setTo(0.25, 0.25);
-	
-	var _enemy8 = this.game.add.sprite(2875, 177, 'enemy1', 1, this);
-	_enemy8.scale.setTo(0.34534128162048316, 0.3124073528366544);
-	
 	
 	
 	// public fields
@@ -277,16 +280,16 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.fEnemy4 = _enemy4;
 	this.fEnemy1 = _enemy1;
 	this.fEnemy3 = _enemy3;
+	this.fEnemy7 = _enemy7;
 	this.fEnemy2 = _enemy2;
 	this.fEnemy5 = _enemy5;
+	this.fEnemy8 = _enemy8;
+	this.fEnemy6 = _enemy6;
+	this.fEnemy = _enemy;
 	this.fCollectibles = _collectibles;
+	this.fPumpkinscore = _pumpkinscore;
 	this.fCollisionLayer = _collisionLayer;
 	this.fPlayer = _player;
-	this.fPumpkinscore = _pumpkinscore;
-	this.fEnemy = _enemy;
-	this.fEnemy6 = _enemy6;
-	this.fEnemy7 = _enemy7;
-	this.fEnemy8 = _enemy8;
 	
 }
 
