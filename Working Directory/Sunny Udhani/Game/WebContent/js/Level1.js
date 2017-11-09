@@ -3,6 +3,7 @@
  */
 function Level() {
 	Phaser.State.call(this);
+	this.player = null;
 	// TODO: generated method.
 }
 
@@ -11,6 +12,27 @@ var proto = Object.create(Phaser.State.prototype);
 Level.prototype = proto;
 Level.prototype.constructor = Level;
 var tween1 = null;
+var scene = null;
+
+
+/*
+ * factory
+ * */
+class factory {
+	constructor(){
+
+		this.scene = scene;
+	}
+	
+	getObject(name){
+		if(name === 'player'){
+			return this.scene.fPlayer;
+		}
+	}
+	
+	
+}
+
 Level.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -34,10 +56,18 @@ Level.prototype.preload = function() {
 Level.prototype.create = function() {
 
 	this.scene = new Scene1(this.game);
-
+	scene = this.scene;
+	
+	console.log(scene);
+	console.log("aaj");
+	var fac = new factory();
+	this.player = fac.getObject('player');
+	
+	console.log(this.player);
+	
 	this.playerdied = false;
 	// camera
-	this.camera.follow(this.scene.fPlayer, Phaser.Camera.FOLLOW_PLATFORMER);
+	this.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
 	// background
 //	this.scene.fBack.fixedToCamera = true;
@@ -85,66 +115,66 @@ Level.prototype.create = function() {
 Level.prototype.update = function() {
 	if(this.playerdied){
 		console.log("Died");
-		this.scene.fPlayer.play("die");
-		this.scene.fPlayer.body.velocity.x = 0;
+		this.player.play("die");
+		this.player.body.velocity.x = 0;
 	}
 	else{
 		// collide the player with the platforms
-		this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
+		this.physics.arcade.collide(this.player, this.scene.fCollisionLayer);
 		
 
 		this.doTweenUpdates();
 
 		if (this.cursors.left.isDown) {
 			// move to the left
-			this.scene.fPlayer.body.velocity.x = -200;
+			this.player.body.velocity.x = -200;
 		} else if (this.cursors.right.isDown) {
 			// move to the right
-			this.scene.fPlayer.body.velocity.x = 200;
+			this.player.body.velocity.x = 200;
 		} else {
 			// dont move in the horizontal
-			this.scene.fPlayer.body.velocity.x = 0;
+			this.player.body.velocity.x = 0;
 		}
 
 		// a flag to know if the player is (down) touching the platforms
-		var touching = this.scene.fPlayer.body.touching.down;
+		var touching = this.player.body.touching.down;
 
 		if (touching && this.cursors.up.isDown) {
 			// jump if the player is on top of a platform and the up key is pressed
-			this.scene.fPlayer.body.velocity.y = -700;
+			this.player.body.velocity.y = -700;
 		}
 
 		if (touching) {
-			if (this.scene.fPlayer.body.velocity.x == 0) {
+			if (this.player.body.velocity.x == 0) {
 				// if it is not moving horizontally play the idle
-				this.scene.fPlayer.play("idle");
+				this.player.play("idle");
 			} else {
 				// if it is moving play the walk
-				this.scene.fPlayer.play("walk");
+				this.player.play("walk");
 			}
 		} else {
 			// it is not touching the platforms so it means it is jumping.
-			this.scene.fPlayer.play("jump");
+			this.player.play("jump");
 		}
 
 		// update the facing of the player
 		if (this.cursors.left.isDown) {
 			// face left
-			this.scene.fPlayer.scale.x = -1;
+			this.player.scale.x = -1;
 		} else if (this.cursors.right.isDown) {
 			// face right
-			this.scene.fPlayer.scale.x = 1;
+			this.player.scale.x = 1;
 		}
 
 		if(this.spaceKey.isDown){
-			this.scene.fPlayer.play("attack");
+			this.player.play("attack");
 		}
 
-		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fEnemy,
+		this.physics.arcade.overlap(this.player, this.scene.fEnemy,
 				this.playerVsEnemies, null, this);
 
 
-		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fCollectibles,
+		this.physics.arcade.overlap(this.player, this.scene.fCollectibles,
 				this.playerVsCollectibles, null, this);
 	}
 };
@@ -194,6 +224,7 @@ Level.prototype.playerVsEnemies = function(player, enemies) {
 	}, 1000, "Linear", true).onComplete.add(enemies.kill, enemies);
 
 };
+
 
 Level.prototype.doTweenUpdates = function(){
 
