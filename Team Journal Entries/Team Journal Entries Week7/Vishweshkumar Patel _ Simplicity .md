@@ -10,6 +10,6 @@
 
 Activities related to Project this week :
 
-* 
+* Dynamic support of Javascript makes design pattern implementation easier.
 
 
