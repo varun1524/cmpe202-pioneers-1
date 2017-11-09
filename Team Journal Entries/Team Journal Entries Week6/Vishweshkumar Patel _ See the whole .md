@@ -12,4 +12,5 @@
 
 Activities related to Project this week :
 
-* Development of Level of game involves creating individual sprite, scaling them according to level's requirements, assigning them required physics. So, Each team memeber took responsibility to handle one task after understanding their responsibility and seeing the whole picture "How the level should be created and integrated".
+* Development of Level of game involves creating individual sprite, scaling them according to level's requirements, assign them required physics. 
+  Each team memeber took responsibility to handle one task after understanding their responsibility and seeing the whole picture "How the level should be created and integrated".
