@@ -25,11 +25,61 @@ class factory {
 	}
 	
 	getObject(name){
-		if(name === 'player'){
-			return this.scene.fPlayer;
+//		if(name === 'player'){
+//			return this.scene.fPlayer;
+//		}
+//		
+		switch(name){
+		case "player" : {
+						return this.scene.fPlayer;
+						break;
+						}
+		case "collisionLayer" : {
+			return this.scene.fCollisionLayer;
+			break;
+			}
+
+		case "collectibles" : {
+			return this.scene.fCollectibles;
+			break;
+			}
+
+		case "enemy" : {
+			return this.scene.fEnemy;
+			break;
+			}
+
+		case "enemy1" : {
+			return this.scene.fEnemy1;
+			break;
+			}
+
+		case "enemy2" : {
+			return this.scene.fEnemy2;
+			break;
+			}
+
+		case "enemy3" : {
+			return this.scene.fEnemy3;
+			break;
+			}
+
+		case "enemy4" : {
+			return this.scene.fEnemy4;
+			break;
+			}
+		
+		case "enemy5" : {
+			return this.scene.fEnemy5;
+			break;
+			}
+		
+		case "enemy6" : {
+				return this.scene.fEnemy6;
+				break;
+				}
 		}
 	}
-	
 	
 }
 
@@ -58,12 +108,18 @@ Level.prototype.create = function() {
 	this.scene = new Scene1(this.game);
 	scene = this.scene;
 	
-	console.log(scene);
-	console.log("aaj");
 	var fac = new factory();
 	this.player = fac.getObject('player');
+	this.collisionLayer = fac.getObject('collisionLayer');
+	this.collectibles = fac.getObject('collectibles');
+	this.enemy = fac.getObject('enemy');
+	this.enemy1 = fac.getObject('enemy1');
+	this.enemy2 = fac.getObject('enemy2');
+	this.enemy3 = fac.getObject('enemy3');
+	this.enemy4 = fac.getObject('enemy4');
+	this.enemy5 = fac.getObject('enemy5');
+	this.enemy6 = fac.getObject('enemy6');
 	
-	console.log(this.player);
 	
 	this.playerdied = false;
 	// camera
@@ -73,19 +129,19 @@ Level.prototype.create = function() {
 //	this.scene.fBack.fixedToCamera = true;
 
 	// set the physics properties of the collision sprites
-	this.scene.fCollisionLayer.setAll("body.immovable", true);
-	this.scene.fCollisionLayer.setAll("body.allowGravity", false);
-	this.scene.fEnemy.setAll("body.allowGravity", false);
+	this.collisionLayer.setAll("body.immovable", true);
+	this.collisionLayer.setAll("body.allowGravity", false);
+	this.enemy.setAll("body.allowGravity", false);
 
 	// hide all objects of the collision layer
-	this.scene.fCollisionLayer.setAll("renderable", false);
-	this.scene.fCollisionLayer.setAll("body.checkCollision.left", false);
-	this.scene.fCollisionLayer.setAll("body.checkCollision.right", false);
-	this.scene.fCollisionLayer.setAll("body.checkCollision.down", false);
+	this.collisionLayer.setAll("renderable", false);
+	this.collisionLayer.setAll("body.checkCollision.left", false);
+	this.collisionLayer.setAll("body.checkCollision.right", false);
+	this.collisionLayer.setAll("body.checkCollision.down", false);
 
-	this.scene.fCollectibles.setAll("body.allowGravity", false);
-	this.scene.fCollectibles.setAll("anchor.x", 0.5);
-	this.scene.fCollectibles.setAll("anchor.y", 0.5);
+	this.collectibles.setAll("body.allowGravity", false);
+	this.collectibles.setAll("anchor.x", 0.5);
+	this.collectibles.setAll("anchor.y", 0.5);
 
 	this.count = 0;
 	this.collectiblecount = this.add.text(70, 16, '0', { fontSize: '32px', fill: '#FF4500' });
@@ -94,11 +150,11 @@ Level.prototype.create = function() {
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-	this.game.add.tween(this.scene.fEnemy1).to({x: 2325}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy2).to({x: 800}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy3).to({x: 100}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy6).to({x: 400}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy5).to({x: 600}, 1400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy1).to({x: 2325}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy2).to({x: 800}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy3).to({x: 100}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy6).to({x: 400}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy5).to({x: 600}, 1400, 'Sine.easeInOut', true, 0 , -1, true);
 
 
 	// to keep the fruits in the air
@@ -120,7 +176,7 @@ Level.prototype.update = function() {
 	}
 	else{
 		// collide the player with the platforms
-		this.physics.arcade.collide(this.player, this.scene.fCollisionLayer);
+		this.physics.arcade.collide(this.player, this.collisionLayer);
 		
 
 		this.doTweenUpdates();
@@ -170,11 +226,11 @@ Level.prototype.update = function() {
 			this.player.play("attack");
 		}
 
-		this.physics.arcade.overlap(this.player, this.scene.fEnemy,
+		this.physics.arcade.overlap(this.player, this.enemy,
 				this.playerVsEnemies, null, this);
 
 
-		this.physics.arcade.overlap(this.player, this.scene.fCollectibles,
+		this.physics.arcade.overlap(this.player, this.collectibles,
 				this.playerVsCollectibles, null, this);
 	}
 };
@@ -229,59 +285,59 @@ Level.prototype.playerVsEnemies = function(player, enemies) {
 Level.prototype.doTweenUpdates = function(){
 
 
-	if(this.scene.fEnemy1.x === 2621)
+	if(this.enemy1.x === 2621)
 	{
-		this.scene.fEnemy1.scale.x = -0.22;
+		this.enemy1.scale.x = -0.22;
 
 	}
-	if(this.scene.fEnemy1.x === 2325)
+	if(this.enemy1.x === 2325)
 	{
-		this.scene.fEnemy1.scale.x = 0.22;
-
-	}
-
-	if(this.scene.fEnemy6.x === 1174)
-	{
-		this.scene.fEnemy6.scale.x = -0.29;
-
-	}
-	if(this.scene.fEnemy6.x === 400)
-	{
-		this.scene.fEnemy6.scale.x = 0.29;
+		this.enemy1.scale.x = 0.22;
 
 	}
 
-	if(this.scene.fEnemy5.x === 600)
+	if(this.enemy6.x === 1174)
 	{
-		this.scene.fEnemy5.scale.x = -0.19;
+		this.enemy6.scale.x = -0.29;
 
 	}
-	if(this.scene.fEnemy5.x === 872)
+	if(this.enemy6.x === 400)
 	{
-		this.scene.fEnemy5.scale.x = 0.19;
-
-	}
-
-
-	if(this.scene.fEnemy2.x === 800)
-	{
-		this.scene.fEnemy2.scale.x = -0.2;
-
-	}
-	if(this.scene.fEnemy2.x === 1739)
-	{
-		this.scene.fEnemy2.scale.x = 0.2;
+		this.enemy6.scale.x = 0.29;
 
 	}
 
-	if(this.scene.fEnemy3.x === 100)
+	if(this.enemy5.x === 600)
 	{
-		this.scene.fEnemy3.scale.x = 0.23;
+		this.enemy5.scale.x = -0.19;
 
 	}
-	if(this.scene.fEnemy3.x === 1090)
+	if(this.enemy5.x === 872)
 	{
-		this.scene.fEnemy3.scale.x = -0.23;
+		this.enemy5.scale.x = 0.19;
+
+	}
+
+
+	if(this.enemy2.x === 800)
+	{
+		this.enemy2.scale.x = -0.2;
+
+	}
+	if(this.enemy2.x === 1739)
+	{
+		this.enemy2.scale.x = 0.2;
+
+	}
+
+	if(this.enemy3.x === 100)
+	{
+		this.enemy3.scale.x = 0.23;
+
+	}
+	if(this.enemy3.x === 1090)
+	{
+		this.enemy3.scale.x = -0.23;
 
 	}
 }
