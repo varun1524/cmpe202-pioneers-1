@@ -19,7 +19,6 @@ var tween1 = null;
 class factory {
 	
 	constructor(self){
-
 		this.scene = self.scene;
 		console.log(this.scene);
 	}
@@ -111,7 +110,8 @@ Level.prototype.preload = function() {
 };
 
 Level.prototype.create = function() {
-
+	this.scene = new Scene1(this.game);
+	
 	var fac = new factory(this);
 	this.player = fac.getObject('player');
 	this.collisionLayer = fac.getObject('collisionLayer');
