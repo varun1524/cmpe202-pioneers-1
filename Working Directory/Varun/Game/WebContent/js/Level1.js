@@ -11,6 +11,7 @@ var proto = Object.create(Phaser.State.prototype);
 Level.prototype = proto;
 Level.prototype.constructor = Level;
 var tween1 = null;
+var player = null;
 Level.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -39,6 +40,7 @@ Level.prototype.create = function() {
 
 	this.scene = new Scene1(this.game);
 	
+		
 	// Enable collisionWorldBound for Player
 	this.scene.fPlayer.body.collideWorldBounds = true;
 	
@@ -81,6 +83,8 @@ Level.prototype.create = function() {
 	this.game.add.tween(this.scene.fEnemy6).to({x: 400}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.scene.fEnemy5).to({x: 600}, 1400, 'Sine.easeInOut', true, 0 , -1, true);
 
+	
+	player = new Player(this.scene.fPlayer);
 
 	// to keep the fruits in the air
 //	this.scene.fFruits.setAll("body.allowGravity", false);
@@ -94,10 +98,12 @@ Level.prototype.create = function() {
 };
 
 Level.prototype.update = function() {
-	if(this.playerdied){
+	if(player.getState()=="die"){
 		console.log("Died");
-		this.scene.fPlayer.play("die");
-		this.scene.fPlayer.body.velocity.x = 0;
+		player.play();
+		player.moveBody();
+//		this.scene.fPlayer.play("die");
+//		this.scene.fPlayer.body.velocity.x = 0;
 	}
 	else{
 		// collide the player with the platforms
@@ -108,14 +114,31 @@ Level.prototype.update = function() {
 		this.doTweenUpdates();
 
 		if (this.cursors.left.isDown) {
+			if(player.getState!=="walk"){
+				player.change("walk");	
+			}
+			player.moveBody("left");
+			
 			// move to the left
-			this.scene.fPlayer.body.velocity.x = -200;
+//			this.scene.fPlayer.body.velocity.x = -200;
 		} else if (this.cursors.right.isDown) {
 			// move to the right
-			this.scene.fPlayer.body.velocity.x = 200;
+			if(player.getState!=="walk"){
+				player.change("walk");	
+			}
+			player.moveBody("right");
+//			this.scene.fPlayer.body.velocity.x = 200;
 		} else {
 			// dont move in the horizontal
-			this.scene.fPlayer.body.velocity.x = 0;
+//			this.scene.fPlayer.body.velocity.x = 0;
+			console.log(player.getState());
+			if(player.getState()!="idle"){
+				player.change("idle");	
+			}
+			else{
+				console.log("trie");
+			}			
+			player.moveBody();
 		}
 
 		// a flag to know if the player is (down) touching the platforms
@@ -123,30 +146,37 @@ Level.prototype.update = function() {
 
 		if (touching && this.cursors.up.isDown) {
 			// jump if the player is on top of a platform and the up key is pressed
-			this.scene.fPlayer.body.velocity.y = -700;
+			if(player.getState()!="jump"){
+				player.change("jump");
+			}
+			player.moveBody();
+//			this.scene.fPlayer.body.velocity.y = -700;
 		}
 
 		if (touching) {
-			if (this.scene.fPlayer.body.velocity.x == 0) {
+			if (player.getState()=="idle") {
 				// if it is not moving horizontally play the idle
-				this.scene.fPlayer.play("idle");
+//				this.scene.fPlayer.play("idle");
+				player.play();
 			} else {
 				// if it is moving play the walk
-				this.scene.fPlayer.play("walk");
+				player.play();
 			}
-		} else {
+		} 
+		else {
 			// it is not touching the platforms so it means it is jumping.
-			this.scene.fPlayer.play("jump");
+//			this.scene.fPlayer.play("jump");
+			player.play();
 		}
 
-		// update the facing of the player
-		if (this.cursors.left.isDown) {
-			// face left
-			this.scene.fPlayer.scale.x = -1;
-		} else if (this.cursors.right.isDown) {
-			// face right
-			this.scene.fPlayer.scale.x = 1;
-		}
+//		// update the facing of the player
+//		if (this.cursors.left.isDown) {
+//			// face left
+//			this.scene.fPlayer.scale.x = -1;
+//		} else if (this.cursors.right.isDown) {
+//			// face right
+//			this.scene.fPlayer.scale.x = 1;
+//		}
 
 		if(this.spaceKey.isDown){
 			this.scene.fPlayer.play("attack");
@@ -160,6 +190,185 @@ Level.prototype.update = function() {
 				this.playerVsCollectibles, null, this);
 	}
 };
+
+Player = function (obj){
+	
+	var idle = new Idle(this);
+	var walk = new Walk(this);
+	var jump = new Jump(this);
+	var die = new Die(this);
+	var playerbody = obj;
+	var playerstate = idle;
+	
+	this.play = function(){
+		return playerstate.play(playerbody);
+	};
+	
+	this.getState = function(){
+		return playerstate.getState();
+	};
+	
+	this.getIdleState = function(){
+		return idle;
+	};
+	
+	this.getWalkState = function(){
+		return walk;
+	};
+	
+	this.getJumpState = function(){
+		return jump;
+	};
+	
+	this.getDieState = function(){
+		return die;
+	};
+	
+	this.setState = function (objstate){
+		playerstate = objstate;
+	};
+	
+	this.moveBody = function(speed){
+		playerstate.moveBody(speed, playerbody);
+	};
+	
+	this.change = function(act){
+		playerstate.change(act);		
+	}
+}
+
+Idle = function(playerstate){
+	this.playerstate=playerstate;
+	
+	this.play = function(playerbody){
+		playerbody.play("idle");
+	};
+	
+	this.moveBody = function(speed, playerbody){
+		playerbody.body.velocity.x = 0;
+	};
+	
+	this.getState = function(){
+		return "idle";
+	};
+	
+	this.change = function(act){
+		if(act=="walk"){
+			playerstate.setState(playerstate.getWalkState());	
+		}
+		else if(act=="jump"){
+			playerstate.setState(playerstate.getJumpState());
+		}
+		else if(act=="die"){
+			playerstate.setState(playerstate.getDieState());
+		}
+		else if(act=="idle"){
+			playerstate.setState(playerstate.getIdleState());
+		}			
+	};
+}
+
+Walk = function (playerstate){
+	this.playerstate=playerstate;
+	
+	this.play = function(playerbody){
+		playerbody.play("walk");
+	};
+	
+	this.moveBody = function(speed, playerbody){
+		console.log(speed);
+		if(speed==="left"){
+			console.log("Player goes Left");
+			playerbody.body.velocity.x = -200;
+			playerbody.scale.x = -1;	
+		}
+		else if(speed==="right"){
+			console.log("Player goes Right");
+			playerbody.body.velocity.x = 200;
+			playerbody.scale.x = 1;
+		}
+	};
+	
+	this.change = function(act){
+		if(act=="walk"){
+			playerstate.setState(playerstate.getWalkState());	
+		}
+		else if(act=="jump"){
+			playerstate.setState(playerstate.getJumpState());
+		}
+		else if(act=="die"){
+			playerstate.setState(playerstate.getDieState());
+		}
+		else if(act=="idle"){
+			playerstate.setState(playerstate.getIdleState());
+		}			
+	};
+	
+	this.getState = function(){
+		return "walk";
+	};
+};
+
+Jump = function (playerstate){
+	this.playerstate=playerstate;
+	this.play = function(playerbody){
+		playerbody.play("jump");
+	};
+	
+	this.moveBody = function(speed, playerbody){
+		playerbody.body.velocity.y = -700;
+	};
+	
+	this.getState = function(){
+		return "jump";
+	};
+	
+	this.change = function(act){
+		if(act=="walk"){
+			playerstate.setState(playerstate.getWalkState());	
+		}
+		else if(act=="jump"){
+			playerstate.setState(playerstate.getJumpState());
+		}
+		else if(act=="die"){
+			playerstate.setState(playerstate.getDieState());
+		}
+		else if(act=="idle"){
+			playerstate.setState(playerstate.getIdleState());
+		}			
+	};
+};
+
+Die = function (playerstate){
+	this.playerstate=playerstate;
+	
+	this.play = function(playerbody){
+		playerbody.play("die");
+	};
+	
+	this.moveBody = function(speed, playerbody){
+		playerbody.body.velocity.x = 0;
+	};
+	
+	this.getState = function(){
+		return "die";
+	};
+	
+	this.change = function(act){
+		if(act=="walk"){
+			playerstate.setState(playerstate.getWalkState());	
+		}
+		else if(act=="jump"){
+			playerstate.setState(playerstate.getJumpState());
+		}
+		else if(act=="die"){
+			playerstate.setState(playerstate.getDieState());
+		}
+		else if(act=="idle"){
+			playerstate.setState(playerstate.getIdleState());
+		}			
+	};
+}
 
 /**
  * @param {Phaser.Sprite}
@@ -188,9 +397,15 @@ Level.prototype.playerVsCollectibles = function(player, collectible) {
 	this.collectiblecount.text = this.count;
 };
 
-Level.prototype.playerVsEnemies = function(player, enemies) {
+Level.prototype.playerVsEnemies = function(_player, enemies) {
 	enemies.body.enable = false;
 	this.playerdied = true;
+	
+	if(player.getState()!="die"){
+		player.change("die");
+		player.play();
+		player.moveBody();
+	}
 
 	this.add.tween(enemies).to({
 		y : enemies.y - 50
@@ -267,41 +482,3 @@ Level.prototype.doTweenUpdates = function(){
 	}
 }
 
-Player = function () {
-	var playerstate=new Idle(this);
-	
-	this.playerAct = function(){
-		return playerstate.playerAct();
-	}
-}
-
-Idle = function(playerstate){
-	this.playerstate=playerstate;
-	
-	this.playerAct = function(){
-		return "idle";
-	}
-}
-
-Walk = function (playerstate){
-	this.playerstate=playerstate;
-	
-	this.playerAct = function(){
-		return "walk";
-	}
-}
-
-Jump = function (playerstate){
-	this.playerstate=playerstate;
-	this.playerAct = function(){
-		return "jump";
-	}
-}
-
-Die = function (playerstate){
-	this.playerstate=playerstate;
-	
-	this.playerAct = function(){
-		return "die";
-	}
-}
