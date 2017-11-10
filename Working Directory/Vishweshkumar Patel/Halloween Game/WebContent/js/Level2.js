@@ -1,23 +1,23 @@
 /**
- * Level state.
+ * Level2 state.
  */
-function Level() {
+function Level2() {
 	Phaser.State.call(this);
 	// TODO: generated method.
 }
 
 /** @type Phaser.State */
 var proto = Object.create(Phaser.State.prototype);
-Level.prototype = proto;
-Level.prototype.constructor = Level;
+Level2.prototype = proto;
+Level2.prototype.constructor = Level2;
 var tween1 = null;
-Level.prototype.init = function() {
+Level2.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
 	this.scale.pageAlignVertically = true;
 	this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
-	//this.world.resize(3000, 1400);
+	// this.world.resize(2200, 1800);
 	this.world.setBounds(0, 0, 3000, 1400);
 
 	this.physics.startSystem(Phaser.Physics.ARCADE);
@@ -26,32 +26,29 @@ Level.prototype.init = function() {
 	// Disable base collision 
 	this.physics.arcade.checkCollision.up = false;
 	this.physics.arcade.checkCollision.down = false;
-	
 };
 
-Level.prototype.preload = function() {
-
+Level2.prototype.preload = function() {
 	this.load.pack("level", "assets/pack.json");
-
 };
 
-Level.prototype.create = function() {
+Level2.prototype.create = function() {
 
-	this.scene = new Scene1(this.game);
-	
+	this.scene = new Scene2(this.game);
+
 	// Enable collisionWorldBound for Player
 	this.scene.fPlayer.body.collideWorldBounds = true;
 	
 	// Enale outOfBoundKill for Player
 	this.scene.fPlayer.checkWorldBounds = true;
 	this.scene.fPlayer.outOfBoundKill = true;
-	
+
 	this.playerdied = false;
 	// camera
 	this.camera.follow(this.scene.fPlayer, Phaser.Camera.FOLLOW_PLATFORMER);
 
 	// background
-	// this.scene.fBack.fixedToCamera = true;
+//	this.scene.fBack.fixedToCamera = true;
 
 	// set the physics properties of the collision sprites
 	this.scene.fCollisionLayer.setAll("body.immovable", true);
@@ -64,6 +61,9 @@ Level.prototype.create = function() {
 	this.scene.fCollisionLayer.setAll("body.checkCollision.right", false);
 	this.scene.fCollisionLayer.setAll("body.checkCollision.down", false);
 
+	this.cursors = this.input.keyboard.createCursorKeys();
+	this.spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
 	this.scene.fCollectibles.setAll("body.allowGravity", false);
 	this.scene.fCollectibles.setAll("anchor.x", 0.5);
 	this.scene.fCollectibles.setAll("anchor.y", 0.5);
@@ -72,40 +72,47 @@ Level.prototype.create = function() {
 	this.collectiblecount = this.add.text(70, 16, '0', { fontSize: '32px', fill: '#FF4500' });
 	this.collectiblecount.fixedToCamera = true;
 
-	this.cursors = this.input.keyboard.createCursorKeys();
-	this.spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-
-	this.game.add.tween(this.scene.fEnemy1).to({x: 2325}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy2).to({x: 800}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy3).to({x: 100}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy6).to({x: 400}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy5).to({x: 600}, 1400, 'Sine.easeInOut', true, 0 , -1, true);
+	tween1 = this.game.add.tween(this.scene.fEnemy1).to({x: 750}, 2400, 'Sine.easeInOut', true, 0 , -1, true); 
+	this.game.add.tween(this.scene.fEnemy2).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy3).to({x: 500}, 3000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy5).to({y: 500, x: 120}, 3000, 'Sine.easeIn', true, 0 , -1, true);
 
 
-	// to keep the fruits in the air
-//	this.scene.fFruits.setAll("body.allowGravity", false);
-//	this.scene.fFruits.setAll("anchor.x", 0.5);
-//	this.scene.fFruits.setAll("anchor.y", 0.5);
-
-	// water
-//	this.add.tween(this.scene.fWater.tilePosition).to({
-//	x : 25
-//	}, 2000, "Linear", true, 0, -1, true);
+	//	this.add.tween(this.scene.fWater.tilePosition).to({
+	//		x : 25
+	//	}, 2000, "Linear", true, 0, -1, true);
 };
 
-Level.prototype.update = function() {
+Level2.prototype.update = function() {
+
 	if(this.playerdied){
 		console.log("Died");
 		this.scene.fPlayer.play("die");
 		this.scene.fPlayer.body.velocity.x = 0;
 	}
 	else{
+
 		// collide the player with the platforms
 		this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
-		
-		//this.scene.fPlayer.checkCollision.down = false;
-		
-		this.doTweenUpdates();
+
+		if(this.scene.fEnemy2.x === 2)
+		{
+			this.scene.fEnemy2.scale.x = -0.2;
+		}
+		if(this.scene.fEnemy2.x === 828)
+		{
+			this.scene.fEnemy2.scale.x = 0.2;
+		}
+
+		if(this.scene.fEnemy5.x === 2)
+		{
+			this.scene.fEnemy2.scale.y = -0.2;
+		}
+		if(this.scene.fEnemy2.x === 828)
+		{
+			this.scene.fEnemy2.scale.x = 0.2;
+		}
 
 		if (this.cursors.left.isDown) {
 			// move to the left
@@ -152,12 +159,12 @@ Level.prototype.update = function() {
 			this.scene.fPlayer.play("attack");
 		}
 
-		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fEnemy,
-				this.playerVsEnemies, null, this);
-
-
+		//catch when the player overlaps with a pumpkin
 		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fCollectibles,
 				this.playerVsCollectibles, null, this);
+
+		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fEnemy,
+				this.playerVsEnemies, null, this);
 	}
 };
 
@@ -167,8 +174,7 @@ Level.prototype.update = function() {
  * @param {Phaser.Sprite}
  *            fruit
  */
-
-Level.prototype.playerVsCollectibles = function(player, collectible) {
+Level2.prototype.playerVsCollectibles = function(player, collectible) {
 	collectible.body.enable = false;
 
 	this.add.tween(collectible).to({
@@ -188,7 +194,7 @@ Level.prototype.playerVsCollectibles = function(player, collectible) {
 	this.collectiblecount.text = this.count;
 };
 
-Level.prototype.playerVsEnemies = function(player, enemies) {
+Level2.prototype.playerVsEnemies = function(player, enemies) {
 	enemies.body.enable = false;
 	this.playerdied = true;
 
@@ -206,63 +212,3 @@ Level.prototype.playerVsEnemies = function(player, enemies) {
 	}, 1000, "Linear", true).onComplete.add(enemies.kill, enemies);
 
 };
-
-Level.prototype.doTweenUpdates = function(){
-
-
-	if(this.scene.fEnemy1.x === 2621)
-	{
-		this.scene.fEnemy1.scale.x = -0.22;
-
-	}
-	if(this.scene.fEnemy1.x === 2325)
-	{
-		this.scene.fEnemy1.scale.x = 0.22;
-
-	}
-
-	if(this.scene.fEnemy6.x === 1174)
-	{
-		this.scene.fEnemy6.scale.x = -0.29;
-
-	}
-	if(this.scene.fEnemy6.x === 400)
-	{
-		this.scene.fEnemy6.scale.x = 0.29;
-
-	}
-
-	if(this.scene.fEnemy5.x === 600)
-	{
-		this.scene.fEnemy5.scale.x = -0.19;
-
-	}
-	if(this.scene.fEnemy5.x === 872)
-	{
-		this.scene.fEnemy5.scale.x = 0.19;
-
-	}
-
-
-	if(this.scene.fEnemy2.x === 800)
-	{
-		this.scene.fEnemy2.scale.x = -0.2;
-
-	}
-	if(this.scene.fEnemy2.x === 1739)
-	{
-		this.scene.fEnemy2.scale.x = 0.2;
-
-	}
-
-	if(this.scene.fEnemy3.x === 100)
-	{
-		this.scene.fEnemy3.scale.x = 0.23;
-
-	}
-	if(this.scene.fEnemy3.x === 1090)
-	{
-		this.scene.fEnemy3.scale.x = -0.23;
-
-	}
-}
