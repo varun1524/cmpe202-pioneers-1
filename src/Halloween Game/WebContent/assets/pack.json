@@ -102,10 +102,16 @@
       "key": "tree5",
       "url": "assets/images/tree5.png",
       "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "finish1",
+      "url": "assets/images/finish1.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1509847071502",
+    "generated": "1510300228973",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

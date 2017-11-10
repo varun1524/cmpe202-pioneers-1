@@ -59,6 +59,16 @@
               }
             },
             {
+              "type": "image",
+              "id": "46f31ffb-ecaa-4f74-9af6-36d9f7f4c71a",
+              "asset": "1",
+              "info": {
+                "editorName": "finish",
+                "x": 2726,
+                "y": 195
+              }
+            },
+            {
               "type": "group",
               "id": "4dc85919-7c2a-4268-9166-739f1fbd8112",
               "info": {
@@ -68,7 +78,7 @@
                   {
                     "type": "image",
                     "id": "6fe0838e-5011-4fb7-9a0b-6d45734591f5",
-                    "asset": "1",
+                    "asset": "2",
                     "info": {
                       "editorName": "tree7",
                       "x": 2017,
@@ -78,21 +88,11 @@
                   {
                     "type": "image",
                     "id": "782b5d60-1f58-4a31-8f0a-a0678c92e739",
-                    "asset": "2",
+                    "asset": "3",
                     "info": {
                       "editorName": "tree5",
                       "x": -72,
                       "y": 190
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "b6fed61a-493d-405a-8e93-d9e4acbe3d13",
-                    "asset": "3",
-                    "info": {
-                      "editorName": "tree4",
-                      "x": 2735,
-                      "y": 245
                     }
                   },
                   {
@@ -118,7 +118,7 @@
                   {
                     "type": "image",
                     "id": "9eeb0252-e483-4724-9f6a-f45937ccdf15",
-                    "asset": "2",
+                    "asset": "3",
                     "info": {
                       "editorName": "tree1",
                       "x": 955,
@@ -128,7 +128,7 @@
                   {
                     "type": "image",
                     "id": "81f31afd-cb53-4d42-a651-aece370235c3",
-                    "asset": "1",
+                    "asset": "2",
                     "info": {
                       "editorName": "tree",
                       "x": 61,
@@ -138,7 +138,7 @@
                   {
                     "type": "image",
                     "id": "5e76edc2-34f8-438b-8f2d-58561ed829a3",
-                    "asset": "1",
+                    "asset": "2",
                     "info": {
                       "editorName": "tree6",
                       "x": 349,
@@ -629,7 +629,7 @@
                     "asset": "8",
                     "info": {
                       "editorName": "platform15",
-                      "x": 2557,
+                      "x": 2568,
                       "y": 135,
                       "scale.x": 0.5,
                       "scale.y": 0.3913720439729267
@@ -904,17 +904,17 @@
     "1": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "tree1"
+      "asset": "finish1"
     },
     "2": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "tree2"
+      "asset": "tree1"
     },
     "3": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "tree5"
+      "asset": "tree2"
     },
     "4": {
       "file": "WebContent/assets/pack.json",

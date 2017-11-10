@@ -21,13 +21,13 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _back = this.game.add.sprite(-3, -7, 'back3', null, this);
 	_back.scale.setTo(1.56, 1.3);
 	
+	this.game.add.sprite(2726, 195, 'finish1', null, this);
+	
 	var _Tree = this.game.add.group(this);
 	
 	this.game.add.sprite(2017, 439, 'tree1', null, _Tree);
 	
 	this.game.add.sprite(-72, 190, 'tree2', null, _Tree);
-	
-	this.game.add.sprite(2735, 245, 'tree5', null, _Tree);
 	
 	this.game.add.sprite(1486, 1125, 'tree4', null, _Tree);
 	
@@ -159,7 +159,7 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _base = this.game.add.sprite(0, 981, 'AtlasV1', 'base1', _Platform);
 	_base.scale.setTo(0.8721408470651062, 2.7561068586073496);
 	
-	var _platform15 = this.game.add.sprite(2557, 135, 'AtlasV1', 'platform6', _Platform);
+	var _platform15 = this.game.add.sprite(2568, 135, 'AtlasV1', 'platform6', _Platform);
 	_platform15.scale.setTo(0.5, 0.3913720439729267);
 	
 	var _Enemy = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
