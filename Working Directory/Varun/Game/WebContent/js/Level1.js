@@ -12,6 +12,7 @@ Level.prototype = proto;
 Level.prototype.constructor = Level;
 var tween1 = null;
 var player = null;
+
 Level.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -121,14 +122,16 @@ Level.prototype.update = function() {
 			
 			// move to the left
 //			this.scene.fPlayer.body.velocity.x = -200;
-		} else if (this.cursors.right.isDown) {
+		} 
+		else if (this.cursors.right.isDown) {
 			// move to the right
 			if(player.getState!=="walk"){
 				player.change("walk");	
 			}
 			player.moveBody("right");
 //			this.scene.fPlayer.body.velocity.x = 200;
-		} else {
+		} 
+		else {
 			// dont move in the horizontal
 //			this.scene.fPlayer.body.velocity.x = 0;
 			console.log(player.getState());
@@ -191,184 +194,375 @@ Level.prototype.update = function() {
 	}
 };
 
-Player = function (obj){
-	
-	var idle = new Idle(this);
-	var walk = new Walk(this);
-	var jump = new Jump(this);
-	var die = new Die(this);
-	var playerbody = obj;
-	var playerstate = idle;
-	
-	this.play = function(){
-		return playerstate.play(playerbody);
-	};
-	
-	this.getState = function(){
-		return playerstate.getState();
-	};
-	
-	this.getIdleState = function(){
-		return idle;
-	};
-	
-	this.getWalkState = function(){
-		return walk;
-	};
-	
-	this.getJumpState = function(){
-		return jump;
-	};
-	
-	this.getDieState = function(){
-		return die;
-	};
-	
-	this.setState = function (objstate){
-		playerstate = objstate;
-	};
-	
-	this.moveBody = function(speed){
-		playerstate.moveBody(speed, playerbody);
-	};
-	
-	this.change = function(act){
-		playerstate.change(act);		
-	}
-}
+//class Player{
+//	constructor(obj){
+//		this.playerbody = obj;		
+//		this.idle = new Idle();
+//		this.walk = new Walk();
+//		this.jump = new Jump();
+//		this.die = new Die();
+//		this.playerstate = this.idle;
+//	}
+//	
+//	play (){
+//		return this.playerstate.play(playerbody);
+//	};
+//	
+//	getState () {
+//		return this.playerstate.getState();
+//	};
+//	
+//	getIdleState () {
+//		return this.idle;
+//	};
+//	
+//	getWalkState () {
+//		return this.walk;
+//	};
+//	
+//	getJumpState () {
+//		return this.jump;
+//	};
+//	
+//	getDieState () {
+//		return this.die;
+//	};
+//	
+//	setState (objstate) {
+//		this.playerstate = objstate;
+//	};
+//	
+//	moveBody (speed) {
+//		this.playerstate.moveBody(speed, playerbody);
+//	};
+//	
+//	change (act){
+//		this.playerstate.change(act);		
+//	}
+//}
+//
+//class Idle extends Player{
+//	constructor(playerstate){
+//		this.playerstate = playerstate;	
+//	}
+//	
+//	play (playerbody)  {
+//		this.playerbody.play("idle");
+//	};
+//	
+//	moveBody (speed, playerbody) {
+//		this.playerbody.body.velocity.x = 0;
+//	};
+//	
+//	getState () {
+//		return "idle";
+//	};
+//	
+//	change (act) {
+//		if(act=="walk"){
+//			this.playerstate.setState(this.playerstate.getWalkState());	
+//		}
+//		else if(act=="jump"){
+//			this.playerstate.setState(this.playerstate.getJumpState());
+//		}
+//		else if(act=="die"){
+//			this.playerstate.setState(this.playerstate.getDieState());
+//		}
+//		else if(act=="idle"){
+//			this.playerstate.setState(this.playerstate.getIdleState());
+//		}			
+//	};
+//}
+//
+//class Walk extends Player {
+//	constructor(playerstate){
+//		this.playerstate=playerstate;
+//	}
+//	
+//	play (playerbody){
+//		playerbody.play("walk");
+//	};
+//	
+//	moveBody (speed, playerbody){
+//		console.log(speed);
+//		if(speed==="left"){
+//			console.log("Player goes Left");
+//			playerbody.body.velocity.x = -200;
+//			playerbody.scale.x = -1;	
+//		}
+//		else if(speed==="right"){
+//			console.log("Player goes Right");
+//			playerbody.body.velocity.x = 200;
+//			playerbody.scale.x = 1;
+//		}
+//	};
+//	
+//	change (act) {
+//		if(act=="walk"){
+//			this.playerstate.setState(this.playerstate.getWalkState());	
+//		}
+//		else if(act=="jump"){
+//			this.playerstate.setState(this.playerstate.getJumpState());
+//		}
+//		else if(act=="die"){
+//			this.playerstate.setState(this.playerstate.getDieState());
+//		}
+//		else if(act=="idle"){
+//			this.playerstate.setState(this.playerstate.getIdleState());
+//		}			
+//	};
+//	
+//	getState (){
+//		return "walk";
+//	};
+//};
+//
+//class Jump  extends Player{
+//	constructor(playerstate){
+//		this.playerstate=playerstate;	
+//	}
+//	
+//	play (playerbody){
+//		this.playerbody.play("jump");
+//	};
+//	
+//	moveBody (speed, playerbody){
+//		this.playerbody.body.velocity.y = -700;
+//	};
+//	
+//	getState (){
+//		return "jump";
+//	};
+//	
+//	change (act) {
+//		if(act=="walk"){
+//			this.playerstate.setState(this.playerstate.getWalkState());	
+//		}
+//		else if(act=="jump"){
+//			this.playerstate.setState(this.playerstate.getJumpState());
+//		}
+//		else if(act=="die"){
+//			this.playerstate.setState(this.playerstate.getDieState());
+//		}
+//		else if(act=="idle"){
+//			this.playerstate.setState(this.playerstate.getIdleState());
+//		}			
+//	};
+//};
+//
+//class Die extends Player{
+//	
+//	constructor(playerstate){
+//		this.playerstate=playerstate;
+//	}
+//	
+//	play (playerbody){
+//		this.playerbody.play("die");
+//	};
+//	
+//	moveBody (speed, playerbody){
+//		this.playerbody.body.velocity.x = 0;
+//	};
+//	
+//	getState (){
+//		return "die";
+//	};
+//	
+//	change (act) {
+//		if(act=="walk"){
+//			this.playerstate.setState(this.playerstate.getWalkState());	
+//		}
+//		else if(act=="jump"){
+//			this.playerstate.setState(this.playerstate.getJumpState());
+//		}
+//		else if(act=="die"){
+//			this.playerstate.setState(this.playerstate.getDieState());
+//		}
+//		else if(act=="idle"){
+//			this.playerstate.setState(this.playerstate.getIdleState());
+//		}			
+//	};
+//}
 
-Idle = function(playerstate){
-	this.playerstate=playerstate;
-	
-	this.play = function(playerbody){
-		playerbody.play("idle");
-	};
-	
-	this.moveBody = function(speed, playerbody){
-		playerbody.body.velocity.x = 0;
-	};
-	
-	this.getState = function(){
-		return "idle";
-	};
-	
-	this.change = function(act){
-		if(act=="walk"){
-			playerstate.setState(playerstate.getWalkState());	
-		}
-		else if(act=="jump"){
-			playerstate.setState(playerstate.getJumpState());
-		}
-		else if(act=="die"){
-			playerstate.setState(playerstate.getDieState());
-		}
-		else if(act=="idle"){
-			playerstate.setState(playerstate.getIdleState());
-		}			
-	};
-}
 
-Walk = function (playerstate){
-	this.playerstate=playerstate;
-	
-	this.play = function(playerbody){
-		playerbody.play("walk");
-	};
-	
-	this.moveBody = function(speed, playerbody){
-		console.log(speed);
-		if(speed==="left"){
-			console.log("Player goes Left");
-			playerbody.body.velocity.x = -200;
-			playerbody.scale.x = -1;	
-		}
-		else if(speed==="right"){
-			console.log("Player goes Right");
-			playerbody.body.velocity.x = 200;
-			playerbody.scale.x = 1;
-		}
-	};
-	
-	this.change = function(act){
-		if(act=="walk"){
-			playerstate.setState(playerstate.getWalkState());	
-		}
-		else if(act=="jump"){
-			playerstate.setState(playerstate.getJumpState());
-		}
-		else if(act=="die"){
-			playerstate.setState(playerstate.getDieState());
-		}
-		else if(act=="idle"){
-			playerstate.setState(playerstate.getIdleState());
-		}			
-	};
-	
-	this.getState = function(){
-		return "walk";
-	};
-};
-
-Jump = function (playerstate){
-	this.playerstate=playerstate;
-	this.play = function(playerbody){
-		playerbody.play("jump");
-	};
-	
-	this.moveBody = function(speed, playerbody){
-		playerbody.body.velocity.y = -700;
-	};
-	
-	this.getState = function(){
-		return "jump";
-	};
-	
-	this.change = function(act){
-		if(act=="walk"){
-			playerstate.setState(playerstate.getWalkState());	
-		}
-		else if(act=="jump"){
-			playerstate.setState(playerstate.getJumpState());
-		}
-		else if(act=="die"){
-			playerstate.setState(playerstate.getDieState());
-		}
-		else if(act=="idle"){
-			playerstate.setState(playerstate.getIdleState());
-		}			
-	};
-};
-
-Die = function (playerstate){
-	this.playerstate=playerstate;
-	
-	this.play = function(playerbody){
-		playerbody.play("die");
-	};
-	
-	this.moveBody = function(speed, playerbody){
-		playerbody.body.velocity.x = 0;
-	};
-	
-	this.getState = function(){
-		return "die";
-	};
-	
-	this.change = function(act){
-		if(act=="walk"){
-			playerstate.setState(playerstate.getWalkState());	
-		}
-		else if(act=="jump"){
-			playerstate.setState(playerstate.getJumpState());
-		}
-		else if(act=="die"){
-			playerstate.setState(playerstate.getDieState());
-		}
-		else if(act=="idle"){
-			playerstate.setState(playerstate.getIdleState());
-		}			
-	};
-}
+//Player = function (obj){
+//	
+//	var idle = new Idle(this);
+//	var walk = new Walk(this);
+//	var jump = new Jump(this);
+//	var die = new Die(this);
+//	var playerbody = obj;
+//	var playerstate = idle;
+//	
+//	this.play = function(){
+//		return playerstate.play(playerbody);
+//	};
+//	
+//	this.getState = function(){
+//		return playerstate.getState();
+//	};
+//	
+//	this.getIdleState = function(){
+//		return idle;
+//	};
+//	
+//	this.getWalkState = function(){
+//		return walk;
+//	};
+//	
+//	this.getJumpState = function(){
+//		return jump;
+//	};
+//	
+//	this.getDieState = function(){
+//		return die;
+//	};
+//	
+//	this.setState = function (objstate){
+//		playerstate = objstate;
+//	};
+//	
+//	this.moveBody = function(speed){
+//		playerstate.moveBody(speed, playerbody);
+//	};
+//	
+//	this.change = function(act){
+//		playerstate.change(act);		
+//	}
+//}
+//
+//Idle = function(playerstate){
+//	this.playerstate=playerstate;
+//	
+//	this.play = function(playerbody){
+//		playerbody.play("idle");
+//	};
+//	
+//	this.moveBody = function(speed, playerbody){
+//		playerbody.body.velocity.x = 0;
+//	};
+//	
+//	this.getState = function(){
+//		return "idle";
+//	};
+//	
+//	this.change = function(act){
+//		if(act=="walk"){
+//			playerstate.setState(playerstate.getWalkState());	
+//		}
+//		else if(act=="jump"){
+//			playerstate.setState(playerstate.getJumpState());
+//		}
+//		else if(act=="die"){
+//			playerstate.setState(playerstate.getDieState());
+//		}
+//		else if(act=="idle"){
+//			playerstate.setState(playerstate.getIdleState());
+//		}			
+//	};
+//}
+//
+//Walk = function (playerstate){
+//	this.playerstate=playerstate;
+//	
+//	this.play = function(playerbody){
+//		playerbody.play("walk");
+//	};
+//	
+//	this.moveBody = function(speed, playerbody){
+//		console.log(speed);
+//		if(speed==="left"){
+//			console.log("Player goes Left");
+//			playerbody.body.velocity.x = -200;
+//			playerbody.scale.x = -1;	
+//		}
+//		else if(speed==="right"){
+//			console.log("Player goes Right");
+//			playerbody.body.velocity.x = 200;
+//			playerbody.scale.x = 1;
+//		}
+//	};
+//	
+//	this.change = function(act){
+//		if(act=="walk"){
+//			playerstate.setState(playerstate.getWalkState());	
+//		}
+//		else if(act=="jump"){
+//			playerstate.setState(playerstate.getJumpState());
+//		}
+//		else if(act=="die"){
+//			playerstate.setState(playerstate.getDieState());
+//		}
+//		else if(act=="idle"){
+//			playerstate.setState(playerstate.getIdleState());
+//		}			
+//	};
+//	
+//	this.getState = function(){
+//		return "walk";
+//	};
+//};
+//
+//Jump = function (playerstate){
+//	this.playerstate=playerstate;
+//	this.play = function(playerbody){
+//		playerbody.play("jump");
+//	};
+//	
+//	this.moveBody = function(speed, playerbody){
+//		playerbody.body.velocity.y = -700;
+//	};
+//	
+//	this.getState = function(){
+//		return "jump";
+//	};
+//	
+//	this.change = function(act){
+//		if(act=="walk"){
+//			playerstate.setState(playerstate.getWalkState());	
+//		}
+//		else if(act=="jump"){
+//			playerstate.setState(playerstate.getJumpState());
+//		}
+//		else if(act=="die"){
+//			playerstate.setState(playerstate.getDieState());
+//		}
+//		else if(act=="idle"){
+//			playerstate.setState(playerstate.getIdleState());
+//		}			
+//	};
+//};
+//
+//Die = function (playerstate){
+//	this.playerstate=playerstate;
+//	
+//	this.play = function(playerbody){
+//		playerbody.play("die");
+//	};
+//	
+//	this.moveBody = function(speed, playerbody){
+//		playerbody.body.velocity.x = 0;
+//	};
+//	
+//	this.getState = function(){
+//		return "die";
+//	};
+//	
+//	this.change = function(act){
+//		if(act=="walk"){
+//			playerstate.setState(playerstate.getWalkState());	
+//		}
+//		else if(act=="jump"){
+//			playerstate.setState(playerstate.getJumpState());
+//		}
+//		else if(act=="die"){
+//			playerstate.setState(playerstate.getDieState());
+//		}
+//		else if(act=="idle"){
+//			playerstate.setState(playerstate.getIdleState());
+//		}			
+//	};
+//}
 
 /**
  * @param {Phaser.Sprite}

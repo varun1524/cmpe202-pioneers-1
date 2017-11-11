@@ -11,7 +11,7 @@ var proto = Object.create(Phaser.State.prototype);
 Level.prototype = proto;
 Level.prototype.constructor = Level;
 var tween1 = null;
-
+var player = null;
 /*
  * factory
  * 
@@ -109,6 +109,7 @@ Level.prototype.preload = function() {
 
 };
 
+
 Level.prototype.create = function() {
 	this.scene = new Scene1(this.game);
 	
@@ -167,7 +168,7 @@ Level.prototype.create = function() {
 	this.game.add.tween(this.enemy6).to({x: 400}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.enemy5).to({x: 600}, 1400, 'Sine.easeInOut', true, 0 , -1, true);
 
-
+	player = new Player(this.scene.fPlayer);
 	// to keep the fruits in the air
 //	this.scene.fFruits.setAll("body.allowGravity", false);
 //	this.scene.fFruits.setAll("anchor.x", 0.5);
@@ -180,10 +181,12 @@ Level.prototype.create = function() {
 };
 
 Level.prototype.update = function() {
-	if(this.playerdied){
+	if(player.getState()=="die"){
 		console.log("Died");
-		this.player.play("die");
-		this.player.body.velocity.x = 0;
+		player.play();
+		player.moveBody();
+//		this.scene.fPlayer.play("die");
+//		this.scene.fPlayer.body.velocity.x = 0;
 	}
 	else{
 		// collide the player with the platforms
@@ -194,44 +197,61 @@ Level.prototype.update = function() {
 		this.doTweenUpdates();
 
 		if (this.cursors.left.isDown) {
+			if(player.getState!=="walk"){
+				player.change("walk");	
+			}
+			player.moveBody("left");
+			
 			// move to the left
-			this.player.body.velocity.x = -200;
-		} else if (this.cursors.right.isDown) {
+//			this.scene.fPlayer.body.velocity.x = -200;
+		} 
+		else if (this.cursors.right.isDown) {
 			// move to the right
-			this.player.body.velocity.x = 200;
-		} else {
+			if(player.getState!=="walk"){
+				player.change("walk");	
+			}
+			player.moveBody("right");
+//			this.scene.fPlayer.body.velocity.x = 200;
+		} 
+		else {
 			// dont move in the horizontal
-			this.player.body.velocity.x = 0;
+//			this.scene.fPlayer.body.velocity.x = 0;
+			console.log(player.getState());
+			if(player.getState()!="idle"){
+				player.change("idle");	
+			}
+			else{
+				console.log("trie");
+			}			
+			player.moveBody();
 		}
 
 		// a flag to know if the player is (down) touching the platforms
-		var touching = this.player.body.touching.down;
+		var touching = this.scene.fPlayer.body.touching.down;
 
 		if (touching && this.cursors.up.isDown) {
 			// jump if the player is on top of a platform and the up key is pressed
-			this.player.body.velocity.y = -700;
+			if(player.getState()!="jump"){
+				player.change("jump");
+			}
+			player.moveBody();
+//			this.scene.fPlayer.body.velocity.y = -700;
 		}
 
 		if (touching) {
-			if (this.player.body.velocity.x == 0) {
+			if (player.getState()=="idle") {
 				// if it is not moving horizontally play the idle
-				this.player.play("idle");
+//				this.scene.fPlayer.play("idle");
+				player.play();
 			} else {
 				// if it is moving play the walk
-				this.player.play("walk");
+				player.play();
 			}
-		} else {
+		} 
+		else {
 			// it is not touching the platforms so it means it is jumping.
-			this.player.play("jump");
-		}
-
-		// update the facing of the player
-		if (this.cursors.left.isDown) {
-			// face left
-			this.player.scale.x = -1;
-		} else if (this.cursors.right.isDown) {
-			// face right
-			this.player.scale.x = 1;
+//			this.scene.fPlayer.play("jump");
+			player.play();
 		}
 
 		if(this.spaceKey.isDown){
@@ -274,9 +294,17 @@ Level.prototype.playerVsCollectibles = function(player, collectible) {
 	this.collectiblecount.text = this.count;
 };
 
-Level.prototype.playerVsEnemies = function(player, enemies) {
+Level.prototype.playerVsEnemies = function(_player, enemies) {
 	enemies.body.enable = false;
-	this.playerdied = true;
+//	this.playerdied = true;
+	
+	console.log(player.getState());
+	
+	if(player.getState()!="die"){
+		player.change("die");
+		player.play();
+		player.moveBody();
+	}
 
 	this.add.tween(enemies).to({
 		y : enemies.y - 50
