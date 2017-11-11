@@ -64,6 +64,8 @@ Level2.prototype.create = function() {
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
+	console.log(this.cursors);
+	console.log("scene1");
 	this.scene.fCollectibles.setAll("body.allowGravity", false);
 	this.scene.fCollectibles.setAll("anchor.x", 0.5);
 	this.scene.fCollectibles.setAll("anchor.y", 0.5);
@@ -77,7 +79,10 @@ Level2.prototype.create = function() {
 	this.game.add.tween(this.scene.fEnemy3).to({x: 500}, 3000, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.scene.fEnemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.scene.fEnemy5).to({y: 500, x: 120}, 3000, 'Sine.easeIn', true, 0 , -1, true);
-
+	this.game.add.tween(this.scene.fEnemy6).to({x: 1000}, 5000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy7).to({x: 1000}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy8).to({x: 1050}, 6000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.scene.fEnemy9).to({y: 500, x: 1200}, 3000, 'Sine.easeIn', true, 0 , -1, true);
 
 	//	this.add.tween(this.scene.fWater.tilePosition).to({
 	//		x : 25
@@ -210,5 +215,4 @@ Level2.prototype.playerVsEnemies = function(player, enemies) {
 	this.add.tween(enemies).to({
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(enemies.kill, enemies);
-
 };
