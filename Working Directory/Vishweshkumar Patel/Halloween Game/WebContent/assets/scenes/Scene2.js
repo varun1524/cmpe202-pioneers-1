@@ -21,11 +21,13 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _back = this.game.add.tileSprite(2, -4, 1920, 1080, 'back4', null, this);
 	_back.scale.setTo(1.56, 1.3);
 	
+	this.game.add.sprite(2751, 227, 'finish1', null, this);
+	
 	var _Trees = this.game.add.group(this);
 	
 	this.game.add.sprite(1270, 750, 'tree1', null, _Trees);
 	
-	this.game.add.sprite(2762, 298, 'tree1', null, _Trees);
+	this.game.add.sprite(2396, 101, 'tree1', null, _Trees);
 	
 	this.game.add.sprite(375, 846, 'tree2', null, _Trees);
 	
