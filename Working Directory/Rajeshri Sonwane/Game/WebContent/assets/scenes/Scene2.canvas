@@ -1,9 +1,9 @@
 {
   "canvas-version": 2,
   "settings": {
-    "className": "HalloweenLevel1",
-    "sceneWidth": 1920,
-    "sceneHeight": 1080,
+    "className": "Scene2",
+    "sceneWidth": 3000,
+    "sceneHeight": 1400,
     "generateOnSave": true,
     "enableStepping": false,
     "lang": "JAVA_SCRIPT",
@@ -26,6 +26,7 @@
       0,
       0
     ],
+    "autoLoad": true,
     "preloadSpriteId": "",
     "preloadSprite_direction": 0,
     "load.pack": []
@@ -50,150 +51,122 @@
               "info": {
                 "editorName": "back",
                 "x": 2,
-                "y": 1,
+                "y": -4,
+                "scale.x": 1.56,
+                "scale.y": 1.3,
                 "width": 1920,
                 "height": 1080
               }
             },
             {
-              "type": "group",
-              "id": "635c8a78-225d-45a1-97b5-f7760bf807b9",
+              "type": "image",
+              "id": "5166558c-2c6b-4b70-ba4b-d142c59e1016",
+              "asset": "1",
               "info": {
-                "editorName": "collisionLayer",
-                "editorPublic": true,
-                "physicsGroup": true,
+                "editorName": "finish",
+                "x": 2751,
+                "y": 227
+              }
+            },
+            {
+              "type": "group",
+              "id": "0ce60883-6cb8-46e1-9e7c-dcd35095d1f2",
+              "info": {
+                "editorName": "Trees",
                 "setAll": [],
                 "children": [
                   {
-                    "type": "atlas-sprite",
-                    "id": "3a65e860-d519-4a04-93da-f9e960747d16",
-                    "asset": "1",
+                    "type": "image",
+                    "id": "e2add0a0-df3b-473e-b2ab-9ada93915a1d",
+                    "asset": "2",
                     "info": {
-                      "editorName": "physics",
-                      "x": -6,
-                      "y": 1079,
-                      "scale.x": 4.456137192544979,
-                      "scale.y": 0.7764196437227103
+                      "editorName": "tree",
+                      "x": 1270,
+                      "y": 750
                     }
                   },
                   {
-                    "type": "atlas-sprite",
-                    "id": "8fe66dbd-1f7f-4f0c-adc3-5f4ba661fc15",
-                    "asset": "1",
+                    "type": "image",
+                    "id": "11d73c09-dbf0-4585-837c-26ff936a7f54",
+                    "asset": "2",
                     "info": {
-                      "editorName": "physics1",
-                      "x": -3,
-                      "y": 237,
-                      "scale.x": 0.49281008152683464,
-                      "scale.y": 1.670732781544981
+                      "editorName": "tree1",
+                      "x": 2396,
+                      "y": 101
                     }
                   },
                   {
-                    "type": "atlas-sprite",
-                    "id": "7f633336-0205-4418-a8f3-9cf123bffabb",
-                    "asset": "1",
+                    "type": "image",
+                    "id": "0cf6d920-de01-47f0-b21e-2893d9b6d322",
+                    "asset": "3",
                     "info": {
-                      "editorName": "physics4",
-                      "x": 601,
-                      "y": 441,
-                      "scale.x": 0.18849615237233974,
-                      "scale.y": 1.2235761546826331
+                      "editorName": "tree2",
+                      "x": 375,
+                      "y": 846
                     }
                   },
                   {
-                    "type": "atlas-sprite",
-                    "id": "e107cb59-760f-4833-a4f3-6eadb446271b",
-                    "asset": "1",
+                    "type": "image",
+                    "id": "f135befc-6727-4d03-aa8e-240b3d63a50b",
+                    "asset": "3",
                     "info": {
-                      "editorName": "physics2",
-                      "x": 316,
-                      "y": 93,
-                      "scale.x": 0.3116707412770432,
-                      "scale.y": 1.6707328013190235
+                      "editorName": "tree3",
+                      "x": 1695,
+                      "y": 78
                     }
                   },
                   {
-                    "type": "atlas-sprite",
-                    "id": "f6e4856e-bb91-4653-9f28-17d91559798e",
-                    "asset": "1",
+                    "type": "image",
+                    "id": "5ea5c993-b605-4a0b-a576-0337f794bdf7",
+                    "asset": "4",
                     "info": {
-                      "editorName": "physics6",
-                      "x": 1089,
-                      "y": 165,
-                      "scale.x": 0.19574182915200364,
-                      "scale.y": 1.670732781544981
+                      "editorName": "tree4",
+                      "x": 1231,
+                      "y": 335,
+                      "scale.x": 0.6956982996339168,
+                      "scale.y": 0.6297143552596562
                     }
                   },
                   {
-                    "type": "atlas-sprite",
-                    "id": "0e4249ac-6561-409f-bf06-aeaed0565bea",
-                    "asset": "1",
+                    "type": "image",
+                    "id": "08f27a23-bba3-41b9-917f-6f5810698b1f",
+                    "asset": "5",
                     "info": {
-                      "editorName": "physics7",
-                      "x": 10,
-                      "y": 750,
-                      "scale.x": 0.49281008152683464,
-                      "scale.y": 1.670732781544981
+                      "editorName": "tree5",
+                      "x": 150,
+                      "y": 552
                     }
                   },
                   {
-                    "type": "atlas-sprite",
-                    "id": "a232c4c3-13d4-4c4c-97bc-2fa3de7febd0",
-                    "asset": "1",
+                    "type": "image",
+                    "id": "9b872142-369b-43f5-861d-3974844eb8da",
+                    "asset": "6",
                     "info": {
-                      "editorName": "physics5",
-                      "x": 829,
-                      "y": 300,
-                      "scale.x": 0.18849626112474305,
-                      "scale.y": 1.670732781544981
+                      "editorName": "tree6",
+                      "x": 589,
+                      "y": 213
                     }
                   },
                   {
-                    "type": "atlas-sprite",
-                    "id": "eaab8745-689d-4e5f-a55b-e35238a697e0",
-                    "asset": "1",
+                    "type": "image",
+                    "id": "5446dc3d-2738-463b-bb73-a7ce442e3a33",
+                    "asset": "3",
                     "info": {
-                      "editorName": "physics8",
-                      "x": 701,
-                      "y": 813,
-                      "scale.x": 0.49281008152683464,
-                      "scale.y": 1.670732781544981
+                      "editorName": "tree7",
+                      "x": 998,
+                      "y": 487,
+                      "scale.x": 0.7387261604858558,
+                      "scale.y": 0.7630172834438642
                     }
                   },
                   {
-                    "type": "atlas-sprite",
-                    "id": "1dee5372-f28d-4ea7-925f-770a84b8b98b",
-                    "asset": "1",
+                    "type": "image",
+                    "id": "8cdf5dcd-a4be-4ede-a6fa-88cd94a36273",
+                    "asset": "5",
                     "info": {
-                      "editorName": "physics10",
-                      "x": 1555,
-                      "y": 754,
-                      "scale.x": 0.8188607794941662,
-                      "scale.y": 1.670732781544981
-                    }
-                  },
-                  {
-                    "type": "atlas-sprite",
-                    "id": "21e0c0bb-760d-4ec0-8142-4275910cce02",
-                    "asset": "1",
-                    "info": {
-                      "editorName": "physics9",
-                      "x": 1157,
-                      "y": 973,
-                      "scale.x": 0.5870026029879345,
-                      "scale.y": 1.670732781544981
-                    }
-                  },
-                  {
-                    "type": "atlas-sprite",
-                    "id": "c17938f2-1fb9-4c9e-8d16-755ee637cacf",
-                    "asset": "1",
-                    "info": {
-                      "editorName": "physics3",
-                      "x": 326,
-                      "y": 584,
-                      "scale.x": 0.2537062516280532,
-                      "scale.y": 1.6707327815690296
+                      "editorName": "tree8",
+                      "x": 1109,
+                      "y": 1164
                     }
                   }
                 ]
@@ -205,37 +178,17 @@
               "info": {
                 "editorName": "Enemy",
                 "editorPublic": true,
+                "renderable": false,
+                "physicsGroup": true,
                 "setAll": [],
                 "children": [
                   {
-                    "type": "atlas-sprite",
-                    "id": "261aaed0-c1b1-4fb9-bc3e-7c3cbb03827f",
-                    "asset": "2",
-                    "info": {
-                      "editorName": "base",
-                      "x": -3,
-                      "y": 1075,
-                      "scale.x": 4.777959578800121
-                    }
-                  },
-                  {
-                    "type": "spritesheet",
-                    "id": "dd535e93-e690-49f3-a93a-c7e26f8d1d0b",
-                    "asset": "3",
-                    "info": {
-                      "editorName": "player",
-                      "x": 89,
-                      "y": 111,
-                      "scale.x": 0.70075049810291,
-                      "scale.y": 0.6523508950297674
-                    }
-                  },
-                  {
                     "type": "spritesheet",
                     "id": "89d9fed6-563f-4ff0-ac79-a3133ed58629",
-                    "asset": "4",
+                    "asset": "7",
                     "info": {
-                      "editorName": "enemy",
+                      "editorName": "enemy4",
+                      "editorPublic": true,
                       "x": 22,
                       "y": 645,
                       "scale.x": 0.32488351978865954,
@@ -245,11 +198,12 @@
                   {
                     "type": "image",
                     "id": "8302c204-9938-4ad6-8ede-f9c424d359b7",
-                    "asset": "5",
+                    "asset": "8",
                     "info": {
                       "editorName": "enemy1",
-                      "x": 790,
-                      "y": 389,
+                      "editorPublic": true,
+                      "x": 400,
+                      "y": 346,
                       "scale.x": 0.41591689614081323,
                       "scale.y": 0.27488343072142035
                     }
@@ -257,25 +211,310 @@
                   {
                     "type": "spritesheet",
                     "id": "3fa584ca-28f4-40d6-876e-223be435c098",
-                    "asset": "6",
+                    "asset": "9",
                     "info": {
                       "editorName": "enemy3",
-                      "x": 835,
-                      "y": 698,
+                      "editorPublic": true,
+                      "x": 1050,
+                      "y": 684,
                       "scale.x": 0.34534128162048316,
                       "scale.y": 0.3124073528366544
                     }
                   },
                   {
                     "type": "spritesheet",
+                    "id": "626443cf-cf2a-40dd-8efb-f76485a39c17",
+                    "asset": "7",
+                    "info": {
+                      "editorName": "enemy7",
+                      "editorPublic": true,
+                      "x": 2142,
+                      "y": 1018,
+                      "scale.x": 0.32488351978865954,
+                      "scale.y": 0.2508318903325017
+                    }
+                  },
+                  {
+                    "type": "spritesheet",
                     "id": "b532510c-c191-4921-a482-18384083d945",
-                    "asset": "6",
+                    "asset": "9",
                     "info": {
                       "editorName": "enemy2",
+                      "editorPublic": true,
                       "x": 1778,
                       "y": 623,
                       "scale.x": 0.34534128162048316,
                       "scale.y": 0.3124073528366544
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "b68d1b94-4933-4d90-b85c-b85c6e9e4fa0",
+                    "asset": "8",
+                    "info": {
+                      "editorName": "enemy5",
+                      "editorPublic": true,
+                      "x": 1085,
+                      "y": 17,
+                      "scale.x": 0.41591689614081323,
+                      "scale.y": 0.27488343072142035
+                    }
+                  },
+                  {
+                    "type": "spritesheet",
+                    "id": "8538cf2b-26aa-4e7c-8b77-a02768e57c23",
+                    "asset": "9",
+                    "info": {
+                      "editorName": "enemy8",
+                      "editorPublic": true,
+                      "x": 2875,
+                      "y": 177,
+                      "scale.x": 0.34534128162048316,
+                      "scale.y": 0.3124073528366544
+                    }
+                  },
+                  {
+                    "type": "spritesheet",
+                    "id": "241155b6-36dc-4679-9316-89522e32fd8d",
+                    "asset": "7",
+                    "info": {
+                      "editorName": "enemy6",
+                      "editorPublic": true,
+                      "x": 2824,
+                      "y": 740,
+                      "scale.x": 0.32488351978865954,
+                      "scale.y": 0.2508318903325017
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "5f595052-30e9-4e14-982e-339bf544deb4",
+                    "asset": "8",
+                    "info": {
+                      "editorName": "enemy9",
+                      "editorPublic": true,
+                      "x": 856,
+                      "y": 1098,
+                      "scale.x": 0.41591689614081323,
+                      "scale.y": 0.27488343072142035
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "group",
+              "id": "d9f2f3ae-15eb-4324-99ca-59e4337480be",
+              "info": {
+                "editorName": "collectibles",
+                "editorPublic": true,
+                "physicsGroup": true,
+                "setAll": [],
+                "children": [
+                  {
+                    "type": "image",
+                    "id": "0b559f7d-a835-4d29-9053-33ad8189eec1",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin",
+                      "x": 625,
+                      "y": 371,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "467848aa-fce8-4ab8-ae57-94f4355e0d75",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin1",
+                      "x": 802,
+                      "y": 737,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "b075af76-acb5-42b6-a318-9990628035ca",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin2",
+                      "x": 2148,
+                      "y": 331,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "622b7b83-127c-46d3-8892-c5061c7e21a1",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin3",
+                      "x": 514,
+                      "y": 72,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "882e74d1-f893-4f46-a931-efcc8ce68188",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin4",
+                      "x": 143,
+                      "y": 686,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "284a4922-1cfd-4dab-9c5a-a54be88f848d",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin5",
+                      "x": 2415,
+                      "y": 930,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "ebc87181-1886-4c31-961f-43f4e206afca",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin6",
+                      "x": 1347,
+                      "y": 898,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "2f7e4728-c5cc-435b-a45b-76b85a25c521",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin7",
+                      "x": 1853,
+                      "y": 470,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "b577a253-ab10-417e-ae39-62e0db1a4c30",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin8",
+                      "x": 1112,
+                      "y": 107,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "cb187980-1b51-4fa9-a713-34da155870bd",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin9",
+                      "x": 529,
+                      "y": 984,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "32a95be0-b413-46b4-b444-8158df0b1084",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin10",
+                      "x": 2834,
+                      "y": 448,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "2dab797b-56d4-43ab-9684-86773b8bb5c1",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin12",
+                      "x": 1874,
+                      "y": 904,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "6f3b9d80-fa8a-406e-8fb3-29306a815943",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin14",
+                      "x": 1647,
+                      "y": 212,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "606a6feb-9e40-4555-bd97-e5c767b817a6",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin15",
+                      "x": 1740,
+                      "y": 193,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "a2b69ac9-0e31-449c-b0af-5f2cdba08dc1",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkinscore",
+                      "editorPublic": true,
+                      "x": 22,
+                      "y": 10,
+                      "scale.x": 0.2,
+                      "scale.y": 0.2,
+                      "fixedToCamera": true
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "68e9a9df-c51e-4b54-9299-56d1d7d5fe71",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin13",
+                      "x": 1565,
+                      "y": 208,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "7d51cb22-8428-4655-8828-82586e998da2",
+                    "asset": "10",
+                    "info": {
+                      "editorName": "pumpkin11",
+                      "x": 1245,
+                      "y": 412,
+                      "scale.x": 0.25,
+                      "scale.y": 0.25
                     }
                   }
                 ]
@@ -291,7 +530,7 @@
                   {
                     "type": "atlas-sprite",
                     "id": "b415202f-a295-4c3a-bdc3-d062984baae0",
-                    "asset": "7",
+                    "asset": "11",
                     "info": {
                       "editorName": "platform",
                       "x": 1,
@@ -303,11 +542,11 @@
                   {
                     "type": "atlas-sprite",
                     "id": "c489710f-42c1-44cb-beaf-6a01d5d24151",
-                    "asset": "8",
+                    "asset": "12",
                     "info": {
                       "editorName": "platform1",
-                      "x": 329,
-                      "y": 84,
+                      "x": 473,
+                      "y": 126,
                       "scale.x": 0.2605838660206705,
                       "scale.y": 0.42728032672455085
                     }
@@ -315,11 +554,11 @@
                   {
                     "type": "atlas-sprite",
                     "id": "16d2c3f8-a3bc-43c5-85e8-627b0bf472c3",
-                    "asset": "9",
+                    "asset": "13",
                     "info": {
                       "editorName": "platform2",
-                      "x": 1563,
-                      "y": 741,
+                      "x": 2645,
+                      "y": 850,
                       "scale.x": 0.4180733391451292,
                       "scale.y": 0.4251174962632454
                     }
@@ -327,19 +566,19 @@
                   {
                     "type": "atlas-sprite",
                     "id": "f999f511-1cd7-474e-8b39-a22f4a89c8e8",
-                    "asset": "10",
+                    "asset": "14",
                     "info": {
                       "editorName": "platform3",
                       "x": 1161,
                       "y": 953,
-                      "scale.x": 0.7238157856272961,
+                      "scale.x": 1.2802625443825384,
                       "scale.y": 0.6963346152326263
                     }
                   },
                   {
                     "type": "atlas-sprite",
                     "id": "2df8b6d4-2247-4b48-bcf5-8f241680adf0",
-                    "asset": "11",
+                    "asset": "15",
                     "info": {
                       "editorName": "platform4",
                       "x": 700,
@@ -351,7 +590,7 @@
                   {
                     "type": "atlas-sprite",
                     "id": "d543c94b-d843-4414-be11-4e70c14b0ca0",
-                    "asset": "12",
+                    "asset": "16",
                     "info": {
                       "editorName": "platform5",
                       "x": 798,
@@ -361,7 +600,7 @@
                   {
                     "type": "atlas-sprite",
                     "id": "ba6225e6-e5b0-4911-b64b-8cafd4914c66",
-                    "asset": "12",
+                    "asset": "16",
                     "info": {
                       "editorName": "platform8",
                       "x": 310,
@@ -371,7 +610,7 @@
                   {
                     "type": "atlas-sprite",
                     "id": "5766abbd-c365-45a1-916f-3ee4d0cad067",
-                    "asset": "12",
+                    "asset": "16",
                     "info": {
                       "editorName": "platform7",
                       "x": 1061,
@@ -381,7 +620,7 @@
                   {
                     "type": "atlas-sprite",
                     "id": "91e5df3b-e6f2-462a-9e2a-3973737ead06",
-                    "asset": "12",
+                    "asset": "16",
                     "info": {
                       "editorName": "platform6",
                       "x": 579,
@@ -390,29 +629,515 @@
                   },
                   {
                     "type": "atlas-sprite",
+                    "id": "261aaed0-c1b1-4fb9-bc3e-7c3cbb03827f",
+                    "asset": "17",
+                    "info": {
+                      "editorName": "base",
+                      "x": -3,
+                      "y": 1362,
+                      "scale.x": 7.5
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
                     "id": "b87ff131-0142-467d-91d5-9442da66a161",
-                    "asset": "10",
+                    "asset": "14",
                     "info": {
                       "editorName": "platform9",
-                      "x": -4,
-                      "y": 744,
-                      "scale.x": 0.7238157856272961,
+                      "x": 404,
+                      "y": 1041,
+                      "scale.x": 0.8882205073613963,
                       "scale.y": 0.6963346152326263
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "6cbd96e6-228a-493d-a1c4-e7dabeeb73a6",
+                    "asset": "11",
+                    "info": {
+                      "editorName": "platform10",
+                      "x": 13,
+                      "y": 753,
+                      "scale.x": 1.0250718171857403,
+                      "scale.y": 0.4593795105439774
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "cb191ab7-b0b7-459f-8b3a-43cea5c0f783",
+                    "asset": "12",
+                    "info": {
+                      "editorName": "platform11",
+                      "x": 1210,
+                      "y": 460,
+                      "scale.x": 0.4457266349378203,
+                      "scale.y": 0.5257554804082046
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "e68f993e-db0b-439a-a518-19943d854951",
+                    "asset": "16",
+                    "info": {
+                      "editorName": "platform12",
+                      "x": 983,
+                      "y": 590
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "f0ae14ec-943e-4990-81cb-6ec2874be943",
+                    "asset": "16",
+                    "info": {
+                      "editorName": "platform13",
+                      "x": 1800,
+                      "y": 484
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "1520271c-5e1f-43c2-a355-31bd10056818",
+                    "asset": "16",
+                    "info": {
+                      "editorName": "platform14",
+                      "x": 1539,
+                      "y": 663
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "cd54dc2f-e1be-4bd9-9bd5-6b3d548db212",
+                    "asset": "16",
+                    "info": {
+                      "editorName": "platform15",
+                      "x": 2484,
+                      "y": 254
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "9d55be1f-9dd3-47f2-bb9c-cece01fbcede",
+                    "asset": "16",
+                    "info": {
+                      "editorName": "platform16",
+                      "x": 2124,
+                      "y": 1095
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "65f98ea1-fc3b-43c5-81dd-73f66d367ce9",
+                    "asset": "16",
+                    "info": {
+                      "editorName": "platform17",
+                      "x": 2362,
+                      "y": 955
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "4c153591-426f-44b9-af86-7f0676be5f62",
+                    "asset": "12",
+                    "info": {
+                      "editorName": "platform18",
+                      "x": 2062,
+                      "y": 387,
+                      "scale.x": 0.4457266349378203,
+                      "scale.y": 0.5257554804082046
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "6dcf02ec-be7b-4a15-bf94-aa6ac5e16795",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "platform19",
+                      "x": 1537,
+                      "y": 275,
+                      "scale.x": 0.8882205073613963,
+                      "scale.y": 0.6963346152326263
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "48ccb4d8-df6f-47d0-a03f-1dbf8ddfb577",
+                    "asset": "13",
+                    "info": {
+                      "editorName": "platform20",
+                      "x": 2642,
+                      "y": 494,
+                      "scale.x": 0.4180733391451292,
+                      "scale.y": 0.4251174962632454
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "ef9cd1f2-c6fc-41e8-9c34-e3797fcab97a",
+                    "asset": "16",
+                    "info": {
+                      "editorName": "platform22",
+                      "x": 1828,
+                      "y": 930
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "38526587-c98a-4d89-af63-0dad00342aa7",
+                    "asset": "16",
+                    "info": {
+                      "editorName": "platform21",
+                      "x": 827,
+                      "y": 1148
                     }
                   }
                 ]
               }
             },
             {
-              "type": "atlas-sprite",
-              "id": "787e0f99-96fd-4dd1-97e0-dff096ad8388",
-              "asset": "1",
+              "type": "group",
+              "id": "635c8a78-225d-45a1-97b5-f7760bf807b9",
               "info": {
-                "editorName": "physics11",
-                "x": 6,
-                "y": 237,
-                "scale.x": 0.49281008152683464,
-                "scale.y": 1.670732781544981
+                "editorName": "collisionLayer",
+                "editorPublic": true,
+                "physicsGroup": true,
+                "setAll": [],
+                "children": [
+                  {
+                    "type": "atlas-sprite",
+                    "id": "3a65e860-d519-4a04-93da-f9e960747d16",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics",
+                      "x": -6,
+                      "y": 1361,
+                      "scale.x": 7,
+                      "scale.y": 0.7764196437227103
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "8fe66dbd-1f7f-4f0c-adc3-5f4ba661fc15",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics1",
+                      "x": 1,
+                      "y": 243,
+                      "scale.x": 0.49281008152683464,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "7f633336-0205-4418-a8f3-9cf123bffabb",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics4",
+                      "x": 614,
+                      "y": 444,
+                      "scale.x": 0.18849615237233974,
+                      "scale.y": 1.2235761546826331
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "e107cb59-760f-4833-a4f3-6eadb446271b",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics2",
+                      "x": 479,
+                      "y": 136,
+                      "scale.x": 0.2769485256237805,
+                      "scale.y": 1.6707328013190235
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "f6e4856e-bb91-4653-9f28-17d91559798e",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics6",
+                      "x": 1095,
+                      "y": 172,
+                      "scale.x": 0.19574182915200364,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "0e4249ac-6561-409f-bf06-aeaed0565bea",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics7",
+                      "x": 16,
+                      "y": 762,
+                      "scale.x": 0.7316887885003348,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "a232c4c3-13d4-4c4c-97bc-2fa3de7febd0",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics5",
+                      "x": 834,
+                      "y": 307,
+                      "scale.x": 0.18849626112474305,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "eaab8745-689d-4e5f-a55b-e35238a697e0",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics8",
+                      "x": 720,
+                      "y": 808,
+                      "scale.x": 0.49281008152683464,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "1dee5372-f28d-4ea7-925f-770a84b8b98b",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics10",
+                      "x": 2794,
+                      "y": 867,
+                      "scale.x": 0.48087012451991346,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "21e0c0bb-760d-4ec0-8142-4275910cce02",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics9",
+                      "x": 1170,
+                      "y": 964,
+                      "scale.x": 0.9661069277347307,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "c17938f2-1fb9-4c9e-8d16-755ee637cacf",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics3",
+                      "x": 339,
+                      "y": 593,
+                      "scale.x": 0.21319699567926176,
+                      "scale.y": 1.6707327815690296
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "417d9e06-313b-446f-baba-2aea8078cec5",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics12",
+                      "x": 2789,
+                      "y": 512,
+                      "scale.x": 0.48087012451991346,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "99964e63-98bf-455d-8364-c8ea532774ff",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics19",
+                      "x": 1214,
+                      "y": 469,
+                      "scale.x": 0.5040454070001792,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "7a864ddb-881c-4f56-843a-faab5b70d11d",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics20",
+                      "x": 1547,
+                      "y": 285,
+                      "scale.x": 0.6447023173801332,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "5d973d4b-e24b-4240-aade-8e5914bb7700",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics13",
+                      "x": 2526,
+                      "y": 314,
+                      "scale.x": 0.1657981786072597,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "609516f0-7026-4cd1-926c-bc31a171cd69",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics14",
+                      "x": 1843,
+                      "y": 543,
+                      "scale.x": 0.1657981786072597,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "6ad48717-7c80-4fe3-98aa-5725fcdacaf3",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics15",
+                      "x": 1581,
+                      "y": 724,
+                      "scale.x": 0.1657981786072597,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "0149a5d7-4261-4caf-b2d5-b41ff854f7dc",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics16",
+                      "x": 868,
+                      "y": 1211,
+                      "scale.x": 0.1657981786072597,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "802ca884-bb81-4370-95ae-88a7cb67a1f0",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics17",
+                      "x": 1026,
+                      "y": 648,
+                      "scale.x": 0.1657981786072597,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "09f72655-4c97-4493-a586-d968621c372e",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics22",
+                      "x": 2401,
+                      "y": 1013,
+                      "scale.x": 0.1657981786072597,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "7925831d-12fa-45e8-a0c5-acc1b62f4ecb",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics11",
+                      "x": 1858,
+                      "y": 981,
+                      "scale.x": 0.21894385677163666,
+                      "scale.y": 1.6398577936861323
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "5a5e5492-ce4e-4d99-a92d-847ce2a71ce8",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics21",
+                      "x": 2165,
+                      "y": 1153,
+                      "scale.x": 0.1657981786072597,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "0d6b549a-5874-4816-b184-df5d4013ffef",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics18",
+                      "x": 415,
+                      "y": 1050,
+                      "scale.x": 0.6480512207924056,
+                      "scale.y": 1.670732781544981
+                    }
+                  },
+                  {
+                    "type": "atlas-sprite",
+                    "id": "6b1c9619-0da3-4009-a706-e55761119306",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "physics23",
+                      "x": 2067,
+                      "y": 396,
+                      "scale.x": 0.49635385407062566,
+                      "scale.y": 1.670732781544981
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "spritesheet",
+              "id": "dd535e93-e690-49f3-a93a-c7e26f8d1d0b",
+              "asset": "19",
+              "info": {
+                "editorName": "player",
+                "editorPublic": true,
+                "x": 89,
+                "y": 111,
+                "anchor.x": 0.5,
+                "animations": [
+                  {
+                    "name": "walk",
+                    "frameRate": 4,
+                    "frames": [
+                      "0",
+                      "1"
+                    ]
+                  },
+                  {
+                    "name": "jump",
+                    "frameRate": 3,
+                    "frames": ["3"]
+                  },
+                  {
+                    "name": "idle",
+                    "frameRate": 60,
+                    "frames": ["0"]
+                  },
+                  {
+                    "name": "attack",
+                    "frameRate": 4,
+                    "frames": [
+                      "4",
+                      "0"
+                    ]
+                  },
+                  {
+                    "name": "die",
+                    "frameRate": 1,
+                    "loop": true,
+                    "frames": ["5"]
+                  }
+                ],
+                "body": {"type": "ARCADE_RECT"}
               }
             }
           ]
@@ -430,73 +1155,108 @@
     "1": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "AtlasV1",
-      "sprite": "physics"
+      "asset": "finish1"
     },
     "2": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "AtlasV1",
-      "sprite": "base1"
+      "asset": "tree1"
     },
     "3": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "player",
-      "sprite": "0"
+      "asset": "tree2"
     },
     "4": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "tree3"
+    },
+    "5": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "tree4"
+    },
+    "6": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "tree5"
+    },
+    "7": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "enemy1",
       "sprite": "0"
     },
-    "5": {
+    "8": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "enemy2"
     },
-    "6": {
+    "9": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "enemy1",
       "sprite": "1"
     },
-    "7": {
-      "file": "WebContent/assets/pack.json",
-      "section": "level",
-      "asset": "AtlasV1",
-      "sprite": "platform2"
-    },
-    "8": {
-      "file": "WebContent/assets/pack.json",
-      "section": "level",
-      "asset": "AtlasV1",
-      "sprite": "platform3"
-    },
-    "9": {
-      "file": "WebContent/assets/pack.json",
-      "section": "level",
-      "asset": "AtlasV1",
-      "sprite": "platform6"
-    },
     "10": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "AtlasV1",
-      "sprite": "platform5"
+      "asset": "pumpkin"
     },
     "11": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "AtlasV1",
-      "sprite": "platform4"
+      "sprite": "platform2"
     },
     "12": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "AtlasV1",
+      "sprite": "platform3"
+    },
+    "13": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "platform6"
+    },
+    "14": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "platform5"
+    },
+    "15": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "platform4"
+    },
+    "16": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
       "sprite": "platform1"
+    },
+    "17": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "base1"
+    },
+    "18": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "AtlasV1",
+      "sprite": "physics"
+    },
+    "19": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "player",
+      "sprite": "0"
     }
   },
   "prefab-table": {}
