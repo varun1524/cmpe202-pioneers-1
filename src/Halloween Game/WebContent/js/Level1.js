@@ -104,9 +104,7 @@ Level.prototype.init = function() {
 };
 
 Level.prototype.preload = function() {
-
 	this.load.pack("level", "assets/pack.json");
-
 };
 
 
@@ -124,7 +122,6 @@ Level.prototype.create = function() {
 	this.enemy4 = fac.getObject('enemy4');
 	this.enemy5 = fac.getObject('enemy5');
 	this.enemy6 = fac.getObject('enemy6');
-	
 	
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
