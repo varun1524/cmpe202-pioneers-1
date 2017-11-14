@@ -39,7 +39,7 @@ Level.prototype.create = function() {
 	this.scene = new Scene1(this.game);
 	scene = this.scene;
 	
-	var fac = new factory(this);
+	var fac = new Factory(this);
 	this.player = fac.getObject('player');
 	this.collisionLayer = fac.getObject('collisionLayer');
 	this.collectibles = fac.getObject('collectibles');
