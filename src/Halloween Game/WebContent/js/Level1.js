@@ -12,78 +12,6 @@ Level.prototype = proto;
 Level.prototype.constructor = Level;
 var tween1 = null;
 var player = null;
-/*
- * factory
- * 
- */
-class factory {
-	
-	constructor(self){
-		this.scene = self.scene;
-		console.log(this.scene);
-	}
-	
-	getObject(name){
-		
-		switch(name){
-		
-		case "player" : {
-			return this.scene.fPlayer;
-			break;
-			}
-		
-		case "collisionLayer" : {
-			return this.scene.fCollisionLayer;
-			break;
-			}
-
-		case "collectibles" : {
-			return this.scene.fCollectibles;
-			break;
-			}
-
-		case "enemy" : {
-			return this.scene.fEnemy;
-			break;
-			}
-
-		case "enemy1" : {
-			return this.scene.fEnemy1;
-			break;
-			}
-
-		case "enemy2" : {
-			return this.scene.fEnemy2;
-			break;
-			}
-
-		case "enemy3" : {
-			return this.scene.fEnemy3;
-			break;
-			}
-
-		case "enemy4" : {
-			return this.scene.fEnemy4;
-			break;
-			}
-		
-		case "enemy5" : {
-			return this.scene.fEnemy5;
-			break;
-			}
-		
-		case "enemy6" : {
-				return this.scene.fEnemy6;
-				break;
-				}
-		
-		default: return null;
-			
-		}
-	}
-	
-}
-
 
 Level.prototype.init = function() {
 
@@ -111,7 +39,7 @@ Level.prototype.preload = function() {
 Level.prototype.create = function() {
 	this.scene = new Scene1(this.game);
 	
-	var fac = new factory(this);
+	var fac = new Factory(this);
 	this.player = fac.getObject('player');
 	this.collisionLayer = fac.getObject('collisionLayer');
 	this.collectibles = fac.getObject('collectibles');
