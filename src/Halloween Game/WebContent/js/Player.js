@@ -50,6 +50,10 @@ Player = function (obj){
 	this.change = function(act){
 		playerstate.change(act);		
 	}
+	
+	this.moveDirection = function(direction){
+		playerstate.moveDirection(direction, playerbody);
+	};
 }
 
 Idle = function(playerstate){
@@ -65,6 +69,17 @@ Idle = function(playerstate){
 	
 	this.getState = function(){
 		return "idle";
+	};
+	
+	this.moveDirection = function(direction, playerbody){
+		if(direction==="left"){
+			playerbody.scale.x = -1;
+			playerbody.body.velocity.x = -200;
+		}
+		else if(direction==="right"){
+			playerbody.scale.x = 1;
+			playerbody.body.velocity.x = 200;
+		}
 	};
 	
 	this.change = function(act){
@@ -90,19 +105,30 @@ Walk = function (playerstate){
 		playerbody.play("walk");
 	};
 	
-	this.moveBody = function(speed, playerbody){
-		console.log(speed);
-		if(speed==="left"){
+	this.moveBody = function(direction, playerbody){
+		console.log(direction);
+		if(direction==="left"){
 			console.log("Player goes Left");
-			playerbody.body.velocity.x = -200;
-			playerbody.scale.x = -1;	
+			
 		}
-		else if(speed==="right"){
-			console.log("Player goes Right");
-			playerbody.body.velocity.x = 200;
+		else if(direction==="right"){
+			console.log("Player goes Right");			
+		}
+		this.moveDirection(direction, playerbody);
+	};
+	
+	this.moveDirection = function(direction, playerbody){
+		if(direction==="left"){
+			playerbody.scale.x = -1;
+			playerbody.body.velocity.x = -200;
+		}
+		else if(direction==="right"){
 			playerbody.scale.x = 1;
+			playerbody.body.velocity.x = 200;
 		}
 	};
+	
+	
 	
 	this.change = function(act){
 		if(act=="walk"){
@@ -130,12 +156,24 @@ Jump = function (playerstate){
 		playerbody.play("jump");
 	};
 	
-	this.moveBody = function(speed, playerbody){
+	this.moveBody = function(direction, playerbody){
 		playerbody.body.velocity.y = -700;
 	};
 	
 	this.getState = function(){
 		return "jump";
+	};
+	
+	this.moveDirection = function(direction, playerbody){
+		if(direction==="left"){
+			playerbody.scale.x = -1;
+			playerbody.body.velocity.x = -200;
+		}
+		else if(direction==="right"){
+			playerbody.scale.x = 1;
+			playerbody.body.velocity.x = 200;
+			
+		}
 	};
 	
 	this.change = function(act){
