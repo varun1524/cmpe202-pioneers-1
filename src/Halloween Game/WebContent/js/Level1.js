@@ -242,7 +242,11 @@ Level.prototype.playerVsCollectibles = function(player, collectible) {
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(collectible.kill, collectible);
 
-	this.count++;
+	//this.count++;
+	var countObserver = new CountObserver();
+    countObserver.subscribe(this.count);
+    this.count = countObserver.increaseCount();
+    
 	this.collectiblecount.text = this.count;
 };
 
