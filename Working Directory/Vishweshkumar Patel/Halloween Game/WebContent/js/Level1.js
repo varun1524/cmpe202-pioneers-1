@@ -13,96 +13,6 @@ Level.prototype.constructor = Level;
 var tween1 = null;
 var player = null;
 
-//Factory Pattern
-class factory {
-	
-	constructor(self){
-		this.scene = self.scene;
-		console.log(this.scene);
-	}
-	
-	getObject(name){
-		
-		switch(name){
-		
-		case "player" : {
-			return this.scene.fPlayer;
-			break;
-			}
-		
-		case "collisionLayer" : {
-			return this.scene.fCollisionLayer;
-			break;
-			}
-
-		case "collectibles" : {
-			return this.scene.fCollectibles;
-			break;
-			}
-
-		case "enemy" : {
-			return this.scene.fEnemy;
-			break;
-			}
-
-		case "enemy1" : {
-			return this.scene.fEnemy1;
-			break;
-			}
-
-		case "enemy2" : {
-			return this.scene.fEnemy2;
-			break;
-			}
-
-		case "enemy3" : {
-			return this.scene.fEnemy3;
-			break;
-			}
-
-		case "enemy4" : {
-			return this.scene.fEnemy4;
-			break;
-			}
-		
-		case "enemy5" : {
-			return this.scene.fEnemy5;
-			break;
-			}
-		
-		case "enemy6" : {
-				return this.scene.fEnemy6;
-				break;
-				}
-		
-		default: return null;
-			
-		}
-	}
-	
-}
-
-//Observer Pattern 
-class CountObserver{
-
-	constructor() {
-	this.observerCount = 0;  // observers
-	}
-
-	subscribe(count) {
-		this.observerCount = count;
-	}
-
-	unsubscribe(count) {
-		this.observerCount = 0;
-	}
-
-	increaseCount() {
-		this.observerCount++;
-		return this.observerCount;
-	}
-}
-
 Level.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -129,7 +39,7 @@ Level.prototype.preload = function() {
 Level.prototype.create = function() {
 	this.scene = new Scene1(this.game);
 	
-	var fac = new factory(this);
+	var fac = new Factory(this);
 	this.player = fac.getObject('player');
 	this.collisionLayer = fac.getObject('collisionLayer');
 	this.collectibles = fac.getObject('collectibles');
@@ -211,38 +121,51 @@ Level.prototype.update = function() {
 		
 		this.doTweenUpdates();
 
-		if (this.cursors.left.isDown) {
-			if(player.getState!=="walk"){
-				player.change("walk");	
+		var touching = this.player.body.touching.down;
+		console.log("touch:"+touching);
+		
+		if(touching){
+			if (this.cursors.left.isDown) {
+				if(player.getState!=="walk"){
+					player.change("walk");	
+				}
+				player.moveBody("left");
+				
+				// move to the left
+	//			this.scene.fPlayer.body.velocity.x = -200;
+			} 
+			else if (this.cursors.right.isDown) {
+				// move to the right
+				if(player.getState!=="walk"){
+					player.change("walk");	
+				}
+				player.moveBody("right");
+	//			this.scene.fPlayer.body.velocity.x = 200;
+			} 
+			else {
+				// dont move in the horizontal
+	//			this.scene.fPlayer.body.velocity.x = 0;
+				console.log(player.getState());
+				if(player.getState()!="idle"){
+					player.change("idle");	
+				}
+				else{
+					console.log("trie");
+				}			
+				player.moveBody();
 			}
-			player.moveBody("left");
-			
-			// move to the left
-//			this.scene.fPlayer.body.velocity.x = -200;
-		} 
-		else if (this.cursors.right.isDown) {
-			// move to the right
-			if(player.getState!=="walk"){
-				player.change("walk");	
-			}
-			player.moveBody("right");
-//			this.scene.fPlayer.body.velocity.x = 200;
-		} 
-		else {
-			// dont move in the horizontal
-//			this.scene.fPlayer.body.velocity.x = 0;
-			console.log(player.getState());
-			if(player.getState()!="idle"){
-				player.change("idle");	
-			}
-			else{
-				console.log("trie");
-			}			
-			player.moveBody();
 		}
-
-		// a flag to know if the player is (down) touching the platforms
-		var touching = this.scene.fPlayer.body.touching.down;
+		else{
+			if(player.getState()!=="die" && player.getState()!=="jump"){
+				player.change("idle");
+				if (this.cursors.left.isDown) {
+					player.moveDirection("left");
+				} 
+				else if (this.cursors.right.isDown) {
+					player.moveDirection("right");
+				}
+			}
+		}
 
 		if (touching && this.cursors.up.isDown) {
 			// jump if the player is on top of a platform and the up key is pressed
@@ -251,6 +174,12 @@ Level.prototype.update = function() {
 			}
 			player.moveBody();
 //			this.scene.fPlayer.body.velocity.y = -700;
+			if (this.cursors.left.isDown) {
+				player.moveDirection("left");
+			} 
+			else if (this.cursors.right.isDown) {
+				player.moveDirection("right");
+			}	
 		}
 
 		if (touching) {
@@ -267,6 +196,14 @@ Level.prototype.update = function() {
 			// it is not touching the platforms so it means it is jumping.
 //			this.scene.fPlayer.play("jump");
 			player.play();
+			if(player.getState()==="jump"){
+				if (this.cursors.left.isDown) {
+					player.moveDirection("left");
+				} 
+				else if (this.cursors.right.isDown) {
+					player.moveDirection("right");
+				}
+			}
 		}
 
 		if(this.spaceKey.isDown){
