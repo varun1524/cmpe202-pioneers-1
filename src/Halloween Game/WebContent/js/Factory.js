@@ -80,6 +80,10 @@ class Factory {
 				break;
 				}
 		
+		case "finish" : {
+			return this.scene.fFinish;
+			break;
+			}
 		default: return null;
 			
 		}
