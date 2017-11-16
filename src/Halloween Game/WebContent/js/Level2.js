@@ -12,6 +12,7 @@ Level2.prototype = proto;
 Level2.prototype.constructor = Level2;
 var tween1 = null;
 var player = null;
+var totalCollectible = null;
 Level2.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -51,7 +52,7 @@ Level2.prototype.create = function() {
 	this.enemy7 = fac.getObject('enemy7');
 	this.enemy8 = fac.getObject('enemy8');
 	this.enemy9 = fac.getObject('enemy9');
-	
+	totalCollectible = 16;
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
 	
@@ -101,10 +102,6 @@ Level2.prototype.create = function() {
 	this.game.add.tween(this.enemy9).to({y: 500, x: 1200}, 3000, 'Sine.easeIn', true, 0 , -1, true);
 
 	player = new Player(this.player);
-	
-	//	this.add.tween(this.scene.fWater.tilePosition).to({
-	//		x : 25
-	//	}, 2000, "Linear", true, 0, -1, true);
 };
 
 Level2.prototype.update = function() {
@@ -225,11 +222,23 @@ Level2.prototype.update = function() {
 
 		this.physics.arcade.overlap(this.player, this.scene.fEnemy,
 				this.playerVsEnemies, null, this);
-
+		
+		this.physics.arcade.overlap(this.player, this.enemy,
+				this.playerVsEnemies, null, this);
 
 		this.physics.arcade.overlap(this.player, this.collectibles,
 				this.playerVsCollectibles, null, this);
 	}
+};
+
+Level2.prototype.playerVsFinishLine = function(player, finishline) {
+	finishline.body.enable = false;
+	console.log("On Finish" + this.count);
+    if(this.count>=totalCollectible){
+    		//Add prompt for Level Completed Successful
+    		this.game.time.events.add(800, this.gameOver, this);
+    		alert ("Game Completed. Add Prompt for Play Again");
+    }
 };
 
 /**
@@ -265,6 +274,9 @@ Level2.prototype.playerVsEnemies = function(_player, enemies) {
 		player.change("die");
 		player.play();
 		player.moveBody();
+		this.game.time.events.add(1000, this.gameOver, this);
+		this.game.state.start("Level");
+		this.player.reset();
 	}
 	
 	this.add.tween(enemies).to({
