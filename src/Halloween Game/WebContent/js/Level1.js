@@ -52,7 +52,7 @@ Level.prototype.create = function() {
 	this.enemy6 = fac.getObject('enemy6');
 	this.finish = fac.getObject('finish');
 	console.log(this.finish);
-	totalCollectible = 7
+	totalCollectible = 6
 	console.log("total collectibles in Level : "+  totalCollectible);
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
@@ -225,17 +225,14 @@ Level.prototype.update = function() {
 Level.prototype.playerVsFinishLine = function(player, finishline) {
 //	finishline.body.enable = false;
 	console.log("On Finish" + this.count);
-	console.log("total collectibles in Level : "+  totalCollectible);
-	console.log("Level Complete");
-	this.game.time.events.add(800, this.gameOver, this);
-	this.player.reset();
+	console.log("total collectibles in Level : "+  totalCollectible);	
     if(this.count==totalCollectible){
     		//Add prompt for some time (3000 ms) Level Completed Successful
     		console.log("Level Complete");
     		alert("Level Complete");
-    		this.game.time.events.add(800, this.gameOver, this);    		
-    		this.game.state.start("Level2");
+    		this.game.time.events.add(10000, this.gameOver, this);
     		this.player.reset();
+    		this.game.state.start("Level2");    		
     }
     else{
     		console.log("Please collect all the pumpkings");
@@ -276,11 +273,15 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 		player.change("die");
 		player.play();
 		player.moveBody();
-		
+		var self = this;
+		setTimeout(function() {
+			console.log("Player Died");			
+			self.game.time.events.add(1000, this.gameOver, this);
+			self.game.state.start("Level");
+			self.player.reset();	
+			  //your code to be executed after 1 second
+			}, 3000);
 		//Add Play Again Prompt
-		this.game.time.events.add(1000, this.gameOver, this);
-		this.game.state.start("Level");
-		this.player.reset();
 	}
 
 	this.add.tween(enemies).to({

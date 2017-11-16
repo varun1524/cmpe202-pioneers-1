@@ -13,6 +13,7 @@ Level2.prototype.constructor = Level2;
 var tween1 = null;
 var player = null;
 var totalCollectible = null;
+
 Level2.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -274,9 +275,14 @@ Level2.prototype.playerVsEnemies = function(_player, enemies) {
 		player.change("die");
 		player.play();
 		player.moveBody();
-		this.game.time.events.add(1000, this.gameOver, this);
-		this.game.state.start("Level");
-		this.player.reset();
+		var self = this;
+		setTimeout(function() {
+			console.log("Player Died");			
+			self.game.time.events.add(1000, this.gameOver, this);
+			self.game.state.start("Level");
+			self.player.reset();	
+			  //your code to be executed after 1 second
+			}, 3000);
 	}
 	
 	this.add.tween(enemies).to({
