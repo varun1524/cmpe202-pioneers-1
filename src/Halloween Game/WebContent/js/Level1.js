@@ -12,6 +12,7 @@ Level.prototype = proto;
 Level.prototype.constructor = Level;
 var tween1 = null;
 var player = null;
+var totalCollectible;
 
 Level.prototype.init = function() {
 
@@ -28,7 +29,6 @@ Level.prototype.init = function() {
 	// Disable base collision 
 	this.physics.arcade.checkCollision.up = false;
 	this.physics.arcade.checkCollision.down = false;
-	
 };
 
 Level.prototype.preload = function() {
@@ -50,7 +50,10 @@ Level.prototype.create = function() {
 	this.enemy4 = fac.getObject('enemy4');
 	this.enemy5 = fac.getObject('enemy5');
 	this.enemy6 = fac.getObject('enemy6');
-	
+	this.finish = fac.getObject('finish');
+	console.log(this.finish);
+	totalCollectible = 7
+	console.log("total collectibles in Level : "+  totalCollectible);
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
 	
@@ -93,16 +96,7 @@ Level.prototype.create = function() {
 	this.game.add.tween(this.enemy6).to({x: 400}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.enemy5).to({x: 600}, 1400, 'Sine.easeInOut', true, 0 , -1, true);
 
-	player = new Player(this.scene.fPlayer);
-	// to keep the fruits in the air
-//	this.scene.fFruits.setAll("body.allowGravity", false);
-//	this.scene.fFruits.setAll("anchor.x", 0.5);
-//	this.scene.fFruits.setAll("anchor.y", 0.5);
-
-	// water
-//	this.add.tween(this.scene.fWater.tilePosition).to({
-//	x : 25
-//	}, 2000, "Linear", true, 0, -1, true);
+	player = new Player(this.player);
 };
 
 Level.prototype.update = function() {
@@ -122,7 +116,7 @@ Level.prototype.update = function() {
 		this.doTweenUpdates();
 
 		var touching = this.player.body.touching.down;
-		console.log("touch:"+touching);
+//		console.log("touch:"+touching);
 		
 		if(touching){
 			if (this.cursors.left.isDown) {
@@ -145,12 +139,12 @@ Level.prototype.update = function() {
 			else {
 				// dont move in the horizontal
 	//			this.scene.fPlayer.body.velocity.x = 0;
-				console.log(player.getState());
+//				console.log(player.getState());
 				if(player.getState()!="idle"){
 					player.change("idle");	
 				}
 				else{
-					console.log("trie");
+//					console.log("trie");
 				}			
 				player.moveBody();
 			}
@@ -213,9 +207,11 @@ Level.prototype.update = function() {
 		this.physics.arcade.overlap(this.player, this.enemy,
 				this.playerVsEnemies, null, this);
 
-
 		this.physics.arcade.overlap(this.player, this.collectibles,
 				this.playerVsCollectibles, null, this);
+		
+		this.physics.arcade.overlap(this.player, this.finish,
+				this.playerVsFinishLine, null, this);
 	}
 };
 
@@ -225,6 +221,26 @@ Level.prototype.update = function() {
  * @param {Phaser.Sprite}
  *            fruit
  */
+
+Level.prototype.playerVsFinishLine = function(player, finishline) {
+//	finishline.body.enable = false;
+	console.log("On Finish" + this.count);
+	console.log("total collectibles in Level : "+  totalCollectible);
+	console.log("Level Complete");
+	this.game.time.events.add(800, this.gameOver, this);
+	this.player.reset();
+    if(this.count==totalCollectible){
+    		//Add prompt for some time (3000 ms) Level Completed Successful
+    		console.log("Level Complete");
+    		alert("Level Complete");
+    		this.game.time.events.add(800, this.gameOver, this);    		
+    		this.game.state.start("Level2");
+    		this.player.reset();
+    }
+    else{
+    		console.log("Please collect all the pumpkings");
+    }    
+};
 
 Level.prototype.playerVsCollectibles = function(player, collectible) {
 	collectible.body.enable = false;
@@ -260,6 +276,11 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 		player.change("die");
 		player.play();
 		player.moveBody();
+		
+		//Add Play Again Prompt
+		this.game.time.events.add(1000, this.gameOver, this);
+		this.game.state.start("Level");
+		this.player.reset();
 	}
 
 	this.add.tween(enemies).to({
@@ -278,13 +299,12 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 };
 
 Level.prototype.doTweenUpdates = function(){
-
-
 	if(this.enemy1.x === 2621)
 	{
 		this.enemy1.scale.x = -0.22;
 
 	}
+	
 	if(this.enemy1.x === 2325)
 	{
 		this.enemy1.scale.x = 0.22;
@@ -296,6 +316,7 @@ Level.prototype.doTweenUpdates = function(){
 		this.enemy6.scale.x = -0.29;
 
 	}
+	
 	if(this.enemy6.x === 400)
 	{
 		this.enemy6.scale.x = 0.29;
@@ -307,18 +328,19 @@ Level.prototype.doTweenUpdates = function(){
 		this.enemy5.scale.x = -0.19;
 
 	}
+	
 	if(this.enemy5.x === 872)
 	{
 		this.enemy5.scale.x = 0.19;
 
 	}
 
-
 	if(this.enemy2.x === 800)
 	{
 		this.enemy2.scale.x = -0.2;
 
 	}
+	
 	if(this.enemy2.x === 1739)
 	{
 		this.enemy2.scale.x = 0.2;
@@ -330,6 +352,7 @@ Level.prototype.doTweenUpdates = function(){
 		this.enemy3.scale.x = 0.23;
 
 	}
+	
 	if(this.enemy3.x === 1090)
 	{
 		this.enemy3.scale.x = -0.23;
