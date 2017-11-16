@@ -106,13 +106,13 @@ Walk = function (playerstate){
 	};
 	
 	this.moveBody = function(direction, playerbody){
-		console.log(direction);
+//		console.log(direction);
 		if(direction==="left"){
-			console.log("Player goes Left");
+//			console.log("Player goes Left");
 			
 		}
 		else if(direction==="right"){
-			console.log("Player goes Right");			
+//			console.log("Player goes Right");			
 		}
 		this.moveDirection(direction, playerbody);
 	};
