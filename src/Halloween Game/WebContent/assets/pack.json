@@ -108,10 +108,16 @@
       "key": "finish1",
       "url": "assets/images/finish1.png",
       "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "gameover",
+      "url": "assets/images/gameover.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1510300228973",
+    "generated": "1510876239409",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

@@ -51,6 +51,15 @@ Level.prototype.create = function() {
 	this.enemy5 = fac.getObject('enemy5');
 	this.enemy6 = fac.getObject('enemy6');
 	this.finish = fac.getObject('finish');
+	
+	//1
+	this.gameover = fac.getObject('gameover');
+	
+	this.gameover.visible = false;
+	
+	this.gameover.fixedToCamera = true;
+	this.gameover.cameraOffset.setTo(0,0);
+	
 	console.log(this.finish);
 	totalCollectible = 6
 	console.log("total collectibles in Level : "+  totalCollectible);
@@ -64,7 +73,8 @@ Level.prototype.create = function() {
 	this.playerdied = false;
 	// camera
 	this.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
-
+	
+	
 	// background
 	// this.scene.fBack.fixedToCamera = true;
 
@@ -101,7 +111,7 @@ Level.prototype.create = function() {
 
 Level.prototype.update = function() {
 	if(player.getState()=="die"){
-		console.log("Died");
+		//console.log("Died");
 		player.play();
 		player.moveBody();
 //		this.scene.fPlayer.play("die");
@@ -199,6 +209,13 @@ Level.prototype.update = function() {
 				}
 			}
 		}
+		
+		
+		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
+			//self.game.time.events.add(1000, this.gameOver, this);
+			this.game.state.start("Level");
+			this.player.reset();
+		}
 
 		if(this.spaceKey.isDown){
 			this.player.play("attack");
@@ -274,14 +291,22 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 		player.play();
 		player.moveBody();
 		var self = this;
-		setTimeout(function() {
-			console.log("Player Died");			
-			self.game.time.events.add(1000, this.gameOver, this);
-			self.game.state.start("Level");
-			self.player.reset();	
-			  //your code to be executed after 1 second
-			}, 3000);
-		//Add Play Again Prompt
+		
+		console.log("Player Died");
+		
+		//2
+		self.gameover.visible = true;
+		
+//		setTimeout(function() {
+//			self.game.time.events.add(1000, this.gameOver, this);
+//			self.game.state.start("Level");
+//			self.player.reset();
+//			}, 1000);
+		
+//		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
+//			this.game.state.start("Level");
+//			this.player.reset();
+//		}
 	}
 
 	this.add.tween(enemies).to({
@@ -298,6 +323,7 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 	}, 1000, "Linear", true).onComplete.add(enemies.kill, enemies);
 
 };
+
 
 Level.prototype.doTweenUpdates = function(){
 	if(this.enemy1.x === 2621)

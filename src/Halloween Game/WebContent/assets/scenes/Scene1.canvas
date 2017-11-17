@@ -737,9 +737,118 @@
               }
             },
             {
+              "type": "group",
+              "id": "9a9d8c0a-c352-47b9-8df6-a9ca86af2751",
+              "info": {
+                "editorName": "collectibles",
+                "editorPublic": true,
+                "physicsGroup": true,
+                "setAll": [],
+                "children": [
+                  {
+                    "type": "image",
+                    "id": "bb70fc03-b9f8-4d1e-9dff-2adf956edbea",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "pumpkin2",
+                      "x": 724,
+                      "y": 467,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "e278f790-b3dd-437d-a2e3-e4e81d5ccc3a",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "pumpkin1",
+                      "x": 180,
+                      "y": 275,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "a032fe2e-48fe-4e3d-93ad-3b3cefc331f4",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "pumpkin6",
+                      "x": 2357,
+                      "y": 537,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "7cdfafdd-5399-43f1-8c7a-8b0c5602e656",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "pumpkin3",
+                      "x": 1429,
+                      "y": 133,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "036c2dba-9461-4a46-98f6-08de46091ca9",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "pumpkin4",
+                      "x": 1096,
+                      "y": 1046,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "1ae53d51-7691-4cff-984b-93c157c4bb40",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "pumpkin5",
+                      "x": 1594,
+                      "y": 764,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "d330aacb-18a0-4724-99cd-d035b35a05d8",
+                    "asset": "18",
+                    "info": {
+                      "editorName": "pumpkin",
+                      "x": 2779,
+                      "y": 930,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "image",
+              "id": "af280ef3-3dad-415a-b7ee-9c85a3c03816",
+              "asset": "19",
+              "info": {
+                "editorName": "gameover",
+                "editorPublic": true,
+                "x": -8,
+                "y": 666,
+                "scale.x": 0.7926400224376448,
+                "scale.y": 0.8364159884844579
+              }
+            },
+            {
               "type": "spritesheet",
               "id": "6133c10c-e1d0-4e92-91f2-002101fa83bc",
-              "asset": "18",
+              "asset": "20",
               "info": {
                 "editorName": "player",
                 "editorPublic": true,
@@ -788,105 +897,9 @@
               }
             },
             {
-              "type": "group",
-              "id": "9a9d8c0a-c352-47b9-8df6-a9ca86af2751",
-              "info": {
-                "editorName": "collectibles",
-                "editorPublic": true,
-                "physicsGroup": true,
-                "setAll": [],
-                "children": [
-                  {
-                    "type": "image",
-                    "id": "bb70fc03-b9f8-4d1e-9dff-2adf956edbea",
-                    "asset": "19",
-                    "info": {
-                      "editorName": "pumpkin2",
-                      "x": 724,
-                      "y": 467,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "e278f790-b3dd-437d-a2e3-e4e81d5ccc3a",
-                    "asset": "19",
-                    "info": {
-                      "editorName": "pumpkin1",
-                      "x": 180,
-                      "y": 275,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "a032fe2e-48fe-4e3d-93ad-3b3cefc331f4",
-                    "asset": "19",
-                    "info": {
-                      "editorName": "pumpkin6",
-                      "x": 2357,
-                      "y": 537,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "7cdfafdd-5399-43f1-8c7a-8b0c5602e656",
-                    "asset": "19",
-                    "info": {
-                      "editorName": "pumpkin3",
-                      "x": 1429,
-                      "y": 133,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "036c2dba-9461-4a46-98f6-08de46091ca9",
-                    "asset": "19",
-                    "info": {
-                      "editorName": "pumpkin4",
-                      "x": 1096,
-                      "y": 1046,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "1ae53d51-7691-4cff-984b-93c157c4bb40",
-                    "asset": "19",
-                    "info": {
-                      "editorName": "pumpkin5",
-                      "x": 1594,
-                      "y": 764,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "d330aacb-18a0-4724-99cd-d035b35a05d8",
-                    "asset": "19",
-                    "info": {
-                      "editorName": "pumpkin",
-                      "x": 2779,
-                      "y": 930,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  }
-                ]
-              }
-            },
-            {
               "type": "image",
               "id": "3269c775-9024-466e-bf35-ca361bba3785",
-              "asset": "19",
+              "asset": "18",
               "info": {
                 "editorName": "pumpkinscore",
                 "editorPublic": true,
@@ -1008,13 +1021,18 @@
     "18": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "player",
-      "sprite": "0"
+      "asset": "pumpkin"
     },
     "19": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "pumpkin"
+      "asset": "gameover"
+    },
+    "20": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "player",
+      "sprite": "0"
     }
   },
   "prefab-table": {}

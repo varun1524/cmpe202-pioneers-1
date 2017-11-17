@@ -185,16 +185,6 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _enemy5 = this.game.add.sprite(872, 498, 'enemy1', 2, _Enemy);
 	_enemy5.scale.setTo(0.19314232690017624, 0.24688843908725008);
 	
-	var _player = this.game.add.sprite(162, 1064, 'player', 0, this);
-	_player.anchor.setTo(0.5, 0.0);
-	_player.animations.add('walk', [0, 1], 4, true);
-	_player.animations.add('jump', [3], 60, false);
-	_player.animations.add('idle', [0], 60, false);
-	_player.animations.add('attack', [4], 4, false);
-	_player.animations.add('die', [5], 60, true);
-	this.game.physics.arcade.enable(_player);
-	_player.body.setSize(106.94444274902344, 105.083251953125, -12.5, 0.694580078125);
-	
 	var _collectibles = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
 	var _pumpkin2 = this.game.add.sprite(724, 467, 'pumpkin', null, _collectibles);
@@ -218,6 +208,19 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _pumpkin = this.game.add.sprite(2779, 930, 'pumpkin', null, _collectibles);
 	_pumpkin.scale.setTo(0.4, 0.4);
 	
+	var _gameover = this.game.add.sprite(-8, 666, 'gameover', null, this);
+	_gameover.scale.setTo(0.7926400224376448, 0.8364159884844579);
+	
+	var _player = this.game.add.sprite(162, 1064, 'player', 0, this);
+	_player.anchor.setTo(0.5, 0.0);
+	_player.animations.add('walk', [0, 1], 4, true);
+	_player.animations.add('jump', [3], 60, false);
+	_player.animations.add('idle', [0], 60, false);
+	_player.animations.add('attack', [4], 4, false);
+	_player.animations.add('die', [5], 60, true);
+	this.game.physics.arcade.enable(_player);
+	_player.body.setSize(106.94444274902344, 105.083251953125, -12.5, 0.694580078125);
+	
 	var _pumpkinscore = this.game.add.sprite(11, 8, 'pumpkin', null, this);
 	_pumpkinscore.scale.setTo(0.23499998166427466, 0.20500000684078973);
 	_pumpkinscore.fixedToCamera = true;
@@ -237,8 +240,9 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.fEnemy6 = _enemy6;
 	this.fEnemy4 = _enemy4;
 	this.fEnemy5 = _enemy5;
-	this.fPlayer = _player;
 	this.fCollectibles = _collectibles;
+	this.fGameover = _gameover;
+	this.fPlayer = _player;
 	this.fPumpkinscore = _pumpkinscore;
 	
 }

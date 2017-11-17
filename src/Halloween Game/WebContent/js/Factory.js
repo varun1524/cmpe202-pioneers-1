@@ -84,6 +84,11 @@ class Factory {
 			return this.scene.fFinish;
 			break;
 			}
+		
+		case "gameover" : {
+			return this.scene.fGameover;
+			break;
+			}
 		default: return null;
 			
 		}
