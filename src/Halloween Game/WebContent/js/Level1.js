@@ -108,12 +108,64 @@ Level.prototype.create = function() {
 };
 
 Level.prototype.update = function() {
+	
+	var ConcreteHandler1  = function() {};
+	var ConcreteHandler2  = function() {};
+	var ConcreteHandler3  = function() {};
+	
+	ConcreteHandler1.prototype = new Handler();
+	ConcreteHandler2.prototype = new Handler();
+	ConcreteHandler3.prototype = new Handler();
+	
+	ConcreteHandler1.prototype.handleRequest = function(request) {
+		if (request == "this.cursors.left.isDown") {
+			if(player.getState!=="walk"){
+				player.change("walk");	
+			}
+			 player.moveBody("left");		
+		}
+		this.next.handleRequest(request);
+	};
+
+	ConcreteHandler2.prototype.handleRequest = function(request) {
+		console.log('right down');
+		if (request == "this.cursors.right.isDown") {
+			if(player.getState!=="walk"){
+				player.change("walk");					
+			}
+			 player.moveBody("right");
+			
+		}
+		this.next.handleRequest(request);
+	};	
+	
+	ConcreteHandler3.prototype.handleRequest = function(request) {
+		console.log('else');
+		if (request == "") {
+			if(player.getState()!="idle"){
+				player.change("idle");	
+			}
+			 player.moveBody();			
+		}
+	};	
+	
+		var ChainOfResPrototype = {
+			handleRequest : function(request) {
+				var ch_1 = new ConcreteHandler1();
+				var ch_2 = new ConcreteHandler2();
+				var ch_3 = new ConcreteHandler3();
+				
+				ch_1.setNext(ch_2).setNext(ch_3);			
+				ch_1.handleRequest(request);
+			}
+		};
+
+		var obj = Object.create(ChainOfResPrototype);
+		
 	if(player.getState()=="die"){
 		//console.log("Died");
 		player.play();
-		player.moveBody();
-//		this.scene.fPlayer.play("die");
-//		this.scene.fPlayer.body.velocity.x = 0;
+		player.moveBody();		
 	}
 	else{
 		// collide the player with the platforms
@@ -125,29 +177,21 @@ Level.prototype.update = function() {
 
 		var touching = this.player.body.touching.down;
 //		console.log("touch:"+touching);
-		
+		var obj1;
 		if(touching){
 			if (this.cursors.left.isDown) {
-				if(player.getState!=="walk"){
-					player.change("walk");	
-				}
-				player.moveBody("left");
-				
 				// move to the left
-	//			this.scene.fPlayer.body.velocity.x = -200;
+				obj1 = "this.cursors.left.isDown";
+				obj.handleRequest(obj1);
 			} 
 			else if (this.cursors.right.isDown) {
 				// move to the right
-				if(player.getState!=="walk"){
-					player.change("walk");	
-				}
-				player.moveBody("right");
-	//			this.scene.fPlayer.body.velocity.x = 200;
+				obj1 = "this.cursors.right.isDown";
+				obj.handleRequest(obj1);
 			} 
 			else {
 				// dont move in the horizontal
-	//			this.scene.fPlayer.body.velocity.x = 0;
-//				console.log(player.getState());
+
 				if(player.getState()!="idle"){
 					player.change("idle");	
 				}
@@ -161,11 +205,13 @@ Level.prototype.update = function() {
 			if(player.getState()!=="die" && player.getState()!=="jump"){
 				player.change("idle");
 				if (this.cursors.left.isDown) {
-					player.moveDirection("left");
+					obj1 = "this.cursors.left.isDown";
+					console.log(obj1);
 				} 
 				else if (this.cursors.right.isDown) {
-					player.moveDirection("right");
-				}
+					obj1 = "this.cursors.right.isDown";
+					obj.handleRequest(obj1);
+					}
 			}
 		}
 
@@ -175,19 +221,20 @@ Level.prototype.update = function() {
 				player.change("jump");
 			}
 			player.moveBody();
-//			this.scene.fPlayer.body.velocity.y = -700;
+
 			if (this.cursors.left.isDown) {
-				player.moveDirection("left");
+				obj1 = "this.cursors.left.isDown";
+				console.log(obj1);
 			} 
 			else if (this.cursors.right.isDown) {
-				player.moveDirection("right");
+				obj1 = "this.cursors.right.isDown";
+				obj.handleRequest(obj1);
 			}	
 		}
 
 		if (touching) {
 			if (player.getState()=="idle") {
 				// if it is not moving horizontally play the idle
-//				this.scene.fPlayer.play("idle");
 				player.play();
 			} else {
 				// if it is moving play the walk
@@ -200,14 +247,15 @@ Level.prototype.update = function() {
 			player.play();
 			if(player.getState()==="jump"){
 				if (this.cursors.left.isDown) {
-					player.moveDirection("left");
+					obj1 = "this.cursors.left.isDown";
+					console.log(obj1);
 				} 
 				else if (this.cursors.right.isDown) {
-					player.moveDirection("right");
+					obj1 = "this.cursors.right.isDown";
+					obj.handleRequest(obj1);
 				}
 			}
-		}
-		
+		}	
 		
 		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
 			//self.game.time.events.add(1000, this.gameOver, this);
