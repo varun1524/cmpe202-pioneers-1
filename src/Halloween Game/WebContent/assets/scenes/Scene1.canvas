@@ -839,6 +839,7 @@
               "info": {
                 "editorName": "gameover",
                 "editorPublic": true,
+                "editorShow": false,
                 "x": -8,
                 "y": 666,
                 "scale.x": 0.7926400224376448,

@@ -54,9 +54,7 @@ Level.prototype.create = function() {
 	
 	//1
 	this.gameover = fac.getObject('gameover');
-	
 	this.gameover.visible = false;
-	
 	this.gameover.fixedToCamera = true;
 	this.gameover.cameraOffset.setTo(0,0);
 	

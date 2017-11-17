@@ -53,7 +53,16 @@ Level2.prototype.create = function() {
 	this.enemy7 = fac.getObject('enemy7');
 	this.enemy8 = fac.getObject('enemy8');
 	this.enemy9 = fac.getObject('enemy9');
+	
 	totalCollectible = 16;
+	
+	//1
+	this.gameover = fac.getObject('gameover');
+	this.gameover.visible = false;
+	this.gameover.fixedToCamera = true;
+	this.gameover.cameraOffset.setTo(0,0);
+	
+	
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
 	
@@ -217,6 +226,12 @@ Level2.prototype.update = function() {
 //			this.scene.fPlayer.scale.x = 1;
 //		}
 
+		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
+			//self.game.time.events.add(1000, this.gameOver, this);
+			this.game.state.start("Level2");
+			this.player.reset();
+		}
+		
 		if(this.spaceKey.isDown){
 			this.player.play("attack");
 		}
@@ -276,13 +291,17 @@ Level2.prototype.playerVsEnemies = function(_player, enemies) {
 		player.play();
 		player.moveBody();
 		var self = this;
-		setTimeout(function() {
-			console.log("Player Died");			
-			self.game.time.events.add(1000, this.gameOver, this);
-			self.game.state.start("Level");
-			self.player.reset();	
-			  //your code to be executed after 1 second
-			}, 3000);
+		
+		//2
+		self.gameover.visible = true;
+		
+//		setTimeout(function() {
+//			console.log("Player Died");			
+//			self.game.time.events.add(1000, this.gameOver, this);
+//			self.game.state.start("Level");
+//			self.player.reset();	
+//			  //your code to be executed after 1 second
+//			}, 3000);
 	}
 	
 	this.add.tween(enemies).to({
