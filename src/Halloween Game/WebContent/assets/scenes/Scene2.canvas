@@ -1184,8 +1184,21 @@
             },
             {
               "type": "image",
-              "id": "4caf6dcb-fd64-4383-82ba-12a209625f3c",
+              "id": "c7f89530-7c4c-4eb4-8838-bc17fec949ff",
               "asset": "19",
+              "info": {
+                "editorName": "happyhalloween",
+                "editorPublic": true,
+                "editorShow": false,
+                "x": 1845,
+                "y": -206,
+                "scale.y": 1.2
+              }
+            },
+            {
+              "type": "image",
+              "id": "4caf6dcb-fd64-4383-82ba-12a209625f3c",
+              "asset": "20",
               "info": {
                 "editorName": "gameover",
                 "editorPublic": true,
@@ -1199,7 +1212,7 @@
             {
               "type": "spritesheet",
               "id": "dd535e93-e690-49f3-a93a-c7e26f8d1d0b",
-              "asset": "20",
+              "asset": "21",
               "info": {
                 "editorName": "player",
                 "editorPublic": true,
@@ -1372,9 +1385,14 @@
     "19": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "gameover"
+      "asset": "happyhalloween1"
     },
     "20": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "gameover"
+    },
+    "21": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "player",

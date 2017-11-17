@@ -53,6 +53,7 @@ Level2.prototype.create = function() {
 	this.enemy7 = fac.getObject('enemy7');
 	this.enemy8 = fac.getObject('enemy8');
 	this.enemy9 = fac.getObject('enemy9');
+	this.finish = fac.getObject('finish');
 	
 	totalCollectible = 16;
 	
@@ -61,6 +62,11 @@ Level2.prototype.create = function() {
 	this.gameover.visible = false;
 	this.gameover.fixedToCamera = true;
 	this.gameover.cameraOffset.setTo(0,0);
+	
+	this.happyhalloween = fac.getObject('happyhalloween');
+	this.happyhalloween.visible = false;
+	this.happyhalloween.fixedToCamera = true;
+	this.happyhalloween.cameraOffset.setTo(0,0);
 	
 	
 	// Enable collisionWorldBound for Player
@@ -244,16 +250,23 @@ Level2.prototype.update = function() {
 
 		this.physics.arcade.overlap(this.player, this.collectibles,
 				this.playerVsCollectibles, null, this);
+		
+		this.physics.arcade.overlap(this.player, this.finish,
+				this.playerVsFinishLine, null, this);
 	}
 };
 
 Level2.prototype.playerVsFinishLine = function(player, finishline) {
 	finishline.body.enable = false;
 	console.log("On Finish" + this.count);
-    if(this.count>=totalCollectible){
+	
+    if(this.count<totalCollectible){
     		//Add prompt for Level Completed Successful
+    	
+    		//2
+    		this.happyhalloween.visible = true;
     		this.game.time.events.add(800, this.gameOver, this);
-    		alert ("Game Completed. Add Prompt for Play Again");
+//    		alert ("Game Completed. Add Prompt for Play Again");
     }
 };
 

@@ -287,6 +287,9 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _base4 = this.game.add.sprite(1988, 1355, 'AtlasV1', 'base1', this);
 	_base4.scale.setTo(0.5085412755429592, 1.210775951702936);
 	
+	var _happyhalloween = this.game.add.sprite(1845, -206, 'happyhalloween1', null, this);
+	_happyhalloween.scale.setTo(1.0, 1.2);
+	
 	var _gameover = this.game.add.sprite(-229, -9, 'gameover', null, this);
 	_gameover.scale.setTo(0.8, 0.9);
 	
@@ -320,6 +323,7 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.fEnemy9 = _enemy9;
 	this.fCollectibles = _collectibles;
 	this.fCollisionLayer = _collisionLayer;
+	this.fHappyhalloween = _happyhalloween;
 	this.fGameover = _gameover;
 	this.fPlayer = _player;
 	this.fPumpkinscore = _pumpkinscore;

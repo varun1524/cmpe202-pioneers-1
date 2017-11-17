@@ -114,10 +114,16 @@
       "key": "gameover",
       "url": "assets/images/gameover.png",
       "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "happyhalloween1",
+      "url": "assets/images/happyhalloween1.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1510876239409",
+    "generated": "1510886043432",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",
