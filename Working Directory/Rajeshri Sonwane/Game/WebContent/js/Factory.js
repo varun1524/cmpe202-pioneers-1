@@ -84,6 +84,17 @@ class Factory {
 			return this.scene.fFinish;
 			break;
 			}
+		
+		case "gameover" : {
+			return this.scene.fGameover;
+			break;
+			}
+		
+		case "happyhalloween" : {
+			return this.scene.fHappyhalloween;
+			break;
+			}
+		
 		default: return null;
 			
 		}

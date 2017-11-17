@@ -53,7 +53,22 @@ Level2.prototype.create = function() {
 	this.enemy7 = fac.getObject('enemy7');
 	this.enemy8 = fac.getObject('enemy8');
 	this.enemy9 = fac.getObject('enemy9');
+	this.finish = fac.getObject('finish');
+	
 	totalCollectible = 16;
+	
+	//1
+	this.gameover = fac.getObject('gameover');
+	this.gameover.visible = false;
+	this.gameover.fixedToCamera = true;
+	this.gameover.cameraOffset.setTo(0,0);
+	
+	this.happyhalloween = fac.getObject('happyhalloween');
+	this.happyhalloween.visible = false;
+	this.happyhalloween.fixedToCamera = true;
+	this.happyhalloween.cameraOffset.setTo(0,0);
+	
+	
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
 	
@@ -107,6 +122,59 @@ Level2.prototype.create = function() {
 
 Level2.prototype.update = function() {
 
+	var ConcreteHandler1  = function() {};
+	var ConcreteHandler2  = function() {};
+	var ConcreteHandler3  = function() {};
+	
+	ConcreteHandler1.prototype = new Handler();
+	ConcreteHandler2.prototype = new Handler();
+	ConcreteHandler3.prototype = new Handler();
+	
+	ConcreteHandler1.prototype.handleRequest = function(request) {
+		if (request == "this.cursors.left.isDown") {
+			if(player.getState!=="walk"){
+				player.change("walk");	
+			}
+			 player.moveBody("left");		
+		}
+		this.next.handleRequest(request);
+	};
+
+	ConcreteHandler2.prototype.handleRequest = function(request) {
+		console.log('right down');
+		if (request == "this.cursors.right.isDown") {
+			if(player.getState!=="walk"){
+				player.change("walk");					
+			}
+			 player.moveBody("right");
+			
+		}
+		this.next.handleRequest(request);
+	};	
+	
+	ConcreteHandler3.prototype.handleRequest = function(request) {
+		console.log('else');
+		if (request == "") {
+			if(player.getState()!="idle"){
+				player.change("idle");	
+			}
+			 player.moveBody();			
+		}
+	};	
+	
+		var ChainOfResPrototype = {
+			handleRequest : function(request) {
+				var ch_1 = new ConcreteHandler1();
+				var ch_2 = new ConcreteHandler2();
+				var ch_3 = new ConcreteHandler3();
+				
+				ch_1.setNext(ch_2).setNext(ch_3);			
+				ch_1.handleRequest(request);
+			}
+		};
+
+		var obj = Object.create(ChainOfResPrototype);
+		var obj1 ;
 	if(player.getState()=="die"){
 		console.log("Died");
 		player.play();
@@ -126,20 +194,15 @@ Level2.prototype.update = function() {
 		
 		if(touching){
 			if (this.cursors.left.isDown) {
-				if(player.getState!=="walk"){
-					player.change("walk");	
-				}
-				player.moveBody("left");
-				
+				obj1 = "this.cursors.left.isDown";
+				obj.handleRequest(obj1);
 				// move to the left
 	//			this.scene.fPlayer.body.velocity.x = -200;
 			} 
 			else if (this.cursors.right.isDown) {
 				// move to the right
-				if(player.getState!=="walk"){
-					player.change("walk");	
-				}
-				player.moveBody("right");
+				obj1 = "this.cursors.right.isDown";
+				obj.handleRequest(obj1);
 	//			this.scene.fPlayer.body.velocity.x = 200;
 			} 
 			else {
@@ -159,10 +222,12 @@ Level2.prototype.update = function() {
 			if(player.getState()!=="die" && player.getState()!=="jump"){
 				player.change("idle");
 				if (this.cursors.left.isDown) {
-					player.moveDirection("left");
+					obj1 = "this.cursors.left.isDown";
+					obj.handleRequest(obj1);
 				} 
 				else if (this.cursors.right.isDown) {
-					player.moveDirection("right");
+					obj1 = "this.cursors.right.isDown";
+					obj.handleRequest(obj1);
 				}
 			}
 		}
@@ -177,10 +242,12 @@ Level2.prototype.update = function() {
 			player.moveBody();
 //			this.scene.fPlayer.body.velocity.y = -700;
 			if (this.cursors.left.isDown) {
-				player.moveDirection("left");
+				obj1 = "this.cursors.left.isDown";
+				obj.handleRequest(obj1);
 			} 
 			else if (this.cursors.right.isDown) {
-				player.moveDirection("right");
+				obj1 = "this.cursors.right.isDown";
+				obj.handleRequest(obj1);
 			}
 		}
 
@@ -200,10 +267,12 @@ Level2.prototype.update = function() {
 			player.play();
 			if(player.getState()==="jump"){
 				if (this.cursors.left.isDown) {
-					player.moveDirection("left");
+					obj1 = "this.cursors.left.isDown";
+					obj.handleRequest(obj1);
 				} 
 				else if (this.cursors.right.isDown) {
-					player.moveDirection("right");
+					obj1 = "this.cursors.right.isDown";
+					obj.handleRequest(obj1);
 				}
 			}
 		}
@@ -217,6 +286,12 @@ Level2.prototype.update = function() {
 //			this.scene.fPlayer.scale.x = 1;
 //		}
 
+		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
+			//self.game.time.events.add(1000, this.gameOver, this);
+			this.game.state.start("Level2");
+			this.player.reset();
+		}
+		
 		if(this.spaceKey.isDown){
 			this.player.play("attack");
 		}
@@ -229,16 +304,23 @@ Level2.prototype.update = function() {
 
 		this.physics.arcade.overlap(this.player, this.collectibles,
 				this.playerVsCollectibles, null, this);
+		
+		this.physics.arcade.overlap(this.player, this.finish,
+				this.playerVsFinishLine, null, this);
 	}
 };
 
 Level2.prototype.playerVsFinishLine = function(player, finishline) {
 	finishline.body.enable = false;
 	console.log("On Finish" + this.count);
-    if(this.count>=totalCollectible){
+	
+    if(this.count<totalCollectible){
     		//Add prompt for Level Completed Successful
+    	
+    		//2
+    		this.happyhalloween.visible = true;
     		this.game.time.events.add(800, this.gameOver, this);
-    		alert ("Game Completed. Add Prompt for Play Again");
+//    		alert ("Game Completed. Add Prompt for Play Again");
     }
 };
 
@@ -276,13 +358,17 @@ Level2.prototype.playerVsEnemies = function(_player, enemies) {
 		player.play();
 		player.moveBody();
 		var self = this;
-		setTimeout(function() {
-			console.log("Player Died");			
-			self.game.time.events.add(1000, this.gameOver, this);
-			self.game.state.start("Level");
-			self.player.reset();	
-			  //your code to be executed after 1 second
-			}, 3000);
+		
+		//2
+		self.gameover.visible = true;
+		
+//		setTimeout(function() {
+//			console.log("Player Died");			
+//			self.game.time.events.add(1000, this.gameOver, this);
+//			self.game.state.start("Level");
+//			self.player.reset();	
+//			  //your code to be executed after 1 second
+//			}, 3000);
 	}
 	
 	this.add.tween(enemies).to({

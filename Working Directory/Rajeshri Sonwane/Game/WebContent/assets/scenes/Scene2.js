@@ -48,9 +48,6 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	this.game.add.sprite(1109, 1164, 'tree4', null, _Trees);
 	
-	var _physics25 = this.game.add.sprite(1464, 1379, 'AtlasV1', 'physics', _Trees);
-	_physics25.scale.setTo(0.7760511731383967, -0.2796980357378427);
-	
 	var _Enemy = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	_Enemy.renderable = false;
 	
@@ -258,21 +255,23 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _physics18 = this.game.add.sprite(415, 1050, 'AtlasV1', 'physics', _collisionLayer);
 	_physics18.scale.setTo(0.6480512207924056, 1.670732781544981);
 	
+	var _physics = this.game.add.sprite(6, 1378, 'AtlasV1', 'physics', _collisionLayer);
+	_physics.scale.setTo(0.9170559506769829, 1.255946572025918);
+	
+	var _physics24 = this.game.add.sprite(912, 1376, 'AtlasV1', 'physics', _collisionLayer);
+	_physics24.scale.setTo(0.7760511998826722, 1.255946572025918);
+	
+	var _physics26 = this.game.add.sprite(1984, 1372, 'AtlasV1', 'physics', _collisionLayer);
+	_physics26.scale.setTo(0.4359807821368169, 0.4881242876573698);
+	
+	var _physics27 = this.game.add.sprite(554, 1365, 'AtlasV1', 'physics', _collisionLayer);
+	_physics27.scale.setTo(0.543808000908744, 1.7678309232376643);
+	
+	var _physics25 = this.game.add.sprite(1464, 1369, 'AtlasV1', 'physics', _collisionLayer);
+	_physics25.scale.setTo(0.7760511731383967, -0.2796980357378427);
+	
 	var _physics23 = this.game.add.sprite(2067, 396, 'AtlasV1', 'physics', _collisionLayer);
 	_physics23.scale.setTo(0.49635385407062566, 1.670732781544981);
-	
-	var _player = this.game.add.sprite(89, 111, 'player', 0, this);
-	_player.anchor.setTo(0.5, 0.0);
-	_player.animations.add('walk', [0, 1], 4, false);
-	_player.animations.add('jump', [3], 3, false);
-	_player.animations.add('idle', [0], 60, false);
-	_player.animations.add('attack', [4, 0], 4, false);
-	_player.animations.add('die', [5], 1, true);
-	this.game.physics.arcade.enable(_player);
-	
-	var _pumpkinscore = this.game.add.sprite(18, 9, 'pumpkin', null, this);
-	_pumpkinscore.scale.setTo(0.2, 0.2);
-	_pumpkinscore.fixedToCamera = true;
 	
 	this.game.add.sprite(4, 1364, 'AtlasV1', 'base1', this);
 	
@@ -288,17 +287,24 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _base4 = this.game.add.sprite(1988, 1355, 'AtlasV1', 'base1', this);
 	_base4.scale.setTo(0.5085412755429592, 1.210775951702936);
 	
-	var _physics = this.game.add.sprite(6, 1378, 'AtlasV1', 'physics', this);
-	_physics.scale.setTo(0.9170559506769829, 1.255946572025918);
+	var _happyhalloween = this.game.add.sprite(1845, -206, 'happyhalloween1', null, this);
+	_happyhalloween.scale.setTo(1.0, 1.2);
 	
-	var _physics24 = this.game.add.sprite(912, 1376, 'AtlasV1', 'physics', this);
-	_physics24.scale.setTo(0.7760511998826722, 1.255946572025918);
+	var _gameover = this.game.add.sprite(-229, -9, 'gameover', null, this);
+	_gameover.scale.setTo(0.8, 0.9);
 	
-	var _physics26 = this.game.add.sprite(1984, 1372, 'AtlasV1', 'physics', this);
-	_physics26.scale.setTo(0.4359807821368169, 0.4881242876573698);
+	var _player = this.game.add.sprite(89, 111, 'player', 0, this);
+	_player.anchor.setTo(0.5, 0.0);
+	_player.animations.add('walk', [0, 1], 4, false);
+	_player.animations.add('jump', [3], 3, false);
+	_player.animations.add('idle', [0], 60, false);
+	_player.animations.add('attack', [4, 0], 4, false);
+	_player.animations.add('die', [5], 1, true);
+	this.game.physics.arcade.enable(_player);
 	
-	var _physics27 = this.game.add.sprite(554, 1365, 'AtlasV1', 'physics', this);
-	_physics27.scale.setTo(0.543808000908744, 1.7678309232376643);
+	var _pumpkinscore = this.game.add.sprite(18, 9, 'pumpkin', null, this);
+	_pumpkinscore.scale.setTo(0.2, 0.2);
+	_pumpkinscore.fixedToCamera = true;
 	
 	
 	
@@ -317,6 +323,8 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.fEnemy9 = _enemy9;
 	this.fCollectibles = _collectibles;
 	this.fCollisionLayer = _collisionLayer;
+	this.fHappyhalloween = _happyhalloween;
+	this.fGameover = _gameover;
 	this.fPlayer = _player;
 	this.fPumpkinscore = _pumpkinscore;
 	
