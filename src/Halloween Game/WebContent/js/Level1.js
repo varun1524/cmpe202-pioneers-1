@@ -59,7 +59,7 @@ Level.prototype.create = function() {
 	this.gameover.cameraOffset.setTo(0,0);
 	
 	console.log(this.finish);
-	totalCollectible = 6
+	totalCollectible = 6;
 	console.log("total collectibles in Level : "+  totalCollectible);
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
@@ -111,7 +111,7 @@ Level.prototype.update = function() {
 	if(player.getState()=="die"){
 		//console.log("Died");
 		player.play();
-		player.moveBody();
+		player.moveBody();	
 //		this.scene.fPlayer.play("die");
 //		this.scene.fPlayer.body.velocity.x = 0;
 	}
@@ -142,6 +142,7 @@ Level.prototype.update = function() {
 					player.change("walk");	
 				}
 				player.moveBody("right");
+				
 	//			this.scene.fPlayer.body.velocity.x = 200;
 			} 
 			else {
@@ -324,63 +325,80 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 
 
 Level.prototype.doTweenUpdates = function(){
+	
 	if(this.enemy1.x === 2621)
-	{
-		this.enemy1.scale.x = -0.22;
+	{		
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy1, -0.22);
 
 	}
 	
 	if(this.enemy1.x === 2325)
 	{
-		this.enemy1.scale.x = 0.22;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy1, 0.22);
 
 	}
 
 	if(this.enemy6.x === 1174)
 	{
-		this.enemy6.scale.x = -0.29;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy6, -0.29);
 
 	}
 	
 	if(this.enemy6.x === 400)
 	{
-		this.enemy6.scale.x = 0.29;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy6, 0.29);
 
 	}
 
 	if(this.enemy5.x === 600)
 	{
-		this.enemy5.scale.x = -0.19;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy5, -0.19);
 
 	}
 	
 	if(this.enemy5.x === 872)
 	{
-		this.enemy5.scale.x = 0.19;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy5, 0.19);
+		//this.enemy5.scale.x = 0.19;
 
 	}
 
 	if(this.enemy2.x === 800)
 	{
-		this.enemy2.scale.x = -0.2;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy2, -0.2);
 
 	}
 	
 	if(this.enemy2.x === 1739)
 	{
-		this.enemy2.scale.x = 0.2;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy2, 0.2);
+//		this.enemy2.scale.x = 0.2;
 
 	}
 
 	if(this.enemy3.x === 100)
 	{
-		this.enemy3.scale.x = 0.23;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy3, 0.23);
+		//this.enemy3.scale.x = 0.23;
 
 	}
 	
 	if(this.enemy3.x === 1090)
 	{
-		this.enemy3.scale.x = -0.23;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy3, -0.23);
+//		console.log("after strategy");
+//		console.log(this.enemy3.scale.x);
+//		this.enemy3.scale.x = -0.23;
 
 	}
 }

@@ -648,6 +648,102 @@
             },
             {
               "type": "group",
+              "id": "9a9d8c0a-c352-47b9-8df6-a9ca86af2751",
+              "info": {
+                "editorName": "collectibles",
+                "editorPublic": true,
+                "physicsGroup": true,
+                "setAll": [],
+                "children": [
+                  {
+                    "type": "image",
+                    "id": "bb70fc03-b9f8-4d1e-9dff-2adf956edbea",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin2",
+                      "x": 724,
+                      "y": 467,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "e278f790-b3dd-437d-a2e3-e4e81d5ccc3a",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin1",
+                      "x": 180,
+                      "y": 275,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "a032fe2e-48fe-4e3d-93ad-3b3cefc331f4",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin6",
+                      "x": 2357,
+                      "y": 537,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "7cdfafdd-5399-43f1-8c7a-8b0c5602e656",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin3",
+                      "x": 1429,
+                      "y": 133,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "036c2dba-9461-4a46-98f6-08de46091ca9",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin4",
+                      "x": 1096,
+                      "y": 1046,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "1ae53d51-7691-4cff-984b-93c157c4bb40",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin5",
+                      "x": 1594,
+                      "y": 764,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  },
+                  {
+                    "type": "image",
+                    "id": "d330aacb-18a0-4724-99cd-d035b35a05d8",
+                    "asset": "14",
+                    "info": {
+                      "editorName": "pumpkin",
+                      "x": 2779,
+                      "y": 930,
+                      "scale.x": 0.4,
+                      "scale.y": 0.4
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "group",
               "id": "1c48f3d7-16dc-46a3-8328-ea9999c7d0f9",
               "info": {
                 "editorName": "Enemy",
@@ -658,7 +754,7 @@
                   {
                     "type": "spritesheet",
                     "id": "65639ccb-24f2-4d44-be4a-f1d759a2d431",
-                    "asset": "14",
+                    "asset": "15",
                     "info": {
                       "editorName": "enemy3",
                       "editorPublic": true,
@@ -671,7 +767,7 @@
                   {
                     "type": "image",
                     "id": "9c40731f-9f9a-41bc-a0cf-000aba7aa74c",
-                    "asset": "15",
+                    "asset": "16",
                     "info": {
                       "editorName": "enemy1",
                       "editorPublic": true,
@@ -684,7 +780,7 @@
                   {
                     "type": "spritesheet",
                     "id": "2cd2ced7-2521-431b-a7a0-b6e2a5617dee",
-                    "asset": "16",
+                    "asset": "17",
                     "info": {
                       "editorName": "enemy2",
                       "editorPublic": true,
@@ -697,7 +793,7 @@
                   {
                     "type": "spritesheet",
                     "id": "e77e4656-89c5-4666-9cf1-0ee11cc7322a",
-                    "asset": "17",
+                    "asset": "18",
                     "info": {
                       "editorName": "enemy6",
                       "editorPublic": true,
@@ -710,7 +806,7 @@
                   {
                     "type": "image",
                     "id": "0d173ff8-aeec-4c15-8867-2b2ae5fdd424",
-                    "asset": "15",
+                    "asset": "16",
                     "info": {
                       "editorName": "enemy4",
                       "editorPublic": true,
@@ -723,7 +819,7 @@
                   {
                     "type": "spritesheet",
                     "id": "1008f841-fdd7-4f18-a843-3daf292d8384",
-                    "asset": "16",
+                    "asset": "17",
                     "info": {
                       "editorName": "enemy5",
                       "editorPublic": true,
@@ -731,102 +827,6 @@
                       "y": 498,
                       "scale.x": 0.19314232690017624,
                       "scale.y": 0.24688843908725008
-                    }
-                  }
-                ]
-              }
-            },
-            {
-              "type": "group",
-              "id": "9a9d8c0a-c352-47b9-8df6-a9ca86af2751",
-              "info": {
-                "editorName": "collectibles",
-                "editorPublic": true,
-                "physicsGroup": true,
-                "setAll": [],
-                "children": [
-                  {
-                    "type": "image",
-                    "id": "bb70fc03-b9f8-4d1e-9dff-2adf956edbea",
-                    "asset": "18",
-                    "info": {
-                      "editorName": "pumpkin2",
-                      "x": 724,
-                      "y": 467,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "e278f790-b3dd-437d-a2e3-e4e81d5ccc3a",
-                    "asset": "18",
-                    "info": {
-                      "editorName": "pumpkin1",
-                      "x": 180,
-                      "y": 275,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "a032fe2e-48fe-4e3d-93ad-3b3cefc331f4",
-                    "asset": "18",
-                    "info": {
-                      "editorName": "pumpkin6",
-                      "x": 2357,
-                      "y": 537,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "7cdfafdd-5399-43f1-8c7a-8b0c5602e656",
-                    "asset": "18",
-                    "info": {
-                      "editorName": "pumpkin3",
-                      "x": 1429,
-                      "y": 133,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "036c2dba-9461-4a46-98f6-08de46091ca9",
-                    "asset": "18",
-                    "info": {
-                      "editorName": "pumpkin4",
-                      "x": 1096,
-                      "y": 1046,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "1ae53d51-7691-4cff-984b-93c157c4bb40",
-                    "asset": "18",
-                    "info": {
-                      "editorName": "pumpkin5",
-                      "x": 1594,
-                      "y": 764,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
-                    }
-                  },
-                  {
-                    "type": "image",
-                    "id": "d330aacb-18a0-4724-99cd-d035b35a05d8",
-                    "asset": "18",
-                    "info": {
-                      "editorName": "pumpkin",
-                      "x": 2779,
-                      "y": 930,
-                      "scale.x": 0.4,
-                      "scale.y": 0.4
                     }
                   }
                 ]
@@ -900,7 +900,7 @@
             {
               "type": "image",
               "id": "3269c775-9024-466e-bf35-ca361bba3785",
-              "asset": "18",
+              "asset": "14",
               "info": {
                 "editorName": "pumpkinscore",
                 "editorPublic": true,
@@ -999,30 +999,30 @@
     "14": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "enemy1",
-      "sprite": "0"
+      "asset": "pumpkin"
     },
     "15": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "enemy2"
+      "asset": "enemy1",
+      "sprite": "0"
     },
     "16": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "enemy1",
-      "sprite": "2"
+      "asset": "enemy2"
     },
     "17": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "enemy1",
-      "sprite": "3"
+      "sprite": "2"
     },
     "18": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
-      "asset": "pumpkin"
+      "asset": "enemy1",
+      "sprite": "3"
     },
     "19": {
       "file": "WebContent/assets/pack.json",
