@@ -21,7 +21,10 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _back = this.game.add.sprite(-3, -7, 'back3', null, this);
 	_back.scale.setTo(1.56, 1.3);
 	
-	this.game.add.sprite(2726, 195, 'finish1', null, this);
+	var _finish = this.game.add.sprite(2726, 195, 'finish1', null, this);
+	this.game.physics.arcade.enable(_finish);
+	_finish.body.setSize(148.0, 300.0, 89.0, 0.0);
+	_finish.body.allowGravity = false;
 	
 	var _Tree = this.game.add.group(this);
 	
@@ -225,6 +228,7 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	// public fields
 	
 	this.fBack = _back;
+	this.fFinish = _finish;
 	this.fCollisionLayer = _collisionLayer;
 	this.fEnemy = _Enemy;
 	this.fEnemy3 = _enemy3;

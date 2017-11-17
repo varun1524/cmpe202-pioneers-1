@@ -7,5 +7,6 @@ window.onload = function() {
 	// game.state.add("Preload", Preload);
 	game.state.add("Level", Level);
 	game.state.add("Level2", Level2);
-	game.state.start("Level2");
+	game.state.start("Level");
+	
 };

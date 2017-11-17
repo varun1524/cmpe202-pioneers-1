@@ -64,8 +64,16 @@
               "asset": "1",
               "info": {
                 "editorName": "finish",
+                "editorPublic": true,
                 "x": 2726,
-                "y": 195
+                "y": 195,
+                "body": {
+                  "type": "ARCADE_RECT",
+                  "offsetX": 89,
+                  "allowGravity": false,
+                  "width": 148,
+                  "height": 300
+                }
               }
             },
             {

@@ -11,79 +11,8 @@ var proto = Object.create(Phaser.State.prototype);
 Level.prototype = proto;
 Level.prototype.constructor = Level;
 var tween1 = null;
-
-/*
- * factory
- * 
- */
-class factory {
-	
-	constructor(self){
-		this.scene = self.scene;
-		console.log(this.scene);
-	}
-	
-	getObject(name){
-		
-		switch(name){
-		
-		case "player" : {
-			return this.scene.fPlayer;
-			break;
-			}
-		
-		case "collisionLayer" : {
-			return this.scene.fCollisionLayer;
-			break;
-			}
-
-		case "collectibles" : {
-			return this.scene.fCollectibles;
-			break;
-			}
-
-		case "enemy" : {
-			return this.scene.fEnemy;
-			break;
-			}
-
-		case "enemy1" : {
-			return this.scene.fEnemy1;
-			break;
-			}
-
-		case "enemy2" : {
-			return this.scene.fEnemy2;
-			break;
-			}
-
-		case "enemy3" : {
-			return this.scene.fEnemy3;
-			break;
-			}
-
-		case "enemy4" : {
-			return this.scene.fEnemy4;
-			break;
-			}
-		
-		case "enemy5" : {
-			return this.scene.fEnemy5;
-			break;
-			}
-		
-		case "enemy6" : {
-				return this.scene.fEnemy6;
-				break;
-				}
-		
-		default: return null;
-			
-		}
-	}
-	
-}
-
+var player = null;
+var totalCollectible;
 
 Level.prototype.init = function() {
 
@@ -100,19 +29,17 @@ Level.prototype.init = function() {
 	// Disable base collision 
 	this.physics.arcade.checkCollision.up = false;
 	this.physics.arcade.checkCollision.down = false;
-	
 };
 
 Level.prototype.preload = function() {
-
 	this.load.pack("level", "assets/pack.json");
-
 };
+
 
 Level.prototype.create = function() {
 	this.scene = new Scene1(this.game);
 	
-	var fac = new factory(this);
+	var fac = new Factory(this);
 	this.player = fac.getObject('player');
 	this.collisionLayer = fac.getObject('collisionLayer');
 	this.collectibles = fac.getObject('collectibles');
@@ -123,8 +50,10 @@ Level.prototype.create = function() {
 	this.enemy4 = fac.getObject('enemy4');
 	this.enemy5 = fac.getObject('enemy5');
 	this.enemy6 = fac.getObject('enemy6');
-	
-	
+	this.finish = fac.getObject('finish');
+	console.log(this.finish);
+	totalCollectible = 6
+	console.log("total collectibles in Level : "+  totalCollectible);
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
 	
@@ -167,23 +96,72 @@ Level.prototype.create = function() {
 	this.game.add.tween(this.enemy6).to({x: 400}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.enemy5).to({x: 600}, 1400, 'Sine.easeInOut', true, 0 , -1, true);
 
-
-	// to keep the fruits in the air
-//	this.scene.fFruits.setAll("body.allowGravity", false);
-//	this.scene.fFruits.setAll("anchor.x", 0.5);
-//	this.scene.fFruits.setAll("anchor.y", 0.5);
-
-	// water
-//	this.add.tween(this.scene.fWater.tilePosition).to({
-//	x : 25
-//	}, 2000, "Linear", true, 0, -1, true);
+	player = new Player(this.player);
+	
 };
 
 Level.prototype.update = function() {
-	if(this.playerdied){
+	var ConcreteHandler1  = function() {};
+	var ConcreteHandler2  = function() {};
+	var ConcreteHandler3  = function() {};
+	
+	ConcreteHandler1.prototype = new Handler();
+	ConcreteHandler2.prototype = new Handler();
+	ConcreteHandler3.prototype = new Handler();
+	
+	ConcreteHandler1.prototype.handleRequest = function(request) {
+		if (request == "this.cursors.left.isDown") {
+			if(player.getState!=="walk"){
+				player.change("walk");	
+			}
+			 player.moveBody("left");		
+		}
+		this.next.handleRequest(request);
+	};
+
+	ConcreteHandler2.prototype.handleRequest = function(request) {
+		console.log('right down');
+		if (request == "this.cursors.right.isDown") {
+			if(player.getState!=="walk"){
+				player.change("walk");					
+			}
+			 player.moveBody("right");
+			
+		}
+		this.next.handleRequest(request);
+	};	
+	
+	ConcreteHandler3.prototype.handleRequest = function(request) {
+		console.log('else');
+		if (request == "") {
+			if(player.getState()!="idle"){
+				player.change("idle");	
+			}
+			 player.moveBody();
+			
+		}
+	};	
+	
+		var ChainOfResPrototype = {
+			handleRequest : function(request) {
+				var ch_1 = new ConcreteHandler1();
+				var ch_2 = new ConcreteHandler2();
+				var ch_3 = new ConcreteHandler3();
+				
+				ch_1.setNext(ch_2).setNext(ch_3);			
+				ch_1.handleRequest(request);
+			}
+		};
+
+		var obj = Object.create(ChainOfResPrototype);
+		
+		
+	if(player.getState()=="die"){
 		console.log("Died");
-		this.player.play("die");
-		this.player.body.velocity.x = 0;
+		player.play();
+		player.moveBody();
+//		this.scene.fPlayer.play("die");
+//		this.scene.fPlayer.body.velocity.x = 0;
 	}
 	else{
 		// collide the player with the platforms
@@ -193,45 +171,101 @@ Level.prototype.update = function() {
 		
 		this.doTweenUpdates();
 
-		if (this.cursors.left.isDown) {
-			// move to the left
-			this.player.body.velocity.x = -200;
-		} else if (this.cursors.right.isDown) {
-			// move to the right
-			this.player.body.velocity.x = 200;
-		} else {
-			// dont move in the horizontal
-			this.player.body.velocity.x = 0;
-		}
-
-		// a flag to know if the player is (down) touching the platforms
 		var touching = this.player.body.touching.down;
+//		console.log("touch:"+touching);
+		
+		if(touching){
+		//	alert("In touching");
+			if (this.cursors.left.isDown) {
+				obj1 = "this.cursors.left.isDown";
+				console.log(obj1);
+				obj.handleRequest(obj1);
+
+			} 
+			else if (this.cursors.right.isDown) {
+				// move to the right
+	
+				obj1 = "this.cursors.right.isDown";
+				// move to the right
+				obj.handleRequest(obj1);
+	
+			} 
+			else {			
+				// dont move in the horizontal
+				
+				if(player.getState()!="idle"){
+					player.change("idle");	
+				}
+				else{
+//					console.log("trie");
+				}			
+				
+				player.moveBody();
+			}
+		}
+		else{
+			if(player.getState()!=="die" && player.getState()!=="jump"){
+				player.change("idle");
+				if (this.cursors.left.isDown) {
+					obj1 = this.cursors.left.isDown;
+					obj.handleRequest(obj1);
+					
+				} 
+				else if (this.cursors.right.isDown) {
+					obj1 = this.cursors.right.isDown;
+					obj.handleRequest(obj1);
+					
+				}
+			}
+		}
 
 		if (touching && this.cursors.up.isDown) {
 			// jump if the player is on top of a platform and the up key is pressed
-			this.player.body.velocity.y = -700;
+	
+			if(player.getState()!="jump"){
+				player.change("jump");
+			}
+			player.moveBody();
+//			this.scene.fPlayer.body.velocity.y = -700;
+			if (this.cursors.left.isDown) {
+				alert("in touvhing n down left");
+				obj1 = this.cursors.left.isDown;
+				obj.handleRequest(obj1);
+			//	player.moveDirection("left");
+			} 
+			else if (this.cursors.right.isDown) {
+				obj1 = this.cursors.right.isDown;
+				obj.handleRequest(obj1);
+			//	player.moveDirection("right");
+			}	
 		}
 
 		if (touching) {
-			if (this.player.body.velocity.x == 0) {
+			if (player.getState()=="idle") {
 				// if it is not moving horizontally play the idle
-				this.player.play("idle");
+//				this.scene.fPlayer.play("idle");
+				player.play();
 			} else {
 				// if it is moving play the walk
-				this.player.play("walk");
+				player.play();
 			}
-		} else {
+		} 
+		else {
 			// it is not touching the platforms so it means it is jumping.
-			this.player.play("jump");
-		}
-
-		// update the facing of the player
-		if (this.cursors.left.isDown) {
-			// face left
-			this.player.scale.x = -1;
-		} else if (this.cursors.right.isDown) {
-			// face right
-			this.player.scale.x = 1;
+//			this.scene.fPlayer.play("jump");
+			player.play();
+			if(player.getState()==="jump"){
+				if (this.cursors.left.isDown) {
+					obj1 = this.cursors.left.isDown;
+					obj.handleRequest(obj1);
+					
+				} 
+				else if (this.cursors.right.isDown) {
+					obj1 = this.cursors.right.isDown;
+					obj.handleRequest(obj1);
+				
+				}
+			}
 		}
 
 		if(this.spaceKey.isDown){
@@ -241,9 +275,11 @@ Level.prototype.update = function() {
 		this.physics.arcade.overlap(this.player, this.enemy,
 				this.playerVsEnemies, null, this);
 
-
 		this.physics.arcade.overlap(this.player, this.collectibles,
 				this.playerVsCollectibles, null, this);
+		
+		this.physics.arcade.overlap(this.player, this.finish,
+				this.playerVsFinishLine, null, this);
 	}
 };
 
@@ -253,6 +289,23 @@ Level.prototype.update = function() {
  * @param {Phaser.Sprite}
  *            fruit
  */
+
+Level.prototype.playerVsFinishLine = function(player, finishline) {
+//	finishline.body.enable = false;
+	console.log("On Finish" + this.count);
+	console.log("total collectibles in Level : "+  totalCollectible);	
+    if(this.count==totalCollectible){
+    		//Add prompt for some time (3000 ms) Level Completed Successful
+    		console.log("Level Complete");
+    		alert("Level Complete");
+    		this.game.time.events.add(10000, this.gameOver, this);
+    		this.player.reset();
+    		this.game.state.start("Level2");    		
+    }
+    else{
+    		console.log("Please collect all the pumpkings");
+    }    
+};
 
 Level.prototype.playerVsCollectibles = function(player, collectible) {
 	collectible.body.enable = false;
@@ -270,13 +323,26 @@ Level.prototype.playerVsCollectibles = function(player, collectible) {
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(collectible.kill, collectible);
 
-	this.count++;
+	//this.count++;
+	var countObserver = new CountObserver();
+    countObserver.subscribe(this.count);
+    this.count = countObserver.increaseCount();
+    
 	this.collectiblecount.text = this.count;
 };
 
-Level.prototype.playerVsEnemies = function(player, enemies) {
+Level.prototype.playerVsEnemies = function(_player, enemies) {
 	enemies.body.enable = false;
-	this.playerdied = true;
+//	this.playerdied = true;
+	
+	console.log(player.getState());
+	
+	if(player.getState()!="die"){
+		player.change("die");
+		player.play();
+		player.moveBody();
+	 	this.GameOver();
+	}
 
 	this.add.tween(enemies).to({
 		y : enemies.y - 50
@@ -293,14 +359,27 @@ Level.prototype.playerVsEnemies = function(player, enemies) {
 
 };
 
+Level.prototype.GameOver = function(){
+	var self = this;
+	setTimeout(function() {
+		       console.log("Player Died");
+		       alert("Play Again??");
+		   //    this.add.button(150, 150, 'gameover', this.startGame, this);
+		       
+		       self.game.time.events.add(1000, this.gameOver, this);
+		       self.game.state.start("Level");
+		       self.player.reset();		
+		  //your code to be executed after 1 second
+		}, 3000);
+}
+
 Level.prototype.doTweenUpdates = function(){
-
-
 	if(this.enemy1.x === 2621)
 	{
 		this.enemy1.scale.x = -0.22;
 
 	}
+	
 	if(this.enemy1.x === 2325)
 	{
 		this.enemy1.scale.x = 0.22;
@@ -312,6 +391,7 @@ Level.prototype.doTweenUpdates = function(){
 		this.enemy6.scale.x = -0.29;
 
 	}
+	
 	if(this.enemy6.x === 400)
 	{
 		this.enemy6.scale.x = 0.29;
@@ -323,18 +403,19 @@ Level.prototype.doTweenUpdates = function(){
 		this.enemy5.scale.x = -0.19;
 
 	}
+	
 	if(this.enemy5.x === 872)
 	{
 		this.enemy5.scale.x = 0.19;
 
 	}
 
-
 	if(this.enemy2.x === 800)
 	{
 		this.enemy2.scale.x = -0.2;
 
 	}
+	
 	if(this.enemy2.x === 1739)
 	{
 		this.enemy2.scale.x = 0.2;
@@ -346,9 +427,11 @@ Level.prototype.doTweenUpdates = function(){
 		this.enemy3.scale.x = 0.23;
 
 	}
+	
 	if(this.enemy3.x === 1090)
 	{
 		this.enemy3.scale.x = -0.23;
 
 	}
 }
+

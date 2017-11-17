@@ -11,6 +11,9 @@ var proto = Object.create(Phaser.State.prototype);
 Level2.prototype = proto;
 Level2.prototype.constructor = Level2;
 var tween1 = null;
+var player = null;
+var totalCollectible = null;
+
 Level2.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -36,141 +39,207 @@ Level2.prototype.create = function() {
 
 	this.scene = new Scene2(this.game);
 
+	var fac = new Factory(this);
+	this.player = fac.getObject('player');
+	this.collisionLayer = fac.getObject('collisionLayer');
+	this.collectibles = fac.getObject('collectibles');
+	this.enemy = fac.getObject('enemy');
+	this.enemy1 = fac.getObject('enemy1');
+	this.enemy2 = fac.getObject('enemy2');
+	this.enemy3 = fac.getObject('enemy3');
+	this.enemy4 = fac.getObject('enemy4');
+	this.enemy5 = fac.getObject('enemy5');
+	this.enemy6 = fac.getObject('enemy6');
+	this.enemy7 = fac.getObject('enemy7');
+	this.enemy8 = fac.getObject('enemy8');
+	this.enemy9 = fac.getObject('enemy9');
+	totalCollectible = 16;
 	// Enable collisionWorldBound for Player
-	this.scene.fPlayer.body.collideWorldBounds = true;
+	this.player.body.collideWorldBounds = true;
 	
 	// Enale outOfBoundKill for Player
-	this.scene.fPlayer.checkWorldBounds = true;
-	this.scene.fPlayer.outOfBoundKill = true;
+	this.player.checkWorldBounds = true;
+	this.player.outOfBoundKill = true;
 
 	this.playerdied = false;
 	// camera
-	this.camera.follow(this.scene.fPlayer, Phaser.Camera.FOLLOW_PLATFORMER);
+	this.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
 	// background
 //	this.scene.fBack.fixedToCamera = true;
 
 	// set the physics properties of the collision sprites
-	this.scene.fCollisionLayer.setAll("body.immovable", true);
-	this.scene.fCollisionLayer.setAll("body.allowGravity", false);
+	this.collisionLayer.setAll("body.immovable", true);
+	this.collisionLayer.setAll("body.allowGravity", false);
 	this.scene.fEnemy.setAll("body.allowGravity", false);
 
 	// hide all objects of the collision layer
-	this.scene.fCollisionLayer.setAll("renderable", false);
-	this.scene.fCollisionLayer.setAll("body.checkCollision.left", false);
-	this.scene.fCollisionLayer.setAll("body.checkCollision.right", false);
-	this.scene.fCollisionLayer.setAll("body.checkCollision.down", false);
+	this.collisionLayer.setAll("renderable", false);
+	this.collisionLayer.setAll("body.checkCollision.left", false);
+	this.collisionLayer.setAll("body.checkCollision.right", false);
+	this.collisionLayer.setAll("body.checkCollision.down", false);
 
 	this.cursors = this.input.keyboard.createCursorKeys();
 	this.spaceKey = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 	console.log(this.cursors);
 	console.log("scene1");
-	this.scene.fCollectibles.setAll("body.allowGravity", false);
-	this.scene.fCollectibles.setAll("anchor.x", 0.5);
-	this.scene.fCollectibles.setAll("anchor.y", 0.5);
+	this.collectibles.setAll("body.allowGravity", false);
+	this.collectibles.setAll("anchor.x", 0.5);
+	this.collectibles.setAll("anchor.y", 0.5);
 
 	this.count = 0;
 	this.collectiblecount = this.add.text(70, 16, '0', { fontSize: '32px', fill: '#FF4500' });
 	this.collectiblecount.fixedToCamera = true;
 
-	tween1 = this.game.add.tween(this.scene.fEnemy1).to({x: 750}, 2400, 'Sine.easeInOut', true, 0 , -1, true); 
-	this.game.add.tween(this.scene.fEnemy2).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy3).to({x: 500}, 3000, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy5).to({y: 500, x: 120}, 3000, 'Sine.easeIn', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy6).to({x: 1000}, 5000, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy7).to({x: 1000}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy8).to({x: 1050}, 6000, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.scene.fEnemy9).to({y: 500, x: 1200}, 3000, 'Sine.easeIn', true, 0 , -1, true);
+	this.game.add.tween(this.enemy1).to({x: 750}, 2400, 'Sine.easeInOut', true, 0 , -1, true); 
+	this.game.add.tween(this.enemy2).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy3).to({x: 500}, 3000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy5).to({y: 500, x: 120}, 3000, 'Sine.easeIn', true, 0 , -1, true);
+	this.game.add.tween(this.enemy6).to({x: 1000}, 5000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy7).to({x: 1000}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy8).to({x: 1050}, 2000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy9).to({y: 500, x: 1200}, 3000, 'Sine.easeIn', true, 0 , -1, true);
 
-	//	this.add.tween(this.scene.fWater.tilePosition).to({
-	//		x : 25
-	//	}, 2000, "Linear", true, 0, -1, true);
+	player = new Player(this.player);
 };
 
 Level2.prototype.update = function() {
 
-	if(this.playerdied){
+	if(player.getState()=="die"){
 		console.log("Died");
-		this.scene.fPlayer.play("die");
-		this.scene.fPlayer.body.velocity.x = 0;
+		player.play();
+		player.moveBody();
+//		this.scene.fPlayer.play("die");
+//		this.scene.fPlayer.body.velocity.x = 0;
 	}
 	else{
-
 		// collide the player with the platforms
-		this.physics.arcade.collide(this.scene.fPlayer, this.scene.fCollisionLayer);
-
-		if(this.scene.fEnemy2.x === 2)
-		{
-			this.scene.fEnemy2.scale.x = -0.2;
+		this.physics.arcade.collide(this.player, this.collisionLayer);
+		
+		//this.scene.fPlayer.checkCollision.down = false;
+		
+//		this.doTweenUpdates();
+		var touching = this.player.body.touching.down;
+		console.log("touch:"+touching);
+		
+		if(touching){
+			if (this.cursors.left.isDown) {
+				if(player.getState!=="walk"){
+					player.change("walk");	
+				}
+				player.moveBody("left");
+				
+				// move to the left
+	//			this.scene.fPlayer.body.velocity.x = -200;
+			} 
+			else if (this.cursors.right.isDown) {
+				// move to the right
+				if(player.getState!=="walk"){
+					player.change("walk");	
+				}
+				player.moveBody("right");
+	//			this.scene.fPlayer.body.velocity.x = 200;
+			} 
+			else {
+				// dont move in the horizontal
+	//			this.scene.fPlayer.body.velocity.x = 0;
+				console.log(player.getState());
+				if(player.getState()!="idle"){
+					player.change("idle");	
+				}
+				else{
+					console.log("trie");
+				}			
+				player.moveBody();
+			}
 		}
-		if(this.scene.fEnemy2.x === 828)
-		{
-			this.scene.fEnemy2.scale.x = 0.2;
+		else{
+			if(player.getState()!=="die" && player.getState()!=="jump"){
+				player.change("idle");
+				if (this.cursors.left.isDown) {
+					player.moveDirection("left");
+				} 
+				else if (this.cursors.right.isDown) {
+					player.moveDirection("right");
+				}
+			}
 		}
-
-		if(this.scene.fEnemy5.x === 2)
-		{
-			this.scene.fEnemy2.scale.y = -0.2;
-		}
-		if(this.scene.fEnemy2.x === 828)
-		{
-			this.scene.fEnemy2.scale.x = 0.2;
-		}
-
-		if (this.cursors.left.isDown) {
-			// move to the left
-			this.scene.fPlayer.body.velocity.x = -200;
-		} else if (this.cursors.right.isDown) {
-			// move to the right
-			this.scene.fPlayer.body.velocity.x = 200;
-		} else {
-			// dont move in the horizontal
-			this.scene.fPlayer.body.velocity.x = 0;
-		}
-
 		// a flag to know if the player is (down) touching the platforms
-		var touching = this.scene.fPlayer.body.touching.down;
+		var touching = this.player.body.touching.down;
 
 		if (touching && this.cursors.up.isDown) {
 			// jump if the player is on top of a platform and the up key is pressed
-			this.scene.fPlayer.body.velocity.y = -700;
+			if(player.getState()!="jump"){
+				player.change("jump");
+			}
+			player.moveBody();
+//			this.scene.fPlayer.body.velocity.y = -700;
+			if (this.cursors.left.isDown) {
+				player.moveDirection("left");
+			} 
+			else if (this.cursors.right.isDown) {
+				player.moveDirection("right");
+			}
 		}
 
 		if (touching) {
-			if (this.scene.fPlayer.body.velocity.x == 0) {
+			if (player.getState()=="idle") {
 				// if it is not moving horizontally play the idle
-				this.scene.fPlayer.play("idle");
+//				this.scene.fPlayer.play("idle");
+				player.play();
 			} else {
 				// if it is moving play the walk
-				this.scene.fPlayer.play("walk");
+				player.play();
 			}
-		} else {
+		} 
+		else {
 			// it is not touching the platforms so it means it is jumping.
-			this.scene.fPlayer.play("jump");
+//			this.scene.fPlayer.play("jump");
+			player.play();
+			if(player.getState()==="jump"){
+				if (this.cursors.left.isDown) {
+					player.moveDirection("left");
+				} 
+				else if (this.cursors.right.isDown) {
+					player.moveDirection("right");
+				}
+			}
 		}
 
-		// update the facing of the player
-		if (this.cursors.left.isDown) {
-			// face left
-			this.scene.fPlayer.scale.x = -1;
-		} else if (this.cursors.right.isDown) {
-			// face right
-			this.scene.fPlayer.scale.x = 1;
-		}
+//		// update the facing of the player
+//		if (this.cursors.left.isDown) {
+//			// face left
+//			this.scene.fPlayer.scale.x = -1;
+//		} else if (this.cursors.right.isDown) {
+//			// face right
+//			this.scene.fPlayer.scale.x = 1;
+//		}
 
 		if(this.spaceKey.isDown){
-			this.scene.fPlayer.play("attack");
+			this.player.play("attack");
 		}
 
-		//catch when the player overlaps with a pumpkin
-		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fCollectibles,
-				this.playerVsCollectibles, null, this);
-
-		this.physics.arcade.overlap(this.scene.fPlayer, this.scene.fEnemy,
+		this.physics.arcade.overlap(this.player, this.scene.fEnemy,
 				this.playerVsEnemies, null, this);
+		
+		this.physics.arcade.overlap(this.player, this.enemy,
+				this.playerVsEnemies, null, this);
+
+		this.physics.arcade.overlap(this.player, this.collectibles,
+				this.playerVsCollectibles, null, this);
 	}
+};
+
+Level2.prototype.playerVsFinishLine = function(player, finishline) {
+	finishline.body.enable = false;
+	console.log("On Finish" + this.count);
+    if(this.count>=totalCollectible){
+    		//Add prompt for Level Completed Successful
+    		this.game.time.events.add(800, this.gameOver, this);
+    		alert ("Game Completed. Add Prompt for Play Again");
+    }
 };
 
 /**
@@ -199,10 +268,23 @@ Level2.prototype.playerVsCollectibles = function(player, collectible) {
 	this.collectiblecount.text = this.count;
 };
 
-Level2.prototype.playerVsEnemies = function(player, enemies) {
+Level2.prototype.playerVsEnemies = function(_player, enemies) {
 	enemies.body.enable = false;
-	this.playerdied = true;
 
+	if(player.getState()!="die"){
+		player.change("die");
+		player.play();
+		player.moveBody();
+		var self = this;
+		setTimeout(function() {
+			console.log("Player Died");			
+			self.game.time.events.add(1000, this.gameOver, this);
+			self.game.state.start("Level");
+			self.player.reset();	
+			  //your code to be executed after 1 second
+			}, 3000);
+	}
+	
 	this.add.tween(enemies).to({
 		y : enemies.y - 50
 	}, 1000, "Expo.easeOut", true);
