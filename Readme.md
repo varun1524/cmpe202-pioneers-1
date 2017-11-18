@@ -1,4 +1,4 @@
-##CMPE202 Pioneers
+## CMPE202 Pioneers
 
 Team Members:
 
@@ -8,6 +8,6 @@ Team Members:
 4. Rutvik Pensionwar
 5. Rajeshri Sonwane
 
-Kanban Board Link: https://goo.gl/iBdyms
+* Kanban Board Link: https://goo.gl/iBdyms
 
-Sprint Task Sheet: https://goo.gl/7NXfZK
+* Sprint Task Sheet: https://goo.gl/7NXfZK
