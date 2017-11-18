@@ -110,11 +110,11 @@ Level2.prototype.create = function() {
 	this.game.add.tween(this.enemy1).to({x: 750}, 2400, 'Sine.easeInOut', true, 0 , -1, true); 
 	this.game.add.tween(this.enemy2).to({x: 1550}, 2400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.enemy3).to({x: 500}, 3000, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.enemy4).to({x: 2}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
+//	this.game.add.tween(this.enemy4).to({x: 200}, 4400, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.enemy5).to({y: 500, x: 120}, 3000, 'Sine.easeIn', true, 0 , -1, true);
 	this.game.add.tween(this.enemy6).to({x: 1000}, 5000, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.enemy7).to({x: 1000}, 4000, 'Sine.easeInOut', true, 0 , -1, true);
-	this.game.add.tween(this.enemy8).to({x: 1050}, 2000, 'Sine.easeInOut', true, 0 , -1, true);
+	this.game.add.tween(this.enemy8).to({x: 1050}, 2500, 'Sine.easeInOut', true, 0 , -1, true);
 	this.game.add.tween(this.enemy9).to({y: 500, x: 1200}, 3000, 'Sine.easeIn', true, 0 , -1, true);
 
 	player = new Player(this.player);
@@ -125,6 +125,8 @@ Level2.prototype.update = function() {
 	var ConcreteHandler1  = function() {};
 	var ConcreteHandler2  = function() {};
 	var ConcreteHandler3  = function() {};
+	
+	this.doTweenUpdates();
 	
 	ConcreteHandler1.prototype = new Handler();
 	ConcreteHandler2.prototype = new Handler();
@@ -382,3 +384,91 @@ Level2.prototype.playerVsEnemies = function(_player, enemies) {
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(enemies.kill, enemies);
 };
+
+Level2.prototype.doTweenUpdates = function(){
+	if(this.enemy1.x === 750)
+	{
+		this.enemy1.scale.x = -0.22;
+	}
+	
+	if(this.enemy1.x === 400)
+	{
+		this.enemy1.scale.x = 0.22;
+
+	}
+
+	if(this.enemy2.x === 1778)
+	{
+		this.enemy2.scale.x = 0.2;
+	}
+	
+	if(this.enemy2.x === 1550)
+	{
+		this.enemy2.scale.x = -0.2;
+	}
+	
+	if(this.enemy3.x === 500)
+	{
+		this.enemy3.scale.x = -0.23;
+	}
+	
+	if(this.enemy3.x === 1050)
+	{
+		this.enemy3.scale.x = 0.23;
+	}
+	
+	
+	if(this.enemy5.x === 120)
+	{
+		this.enemy5.scale.x = 0.19;	
+	}
+	
+	if(this.enemy5.x === 1085)
+	{
+		this.enemy5.scale.x = -0.19;
+	}
+	
+	if(this.enemy6.x === 1000)
+	{
+		this.enemy6.scale.x = 0.29;
+	}
+	
+	if(this.enemy6.x === 2824)
+	{
+		this.enemy6.scale.x = -0.29;
+	}
+
+	if(this.enemy7.x === 2142)
+	{
+		this.enemy7.scale.x = -0.19;
+	}
+	
+	if(this.enemy7.x === 1000)
+	{
+		this.enemy7.scale.x = 0.19;
+	}
+	
+	if(this.enemy8.x === 2875)
+	{
+		this.enemy8.scale.x = 0.19;
+	}
+	
+	if(this.enemy8.x === 1050)
+	{
+		this.enemy8.scale.x = -0.19;
+	}
+	
+	if(this.enemy9.x === 1200)
+	{
+		this.enemy9.scale.x = -0.22;
+	}
+	
+	if(this.enemy9.x === 856)
+	{
+		this.enemy9.scale.x = 0.22;
+	}
+
+	
+
+	
+}
