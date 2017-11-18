@@ -59,7 +59,7 @@ Level.prototype.create = function() {
 	this.gameover.cameraOffset.setTo(0,0);
 	
 	console.log(this.finish);
-	totalCollectible = 6
+	totalCollectible = 6;
 	console.log("total collectibles in Level : "+  totalCollectible);
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
@@ -382,7 +382,7 @@ Level.prototype.doTweenUpdates = function(){
 	
 	if(this.enemy1.x === 2325)
 	{
-		var context = new Context(new FlipLeft());
+		var context = new Context(new FlipRight());
 		context.executeStrategy(this.enemy1, 0.22);
 
 	}
@@ -396,7 +396,7 @@ Level.prototype.doTweenUpdates = function(){
 	
 	if(this.enemy6.x === 400)
 	{
-		var context = new Context(new FlipLeft());
+		var context = new Context(new FlipRight());
 		context.executeStrategy(this.enemy6, 0.29);
 
 	}
@@ -410,7 +410,7 @@ Level.prototype.doTweenUpdates = function(){
 	
 	if(this.enemy5.x === 872)
 	{
-		var context = new Context(new FlipLeft());
+		var context = new Context(new FlipRight());
 		context.executeStrategy(this.enemy5, 0.19);
 		//this.enemy5.scale.x = 0.19;
 
@@ -425,7 +425,7 @@ Level.prototype.doTweenUpdates = function(){
 	
 	if(this.enemy2.x === 1739)
 	{
-		var context = new Context(new FlipLeft());
+		var context = new Context(new FlipRight());
 		context.executeStrategy(this.enemy2, 0.2);
 //		this.enemy2.scale.x = 0.2;
 
@@ -433,7 +433,7 @@ Level.prototype.doTweenUpdates = function(){
 
 	if(this.enemy3.x === 100)
 	{
-		var context = new Context(new FlipLeft());
+		var context = new Context(new FlipRight());
 		context.executeStrategy(this.enemy3, 0.23);
 		//this.enemy3.scale.x = 0.23;
 
