@@ -175,6 +175,7 @@ Level2.prototype.update = function() {
 
 		var obj = Object.create(ChainOfResPrototype);
 		var obj1 ;
+		
 	if(player.getState()=="die"){
 		console.log("Died");
 		player.play();
@@ -197,37 +198,26 @@ Level2.prototype.update = function() {
 				obj1 = "this.cursors.left.isDown";
 				obj.handleRequest(obj1);
 				// move to the left
-	//			this.scene.fPlayer.body.velocity.x = -200;
 			} 
 			else if (this.cursors.right.isDown) {
 				// move to the right
 				obj1 = "this.cursors.right.isDown";
 				obj.handleRequest(obj1);
-	//			this.scene.fPlayer.body.velocity.x = 200;
 			} 
 			else {
 				// dont move in the horizontal
-	//			this.scene.fPlayer.body.velocity.x = 0;
-				console.log(player.getState());
-				if(player.getState()!="idle"){
-					player.change("idle");	
-				}
-				else{
-					console.log("trie");
-				}			
-				player.moveBody();
+				obj1="";
+				obj.handleRequest(obj1);
 			}
 		}
 		else{
 			if(player.getState()!=="die" && player.getState()!=="jump"){
 				player.change("idle");
 				if (this.cursors.left.isDown) {
-					obj1 = "this.cursors.left.isDown";
-					obj.handleRequest(obj1);
+					player.moveDirection("left");
 				} 
 				else if (this.cursors.right.isDown) {
-					obj1 = "this.cursors.right.isDown";
-					obj.handleRequest(obj1);
+					player.moveDirection("right");
 				}
 			}
 		}
@@ -242,12 +232,10 @@ Level2.prototype.update = function() {
 			player.moveBody();
 //			this.scene.fPlayer.body.velocity.y = -700;
 			if (this.cursors.left.isDown) {
-				obj1 = "this.cursors.left.isDown";
-				obj.handleRequest(obj1);
+				player.moveDirection("left");
 			} 
 			else if (this.cursors.right.isDown) {
-				obj1 = "this.cursors.right.isDown";
-				obj.handleRequest(obj1);
+				player.moveDirection("right");
 			}
 		}
 
@@ -267,12 +255,10 @@ Level2.prototype.update = function() {
 			player.play();
 			if(player.getState()==="jump"){
 				if (this.cursors.left.isDown) {
-					obj1 = "this.cursors.left.isDown";
-					obj.handleRequest(obj1);
+					player.moveDirection("left");
 				} 
 				else if (this.cursors.right.isDown) {
-					obj1 = "this.cursors.right.isDown";
-					obj.handleRequest(obj1);
+					player.moveDirection("right");
 				}
 			}
 		}
