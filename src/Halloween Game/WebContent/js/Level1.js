@@ -3,7 +3,6 @@
  */
 function Level() {
 	Phaser.State.call(this);
-	// TODO: generated method.
 }
 
 /** @type Phaser.State */
@@ -73,9 +72,6 @@ Level.prototype.create = function() {
 	this.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 	
 	
-	// background
-	// this.scene.fBack.fixedToCamera = true;
-
 	// set the physics properties of the collision sprites
 	this.collisionLayer.setAll("body.immovable", true);
 	this.collisionLayer.setAll("body.allowGravity", false);
@@ -161,20 +157,16 @@ Level.prototype.update = function() {
 		var obj = Object.create(ChainOfResPrototype);
 		
 	if(player.getState()=="die"){
-		//console.log("Died");
 		player.play();
-		player.moveBody();		
+		player.moveBody();	
 	}
 	else{
 		// collide the player with the platforms
 		this.physics.arcade.collide(this.player, this.collisionLayer);
 		
-		//this.player.checkCollision.down = false;
-		
 		this.doTweenUpdates();
 
 		var touching = this.player.body.touching.down;
-//		console.log("touch:"+touching);
 		var obj1;
 		if(touching){
 			if (this.cursors.left.isDown) {				
@@ -191,7 +183,6 @@ Level.prototype.update = function() {
 				// dont move in the horizontal
 				obj1="";
 				obj.handleRequest(obj1);
-	
 			}
 		}
 		else{
@@ -202,7 +193,7 @@ Level.prototype.update = function() {
 				} 
 				else if (this.cursors.right.isDown) {
 					player.moveDirection("right");
-					}
+				}
 			}
 		}
 
@@ -212,7 +203,6 @@ Level.prototype.update = function() {
 				player.change("jump");
 			}
 			player.moveBody();
-
 			if (this.cursors.left.isDown) {
 				player.moveDirection("left");
 			} 
@@ -222,32 +212,22 @@ Level.prototype.update = function() {
 		}
 
 		if (touching) {
-			if (player.getState()=="idle") {
-				// if it is not moving horizontally play the idle
-				player.play();
-			} else {
-				// if it is moving play the walk
-				player.play();
-			}
+			player.play();
 		} 
 		else {
-			// it is not touching the platforms so it means it is jumping.
-//			this.scene.fPlayer.play("jump");
+			// it is not touching the platforms then it is jumping.
 			player.play();
 			if(player.getState()==="jump"){
 				if (this.cursors.left.isDown) {
-					obj1 = "this.cursors.left.isDown";
-					obj.handleRequest(obj1);
+					player.moveDirection("left");
 				} 
 				else if (this.cursors.right.isDown) {
-					obj1 = "this.cursors.right.isDown";
-					obj.handleRequest(obj1);
+					player.moveDirection("right");
 				}
 			}
-		}	
-		
+		}
+
 		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
-			//self.game.time.events.add(1000, this.gameOver, this);
 			this.game.state.start("Level");
 			this.player.reset();
 		}
@@ -275,7 +255,6 @@ Level.prototype.update = function() {
  */
 
 Level.prototype.playerVsFinishLine = function(player, finishline) {
-//	finishline.body.enable = false;
 	console.log("On Finish" + this.count);
 	console.log("total collectibles in Level : "+  totalCollectible);	
     if(this.count==totalCollectible){
@@ -317,8 +296,6 @@ Level.prototype.playerVsCollectibles = function(player, collectible) {
 
 Level.prototype.playerVsEnemies = function(_player, enemies) {
 	enemies.body.enable = false;
-//	this.playerdied = true;
-	
 	console.log(player.getState());
 	
 	if(player.getState()!="die"){
@@ -331,17 +308,6 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 		
 		//2
 		self.gameover.visible = true;
-		
-//		setTimeout(function() {
-//			self.game.time.events.add(1000, this.gameOver, this);
-//			self.game.state.start("Level");
-//			self.player.reset();
-//			}, 1000);
-		
-//		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
-//			this.game.state.start("Level");
-//			this.player.reset();
-//		}
 	}
 
 	this.add.tween(enemies).to({
