@@ -1,0 +1,11 @@
+Team Member - Varun Shah
+
+XP Core Value - Build Integrity In
+
+*The xp value "Build Integrity In" allowed me to verify that the source code successfully builds at the end of the day. 
+At the end of each day I made sure that after all the content pushed on git, source code compiled and ran successfully. 
+In case of any kind of error, communicated to respective person responsible for that commit and resolved the issue.
+
+*Team made sure to free code from any kind of defect. In traditional approach, development team developes the code and QA team tests it 
+and provides feedback on which development team works again. In this project, each member took full responsibilty of developing and testing 
+assigned task thoroughly and only then committed it on github.
