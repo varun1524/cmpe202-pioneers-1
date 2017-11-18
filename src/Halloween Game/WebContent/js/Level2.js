@@ -141,7 +141,6 @@ Level2.prototype.update = function() {
 	};
 
 	ConcreteHandler2.prototype.handleRequest = function(request) {
-		console.log('right down');
 		if (request == "this.cursors.right.isDown") {
 			if(player.getState!=="walk"){
 				player.change("walk");					
@@ -153,7 +152,6 @@ Level2.prototype.update = function() {
 	};	
 	
 	ConcreteHandler3.prototype.handleRequest = function(request) {
-		console.log('else');
 		if (request == "") {
 			if(player.getState()!="idle"){
 				player.change("idle");	

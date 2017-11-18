@@ -128,7 +128,6 @@ Level.prototype.update = function() {
 	};
 
 	ConcreteHandler2.prototype.handleRequest = function(request) {
-		console.log('right down');
 		if (request == "this.cursors.right.isDown") {
 			if(player.getState!=="walk"){
 				player.change("walk");					
@@ -140,7 +139,6 @@ Level.prototype.update = function() {
 	};	
 	
 	ConcreteHandler3.prototype.handleRequest = function(request) {
-		console.log('else');
 		if (request == "") {
 			if(player.getState()!="idle"){
 				player.change("idle");	
@@ -206,7 +204,7 @@ Level.prototype.update = function() {
 				player.change("idle");
 				if (this.cursors.left.isDown) {
 					obj1 = "this.cursors.left.isDown";
-					console.log(obj1);
+					obj.handleRequest(obj1);
 				} 
 				else if (this.cursors.right.isDown) {
 					obj1 = "this.cursors.right.isDown";
@@ -224,7 +222,7 @@ Level.prototype.update = function() {
 
 			if (this.cursors.left.isDown) {
 				obj1 = "this.cursors.left.isDown";
-				console.log(obj1);
+				obj.handleRequest(obj1);
 			} 
 			else if (this.cursors.right.isDown) {
 				obj1 = "this.cursors.right.isDown";
@@ -248,7 +246,7 @@ Level.prototype.update = function() {
 			if(player.getState()==="jump"){
 				if (this.cursors.left.isDown) {
 					obj1 = "this.cursors.left.isDown";
-					console.log(obj1);
+					obj.handleRequest(obj1);
 				} 
 				else if (this.cursors.right.isDown) {
 					obj1 = "this.cursors.right.isDown";
