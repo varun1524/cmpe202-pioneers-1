@@ -51,7 +51,7 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _Enemy = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	_Enemy.renderable = false;
 	
-	var _enemy4 = this.game.add.sprite(22, 645, 'enemy1', 0, _Enemy);
+	var _enemy4 = this.game.add.sprite(25, 645, 'enemy1', 0, _Enemy);
 	_enemy4.scale.setTo(0.22488351978865953, 0.2208318903325017);
 	
 	var _enemy1 = this.game.add.sprite(400, 346, 'enemy2', null, _Enemy);
