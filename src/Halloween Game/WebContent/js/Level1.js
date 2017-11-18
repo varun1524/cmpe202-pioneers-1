@@ -189,26 +189,19 @@ Level.prototype.update = function() {
 			} 
 			else {
 				// dont move in the horizontal
-
-				if(player.getState()!="idle"){
-					player.change("idle");	
-				}
-				else{
-//					console.log("trie");
-				}			
-				player.moveBody();
+				obj1="";
+				obj.handleRequest(obj1);
+	
 			}
 		}
 		else{
 			if(player.getState()!=="die" && player.getState()!=="jump"){
 				player.change("idle");
 				if (this.cursors.left.isDown) {
-					obj1 = "this.cursors.left.isDown";
-					obj.handleRequest(obj1);
+					player.moveDirection("left");
 				} 
 				else if (this.cursors.right.isDown) {
-					obj1 = "this.cursors.right.isDown";
-					obj.handleRequest(obj1);
+					player.moveDirection("right");
 					}
 			}
 		}
@@ -221,12 +214,10 @@ Level.prototype.update = function() {
 			player.moveBody();
 
 			if (this.cursors.left.isDown) {
-				obj1 = "this.cursors.left.isDown";
-				obj.handleRequest(obj1);
+				player.moveDirection("left");
 			} 
 			else if (this.cursors.right.isDown) {
-				obj1 = "this.cursors.right.isDown";
-				obj.handleRequest(obj1);
+				player.moveDirection("right");
 			}	
 		}
 
