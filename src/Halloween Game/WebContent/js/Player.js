@@ -43,8 +43,8 @@ Player = function (obj){
 		playerstate = objstate;
 	};
 	
-	this.moveBody = function(speed){
-		playerstate.moveBody(speed, playerbody);
+	this.moveBody = function(direction){
+		playerstate.moveBody(direction, playerbody);
 	};
 	
 	this.change = function(act){
