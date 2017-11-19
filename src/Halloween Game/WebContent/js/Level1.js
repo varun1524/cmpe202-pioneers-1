@@ -51,14 +51,22 @@ Level.prototype.create = function() {
 	this.enemy6 = fac.getObject('enemy6');
 	this.finish = fac.getObject('finish');
 	
-	//1
 	this.gameover = fac.getObject('gameover');
+	this.levelcomplete = fac.getObject('levelcomplete');
+	//1
+	
 	this.gameover.visible = false;
 	this.gameover.fixedToCamera = true;
 	this.gameover.cameraOffset.setTo(0,0);
 	
+	
+	this.levelcomplete.visible = false;
+	console.log("In update - levelcomplete visibility : " + this.levelcomplete.visible);
+	//this.levelcomplete.fixedToCamera = true;
+	this.levelcomplete.cameraOffset.setTo(0,0);
+	
 	console.log(this.finish);
-	totalCollectible = 6
+	totalCollectible = 6;
 	console.log("total collectibles in Level : "+  totalCollectible);
 	// Enable collisionWorldBound for Player
 	this.player.body.collideWorldBounds = true;
@@ -257,14 +265,23 @@ Level.prototype.update = function() {
 Level.prototype.playerVsFinishLine = function(player, finishline) {
 	console.log("On Finish" + this.count);
 	console.log("total collectibles in Level : "+  totalCollectible);	
-    if(this.count==totalCollectible){
-    		//Add prompt for some time (3000 ms) Level Completed Successful
-    		console.log("Level Complete");
-    		alert("Level Complete");
-    		this.game.time.events.add(10000, this.gameOver, this);
-    		this.player.reset();
-    		this.game.state.start("Level2");    		
-    }
+	if(this.count < totalCollectible){
+		//Add prompt for some time (3000 ms) Level Completed Successful
+		console.log("Level Complete");
+		
+		this.game.time.events.add(10000, this.gameOver, this);
+		
+		self = this;
+			
+		console.log("visibility = " + self.levelcomplete.visible);
+		self.levelcomplete.visible = true;
+		
+		setTimeout(function() {
+			self.player.reset();
+			self.game.state.start("Level2");
+			}, 1500)
+		
+}
     else{
     		console.log("Please collect all the pumpkings");
     }    
@@ -300,14 +317,21 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 	
 	if(player.getState()!="die"){
 		player.change("die");
-		player.play();
-		player.moveBody();
+		
+//		player.play();
+//		player.moveBody();
+		
 		var self = this;
 		
 		console.log("Player Died");
 		
 		//2
 		self.gameover.visible = true;
+		
+		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
+			this.game.state.start("Level");
+			this.player.reset();
+		}
 	}
 
 	this.add.tween(enemies).to({

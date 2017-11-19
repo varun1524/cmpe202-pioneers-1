@@ -847,9 +847,23 @@
               }
             },
             {
+              "type": "image",
+              "id": "e83cc22e-5d36-40fb-87b0-f84b42f24e67",
+              "asset": "20",
+              "info": {
+                "editorName": "levelcomplete",
+                "editorPublic": true,
+                "editorShow": false,
+                "x": 1727,
+                "y": -13,
+                "scale.x": 2,
+                "scale.y": 2
+              }
+            },
+            {
               "type": "spritesheet",
               "id": "6133c10c-e1d0-4e92-91f2-002101fa83bc",
-              "asset": "20",
+              "asset": "21",
               "info": {
                 "editorName": "player",
                 "editorPublic": true,
@@ -1030,6 +1044,11 @@
       "asset": "gameover"
     },
     "20": {
+      "file": "WebContent/assets/pack.json",
+      "section": "level",
+      "asset": "levelcomplete"
+    },
+    "21": {
       "file": "WebContent/assets/pack.json",
       "section": "level",
       "asset": "player",
