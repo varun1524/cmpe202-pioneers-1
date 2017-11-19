@@ -12,7 +12,7 @@ Level.prototype.constructor = Level;
 var tween1 = null;
 var player = null;
 var totalCollectible;
-
+var gameObj = null;
 Level.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -37,6 +37,8 @@ Level.prototype.preload = function() {
 
 Level.prototype.create = function() {
 	this.scene = new Scene1(this.game);
+	console.log("game object");
+	console.log(this.game);
 	
 	var fac = new Factory(this);
 	this.player = fac.getObject('player');
@@ -50,6 +52,9 @@ Level.prototype.create = function() {
 	this.enemy5 = fac.getObject('enemy5');
 	this.enemy6 = fac.getObject('enemy6');
 	this.finish = fac.getObject('finish');
+
+	//get game obj
+	gameObj = this.game;
 	
 	//1
 	this.gameover = fac.getObject('gameover');
@@ -257,16 +262,21 @@ Level.prototype.update = function() {
 Level.prototype.playerVsFinishLine = function(player, finishline) {
 	console.log("On Finish" + this.count);
 	console.log("total collectibles in Level : "+  totalCollectible);	
-    if(this.count==totalCollectible){
+    if(this.count === totalCollectible){
+    	
     		//Add prompt for some time (3000 ms) Level Completed Successful
-    		console.log("Level Complete");
-    		alert("Level Complete");
+    		console.log("Level Complete, count: ");
+    		console.log(this.count);
+    		
+    		//set game global score before starting next level
+    		this.game.global = {score : this.count};
+    		    		
     		this.game.time.events.add(10000, this.gameOver, this);
     		this.player.reset();
     		this.game.state.start("Level2");    		
     }
     else{
-    		console.log("Please collect all the pumpkings");
+    	console.log("Please collect all the pumpkings");
     }    
 };
 
