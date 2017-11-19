@@ -18,6 +18,11 @@
 function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType) {
 	
 	Phaser.Group.call(this, aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType);
+	var _gapinbase = this.game.add.sprite(7, 1359, 'AtlasV1', 'physics', this);
+	_gapinbase.scale.setTo(6.936802507383671, 0.8785574576945175);
+	this.game.physics.arcade.enable(_gapinbase);
+	_gapinbase.body.allowGravity = false;
+	
 	var _back = this.game.add.sprite(-3, -7, 'back3', null, this);
 	_back.scale.setTo(1.56, 1.3);
 	
@@ -233,6 +238,7 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	// public fields
 	
+	this.fGapinbase = _gapinbase;
 	this.fBack = _back;
 	this.fFinish = _finish;
 	this.fCollisionLayer = _collisionLayer;

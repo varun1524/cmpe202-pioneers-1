@@ -18,6 +18,11 @@
 function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType) {
 	
 	Phaser.Group.call(this, aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyType);
+	var _gapinbase = this.game.add.sprite(4, 1382, 'AtlasV1', 'physics', this);
+	_gapinbase.scale.setTo(6.936802507383671, 0.8785574576945175);
+	this.game.physics.arcade.enable(_gapinbase);
+	_gapinbase.body.allowGravity = false;
+	
 	var _back = this.game.add.tileSprite(2, 3, 1920, 1080, 'back4', null, this);
 	_back.scale.setTo(1.56, 1.3);
 	
@@ -187,6 +192,9 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	this.game.add.sprite(827, 1148, 'AtlasV1', 'platform1', _Platform);
 	
+	var _gameover = this.game.add.sprite(-229, -9, 'gameover', null, this);
+	_gameover.scale.setTo(0.8, 0.9);
+	
 	var _collisionLayer = this.game.add.physicsGroup(Phaser.Physics.ARCADE, this);
 	
 	var _physics1 = this.game.add.sprite(1, 243, 'AtlasV1', 'physics', _collisionLayer);
@@ -290,9 +298,6 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _happyhalloween = this.game.add.sprite(1845, -206, 'happyhalloween1', null, this);
 	_happyhalloween.scale.setTo(1.0, 1.2);
 	
-	var _gameover = this.game.add.sprite(-229, -9, 'gameover', null, this);
-	_gameover.scale.setTo(0.8, 0.9);
-	
 	var _player = this.game.add.sprite(89, 111, 'player', 0, this);
 	_player.anchor.setTo(0.5, 0.0);
 	_player.animations.add('walk', [0, 1], 4, false);
@@ -310,6 +315,7 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	
 	// public fields
 	
+	this.fGapinbase = _gapinbase;
 	this.fFinish = _finish;
 	this.fEnemy = _Enemy;
 	this.fEnemy4 = _enemy4;
@@ -322,9 +328,9 @@ function Scene2(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.fEnemy6 = _enemy6;
 	this.fEnemy9 = _enemy9;
 	this.fCollectibles = _collectibles;
+	this.fGameover = _gameover;
 	this.fCollisionLayer = _collisionLayer;
 	this.fHappyhalloween = _happyhalloween;
-	this.fGameover = _gameover;
 	this.fPlayer = _player;
 	this.fPumpkinscore = _pumpkinscore;
 	
