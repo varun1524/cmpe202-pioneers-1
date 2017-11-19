@@ -95,6 +95,10 @@ class Factory {
 			break;
 			}
 		
+		case "levelcomplete" : {
+			return this.scene.fLevelcomplete;
+			break;
+			}
 		default: return null;
 			
 		}

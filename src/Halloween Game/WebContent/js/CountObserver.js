@@ -3,6 +3,7 @@ class CountObserver{
 
 	constructor() {
 	this.observerCount = 0;  // observers
+ 
 	}
 
 	subscribe(count) {
@@ -17,4 +18,5 @@ class CountObserver{
 		this.observerCount++;
 		return this.observerCount;
 	}
+	
 }

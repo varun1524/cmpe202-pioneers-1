@@ -211,6 +211,9 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	var _gameover = this.game.add.sprite(-8, 666, 'gameover', null, this);
 	_gameover.scale.setTo(0.7926400224376448, 0.8364159884844579);
 	
+	var _levelcomplete = this.game.add.sprite(1727, -13, 'levelcomplete', null, this);
+	_levelcomplete.scale.setTo(2.0, 2.0);
+	
 	var _player = this.game.add.sprite(162, 1064, 'player', 0, this);
 	_player.anchor.setTo(0.5, 0.0);
 	_player.animations.add('walk', [0, 1], 4, true);
@@ -242,6 +245,7 @@ function Scene1(aGame, aParent, aName, aAddToStage, aEnableBody, aPhysicsBodyTyp
 	this.fEnemy4 = _enemy4;
 	this.fEnemy5 = _enemy5;
 	this.fGameover = _gameover;
+	this.fLevelcomplete = _levelcomplete;
 	this.fPlayer = _player;
 	this.fPumpkinscore = _pumpkinscore;
 	

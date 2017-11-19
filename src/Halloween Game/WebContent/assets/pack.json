@@ -120,10 +120,16 @@
       "key": "happyhalloween1",
       "url": "assets/images/happyhalloween1.png",
       "overwrite": false
+    },
+    {
+      "type": "image",
+      "key": "levelcomplete",
+      "url": "assets/images/levelcomplete.png",
+      "overwrite": false
     }
   ],
   "meta": {
-    "generated": "1510886043432",
+    "generated": "1511065284102",
     "app": "Phaser Editor",
     "url": "http://phasereditor.boniatillo.com",
     "version": "1.0",

@@ -58,6 +58,8 @@ Level.prototype.create = function() {
 	gameObj = this.game;
 	
 	//1
+
+	
 	this.gameover.visible = false;
 	this.gameover.fixedToCamera = true;
 	this.gameover.cameraOffset.setTo(0,0);
@@ -267,7 +269,7 @@ Level.prototype.update = function() {
 Level.prototype.playerVsFinishLine = function(player, finishline) {
 	console.log("On Finish" + this.count);
 	console.log("total collectibles in Level : "+  totalCollectible);	
-    if(this.count === totalCollectible){
+    if(this.count < totalCollectible){
     	
     		//Add prompt for some time (3000 ms) Level Completed Successful
     		console.log("Level Complete, count: ");
@@ -323,8 +325,10 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 	
 	if(player.getState()!="die"){
 		player.change("die");
-		player.play();
-		player.moveBody();
+		
+//		player.play();
+//		player.moveBody();
+		
 		var self = this;
 		
 		console.log("Player Died");
