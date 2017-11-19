@@ -38,7 +38,7 @@ Level2.prototype.preload = function() {
 Level2.prototype.create = function() {
 
 	this.scene = new Scene2(this.game);
-
+	
 	var fac = new Factory(this);
 	this.player = fac.getObject('player');
 	this.collisionLayer = fac.getObject('collisionLayer');
@@ -103,8 +103,11 @@ Level2.prototype.create = function() {
 	this.collectibles.setAll("anchor.x", 0.5);
 	this.collectibles.setAll("anchor.y", 0.5);
 
-	this.count = 0;
-	this.collectiblecount = this.add.text(70, 16, '0', { fontSize: '32px', fill: '#FF4500' });
+	//get game global score
+	console.log(this.game.global.score);
+	this.count = this.game.global.score;
+	
+	this.collectiblecount = this.add.text(70, 16, this.game.global.score, { fontSize: '32px', fill: '#FF4500' });
 	this.collectiblecount.fixedToCamera = true;
 
 	this.game.add.tween(this.enemy1).to({x: 750}, 2400, 'Sine.easeInOut', true, 0 , -1, true); 
