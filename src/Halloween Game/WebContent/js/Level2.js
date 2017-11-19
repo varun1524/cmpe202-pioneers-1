@@ -189,7 +189,8 @@ Level2.prototype.update = function() {
 		
 		//this.scene.fPlayer.checkCollision.down = false;
 		
-//		this.doTweenUpdates();
+		this.doTweenUpdates();
+		
 		var touching = this.player.body.touching.down;
 		console.log("touch:"+touching);
 		
@@ -373,88 +374,115 @@ Level2.prototype.playerVsEnemies = function(_player, enemies) {
 
 Level2.prototype.doTweenUpdates = function(){
 	if(this.enemy1.x === 750)
-	{
-		this.enemy1.scale.x = -0.22;
+	{		
+		console.log("in enemy 1");
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy1, -0.22);
+		console.log(this.enemy1.scale.x);
 	}
 	
 	if(this.enemy1.x === 400)
 	{
-		this.enemy1.scale.x = 0.22;
+		var context = new Context(new FlipRight());
+		context.executeStrategy(this.enemy1, 0.22);
 
 	}
 
 	if(this.enemy2.x === 1778)
 	{
-		this.enemy2.scale.x = 0.2;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy2, 0.22);
+
 	}
 	
 	if(this.enemy2.x === 1550)
 	{
-		this.enemy2.scale.x = -0.2;
+		var context = new Context(new FlipRight());
+		context.executeStrategy(this.enemy2, -0.22);
+
+	}
+
+	if(this.enemy3.x === 1050)
+	{
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy3, 0.22);
+
 	}
 	
 	if(this.enemy3.x === 500)
 	{
-		this.enemy3.scale.x = -0.23;
+		var context = new Context(new FlipRight());
+		context.executeStrategy(this.enemy3, -0.22);
+		//this.enemy5.scale.x = 0.19;
+
 	}
-	
-	if(this.enemy3.x === 1050)
-	{
-		this.enemy3.scale.x = 0.23;
-	}
-	
-	
+
 	if(this.enemy5.x === 120)
 	{
-		this.enemy5.scale.x = 0.19;	
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy5, 0.2);
+
 	}
 	
 	if(this.enemy5.x === 1085)
 	{
-		this.enemy5.scale.x = -0.19;
+		var context = new Context(new FlipRight());
+		context.executeStrategy(this.enemy5, -0.2);
+//		this.enemy2.scale.x = 0.2;
+
 	}
-	
+
 	if(this.enemy6.x === 1000)
 	{
-		this.enemy6.scale.x = 0.29;
+		var context = new Context(new FlipRight());
+		context.executeStrategy(this.enemy6, 0.22);
+		//this.enemy3.scale.x = 0.23;
+
 	}
 	
 	if(this.enemy6.x === 2824)
 	{
-		this.enemy6.scale.x = -0.29;
-	}
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy6, -0.22);
+//		console.log("after strategy");
+//		console.log(this.enemy3.scale.x);
+//		this.enemy3.scale.x = -0.23;
 
+	}
+	
 	if(this.enemy7.x === 2142)
 	{
-		this.enemy7.scale.x = -0.19;
+		var context = new Context(new FlipRight());
+		context.executeStrategy(this.enemy7, -0.23);
+		//this.enemy3.scale.x = 0.23;
+
 	}
 	
 	if(this.enemy7.x === 1000)
 	{
-		this.enemy7.scale.x = 0.19;
-	}
-	
-	if(this.enemy8.x === 2875)
-	{
-		this.enemy8.scale.x = 0.19;
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy7, 0.23);
+//		console.log("after strategy");
+//		console.log(this.enemy3.scale.x);
+//		this.enemy3.scale.x = -0.23;
+
 	}
 	
 	if(this.enemy8.x === 1050)
 	{
-		this.enemy8.scale.x = -0.19;
-	}
-	
-	if(this.enemy9.x === 1200)
-	{
-		this.enemy9.scale.x = -0.22;
-	}
-	
-	if(this.enemy9.x === 856)
-	{
-		this.enemy9.scale.x = 0.22;
-	}
+		var context = new Context(new FlipRight());
+		context.executeStrategy(this.enemy8, -0.22);
+		//this.enemy3.scale.x = 0.23;
 
+	}
 	
+	if(this.enemy8.x === 2875)
+	{
+		var context = new Context(new FlipLeft());
+		context.executeStrategy(this.enemy8, 0.22);
+//		console.log("after strategy");
+//		console.log(this.enemy3.scale.x);
+//		this.enemy3.scale.x = -0.23;
 
-	
+	}	
 }
