@@ -50,7 +50,8 @@ Level.prototype.create = function() {
 	this.enemy5 = fac.getObject('enemy5');
 	this.enemy6 = fac.getObject('enemy6');
 	this.finish = fac.getObject('finish');
-
+	this.gap = fac.getObject('gapinbase');
+	
 	this.gameover = fac.getObject('gameover');
 	this.levelcomplete = fac.getObject('levelcomplete');
 	
@@ -168,6 +169,11 @@ Level.prototype.update = function() {
 
 		var obj = Object.create(ChainOfResPrototype);
 		
+		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
+			this.game.state.start("Level");
+			this.player.reset();
+		}
+		
 	if(player.getState()=="die"){
 		player.play();
 		player.moveBody();	
@@ -239,11 +245,6 @@ Level.prototype.update = function() {
 			}
 		}
 
-		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
-			this.game.state.start("Level");
-			this.player.reset();
-		}
-
 		if(this.spaceKey.isDown){
 			this.player.play("attack");
 		}
@@ -256,15 +257,22 @@ Level.prototype.update = function() {
 		
 		this.physics.arcade.overlap(this.player, this.finish,
 				this.playerVsFinishLine, null, this);
+		
+		this.physics.arcade.overlap(this.player, this.gap,
+				this.playerVsGap, null, this);
 	}
 };
 
-/**
- * @param {Phaser.Sprite}
- *            player
- * @param {Phaser.Sprite}
- *            fruit
- */
+Level.prototype.playerVsGap = function(_player, gap){
+	if(player.getState()!="die"){
+		player.change("die");
+		player.play();
+		player.moveBody();
+		
+		console.log("Player Died");
+		this.gameover.visible = true;
+	}
+}
 
 Level.prototype.playerVsFinishLine = function(player, finishline) {
 	console.log("On Finish" + this.count);
@@ -325,21 +333,8 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 	
 	if(player.getState()!="die"){
 		player.change("die");
-		
-//		player.play();
-//		player.moveBody();
-		
-		var self = this;
-		
 		console.log("Player Died");
-		
-		//2
-		self.gameover.visible = true;
-		
-		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
-			this.game.state.start("Level");
-			this.player.reset();
-		}
+		this.gameover.visible = true;
 	}
 
 	this.add.tween(enemies).to({
@@ -354,7 +349,6 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 	this.add.tween(enemies).to({
 		alpha : 0.2
 	}, 1000, "Linear", true).onComplete.add(enemies.kill, enemies);
-
 };
 
 

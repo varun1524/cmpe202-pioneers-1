@@ -99,6 +99,11 @@ class Factory {
 			return this.scene.fLevelcomplete;
 			break;
 			}
+		
+		case "gapinbase" : {
+			return this.scene.fGapinbase;
+			break;
+			}
 		default: return null;
 			
 		}

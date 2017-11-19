@@ -54,6 +54,7 @@ Level2.prototype.create = function() {
 	this.enemy8 = fac.getObject('enemy8');
 	this.enemy9 = fac.getObject('enemy9');
 	this.finish = fac.getObject('finish');
+	this.gap = fac.getObject('gapinbase');
 	
 	totalCollectible = 16;
 	
@@ -179,6 +180,11 @@ Level2.prototype.update = function() {
 		var obj = Object.create(ChainOfResPrototype);
 		var obj1 ;
 		
+		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
+			this.game.state.start("Level");
+			this.player.reset();
+		}
+		
 	if(player.getState()=="die"){
 		console.log("Died");
 		player.play();
@@ -267,27 +273,9 @@ Level2.prototype.update = function() {
 			}
 		}
 
-//		// update the facing of the player
-//		if (this.cursors.left.isDown) {
-//			// face left
-//			this.scene.fPlayer.scale.x = -1;
-//		} else if (this.cursors.right.isDown) {
-//			// face right
-//			this.scene.fPlayer.scale.x = 1;
-//		}
-
-		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
-			//self.game.time.events.add(1000, this.gameOver, this);
-			this.game.state.start("Level2");
-			this.player.reset();
-		}
-		
 		if(this.spaceKey.isDown){
 			this.player.play("attack");
 		}
-
-		this.physics.arcade.overlap(this.player, this.scene.fEnemy,
-				this.playerVsEnemies, null, this);
 		
 		this.physics.arcade.overlap(this.player, this.enemy,
 				this.playerVsEnemies, null, this);
@@ -297,8 +285,22 @@ Level2.prototype.update = function() {
 		
 		this.physics.arcade.overlap(this.player, this.finish,
 				this.playerVsFinishLine, null, this);
+		
+		this.physics.arcade.overlap(this.player, this.gap,
+				this.playerVsGap, null, this);
 	}
 };
+
+Level2.prototype.playerVsGap = function(_player, gap){
+	if(player.getState()!="die"){
+		player.change("die");
+		player.play();
+		player.moveBody();
+		
+		console.log("Player Died");
+		this.gameover.visible = true;
+	}
+}
 
 Level2.prototype.playerVsFinishLine = function(player, finishline) {
 	finishline.body.enable = false;
@@ -352,16 +354,7 @@ Level2.prototype.playerVsEnemies = function(_player, enemies) {
 		player.moveBody();
 		var self = this;
 		
-		//2
 		self.gameover.visible = true;
-		
-//		setTimeout(function() {
-//			console.log("Player Died");			
-//			self.game.time.events.add(1000, this.gameOver, this);
-//			self.game.state.start("Level");
-//			self.player.reset();	
-//			  //your code to be executed after 1 second
-//			}, 3000);
 	}
 	
 	this.add.tween(enemies).to({
