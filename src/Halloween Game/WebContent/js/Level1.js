@@ -12,7 +12,7 @@ Level.prototype.constructor = Level;
 var tween1 = null;
 var player = null;
 var totalCollectible;
-var gameObj = null;
+
 Level.prototype.init = function() {
 
 	this.scale.pageAlignHorizontally = true;
@@ -37,8 +37,6 @@ Level.prototype.preload = function() {
 
 Level.prototype.create = function() {
 	this.scene = new Scene1(this.game);
-	console.log("game object");
-	console.log(this.game);
 	
 	var fac = new Factory(this);
 	this.player = fac.getObject('player');
@@ -53,14 +51,21 @@ Level.prototype.create = function() {
 	this.enemy6 = fac.getObject('enemy6');
 	this.finish = fac.getObject('finish');
 
+	this.gameover = fac.getObject('gameover');
+	this.levelcomplete = fac.getObject('levelcomplete');
+	
 	//get game obj
 	gameObj = this.game;
 	
 	//1
-	this.gameover = fac.getObject('gameover');
 	this.gameover.visible = false;
 	this.gameover.fixedToCamera = true;
 	this.gameover.cameraOffset.setTo(0,0);
+	
+	this.levelcomplete.visible = false;
+	console.log("In update - levelcomplete visibility : " + this.levelcomplete.visible);
+	//this.levelcomplete.fixedToCamera = true;
+	this.levelcomplete.cameraOffset.setTo(0,0);
 	
 	console.log(this.finish);
 	totalCollectible = 6
@@ -272,8 +277,16 @@ Level.prototype.playerVsFinishLine = function(player, finishline) {
     		this.game.global = {score : this.count};
     		    		
     		this.game.time.events.add(10000, this.gameOver, this);
-    		this.player.reset();
-    		this.game.state.start("Level2");    		
+    		
+    		self = this;
+			
+		console.log("visibility = " + self.levelcomplete.visible);
+		self.levelcomplete.visible = true;
+		
+		setTimeout(function() {
+			self.player.reset();
+			self.game.state.start("Level2");
+			}, 1500) 		
     }
     else{
     	console.log("Please collect all the pumpkings");
@@ -318,6 +331,11 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 		
 		//2
 		self.gameover.visible = true;
+		
+		if(this.input.keyboard.isDown(Phaser.Keyboard.R)) {
+			this.game.state.start("Level");
+			this.player.reset();
+		}
 	}
 
 	this.add.tween(enemies).to({
