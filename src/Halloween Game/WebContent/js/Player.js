@@ -43,8 +43,8 @@ Player = function (obj){
 		playerstate = objstate;
 	};
 	
-	this.moveBody = function(direction){
-		playerstate.moveBody(direction, playerbody);
+	this.moveBody = function(direction, game){
+		playerstate.moveBody(direction, playerbody, game);
 	};
 	
 	this.change = function(act){
@@ -63,7 +63,7 @@ Idle = function(playerstate){
 		playerbody.play("idle");
 	};
 	
-	this.moveBody = function(speed, playerbody){
+	this.moveBody = function(speed, playerbody, game){
 		playerbody.body.velocity.x = 0;
 	};
 	
@@ -105,7 +105,7 @@ Walk = function (playerstate){
 		playerbody.play("walk");
 	};
 	
-	this.moveBody = function(direction, playerbody){
+	this.moveBody = function(direction, playerbody, game){
 //		console.log(direction);
 		if(direction==="left"){
 //			console.log("Player goes Left");
@@ -156,8 +156,12 @@ Jump = function (playerstate){
 		playerbody.play("jump");
 	};
 	
-	this.moveBody = function(direction, playerbody){
+	this.moveBody = function(direction, playerbody, game){
 		playerbody.body.velocity.y = -700;
+		console.log("about to play jump");
+		console.log(game);
+		jumpMusic = game.add.audio('jump');
+		jumpMusic.play();
 	};
 	
 	this.getState = function(){
@@ -199,8 +203,12 @@ Die = function (playerstate){
 		playerbody.play("die");
 	};
 	
-	this.moveBody = function(speed, playerbody){
+	this.moveBody = function(speed, playerbody, game){
 		playerbody.body.velocity.x = 0;
+		console.log("about to play jump");
+		console.log(game);
+		jumpMusic = game.add.audio('jump');
+		jumpMusic.play();
 	};
 	
 	this.getState = function(){
