@@ -33,10 +33,16 @@ Level2.prototype.init = function() {
 
 Level2.prototype.preload = function() {
 	this.load.pack("level", "assets/pack.json");
+	this.game.load.audio('bgm', 'assets/bgm.mp3');
+	this.game.load.audio('jump', 'assets/jump.wav');
 };
 
 Level2.prototype.create = function() {
 
+	bgm = this.game.add.audio('bgm');
+	bgm.loop = true;
+	bgm.play();
+	
 	this.scene = new Scene2(this.game);
 	
 	var fac = new Factory(this);
@@ -188,7 +194,7 @@ Level2.prototype.update = function() {
 	if(player.getState()=="die"){
 		console.log("Died");
 		player.play();
-		player.moveBody();
+		player.moveBody(" ", this.game);
 //		this.scene.fPlayer.play("die");
 //		this.scene.fPlayer.body.velocity.x = 0;
 	}
@@ -239,7 +245,7 @@ Level2.prototype.update = function() {
 			if(player.getState()!="jump"){
 				player.change("jump");
 			}
-			player.moveBody();
+			player.moveBody(" ", this.game);
 //			this.scene.fPlayer.body.velocity.y = -700;
 			if (this.cursors.left.isDown) {
 				player.moveDirection("left");
@@ -295,7 +301,7 @@ Level2.prototype.playerVsGap = function(_player, gap){
 	if(player.getState()!="die"){
 		player.change("die");
 		player.play();
-		player.moveBody();
+		player.moveBody(" ", this.game);
 		
 		console.log("Player Died");
 		this.gameover.visible = true;
@@ -351,7 +357,7 @@ Level2.prototype.playerVsEnemies = function(_player, enemies) {
 	if(player.getState()!="die"){
 		player.change("die");
 		player.play();
-		player.moveBody();
+		player.moveBody(" ", this.game);
 		var self = this;
 		
 		self.gameover.visible = true;
