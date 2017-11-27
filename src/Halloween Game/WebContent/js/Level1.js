@@ -32,10 +32,17 @@ Level.prototype.init = function() {
 
 Level.prototype.preload = function() {
 	this.load.pack("level", "assets/pack.json");
+	this.game.load.audio('bgm', 'assets/bgm.mp3');
+	this.game.load.audio('jump', 'assets/jump.wav');
 };
 
 
 Level.prototype.create = function() {
+	
+	bgm = this.game.add.audio('bgm');
+	bgm.loop = true;
+	bgm.play();
+	
 	this.scene = new Scene1(this.game);
 	
 	var fac = new Factory(this);
@@ -176,7 +183,7 @@ Level.prototype.update = function() {
 		
 	if(player.getState()=="die"){
 		player.play();
-		player.moveBody();	
+		//player.moveBody();	
 	}
 	else{
 		// collide the player with the platforms
@@ -220,7 +227,7 @@ Level.prototype.update = function() {
 			if(player.getState()!="jump"){
 				player.change("jump");
 			}
-			player.moveBody();
+			player.moveBody("", this.game);
 			if (this.cursors.left.isDown) {
 				player.moveDirection("left");
 			} 
@@ -267,7 +274,7 @@ Level.prototype.playerVsGap = function(_player, gap){
 	if(player.getState()!="die"){
 		player.change("die");
 		player.play();
-		player.moveBody();
+		player.moveBody(" ",this.game);
 		
 		console.log("Player Died");
 		this.gameover.visible = true;
@@ -335,6 +342,7 @@ Level.prototype.playerVsEnemies = function(_player, enemies) {
 		player.change("die");
 		console.log("Player Died");
 		this.gameover.visible = true;
+		player.moveBody(" ", this.game);
 	}
 
 	this.add.tween(enemies).to({
