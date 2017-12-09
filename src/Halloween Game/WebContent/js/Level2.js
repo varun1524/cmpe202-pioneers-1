@@ -35,6 +35,7 @@ Level2.prototype.preload = function() {
 	this.load.pack("level", "assets/pack.json");
 	this.game.load.audio('bgm', 'assets/bgm.mp3');
 	this.game.load.audio('jump', 'assets/jump.wav');
+	this.game.load.audio('die', 'assets/die.wav');
 };
 
 Level2.prototype.create = function() {
