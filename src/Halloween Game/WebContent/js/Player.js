@@ -207,8 +207,8 @@ Die = function (playerstate){
 		playerbody.body.velocity.x = 0;
 		console.log("about to play jump");
 		console.log(game);
-		jumpMusic = game.add.audio('jump');
-		jumpMusic.play();
+		dieMusic = game.add.audio('die');
+		dieMusic.play();
 	};
 	
 	this.getState = function(){
