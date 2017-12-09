@@ -284,7 +284,7 @@ Level.prototype.playerVsGap = function(_player, gap){
 Level.prototype.playerVsFinishLine = function(player, finishline) {
 	console.log("On Finish" + this.count);
 	console.log("total collectibles in Level : "+  totalCollectible);	
-    if(this.count < totalCollectible){
+    if(this.count >= totalCollectible){
     	
     		//Add prompt for some time (3000 ms) Level Completed Successful
     		console.log("Level Complete, count: ");
