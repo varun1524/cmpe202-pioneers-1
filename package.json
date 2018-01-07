@@ -1,6 +1,6 @@
 {
-  "name": "dropbox-kafka-client",
-  "version": "0.0.0",
+  "name": "halloween night",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node app.js",
