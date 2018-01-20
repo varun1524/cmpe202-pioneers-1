@@ -21,6 +21,11 @@ In early centuries, during the third age of men, a magician Gandalf - The Grey h
 
 * Got to the finish line? Congratulations you are a winner! Help yourself with some Halloween treat!
 
+## Technology Stack
+
+![](src/halloween(1).png)
+
+
 ## Team Name: 
 >  **PIONEERS**
 
