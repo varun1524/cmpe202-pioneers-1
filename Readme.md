@@ -1,14 +1,14 @@
-
+<link rel="stylesheet" href="path/to/css/splendor.css">
 ![](src/Halloween%20Game/WebContent/assets/images/2018-01-19%2022_33_46-Sunny%20Udhani_Resume_v2.1.1%20-%20Word.png)
 
 
-# Story
+## Story
 
 In early centuries, during the third age of men, a magician Gandalf - The Grey has set out to collect pumpkins on the Halloween Night to help men protect the world from onset of the age of ghosts who may use these pumpkins to rule them all. Help our magician to defeat the dark forces.
 
 ### Anxious to play? <a href="https://halloween-night.herokuapp.com/" target="_blank">Click me!</a>
 
-# How To Play
+## How To Play
 
 * Start of by moving and jumping using arrow keys, collect as much pumpkins as you can without colliding with the ghosts. You can view your current score too. 
 
@@ -20,10 +20,10 @@ In early centuries, during the third age of men, a magician Gandalf - The Grey h
 
 * Got to the finish line? Congratulations you are a winner! Help yourself with some Halloween treat!
 
-# Team Name: 
+## Team Name: 
 >  **PIONEERS**
 
-# Team Members:
+## Team Members:
 
 1. Varun Shah
 2. Sunny Udhani
@@ -32,7 +32,7 @@ In early centuries, during the third age of men, a magician Gandalf - The Grey h
 5. Rajeshri Sonwane
 
 
-# Useful links:
+## Useful links:
 
 * <a href="https://goo.gl/8hz6dU" target="_blank">Kanban Board Link</a>
 
