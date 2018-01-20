@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="path/to/css/splendor.css">
+<link rel="stylesheet" href="src/splendor.css">
+
 ![](src/Halloween%20Game/WebContent/assets/images/2018-01-19%2022_33_46-Sunny%20Udhani_Resume_v2.1.1%20-%20Word.png)
 
 
