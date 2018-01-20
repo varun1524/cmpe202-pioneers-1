@@ -31,6 +31,8 @@ In early centuries, during the third age of men, a magician Gandalf - The Grey h
 4. Rutvik Pensionwar
 5. Rajeshri Sonwane
 
-* Kanban Board Link: https://goo.gl/iBdyms
+* <a href="https://goo.gl/8hz6dU" target="_blank">Kanban Board Link</a>
 
-* Sprint Task Sheet: https://goo.gl/7NXfZK
+* <a href="https://goo.gl/7NXfZK" target="_blank">Sprint Task Sheet</a>
+
+* <a href="https://goo.gl/pZ35eV" target="_blank">Burndown Chart</a>
