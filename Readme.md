@@ -9,7 +9,8 @@ In early centuries, during the third age of men, a magician Gandalf - The Grey h
 
 ### Anxious to play? <a href="https://halloween-night.herokuapp.com/" target="_blank">Click me!</a>
 
-![](src/giphy.gif)
+## Gameplay
+> ![](src/giphy.gif)
 
 
 ## How To Play
