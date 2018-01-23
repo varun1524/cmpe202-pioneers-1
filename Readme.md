@@ -28,14 +28,41 @@ In early centuries, during the third age of men, a magician Gandalf - The Grey h
 
 ![](src/halloween(1).png)
 
+<br/>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Front-End</td>
+		<td>HTML5, Javascript ( ES6 ), Phaser</td>
+	</tr>
+	<tr>
+		<td>Back-End</td>
+		<td>Express, Node.js</td>
+	</tr>
+	<tr>
+		<td>Deployment</td>
+		<td>Docker, Kubernetes, Heroku</td>
+	</tr>
+</tbody>
+</table>
+
+<br/>
 
 ## Team Name: 
 >  **PIONEERS**
 
+<img src="src/giphy1.gif" style="width:50%; padding-left: 20px"></img>
+
 ## Team Members:
 
-1. Varun Shah
-2. Sunny Udhani
+1. Sunny Udhani
+2. Varun Shah
 3. Vishweshkumar Patel
 4. Rutvik Pensionwar
 5. Rajeshri Sonwane
