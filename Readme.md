@@ -9,6 +9,9 @@ In early centuries, during the third age of men, a magician Gandalf - The Grey h
 
 ### Anxious to play? <a href="https://halloween-night.herokuapp.com/" target="_blank">Click me!</a>
 
+![](src/giphy.gif)
+
+
 ## How To Play
 
 * Start of by moving and jumping using arrow keys, collect as much pumpkins as you can without colliding with the ghosts. You can view your current score too. 
