@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs
@@ -60,9 +60,5 @@ typings/
 # dotenv environment variables file
 .env
 
-
-=======
 /node_modules
-/.idea
 /npm-debug.log
->>>>>>> master
