@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "halloween-night",
   "version": "1.0.0",
   "private": true,
@@ -18,21 +17,5 @@
     "form-data": "latest",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2"
-=======
-  "name": "halloween-game",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
-  "dependencies": {
-    "body-parser": "~1.18.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "ejs": "~2.5.7",
-    "express": "~4.15.5",
-    "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
->>>>>>> master
   }
 }
