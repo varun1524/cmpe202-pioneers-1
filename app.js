@@ -22,9 +22,19 @@ let server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 =======
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let bodyParser = require('body-parser');
 
+let app = express();
+let http = require('http');
 
+let port = normalizePort(process.env.PORT || '3000');
 
+let server = http.createServer(app);
 >>>>>>> master
 
 server.listen(port);
@@ -51,6 +61,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'src/Halloween\ Game/WebContent')));
 =======
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "src/Halloween Game/WebContent")));
 >>>>>>> master
 
 app.get('*', (req,res) => {
@@ -156,6 +170,16 @@ function onError(error) {
 
 <<<<<<< HEAD
 =======
+function onListening() {
+    var addr = server.address();
+    var bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+    debug('Listening on ' + bind);
+    console.log("Magic happens on port : "+ bind );
+}
+
+let debug = require('debug')('halloween-game:server');
 >>>>>>> master
 
 module.exports = app;
